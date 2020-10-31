@@ -1,0 +1,431 @@
+---
+title: "Analyse_donnees"
+output: html_document
+---
+
+L'objectif de ce notebook est de mieux comprendre les données et analyses de l'article *Mutation dynamics and fitness effects followed in single cells*, par Lydia Robert, Jean Ollion, Jerome Robert, Xiaohu Song, Ivan Matic et Marina Elez (Science, 2018).
+
+# Exploration des données
+
+```{r}
+library("ggplot2")
+```
+
+## Données d'Accumulation de Mutations : data_microMA
+### Description des fichiers
+
+The folder contains 4 files giving the evolution of growth rate during one representative $\mu$MA experiment for 4 different strains, *mutH*, *mutT*, WT, MF1 (dataset_microMA_...) . Each column contains the values of one variable (time, generation or growth rate) for each time step for the mother cell of a single microchannel. The first two lines (i.e. first two values for each column) give respectively the index of the field of view and the index of the microchannel (~15channels for each field of view).
+
+```{r}
+microMA_WT <- read.csv2("doi_10/All_data/data_microMA/dataset_microMA_WT.csv")
+microMA_MutH <- read.csv2("doi_10/All_data/data_microMA/dataset_microMA_MutH.csv")
+microMA_MutT <- read.csv2("doi_10/All_data/data_microMA/dataset_microMA_MutT.csv")
+microMA_MF1 <- read.csv2("doi_10/All_data/data_microMA/dataset_microMA_MF1.csv")
+
+# Split the channel information (first 2 lines) from the growth rates
+microMA_WT_channels <- microMA_WT[c(1,2),]
+microMA_WT <- microMA_WT[-c(1,2),]
+microMA_MutH_channels <- microMA_MutH[c(1,2),]
+microMA_MutH <- microMA_MutH[-c(1,2),]
+microMA_MutT_channels <- microMA_MutT[c(1,2),]
+microMA_MutT <- microMA_MutT[-c(1,2),]
+microMA_MF1_channels <- microMA_MF1[c(1,2),]
+microMA_MF1 <- microMA_MF1[-c(1,2),]
+
+microMA_MutH[1:6,1:9]
+```
+
+The folder also contains 4 files giving data on mortality of the mother cell for these experiments and one file with the mortality data for one representative experiment with the pMQ strain (induced with arabinose). For WT and mutH strains, the first 2 columns gives the index of the field of view and the index of the microchannel. The two last columns for WT and mutH and the two columns for mutT, MF1 and pMQ indicates the final state of the mother cell and the last frame. Several cases can occur :
+
+  1. the mother cell can die during the experiment (final state=0, last frame=frame of the last division),
+  2. it can stay alive and be imaged until the end of the experiment (final state=2, last frame=last frame of the movie),
+  3. ?
+  4. or imaging can stop before the end of the experiment for instance if the cells escape the channel (final state=4, last frame=last frame where the mother cell is imaged).
+
+```{r}
+mortality_WT <- read.csv2("doi_10/All_data/data_microMA/mortality_WT.csv")
+mortality_MutH <- read.csv2("doi_10/All_data/data_microMA/mortality_MutH.csv")
+mortality_MutT <- read.csv2("doi_10/All_data/data_microMA/mortality_mutT.csv")
+mortality_MF1 <- read.csv2("doi_10/All_data/data_microMA/mortality_MF1.csv")
+mortality_pMQ <- read.csv2("doi_10/All_data/data_microMA/mortality_pMQara.csv")
+
+# Name columns
+names(mortality_WT) <- c("Field.view", "Microchannel", "Final.state", "Final.frame")
+names(mortality_MutH) <- c("Field.view", "Microchannel", "Final.state", "Final.frame")
+
+# Remove NA columns
+mortality_MutT <- mortality_MutT[-which(sapply(mortality_MutT, function(x)all(is.na(x))))]
+mortality_pMQ <- mortality_pMQ[-which(sapply(mortality_pMQ, function(x)all(is.na(x))))]
+
+# Consider the final state as a factor
+mortality_WT$Final.state <- as.factor(mortality_WT$Final.state)
+mortality_MutH$Final.state <- as.factor(mortality_MutH$Final.state)
+mortality_MutT$Final.state <- as.factor(mortality_MutT$Final.state)
+mortality_MF1$Final.state <- as.factor(mortality_MF1$Final.state)
+mortality_pMQ$Final.state <- as.factor(mortality_pMQ$Final.state)
+
+# Remove lines with NAs
+mortality_WT_NA <- mortality_WT[is.na(mortality_WT$Final.state),]
+mortality_WT <- mortality_WT[!is.na(mortality_WT$Final.state),]
+mortality_MutH_NA <- mortality_MutH[is.na(mortality_MutH$Final.state),]
+mortality_MutH <- mortality_MutH[!is.na(mortality_MutH$Final.state),]
+mortality_pMQ_NA <- mortality_pMQ[is.na(mortality_pMQ$Final.state),]
+mortality_pMQ <- mortality_pMQ[!is.na(mortality_pMQ$Final.state),]
+
+head(mortality_MutH)
+head(mortality_MutT)
+```
+
+The folder contains also a file called "last_frames_for_microMA_analysis_MF1"which contains 4 columns which indicate : the index of the field of view, the index of the microchannel, the final frame for analysis and the final state ("alive" or "dead"). Here the final frame for analysis is the last frame where the cell is imaged if final state=alive but if the cell dies, it gives the frame where growth rate analysis should stop (~10 generations before death).
+
+```{r}
+last_frames_for_microMA_analysis_MF1 <- read.csv2("doi_10/All_data/data_microMA/last_frames_for_microMA_analysis_MF1.csv")
+
+head(last_frames_for_microMA_analysis_MF1)
+```
+
+### Mortality
+#### MutH
+
+```{r}
+summary(mortality_MutH)
+```
+
+```{r}
+ggplot(mortality_MutH, aes(x=Final.frame, fill=Final.state))+
+  geom_histogram(bins = 30) +
+  ggtitle("Distribution of final states through the experiment : MutH")
+```
+
+$\to$ Many bacteria survived until the end of the 1000 frames (state 2), the other died (state 0) or escaped (state 2) before then.
+
+```{r}
+last_frame_MutH <- max(mortality_MutH$Final.frame)
+survival_frame <- function(i, dataset){               # Proportion 
+  return (mean(dataset$Final.frame>=i, na.rm = T))
+}
+
+mortality_MutH_noEscape <- mortality_MutH[mortality_MutH$Final.state != 4,]
+
+survival_MutH <- data.frame(Time = 0:last_frame_MutH/60*4,  # One frame every 4 minutes
+                            Survival = sapply(0:last_frame_MutH, survival_frame, dataset=mortality_MutH),
+                            # Correct for escaped bacteria
+                            Survival_noEscape = sapply(0:last_frame_MutH, survival_frame, dataset=mortality_MutH_noEscape))
+```
+
+```{r}
+par(mfrow=c(1,2))
+plot(x=survival_MutH$Time,
+     y=survival_MutH$Survival,
+     type="l",
+     col="red", 
+     xlab = "Time (hr)", 
+     ylab="Survival %", 
+     ylim = c(0.0001,1))
+lines(x=survival_MutH$Time, y=survival_MutH$Survival_noEscape, col="green")
+
+plot(x=survival_MutH$Time,
+     y=survival_MutH$Survival,
+     type="l",
+     col="red",
+     xlab = "Time (hr)", 
+     ylab="Survival % (log-scale)", 
+     # ylim = c(0.1,1), 
+     log="y")
+lines(x=survival_MutH$Time, y=survival_MutH$Survival_noEscape, col="green")
+```
+
+#### All lines
+
+```{r, fig.asp=0.3}
+ggplot(mortality_WT, aes(x=Final.frame, fill=Final.state)) +
+  geom_histogram(bins = 30) +
+  ggtitle("Distribution of final states through the experiment : WT")
+
+ggplot(mortality_MutT, aes(x=Final.frame, fill=Final.state)) +
+  geom_histogram(bins = 30) +
+  ggtitle("Distribution of final states through the experiment : MutT")
+
+ggplot(mortality_MF1, aes(x=Final.frame, fill=Final.state)) +
+  geom_histogram(bins = 30) +
+  ggtitle("Distribution of final states through the experiment : MF1")
+
+ggplot(mortality_pMQ, aes(x=Final.frame, fill=Final.state)) +
+  geom_histogram(bins = 30) +
+  ggtitle("Distribution of final states through the experiment : pMQ")
+```
+
+
+```{r}
+last_frame_WT <- max(mortality_WT$Final.frame)
+last_frame_MutT <- max(mortality_MutT$Final.frame)
+last_frame_MF1 <- max(mortality_MF1$Final.frame)
+last_frame_pMQ <- max(mortality_pMQ$Final.frame)
+
+mortality_WT_noEscape <- mortality_WT[mortality_WT$Final.state != 4,]
+mortality_MutT_noEscape <- mortality_MutT[mortality_MutT$Final.state != 4,]
+mortality_MF1_noEscape <- mortality_MF1[mortality_MF1$Final.state != 4,]
+mortality_pMQ_noEscape <- mortality_pMQ[mortality_pMQ$Final.state != 4,]
+
+survival_WT <- data.frame(Time = 0:last_frame_WT/60*4,  # One frame every 4 minutes
+                          Survival = sapply(0:last_frame_WT, survival_frame, dataset=mortality_WT),
+                          Survival_noEscape = sapply(0:last_frame_WT, survival_frame, dataset=mortality_WT_noEscape))
+survival_MutT <- data.frame(Time = 0:last_frame_MutT/60*4, 
+                            Survival = sapply(0:last_frame_MutT, survival_frame, dataset=mortality_MutT),
+                            Survival_noEscape = sapply(0:last_frame_MutT, survival_frame, dataset=mortality_MutT_noEscape))
+survival_MF1 <- data.frame(Time = 0:last_frame_MF1/60*4, 
+                           Survival = sapply(0:last_frame_MF1, survival_frame, dataset=mortality_MF1),
+                           Survival_noEscape = sapply(0:last_frame_MF1, survival_frame, dataset=mortality_MF1_noEscape))
+survival_pMQ <- data.frame(Time = 0:last_frame_pMQ/60*4, 
+                           Survival = sapply(0:last_frame_pMQ, survival_frame, dataset=mortality_pMQ),
+                           Survival_noEscape = sapply(0:last_frame_pMQ, survival_frame, dataset=mortality_pMQ_noEscape))
+```
+
+```{r, fig.width=13}
+par(mfrow=c(2,3))
+plot(x=survival_WT$Time,
+     y=survival_WT$Survival,
+     type="l",
+     col=1, 
+     xlab = "Time (hr)", 
+     ylab="Survival %", 
+     ylim = c(0,1),
+     main = "Survival of the 5 lines over time")
+lines(x=survival_MutH$Time, y=survival_MutH$Survival, col=2)
+lines(x=survival_MutT$Time, y=survival_MutT$Survival, col=3)
+lines(x=survival_MF1$Time, y=survival_MF1$Survival, col=4)
+lines(x=survival_pMQ$Time, y=survival_pMQ$Survival, col=5)
+legend("bottomright", legend = c("WT", "MutH", "MutT", "MF1", "pMQ"), col=1:5, lty=1)
+
+plot(x=survival_WT$Time,
+     y=survival_WT$Survival_noEscape,
+     type="l",
+     col=1, 
+     xlab = "Time (hr)", 
+     ylab="Survival %", 
+     ylim = c(0,1),
+     main = "Survival of the 5 lines over time, no escape")
+lines(x=survival_MutH$Time, y=survival_MutH$Survival_noEscape, col=2)
+lines(x=survival_MutT$Time, y=survival_MutT$Survival_noEscape, col=3)
+lines(x=survival_MF1$Time, y=survival_MF1$Survival_noEscape, col=4)
+lines(x=survival_pMQ$Time, y=survival_pMQ$Survival_noEscape, col=5)
+legend("bottomright", legend = c("WT", "MutH", "MutT", "MF1", "pMQ"), col=1:5, lty=1)
+
+plot(x=survival_WT$Time,
+     y=survival_WT$Survival_noEscape/survival_WT$Survival_noEscape,
+     type="l",
+     col=1, 
+     xlab = "Time (hr)", 
+     ylab="Survival %",
+     ylim = c(0,1),
+     main = "Survival of the 5 lines over time, no escape, no senescence")
+lines(x=survival_MutH$Time, y=survival_MutH$Survival_noEscape/survival_WT$Survival_noEscape[1:length(survival_MutH$Survival_noEscape)], col=2)
+lines(x=survival_MutT$Time, y=survival_MutT$Survival_noEscape/survival_WT$Survival_noEscape[1:length(survival_MutT$Survival_noEscape)], col=3)
+lines(x=survival_MF1$Time, y=survival_MF1$Survival_noEscape/survival_WT$Survival_noEscape[1:length(survival_MF1$Survival_noEscape)], col=4)
+lines(x=survival_pMQ$Time, y=survival_pMQ$Survival_noEscape/survival_WT$Survival_noEscape[1:length(survival_pMQ$Survival_noEscape)], col=5)
+legend("bottomright", legend = c("WT", "MutH", "MutT", "MF1", "pMQ"), col=1:5, lty=1)
+
+plot(x=survival_WT$Time,
+     y=survival_WT$Survival,
+     type="l",
+     col=1, 
+     xlab = "Time (hr)", 
+     ylab="Survival % (log-scale)",
+     ylim = c(0.1,1),
+     log = "y", 
+     main = "Log-survival of the 5 lines over time")
+lines(x=survival_MutH$Time, y=survival_MutH$Survival, col=2)
+lines(x=survival_MutT$Time, y=survival_MutT$Survival, col=3)
+lines(x=survival_MF1$Time, y=survival_MF1$Survival, col=4)
+lines(x=survival_pMQ$Time, y=survival_pMQ$Survival, col=5)
+legend("bottomright", legend = c("WT", "MutH", "MutT", "MF1", "pMQ"), col=1:5, lty=1)
+
+plot(x=survival_WT$Time,
+     y=survival_WT$Survival_noEscape,
+     type="l",
+     col=1, 
+     xlab = "Time (hr)", 
+     ylab="Survival % (log-scale)", 
+     ylim = c(0.1,1),
+     log="y",
+     main = "Log-survival of the 5 lines over time, no escape")
+lines(x=survival_MutH$Time, y=survival_MutH$Survival_noEscape, col=2)
+lines(x=survival_MutT$Time, y=survival_MutT$Survival_noEscape, col=3)
+lines(x=survival_MF1$Time, y=survival_MF1$Survival_noEscape, col=4)
+lines(x=survival_pMQ$Time, y=survival_pMQ$Survival_noEscape, col=5)
+legend("bottomright", legend = c("WT", "MutH", "MutT", "MF1", "pMQ"), col=1:5, lty=1)
+
+plot(x=survival_WT$Time,
+     y=survival_WT$Survival_noEscape/survival_WT$Survival_noEscape,
+     type="l",
+     col=1, 
+     xlab = "Time (hr)", 
+     ylab="Survival % (log-scale)", 
+     ylim = c(0.1,1),
+     log="y",
+     main = "Log-survival of the 5 lines over time, no escape, no senescence")
+lines(x=survival_MutH$Time, y=survival_MutH$Survival_noEscape/survival_WT$Survival_noEscape[1:length(survival_MutH$Survival_noEscape)], col=2)
+lines(x=survival_MutT$Time, y=survival_MutT$Survival_noEscape/survival_WT$Survival_noEscape[1:length(survival_MutT$Survival_noEscape)], col=3)
+lines(x=survival_MF1$Time, y=survival_MF1$Survival_noEscape/survival_WT$Survival_noEscape[1:length(survival_MF1$Survival_noEscape)], col=4)
+lines(x=survival_pMQ$Time, y=survival_pMQ$Survival_noEscape/survival_WT$Survival_noEscape[1:length(survival_pMQ$Survival_noEscape)], col=5)
+legend("bottomright", legend = c("WT", "MutH", "MutT", "MF1", "pMQ"), col=1:5, lty=1)
+```
+
+### Growth rates
+#### MutH
+
+```{r}
+head(microMA_MutH[,1:9])
+```
+
+```{r}
+summary(microMA_MutH[,1:9])
+```
+
+```{r}
+microMA_MutH_growthRates <- microMA_MutH[seq(3, dim(microMA_MutH)[2], 3)]
+
+moment_expectation <- function(k, dataset){
+  return (rowMeans(dataset**k, na.rm = T))
+}
+
+k_values <- 1:10
+moments_expectations_MutH <- data.frame(sapply(k_values, moment_expectation, dataset=microMA_MutH_growthRates))
+names(moments_expectations_MutH) <- paste("k.", k_values, sep = "")
+head(moments_expectations_MutH)
+```
+
+```{r, fig.height=7}
+# par(mfrow=c(5,1))
+zero <- which(tail(microMA_MutH_growthRates, 1)>0.005)
+for (t in 1:20*50){
+  hist(as.numeric(microMA_MutH_growthRates[t,zero]), xlim = c(0,0.1), ylim=c(0,120))
+}
+```
+
+```{r, fig.width=13}
+log_choose <- function(k, n, moments_expectations){
+  return ((-1)**k*choose(n,k)*log(moments_expectations[,k]))
+}
+
+par(mfrow = c(2,5))
+for (n in 1:10){
+  E_nt <- rowSums(sapply(1:n, log_choose, n=n, moments_expectations=moments_expectations_MutH))
+  plot(x = microMA_MutH$time/60, 
+       y = E_nt, 
+       xlab = "Time (hr)",
+       main = paste("E_", n, "(t)", sep = ""))
+}
+```
+
+```{r, fig.width=13}
+par(mfrow = c(2,5))
+for (n in 1:10){
+  E_nt <- rowSums(sapply(1:n, log_choose, n=n, moments_expectations=moments_expectations_MutH))
+  plot(x = head(microMA_MutH$time/60, 600), 
+       y = head(E_nt, 600), 
+       xlab = "Time (hr)",
+       main = paste("E_", n, "(t)", sep = ""))
+}
+```
+
+#### WT
+
+```{r}
+head(microMA_WT[,1:9])
+```
+
+```{r}
+microMA_WT_growthRates <- microMA_WT[seq(3, dim(microMA_WT)[2], 3)]
+
+k_values <- 1:10
+moments_expectations_WT <- data.frame(sapply(k_values, moment_expectation, dataset=microMA_WT_growthRates))
+names(moments_expectations_WT) <- paste("k.", k_values, sep = "")
+head(moments_expectations_WT)
+```
+
+```{r, fig.width=13, warning=FALSE}
+par(mfrow = c(2,5))
+for (n in 1:10){
+  E_nt <- rowSums(sapply(1:n, log_choose, n=n, moments_expectations=moments_expectations_WT))
+  plot(x = microMA_WT$time/60, 
+       y = E_nt, 
+       xlab = "Time (hr)",
+       main = paste("E_", n, "(t)", sep = ""))
+}
+```
+
+```{r, fig.width=13, warning=FALSE}
+par(mfrow = c(2,5))
+for (n in 1:10){
+  E_nt <- rowSums(sapply(1:n, log_choose, n=n, moments_expectations=moments_expectations_WT))
+  plot(x = head(microMA_WT$time/60, 600), 
+       y = head(E_nt, 600), 
+       xlab = "Time (hr)",
+       main = paste("E_", n, "(t)", sep = ""))
+}
+```
+
+#### WT + MutH
+
+```{r, fig.width=12, warning=FALSE}
+par(mfrow = c(2,5))
+for (n in 1:10){
+  E_nt <- rowSums(sapply(1:n, log_choose, n=n, moments_expectations=moments_expectations_MutH))
+  plot(x = microMA_MutH$time/60, 
+       y = E_nt,
+       xlab = "Time (hr)",
+       col = "cyan",
+       main = paste("E_", n, "(t)", sep = ""))
+  
+  E_nt <- rowSums(sapply(1:n, log_choose, n=n, moments_expectations=moments_expectations_WT))
+  points(x = microMA_WT$time/60, 
+       y = E_nt, 
+       xlab = "Time (hr)",
+       col = "blue",
+       main = paste("E_", n, "(t)", sep = ""))
+  
+  legend("topleft", legend = c("WT", "MutH"), col=c("blue", "cyan"), lty=1)
+}
+```
+
+```{r, fig.width=13, warning=FALSE}
+par(mfrow = c(5,2))
+for (n in 1:10){
+  E_nt <- rowSums(sapply(1:n, log_choose, n=n, moments_expectations=moments_expectations_MutH))
+  plot(x = head(microMA_MutH$time/60, 600), 
+       y = head(E_nt, 600), 
+       xlab = "Time (hr)",
+       col = "cyan",
+       main = paste("E_", n, "(t)", sep = ""))
+  
+  E_nt <- rowSums(sapply(1:n, log_choose, n=n, moments_expectations=moments_expectations_WT))
+  points(x = head(microMA_WT$time/60, 600), 
+       y = head(E_nt, 600), 
+       xlab = "Time (hr)",
+       col = "blue",
+       main = paste("E_", n, "(t)", sep = ""))
+  
+  legend("topleft", legend = c("WT", "MutH"), col=c("blue", "cyan"), lty=1)
+}
+```
+
+```{r}
+
+```
+
+
+# À explorer
+
+  - Voir expériences représentatives : **J1**
+  - Identifier et effectuer les mêmes corrections sur les taux de croissance : **J2**
+  - Estimer les erreurs sur les moments, mieux borner $\alpha_3$ : maths ou régression (**J4**)
+  - Améliorer bornes, en particulier en fonction de $x$ : **N4**
+  - Peaufiner méhode dérivée : **N3**
+  - Mettre en forme résumé article (**J0-N0**)
+  - Ajouter Notebook à l'article
+  - Voir $W_t$ comme une chaîne de Markov (tant que les cellules ne meurent pas et ne vieillissent pas), processus de saut dont les incréments suivent la loi de s, mais dans espace non dénombrable, et pas forcément utile
+  - Regarder les chutes de taux de croissance : **N1**
+  - Simuler avec des distributions de s données (**N2**)
+  // Inférence : Approximate **Bayesian** Computation ? Machine Learning ???????
+
