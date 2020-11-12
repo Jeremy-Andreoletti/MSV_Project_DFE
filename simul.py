@@ -154,16 +154,6 @@ def analyse_fichier(): # ressort [W_t pour tout t] pour le fichier lu
     return wt_tot
 
 ##
-with open("/Users/jeje/Documents/Scolaire/M2/Projet_DFE/doi_10/All_data/data_microMA/dataset_microMA_MutH.csv", newline='') as csvfile:
-    reader = csv.reader(csvfile, delimiter=';')
-    print(np.shape(reader))
-    # nrow=0
-    # for row in reader:
-    #     if(nrow>=2):
-    #         wt_cur=analyse_ligne(row)
-    #         wt_tot+=[wt_cur]
-    #     nrow+=1
-
 # Affichage
 
 fig, ax = plt.subplots()
@@ -194,11 +184,11 @@ def update(frame): # met à jour l'affichage
 
 
 # Lancement :
-wt_real = pd.read_csv("/Users/jeje/Documents/Scolaire/M2/Projet_DFE/doi_10/All_data/data_microMA/dataset_microMA_MutH.csv", 
-                      sep = ";", 
-                      decimal=",", 
-                      usecols=range(2,1476*3+1,3), 
-                      skiprows=[1,2])
+# wt_real = pd.read_csv("/Users/jeje/Documents/Scolaire/M2/Projet_DFE/doi_10/All_data/data_microMA/dataset_microMA_MutH.csv", 
+#                       sep = ";", 
+#                       decimal=",", 
+#                       usecols=range(2,1476*3+1,3), 
+#                       skiprows=[1,2])
 wt_real=analyse_fichier()
 s=get_dist_s(wt_real)
 
