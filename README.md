@@ -4,7 +4,9 @@ Projet visant à comprendre l’impact des mutations sur la fitness, basé sur l
 
 *Simulations.ipynb*: simulation de l'expérience ; animations
 
-*utilisation_fourier.ipynb*: vérification des constantes que prédit l'expression donnée par l'edp
+*utilisation_fourier.ipynb*: vérification des constantes que prédit l'expression donnée par l'edp (vieux et gros)
+
+*analyse_soledp.ipynb*: reprise plus lisible de utilisation_fourier.ipynb
 
 *visualisation.ipynb*: outils pour visualiser les données réelles ou simulées normalisés
 
