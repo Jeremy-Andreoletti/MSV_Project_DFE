@@ -1,0 +1,535 @@
+\documentclass[12pt]{article}
+ 
+ \usepackage[utf8]{inputenc}
+ \usepackage[T1]{fontenc}
+ \usepackage[french]{babel}
+ \usepackage{mathtools, bm}
+ \usepackage{amssymb, bm}
+ \usepackage{stmaryrd} 
+ \usepackage{enumitem}
+ \usepackage{array}
+ \usepackage{layout}
+ \usepackage{pslatex}
+ \usepackage{pstricks-add}
+ \usepackage{lmodern}
+ \usepackage{listings}
+ \usepackage{color}
+ \usepackage[pdfborder={0 0 0}]{hyperref}
+ \usepackage[babel=true]{csquotes}
+ \usepackage{amsthm}
+ \usepackage{thmtools, varioref}
+ \declaretheorem[title = Theorem, style=plain]{theo}
+ \newtheorem{plain}{Proposition}[section]
+ \usepackage{lmodern}
+ \usepackage{tikz}
+ \usepackage{setspace}
+ 
+ \usepackage{slashed} % opérateur de Dirac
+
+ \usepackage{mathrsfs} % jolies cursives (mathscr)
+ 
+ % marge
+ \newcommand{\marge}[1]{\usepackage[top=#1,bottom=#1+1cm,left=#1,right=#1]{geometry}}
+ \newcommand{\smarge}[2]{\usepackage[top=#1,bottom=#1+1cm,left=#1-#2,right=#1]{geometry}}
+ \smarge{2.5cm}{0.6cm}
+ %\usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+
+
+ % "boîtes"
+
+ \newcounter{defi}[section]
+ \newcounter{prop}[section]
+ \newcounter{thm}
+
+%\newcommand{\prop}[1]{\begin{minipage}{.8\linewidth}\begin{plain} #1\end{plain}\end{minipage}\\\vspace{0cm}}
+\newcommand{\conj}[1]{\begin{minipage}{.8\linewidth}\textbf{Conjecture.} \textit{#1}\end{minipage}\\\vspace{0cm}}
+%\newcommand{\defi}[1]{\vspace{0.6cm}\begin{minipage}{.8\linewidth}\textbf{Definition.} \textit{#1}\end{minipage}\\\vspace{0.3cm}}
+\newcommand{\defi}[1]{\stepcounter{defi}\paragraph{Définition \arabic{section}.\arabic{defi}.}\textit{\newline #1}\vspace{0.1cm}}
+\newcommand{\prop}[1]{\stepcounter{prop}\paragraph{Proposition \arabic{section}.\arabic{prop}.}\textit{\newline #1}\vspace{0.1cm}}
+\newcommand{\thm}[2]{\stepcounter{thm}\paragraph{Theorème \arabic{thm}. (#1)}\textit{\newline #2}\vspace{0.1cm}}
+\newcommand{\thma}[1]{\stepcounter{thm}\paragraph{Theorème \arabic{thm}.}\textit{\newline #1}\vspace{0.1cm}}
+%\newcommand{\defis}[1]{\vspace{0.6cm}\paragraph{Définitions.}\textit{#1}\vspace{0.3cm}}
+\newcommand{\dem}[1]{\begin{proof}#1\end{proof}\vspace{0cm}}
+\newcommand{\req}[1]{\paragraph{Remarque.}#1\vspace{0.1cm}}
+\newcommand{\reqs}[1]{\paragraph{Remarques.}\begin{enumerate}#1\end{enumerate}\vspace{0.1cm}}
+\newcommand{\exmp}[1]{\paragraph{Exemple.}#1\vspace{0.1cm}}
+\newcommand{\exmps}[1]{\paragraph{Exemples.}\begin{enumerate}#1\end{enumerate}\vspace{0.1cm}}
+
+
+
+% left/right
+ 
+ \newcommand{\Iff}[2]{\left[#1\,;\,#2\right]}
+ \newcommand{\Ioo}[2]{\left]#1\,;\,#2\right[}
+ \newcommand{\Ifo}[2]{\left[#1\,;\,#2\right[}
+ \newcommand{\Iof}[2]{\left]#1\,;\,#2\right]}
+
+ \newcommand{\pth}[1]{\left(#1\right)}
+ \newcommand{\cro}[1]{\left[#1\right]}
+ \newcommand{\acc}[1]{\left\{#1\right\}}
+ \newcommand{\abs}[1]{\left|#1\right|}
+ \newcommand{\dabs}[1]{\|#1\|}
+ \newcommand{\scal}[1]{\left<#1\right>}
+ \newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+ \newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+ \newcommand{\dbcro}[1]{\left\llbracket#1\right\rrbracket}
+
+
+ % pour faire des commentaires cool
+ \newcommand{\esp}{\hspace{1cm}}
+ \newcommand{\et}{\hspace{1cm}\text{et}\hspace{1cm}}
+ \newcommand{\pet}{\hspace{0.5cm}\text{et}\hspace{0.5cm}}
+ \newcommand{\ou}{\hspace{1cm}\text{ou}\hspace{1cm}}
+ \newcommand{\pou}{\hspace{0.5cm}\text{ou}\hspace{0.5cm}}
+ \newcommand{\avec}{\hspace{1cm}\text{avec}\hspace{1cm}}
+ \newcommand{\soit}{\hspace{1cm}\text{soit}\hspace{1cm}}
+ \newcommand{\comment}[1]{\hspace{0.5cm}\text{#1}\hspace{0cm}}
+ \newcommand{\tq}{\hspace{0.25cm}/ \hspace{0.25cm}}
+ \newcommand{\qt}[1]{(\,#1\,)\hspace{1cm}}
+ \newcommand{\qti}[1]{\,,\hspace{1cm}#1}
+ \newcommand{\vg}{,\,}
+ 
+ \newcommand{\ssi}{\hspace{.2cm}\Leftrightarrow\hspace{.2cm}}
+ \newcommand{\gssi}{\hspace{1cm}\Leftrightarrow\hspace{1cm}}
+
+ \newcommand{\yolo}{$\color{red}{\textbf{YOLO}}$}
+
+
+ % Pour la géométrie
+ \newcommand{\vect}[1]{\overrightarrow{#1}}
+ 
+ % divers 
+
+ \newcommand{\mat}[1]{\begin{matrix} #1\end{matrix}}
+ \newcommand{\pmat}[1]{\begin{pmatrix} #1\end{pmatrix}}
+ \newcommand{\cotan}{\text{cotan}}
+ \newcommand{\somme}[2]{\sum_{#1=0}^{#2}}
+ \newcommand{\Vect}[1]{\text{vect}\pth{#1}}
+ \newcommand{\Tr}{\text{Tr}}
+ \newcommand{\ie}{\emph{ie} } 
+\newcommand{\transp}{{}^t\!}
+ \newcommand{\lleq}{<\!\!\!<}
+
+
+ % pour les intégrales :
+ \newcommand{\bigcro}[1]{\big[#1\big]}
+ \newcommand{\de}{\,\mathrm{d}}
+
+
+ % Les ensembles :
+ \newcommand{\Ce}{\mathbb{C}}
+ \newcommand{\Er}{\mathbb{R}}
+ \newcommand{\En}{\mathbb{N}}
+ \newcommand{\Zed}{\mathbb{Z}}
+ \newcommand{\Qu}{\mathbb{Q}}
+ \newcommand{\Te}{\mathbb{T}}
+
+ % En probas
+ \newcommand{\prb}[1]{\mathbb{P}\pth{#1}}
+\newcommand{\Esp}[1]{\mathbb{E}\cro{#1}}
+ \newcommand{\Var}[1]{\text{Var}\pth{#1}}
+\newcommand{\kt }{\,|\,}
+\newcommand{\edistr }{\overset{d}{=}}
+\newcommand{\cdistr }{\overset{d}{\to}}
+\newcommand{\cproba}{\overset{\mathbb{P}}{\to}}
+\newcommand{\easrly}{\overset{a.s.}{=}}
+\newcommand{\casrly}{\overset{a.s.}{\to}}
+
+% spécifique
+
+\newcommand{\dr}{\partial}
+\newcommand{\fr}{\mathcal{F}}
+
+
+ \title{Estimer les effets des mutations sur la valeur sélective d'une bactérie}
+
+ \author{Jérémy Andréoletti et Nathanaël Boutillon\\Projet encadré par Marie Doumic et Lydia Robert}
+ 
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+  Le but du projet est d'estimer les effets des mutations sur la valeur sélective d'une bactérie.
+
+  Dans un premier temps, nous présentons le contexte général dans lequel se place le projet; nous parlons des expériences réalisées sur les données desquelles nous nous sommes basés. Nous présentons la modélisation mathématique et commençons à présenter l'interprétation de certains résultats.
+
+  Ensuite, nous 
+
+  Dans une troisième partie, nous proposons une première méthode pour trouver la distribution des effets des mutations sur la valeur sélective (DFE: distribution of fitness effects). Nous calculons des bornes sur l'erreur commise.
+
+  Enfin, nous proposons un autre point de vue, celui de considérer le processus comme la solution d'une EDP avec un terme intégral. Nous proposons quelques pistes de réflexion pour l'étude de cette EDP et sur l'aide qu'elle pourrait nous fournir pour le calcul de la DFE.
+
+\end{abstract}
+
+\tableofcontents
+
+\newpage
+
+\section{Introduction}
+
+\subsection{Contexte}
+
+\subsection{Expériences}
+
+\subsection{Modélisation mathématique}
+
+\subsection{Dynamique poisonnienne des mutations}
+
+\subsection{Tentative naïve pour déterminer la DFE}
+
+
+
+
+\section{Simulations et tâtonnements}
+
+\subsection{Simulations}
+
+\subsection{Commentaire}
+
+
+\section{Problème des moments}
+
+\subsection{Détermination des moments}
+
+\subsection{Estimation de la DFE}
+
+Nous avons vu qu'il était possible de déterminer les moments de la loi de $S$ à partir de la donnée de la distribution des $W_t\vg t\geqslant 0$. Maintenant, nous allons tenter de trouver la loi de $S$ à partir des moments de $S$: cela s'appelle le problème des moments.
+
+\paragraph{Estimation de la fonction caractéristique}
+
+À partir de tous les moments de $S$, on peut calculer la fonction caractéristique de la loi de $S$, grâce à l'expression suivante:
+\[\varphi_S(\xi):=\Esp{e^{i\xi S}}=\Esp{\sum_{k=0}^{+\infty}\frac{(iS\xi)^k}{k!}}=\sum_{k=0}^{+\infty}\frac{(i\xi)^k}{k!}\Esp{S^k}\]
+Il est légal d'inverser la somme et l'espérance car on fait l'hypothèse que $S$ est bornée. On a alors, pour tout $N\in\En$:
+
+\begin{align*}
+\varphi_S(\xi):=\Esp{e^{i\xi S}}
+&=\sum_{k=0}^{N}\frac{(i\xi)^k}{k!}\Esp{S^k}+\sum_{k=N+1}^{+\infty}\frac{(i\xi)^k}{k!}\Esp{S^k}\\
+&= \sum_{k=0}^{N}\frac{(i\xi)^k}{k!}m_k + \sum_{k=0}^{N}\frac{(i\xi)^k}{k!}\pth{\Esp{S^k}-m_k}+\sum_{k=N+1}^{+\infty}\frac{(i\xi)^k}{k!}\Esp{X^k}
+\end{align*}
+où $m_0,\hdots, m_n$ sont les moments que l'on a estimés par la méthode de la section précédente.
+
+Notons \[\hat{\varphi}_X(\xi)=\sum_{k=0}^{N}\frac{(i\xi)^k}{k!}m_k\] qui est la meilleure estimation que l'on peut avoir de la fonction caractéristique à partir des $N$ premiers moments.
+
+\paragraph{Estimation de la DFE}
+
+On remarque que, si la loi de $S$ a une densité $f$:
+\[\varphi_X(\xi)=2\pi \mathcal{F}^{-1}f(\xi)\]
+
+À partir de la fonction caractéristique $\varphi_S$, on peut donc trouver la densité $f$ de $S$ :
+
+\[f(x) = \frac1{2\pi} \int_{\mathbb R}\varphi_S(\xi)e^{-ix\xi}\de\xi\]
+
+Seulement, on ne connaît que les $N+1>0$ premiers moments, chacun avec une certaine erreur $(\varepsilon_k)_{0\leqslant k\leqslant N}$. Ainsi, on ne va calculer $\varphi_S(\xi)$ avec une erreur raisonnable que pour $\xi\leqslant A$, ce qui induira une erreur sur l'estimation de $f$.
+
+Notons $\hat{f}$ la fonction que l'on calcule par cette méthode, qui est une estimation de $f$ : 
+\begin{equation}\label{dfe1}
+  \hat{f}(x) = \frac1{2\pi} \int_{\abs{\xi}\leqslant A}\hat\varphi_S(\xi)e^{-ix\xi}\de\xi
+\end{equation}
+
+\subsection{Bornes sur l'erreur commise}
+
+On remarque que l'estimation \eqref{dfe1} de la DFE $f$ contient trois approximations:
+\begin{enumerate}
+\item l'erreur de régularisation qui consiste à ne pas considérer $\xi>A$;
+\item l'erreur sur le calcul de $\hat{\varphi}_S$ qui consiste à ne considérer que les $N$ premiers moments;
+\item l'erreur sur l'estimation des moments considérés.
+\end{enumerate}
+Nous retrouverons ces trois erreurs dans la borne suivante sur l'erreur entre  $\hat{f}$ et $f$:
+
+\prop{Soient $A>0$, $N\geqslant 1$, $k\geqslant 2$. On a alors: \[\qt{\forall x\in\Er} \abs{\hat{f}(x)-f(x)}\leqslant \alpha_1+\alpha_2+\alpha_3\] avec:
+\begin{align*}
+\alpha_1&=\frac{\dabs{f^{(k)}}_1}{2\pi^2(k-1)A^{k-1}}\\
+\alpha_2&=\frac{A^{N+1}}{\pi(N+1)!}\Esp{S^N(e^{AS-1})}\\
+\alpha_3&=\frac{\dabs{\varepsilon(N)}_{\infty}(e^A-1)}{\pi}
+\end{align*}
+où $\dabs{\varepsilon(N)}_{\infty}$ est l'erreur maximale commise sur le calcul des $N$ premiers moments. }
+
+\begin{proof}
+On peut décomposer $f(x)$ selon la régularisation des coefficients $\xi$ et l'estimation de $\varphi_S(\xi)$:
+
+\begin{align*}
+f(x) &= \frac1{2\pi} \int_{\mathbb R}\varphi_S(\xi)e^{-ix\xi}\de\xi\\
+&= \frac1{2\pi} \int_{\abs{\xi}\leqslant A}\varphi_S(\xi)e^{-ix\xi}\de\xi + \underbrace{\frac1{2\pi} \int_{\abs{\xi} > A}\varphi_S(\xi)e^{-ix\xi}\de\xi}_{a_1}\\
+&= \frac1{2\pi} \int_{\abs{\xi}\leqslant A}\pth{\hat{\varphi}_S(\xi)+\sum_{k=0}^{N}\frac{(i\xi)^k}{k!}\pth{\Esp{S^k}-m_k}+\sum_{k=N+1}^{+\infty}\frac{(i\xi)^k}{k!}\Esp{S^k}}e^{-ix\xi}\de\xi + a_1\\
+&= \underbrace{\frac1{2\pi} \int_{\abs{\xi}\leqslant A}\hat{\varphi}_S(\xi)e^{-ix\xi}\de\xi}_{\hat f(x)}
++ a_1
++ \underbrace{\frac1{2\pi}\int_{\abs{\xi}\leqslant A}\sum_{k=N+1}^{+\infty}\frac{(i\xi)^k}{k!}\Esp{S^k}e^{-ix\xi}\de\xi}_{a_2}\\
+&+ \underbrace{\frac1{2\pi}\int_{\abs{\xi}\leqslant A}\sum_{k=0}^{N}\frac{(i\xi)^k}{k!}\pth{\Esp{S^k}-m_k}e^{-ix\xi}\de\xi}_{a_3}\\
+&= \hat{f}(x) + a_1 + a_2 + a_3
+\end{align*}
+
+On obtient donc comme majoration de l'erreur d'approximation de $f$, pour $x\in\Er$ et $\alpha_i = |a_i|$:
+\[\abs{f(x)-\hat{f}(x)} = \abs{a_1 + a_2 + a_3}\leqslant |a_1| + |a_2| + |a_3| = \alpha_1+\alpha_2+\alpha_3\]
+où
+
+\begin{itemize}
+\item $\alpha_1$ est l'erreur que l'on commet en omettant de calculer $\varphi_S(\xi)$ pour $\xi>A$ (erreur de régularisation). %On a:
+  %\begin{align*}
+  %2\pi\alpha_1&\leqslant \int_{\abs{\xi}>A}\abs{\varphi_S(\xi)e^{-ix\xi}}\de\xi=\int_{\abs{\xi}>A}\abs{\varphi_S(\xi)}\de\xi
+  %\end{align*}
+
+\[\alpha_1 = \frac1{2\pi} \abs{\int_{\abs{\xi} > A}\varphi_S(\xi)e^{-ix\xi}\de\xi}\]
+
+  Pour tout $k\geqslant 1$: $2\pi\pth{\mathcal{F}^{-1}(f^{(k)})}(\xi)=(-i\xi)^k\varphi(\xi)$ donc:
+  \begin{align*}
+    4\pi^2\alpha_1&=\abs{\int_{\abs{\xi}>A}\frac{1}{(-i\xi)^k}2\pi\mathcal{F}^{-1}(f^{(k)})(\xi)e^{-ix\xi}\de\xi}\\
+    &\leqslant \int_{\abs{\xi}>A}\frac{1}{\abs{\xi}^k}\underbrace{\abs{\mathcal{F}^{-1}(f^{(k)})(\xi)}}_{\leqslant\dabs{f^{(k)}}_{1}}\de\xi\\
+    &\leqslant 2\dabs{f^{(k)}}_{1}\int_{\xi>A}1/(\xi^k)\de\xi
+  \end{align*}
+
+  On a donc, pour tout $k\geqslant 1$:
+  \[\alpha_1\leqslant\frac{\dabs{f^{(k)}}_{1}}{2\pi^2(k-1)A^{k-1}}\] Pour que cette borne soit bonne, il faut d'une part faire certaines hypothèse sur $f$, d'autre part prendre $A$ assez grand;
+\item $\alpha_2$ est l'erreur que l'on commet en omettant dans notre calcul les moments d'ordre plus grand que $N+1$.
+
+\[\alpha_2 = \frac1{2\pi}\abs{\int_{\abs{\xi}\leqslant A}\sum_{k=N+1}^{+\infty}\frac{(i\xi)^k}{k!}\Esp{S^k}e^{-ix\xi}\de\xi}\]
+
+On a :
+  \begin{align*}
+    2\pi\alpha_2&\leqslant \int_{-A}^A\abs{\sum_{k=N+1}^{+\infty}\frac{(i\xi)^k}{k!}\Esp{S^k}}e^{-i\xi x}\de\xi\\
+    &\leqslant  \int_{-A}^A\sum_{k=N+1}^{+\infty}\frac{\abs{\xi}^k}{k!}\Esp{S^k}\de\xi=2 \int_{0}^A\sum_{k=N+1}^{+\infty}\frac{\xi^k}{k!}\Esp{S^k}\de\xi\\
+    &\leqslant 2\sum_{k=N+1}^{+\infty}\frac{A^{k+1}}{(k+1)!}\Esp{S^k}=2\Esp{\frac{1}{S}\sum_{k=N+1}^{+\infty}\frac{(AS)^{k+1}}{(k+1)!}}\\
+  \end{align*}
+  D'après la formule de Taylor avec reste intégral:
+  \begin{align*}
+    \sum_{k=N+2}^{+\infty}\frac{(AS)^{k}}{k!}&=e^{AS}-\sum_{k=0}^{N+1}\frac{(AS)^{k}}{k!}\\
+    &=\sum_{k=0}^{N+1}\frac{(AS)^{k}}{k!}+\int_{0}^{AS}\frac{(AS-t)^{N+1}e^t}{(N+1)!}\de t-\sum_{k=0}^{N+1}\frac{(AS)^{k}}{k!}\\
+    &=\int_{0}^{AS}\frac{(AS-t)^{N+1}e^t}{(N+1)!}\de t = \frac{(AS-t)^{N+1}(e^{AS}-1)}{(N+1)!}
+  \end{align*}
+  d'où:
+  \begin{align*}
+    \alpha_2\leqslant 2\Esp{\frac{(AS)^{N+1}(e^{AS}-1)}{2\pi S(N+1)!}}=\frac{A^{N+1}}{\pi(N+1)!}\Esp{S^N(e^{AS}-1)}
+  \end{align*}
+
+  Pour que cette borne soit bonne, il faut prendre $A$ assez petit et $N$ assez grand;
+\item $\alpha_3$ est l'erreur que l'on commet qui provient des erreurs sur le calcul des moments.
+
+\[\alpha_3 = \frac1{2\pi}\abs{\int_{\abs{\xi}\leqslant A}\sum_{k=0}^{N}\frac{(i\xi)^k}{k!}\pth{\Esp{S^k}-m_k}e^{-ix\xi}\de\xi}\]
+
+On a:
+  \begin{align*} 
+    2\pi\alpha_3&\leqslant \int_{-A}^A\sum_{k=0}^{N}\abs{\frac{(i\xi)^k}{k!}\pth{\Esp{S^k}-m_k}e^{-i\xi x}}\de\xi\\
+    &\leqslant 2\dabs{\varepsilon}_{\infty}\int_{0}^A\sum_{k=0}^{N}\xi^k/(k!)\de\xi\comment{brutal}\\
+    &\leqslant 2\dabs{\varepsilon}_{\infty}\int_{0}^Ae^{\xi}\de\xi
+  \end{align*}
+
+  Avec : $$\dabs{\varepsilon}_{\infty} = \max_{k=1,\dots,N} \acc{\Esp{S^k}-m_k}$$
+
+  On a donc:
+  \[\alpha_3\leqslant \frac{\dabs{\varepsilon}_{\infty}(e^A-1)}{\pi}\]
+\end{itemize}
+\end{proof}
+
+
+\paragraph{Optimisation du paramètre A}
+
+On remarque que $\alpha_1$ diminue quand $A$ augmente, mais $\alpha_3$ augmente quand $A$ augmente. La proposition suivante donne la borne que l'on obtient lorsque l'on prend le meilleur compromis pour $A$.
+
+\prop{Supposons que :
+\begin{itemize}
+\item l'on soit capable de calculer un nombre arbitrairement grand de moments de $f$ avec une erreur bornée par $\varepsilon>0$;
+\item il existe $k\in\En$ tel que $d_k=\dabs{f^{(k)}}_1<+\infty$;
+\end{itemize}
+Alors on a, pour tout $x\in\Er$:
+\[\abs{f(x)-\hat{f}(x)}\sim \abs{\frac{1}{\pi\ln(\varepsilon)}}\comment{quand $\varepsilon\to 0$}\]
+}
+
+\begin{proof} On traite d'abord le cas particulier $k=2$, pour introduire les idées.
+\begin{enumerate}
+\item Cas particulier $k=2$: on a donc une erreur que l'on peut majorer par
+\[\alpha_1+\alpha_2+\alpha_3 \leqslant \alpha_N(A)=\frac{d_2}{2\pi^2 A}+\frac{A^{N+1}}{(N+1)!\pi}\Esp{S^N(e^{AS}-1)}+\frac{\dabs{\varepsilon}_{\infty}(N)(e^A-1)}{\pi}\]
+
+Supposons que l'on soit capable de prendre $N\to\infty$, avec une erreur sur les moments $\dabs{\varepsilon}_{\infty}(N)$ bornée par $\varepsilon>0$. De cette manière, on a $\alpha_2=0$. Posons $x=d_2/(2\pi^2)$ et $y=\varepsilon/\pi$. On a alors:
+\[\alpha_N(A)\xrightarrow{N\to\infty}\alpha(A)=x/A+y(e^A-1)\]
+donc $\alpha'(A)=-x/A^2+ye^A$. On veut $A$ tel que $\alpha$ soit minimum, c'est-à-dire $\alpha'(A)=0$ d'où:
+\[A^2e^A=x/y\]
+On obtient alors le paramètre $A$ qui minimise la borne : 
+\[A = 2W\pth{\frac{\sqrt{x/y}}2} = 2W\pth{\sqrt{\frac{d_2}{8\pi \varepsilon}}}\]
+avec $W$ la fonction W de Lambert telle que $z=W(z)e^{W(z)}$.
+
+\item Pour $k$ général, on a les mêmes calculs, mais avec $x=\frac{d_k}{2\pi^2(k-1)}$, ce qui donne:
+\[A=2W\pth{\sqrt{\frac{d_k}{8\pi\varepsilon (k-1)}}}\]
+
+\item Regardons maintenant le comportement de $A$ quand $\varepsilon\to 0$. Comme, quand $z\to\infty$:
+\[W(z)=\ln z-\ln\ln z+o(1)\] on a \[A_\varepsilon= \ln\pth{\frac{d_k}{8(k-1)\pi\varepsilon}}-\ln\ln\pth{\frac{d_k}{8(k-1)\pi\varepsilon}}+o(1)= \ln(1/\varepsilon)-\ln\ln(1/\varepsilon)+o(1)\] 
+%\[A_\varepsilon \mathop{\sim}\limits_{\varepsilon\to0} \ln\pth{\frac{d_k}{8(k-1)\pi\varepsilon}}\sim \ln(1/\varepsilon)\]
+d'où :
+\[\alpha(A_\varepsilon)=y(e^{A_\varepsilon}-1) + \frac{x}{{A_\varepsilon}^{k-1}}=\frac{\varepsilon}{\pi}e^{A_{\varepsilon}}+o(1)=\frac{1}{\pi\ln\pth{\frac{1}{\varepsilon}}}+o(1)\]
+%\[\alpha(A_\varepsilon)=y(e^{A_\varepsilon}-1) + \frac{x}{{A_\varepsilon}^{k-1}} &\mathop{\sim}\limits_{\varepsilon\to0} -\frac{d_2k^k}{2\pi^2\ln(\varepsilon)^k}\]
+d'où, quand $\varepsilon\to 0$:
+\[\alpha(A_\varepsilon)\sim \abs{1/(\pi\ln(\varepsilon))}\]
+ce qui permet de conclure la proposition. 
+\end{enumerate}
+\end{proof}
+
+
+\paragraph{Commentaire}
+
+Nous pouvons faire les remarques et les commentaires suivants:
+\begin{enumerate}
+\item On est capable de borner la norme infinie entre la DFE réelle $f$ et la DFE estimée $\hat{f}$. Les bornes que l'on obtient ne sont pas optimales.
+\item Sous des hypothèses très favorables, la norme infinie se comporte comme $\abs{\frac{1}{\ln\varepsilon}}$, ce qui est une décroissance très lente de la borne (d'autant plus qu'il est largement exagéré de supposer que l'on sera capable de calculer les moments avec une grande précision);
+\item Toutefois, la norme infinie n'est pas forcément la plus pertinente dans notre situation. On pourrait penser à d'autres méthode pour mesurer la distance entre ces deux distributions: par exemple, la norme $L^2$, la distance de Kolmogorov, ou la divergence de Kullback-Leibler.
+\end{enumerate}
+
+L'objectif de la partie suivante est de présenter une nouvelle méthode pour estimer la DFE.
+
+
+
+\section{Étude d'une EDP}
+
+Dans cette partie, nous présentons une modélisation du problème par une EDP sur la densité de la loi de $\ln W_t$. D'après l'EDP, nous aurons une expression explicite de la loi de $\ln (1-S)$.
+
+Nous commençons par introduire l'EDP \eqref{edp}, puis nous déduisons une expression explicite pour la loi de $\ln(1-S)$; ensuite, nous faisons le lien avec un problème de fragmentation; ensuite, nous étudierons le comportement des solution de l'EDP en temps court et en temps long.
+
+\subsection{Nouveau point de vue sur le problème}
+
+\paragraph{Transformations initiales}
+
+D'après \eqref{mod}, on a, tant que $W_t>0$: \[\ln W_t=\sum_{i=1}^{N_t}\ln(1-s_i)\]
+
+On fait les deux hypothèses suivantes:
+\begin{enumerate}
+\item Pour tout $t>0$, la loi de $\ln W_t$ peut s'écrire:
+  \[m(t)\delta_{\-\infty}+u(t,\cdot)\]
+  où $m(t)$ représente la probabilité qu'une cellule soit morte au temps $t$ et $u(t,\cdot)\in C^{\infty}(\Er)$;
+\item La loi de $\ln (1-S)$ peut s'écrire:
+  \[\mu\delta_{-\infty}+f(\cdot)\]
+  où $\mu$ est le taux de mutations létales et $f(\cdot)
+  \in C^{\infty}(\Er)$ est la <<~densité~>> de la loi de $\ln(1-s)$ sans prendre en compte les mutations létales: ainsi, $\int f=1-\mu$.
+\end{enumerate}
+
+Remarquons tout de suite que l'on peut déduire la DFE à partir de la donnée de $f$ et du taux de mutations létales.
+
+\paragraph{Introduction du modèle}
+
+Soit $\lambda$ le taux de mutation. Considérons:
+\[\dr_tu(t,x)=\lambda\pth{\int_{\Er}f(x-y)u(t,y)\de y-\int_{\Er}f(y)u(t,x)\de y}-\lambda\mu u(t,x)\]
+
+Cette expression est plutôt naturelle ; elle peut se comprendre ainsi:
+\begin{align*}
+&\esp\text{changement de densité de fitness entre $t$ et $t+\de t$}\\
+&=\text{taux de mutations}\times\pth{\text{gens qui arrivent sur ma fitness}-\text{gens qui partent de ma fitness}}\\
+&-\text{gens qui meurent}
+\end{align*} 
+où $\mu$ est le taux de mortalité (qui comprend la mortalité due à la sénescence et la mortalité due aux mutations létales). 
+
+Faisons quelques transformations pour simplifier l'expression. Comme $\int_{\Er}f(y)\de y = 1-\mu$:
+
+\[\dr_tu(t,x)=\lambda\pth{\int_{\Er}f(x-y)u(t,y)\de y-(1-\mu)u(t,x)}-\lambda\mu u(t,x)\] 
+soit:
+\[\dr_tu(t,x)=\lambda (f*u(t))(x)-\lambda u(t,x)\] 
+que l'on notera, en notant $u_t(\cdot)=(u(t))(\cdot)=u(t,\cdot)$:
+\begin{equation}\label{edp}
+  \dr_tu_t(x)=\lambda (f*u_t)(x)-\lambda u_t(x)
+\end{equation}
+
+\paragraph{Vérification}
+
+On veut vérifier que cette EDP est crédible. Pour cela, on peut par exemple vérifier que le nombre total de cellules $N(t)$ décroît comme $\exp(-\lambda\mu t)$:
+
+\begin{align*}
+    N'(t)\dr_t\pth{\int_{\Er}u(t,x)\de x}&=\int_{\Er}\dr_tu=\lambda \int_{\Er}\pth{\int_{\Er}f(y)(u(t,x-y)-u(t,x))\de y-\mu u(t,x)}\de x\\
+    &=\lambda\int_{\Er}f(y)\pth{\int_{\Er}u(t,x-y)\de x-\int_{\Er}u(t,x)\de x}\de y-\lambda\mu\int_{\Er}u(t,x)\de x\\
+    &=-\lambda\mu\int_{\Er}u(t,x)\de x=-\lambda\mu t
+\end{align*}
+ce qui donne, comme prévu:
+\[N(t)=e^{-\lambda\mu t}N(0)\]
+
+\paragraph{Estimation de la DFE}
+
+On peut mesurer $u$ et on aimerait estimer $f$, en sachant que l'EDP ci-dessus est vérifiée:  on connaît donc la solution mais on ne connaît pas l'EDP. On a la proposition suivante:
+\prop{    Pour tout $x\in\mathbb{R}$:
+  \begin{equation}\label{edp_sol}
+    f(x)=\fr^{-1}\pth{\frac{\dr_t\pth{\fr u_t(\xi)}}{\lambda\fr u_t(\xi)}+1}    
+  \end{equation}
+}
+
+\begin{proof}
+  En prenant la transformée de Fourier, on a:
+\[\mathcal{F}\pth{\dr_tu_t}(\xi)=\lambda \mathcal{F}f(\xi)\mathcal{F}{u_t}(\xi)-\lambda\mathcal{F}u_t(x)\]
+soit:
+\[\pth{\dr_t\mathcal{F}u_t}(\xi)=\lambda \mathcal{F}f(\xi)\mathcal{F}{u_t}(\xi)-\lambda\mathcal{F}u_t(x)\]
+et donc:
+\begin{align*}
+\mathcal{F}f(\xi)&=\frac{\dr_t\mathcal{F}u_t(\xi)}{\lambda \mathcal{F}u_t(\xi)}+1\\
+&=\frac{1}{\lambda}\dr_t\ln\pth{\mathcal{F}u_t(\xi)}+1
+\end{align*}
+Ainsi:
+\[f(x)=\mathcal{F}^{-1}\pth{\frac{1}{\lambda}\dr_t\ln\pth{\mathcal{F}u_t(\xi)}+1}(x)\]
+
+\end{proof}
+
+
+%\paragraph{Vérification 2: Comparaison avec la formule de la diapositive}
+%
+%Avec d'autres calculs, on trouve:
+%\[g(x)=\mathcal{F}^{-1}\pth{1+\frac{1}{\lambda t}\Esp{e^{-i\xi Y_t}}}=\mathcal{F}^{-1}\pth{1+\frac{1}{\lambda t}\fr{u_t(\xi)}}=^?\delta_0+\frac{1}{\lambda t}u_t\] où $Y_t=W_t/W_0$ et où $g$ est la densité de $1-s$. Ainsi, en principe, pour $e^y=x>0$,
+%\[g(x)=f(\ln x)/x \ou f(y)=e^yg(e^y)\]
+%
+%On n'a pas encore réussi à montrer que les deux fonctions coïncident (la transformée de Fourier d'une composition nous pose problème).
+%
+
+
+\subsection{Détermination de la DFE à partir de \eqref{edp_sol}}
+
+L'expression \eqref{edp_sol} donne une forme explicite pour $f(x)$. Il faut, pour l'exploiter, être capable de calculer la valeur, pour chaque $\xi$, de
+\[a_{\xi}=\frac{\dr_t\fr u_t(\xi)}{\fr u_t(\xi)}\]
+
+Il est intéressant de remarquer que $a_{\xi}\in\Ce$ ne dépend pas du temps. Cela permet d'affirmer que:
+\[\fr u_t(\xi)=e^{a_{\xi}t}\fr u_0(\xi)\] et donc:
+\[\abs{\fr u_t(\xi)}=e^{\Re(a_{\xi})t}\abs{\fr u_0(\xi)} \et \arg\pth{\fr u_t(\xi)}=\arg{\fr u_0(\xi)}+t\Im(a_{\xi})\]
+
+On a donc deux expressions valables pour tout $t\in \Er_+$:
+\begin{align*}
+  \ln\abs{\fr u_t(\xi)}&=\ln\abs{\fr u_0(\xi)}+t\times\Re(a_{\xi})\\
+  \arg\pth{\fr u_t(\xi)}&=\arg{\fr u_0(\xi)}+t\times\Im(a_{\xi})
+\end{align*}
+
+Traçons ces deux fonctions de $t$ et vérifions qu'elles sont affines; si c'est le cas, leurs pentes nous donneront la partie réelle et la partie imaginaire de $a_{\xi}$.
+
+\subsection{Lien avec un problème de fragmentation}
+
+
+
+\subsection{Temps court, temps long ?}
+
+
+
+\begin{thebibliography}{1}
+
+\bibitem{rob}
+  Robert et al.,
+  \emph{Mutation dynamics and fitness effects followed in single cells}, Science 359, 1283–1286, 16 March 2018
+\bibitem{md1}
+  Doumic, Escobedo,
+  \emph{Time asymptotics for a critical case in fragmentation and growth-fragmentation equations}, submitted 2015
+\bibitem{md2}
+  Beal et al.,
+  \emph{The Division of Amyloid Fibrils: Systematic Comparison of Fibril Fragmentation Stability by Linking Theory with Experiments}, iScience, 25 September 2020
+\end{thebibliography}
+
+
+
+
+
+\newpage
+
+\appendix
+
+\section{Réplication des résultats}
+
+\subsection{Dynamique poissonienne des mutations}
+
+\subsection{Calcul des premiers moments}
+
+
+\newpage
+
+\section{Simulation}
+
+
+
+
+
+\end{document}

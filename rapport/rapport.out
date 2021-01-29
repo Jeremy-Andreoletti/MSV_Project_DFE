@@ -1,0 +1,22 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Contexte}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Exp\351riences}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Mod\351lisation math\351matique}{section.1}% 4
+\BOOKMARK [2][-]{subsection.1.4}{Dynamique poisonnienne des mutations}{section.1}% 5
+\BOOKMARK [2][-]{subsection.1.5}{Tentative na\357ve pour d\351terminer la DFE}{section.1}% 6
+\BOOKMARK [1][-]{section.2}{Simulations et t\342tonnements}{}% 7
+\BOOKMARK [2][-]{subsection.2.1}{Simulations}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.2}{Commentaire}{section.2}% 9
+\BOOKMARK [1][-]{section.3}{Probl\350me des moments}{}% 10
+\BOOKMARK [2][-]{subsection.3.1}{D\351termination des moments}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.2}{Estimation de la DFE}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.3}{Bornes sur l'erreur commise}{section.3}% 13
+\BOOKMARK [1][-]{section.4}{\311tude d'une EDP}{}% 14
+\BOOKMARK [2][-]{subsection.4.1}{Nouveau point de vue sur le probl\350me}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.2}{D\351termination de la DFE \340 partir de \(3\)}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.3}{Lien avec un probl\350me de fragmentation}{section.4}% 17
+\BOOKMARK [2][-]{subsection.4.4}{Temps court, temps long ?}{section.4}% 18
+\BOOKMARK [1][-]{appendix.A}{R\351plication des r\351sultats}{}% 19
+\BOOKMARK [2][-]{subsection.A.1}{Dynamique poissonienne des mutations}{appendix.A}% 20
+\BOOKMARK [2][-]{subsection.A.2}{Calcul des premiers moments}{appendix.A}% 21
+\BOOKMARK [1][-]{appendix.B}{Simulation}{}% 22
