@@ -59,10 +59,9 @@
 
 % left/right
  
- \newcommand{\Iff}[2]{\left[#1\,;\,#2\right]}
- \newcommand{\Ioo}[2]{\left]#1\,;\,#2\right[}
- \newcommand{\Ifo}[2]{\left[#1\,;\,#2\right[}
- \newcommand{\Iof}[2]{\left]#1\,;\,#2\right]}
+ \newcommand{\ioo}[1]{\left]#1\right[}
+ \newcommand{\ifo}[1]{\left[#1\right[}
+ \newcommand{\iof}[1]{\left]#1\right]}
 
  \newcommand{\pth}[1]{\left(#1\right)}
  \newcommand{\cro}[1]{\left[#1\right]}
@@ -172,9 +171,51 @@
 
 \subsection{Expériences}
 
+Dans \cite{rob}, les auteurs ont réalisé deux expériences: 
+\begin{enumerate}
+\item $\mu$MA (microfluidic mutation accumulation): le but de cette expérience est de suivre l'évolution des taux de croissance de cellules sur de nombreuses générations et en supprimant les effets de la sélection naturelle;
+\item MV (mutation visualization): le but de cette expérience est de repérer les mutations lorsqu'elles se produisent.
+\end{enumerate}
+
+\paragraph{Détails de l'expérience $\mu$MA}
+
+\paragraph{Détails de l'expérience MV}
+
+
 \subsection{Modélisation mathématique}
 
+\paragraph{Notations}
+On se place dans le cadre de l'expérience $\mu$MA. Notons $W_t$ le taux de croissance au temps $t\geqslant 0$ d'une lignée de cellule, et $N_t$ le nombre de mutations qu'il y a eu sur cette lignée depuis le début de l'expérience. Notons \[s_i=\frac{W_{t_{i-1}}-W_{t_i}}{W_{t_{i-1}}}\in\iof{-\infty,1}\] l'effet relatif de la $i^e$ mutation. On a en particulier: 
+\begin{equation}\label{mod}
+  \frac{W_t}{W_0}=\prod_{i=1}^{N_t}(1-s_i)
+\end{equation}
+Enfin, on note $\lambda$ le taux de mutation, que l'on suppose constant.
+
+\paragraph{}Le but du projet est de répondre au problème suivant:
+
+\boxed{
+  \begin{minipage}{0.9\linewidth}
+    \textbf{Énoncé du problème:} Estimer la loi des $s_i$ sachant \eqref{mod}, sachant que l'on peut mesurer expérimentalement $W_t$ et sachant que $N_t$ suit une loi de Poisson de paramètre $\lambda t$.
+\end{minipage}}
+
+
+\paragraph{Hypothèses}
+On fait les hypothèses suivantes sur les cellules:
+\begin{enumerate}
+\item Les effets des mutations $s_i$ sont indépendants et identiquement distribués;
+\item Les mutations arrivent selon une dynamique poissonnienne;
+\item Le taux de mutation $\lambda$ est constant. En particulier, il ne dépend pas de la taille de la cellule;
+\item Le taux de croissance change instantanément après la mutation (on ne prend pas en compte la division des cellules);
+\item Les taux de croissance des cellules ne changent que à cause des mutations.
+\end{enumerate}
+
+\reqs{
+\item L'hypothèse 1 permet de dire que la DFE, que l'on recherche, est bien définie;
+\item L'hypothèse 2 est justifiée par la section suivante.}
+
 \subsection{Dynamique poisonnienne des mutations}
+
+
 
 \subsection{Tentative naïve pour déterminer la DFE}
 
@@ -439,14 +480,14 @@ ce qui donne, comme prévu:
 \paragraph{Estimation de la DFE}
 
 On peut mesurer $u$ et on aimerait estimer $f$, en sachant que l'EDP ci-dessus est vérifiée:  on connaît donc la solution mais on ne connaît pas l'EDP. On a la proposition suivante:
-\prop{    Pour tout $x\in\mathbb{R}$:
+\prop{Soit $u\in\cdot$ une solution classique de \eqref{edp}. Pour tout $x\in\mathbb{R}$:
   \begin{equation}\label{edp_sol}
-    f(x)=\fr^{-1}\pth{\frac{\dr_t\pth{\fr u_t(\xi)}}{\lambda\fr u_t(\xi)}+1}    
+    f(x)=\fr^{-1}\pth{\xi\mapsto\frac{\dr_t\pth{\fr u_t(\xi)}}{\lambda\fr u_t(\xi)}+1}    
   \end{equation}
 }
 
 \begin{proof}
-  En prenant la transformée de Fourier, on a:
+  En prenant la transformée de Fourier des deux côtés dans \eqref{edp}, on a:
 \[\mathcal{F}\pth{\dr_tu_t}(\xi)=\lambda \mathcal{F}f(\xi)\mathcal{F}{u_t}(\xi)-\lambda\mathcal{F}u_t(x)\]
 soit:
 \[\pth{\dr_t\mathcal{F}u_t}(\xi)=\lambda \mathcal{F}f(\xi)\mathcal{F}{u_t}(\xi)-\lambda\mathcal{F}u_t(x)\]
