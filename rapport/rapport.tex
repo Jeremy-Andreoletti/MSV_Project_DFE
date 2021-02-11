@@ -23,10 +23,9 @@
  \usepackage{lmodern}
  \usepackage{tikz}
  \usepackage{setspace}
- 
  \usepackage{slashed} % opérateur de Dirac
-
  \usepackage{mathrsfs} % jolies cursives (mathscr)
+ \usepackage{pdfpages} % inclusion de pdf
  
  % marge
  \newcommand{\marge}[1]{\usepackage[top=#1,bottom=#1+1cm,left=#1,right=#1]{geometry}}
@@ -148,24 +147,26 @@
 
 \maketitle
 
-\begin{abstract}
-  Le but du projet est d'estimer les effets des mutations sur la valeur sélective d'une bactérie.
-
-  Dans un premier temps, nous présentons le contexte général dans lequel se place le projet; nous parlons des expériences réalisées sur les données desquelles nous nous sommes basés. Nous présentons la modélisation mathématique et commençons à présenter l'interprétation de certains résultats.
-
-  Ensuite, nous 
-
-  Dans une troisième partie, nous proposons une première méthode pour trouver la distribution des effets des mutations sur la valeur sélective (DFE: distribution of fitness effects). Nous calculons des bornes sur l'erreur commise.
-
-  Enfin, nous proposons un autre point de vue, celui de considérer le processus comme la solution d'une EDP avec un terme intégral. Nous proposons quelques pistes de réflexion pour l'étude de cette EDP et sur l'aide qu'elle pourrait nous fournir pour le calcul de la DFE.
-
-\end{abstract}
+%\begin{abstract}
+%  Le but du projet est d'estimer les effets des mutations sur la valeur sélective d'une bactérie.
+%
+%  Dans un premier temps, nous présentons le contexte général dans lequel se place le projet; nous parlons des expériences réalisées sur les données desquelles nous nous sommes basés. Nous présentons la modélisation mathématique et commençons à présenter l'interprétation de certains résultats.
+%
+%  Ensuite, nous 
+%
+%  Dans une troisième partie, nous proposons une première méthode pour trouver la distribution des effets des mutations sur la valeur sélective (DFE: distribution of fitness effects). Nous calculons des bornes sur l'erreur commise.
+%
+%  Enfin, nous proposons un autre point de vue, celui de considérer le processus comme la solution d'une EDP avec un terme intégral. Nous proposons quelques pistes de réflexion pour l'étude de cette EDP et sur l'aide qu'elle pourrait nous fournir pour le calcul de la DFE.
+%
+%\end{abstract}
 
 \tableofcontents
 
 \newpage
 
 \section{Introduction}
+
+NOTE : pas oublier de préciser ce qu'on a fait nous et ce qu'on n'a pas fait nous.
 
 \subsection{Contexte}
 
@@ -179,9 +180,18 @@ Dans \cite{rob}, les auteurs ont réalisé deux expériences:
 
 \paragraph{Détails de l'expérience $\mu$MA}
 
+<<<<<<< HEAD
+
+
 \paragraph{Détails de l'expérience MV}
 
 
+
+=======
+\paragraph{Détails de l'expérience MV}
+
+
+>>>>>>> 260b819f5fa08195dd6d22e07efe377322dda103
 \subsection{Modélisation mathématique}
 
 \paragraph{Notations}
@@ -191,11 +201,19 @@ On se place dans le cadre de l'expérience $\mu$MA. Notons $W_t$ le taux de croi
 \end{equation}
 Enfin, on note $\lambda$ le taux de mutation, que l'on suppose constant.
 
+<<<<<<< HEAD
+\paragraph{Objectif} Le but du projet est de répondre au problème suivant:
+
+\boxed{
+  \begin{minipage}{0.9\linewidth}
+    \textbf{Énoncé du problème:} Estimer la loi des $s_i$ sachant \eqref{mod}, sachant que l'on peut mesurer expérimentalement $W_t$ et sachant que $N_t$ suit une loi de Poisson de paramètre $\lambda t$. Trouver une mesure pertinente pour exprimer l'erreur entre la loi estimée et la loi <<~réelle~>>.
+=======
 \paragraph{}Le but du projet est de répondre au problème suivant:
 
 \boxed{
   \begin{minipage}{0.9\linewidth}
     \textbf{Énoncé du problème:} Estimer la loi des $s_i$ sachant \eqref{mod}, sachant que l'on peut mesurer expérimentalement $W_t$ et sachant que $N_t$ suit une loi de Poisson de paramètre $\lambda t$.
+>>>>>>> 260b819f5fa08195dd6d22e07efe377322dda103
 \end{minipage}}
 
 
@@ -209,14 +227,21 @@ On fait les hypothèses suivantes sur les cellules:
 \item Les taux de croissance des cellules ne changent que à cause des mutations.
 \end{enumerate}
 
+<<<<<<< HEAD
+\req{L'hypothèse 1 permet de dire que la DFE, que l'on recherche, est bien définie. Dans la section suivante, on montre que l'hypothèse 2 est justifiée expérimentalement.}
+=======
 \reqs{
 \item L'hypothèse 1 permet de dire que la DFE, que l'on recherche, est bien définie;
 \item L'hypothèse 2 est justifiée par la section suivante.}
+>>>>>>> 260b819f5fa08195dd6d22e07efe377322dda103
 
 \subsection{Dynamique poisonnienne des mutations}
 
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 260b819f5fa08195dd6d22e07efe377322dda103
 \subsection{Tentative naïve pour déterminer la DFE}
 
 
@@ -232,6 +257,34 @@ On fait les hypothèses suivantes sur les cellules:
 \section{Problème des moments}
 
 \subsection{Détermination des moments}
+
+Dans cette section, nous allons donner une méthode permettant d'estimer les moments de la DFE, à partir des moments de la loi des $W_t$, $t\geqslant 0$.
+
+Définissons \[E_n(t)=\sum_{k=1}^n(-1)^k\binom{n}{k}\ln\pth{\Esp{W_t^k}}\]
+
+\prop{Pour $t\geqslant 0$ et $n\in\En$: \[E_n(t)=\pth{\lambda\Esp{S^n}}t\]}
+
+
+\begin{proof}
+  Tout d'abord, remarquons que:
+  \begin{align*}
+    \Esp{W_t^k}&=\Esp{\Esp{\prod_{i=1}^{N_t}(1-s_i)^k\kt N_t}}\\
+    &=\Esp{\Esp{(1-s)^k}^{N_t}}\\
+    &=e^{-\lambda t}\sum_{i=0}^{+\infty}\frac{\Esp{(1-s)^k}^i\lambda^i}{i!}\\
+    &=e^{-\lambda t}e^{\lambda t\Esp{(1-s)^k}}
+  \end{align*}
+  Maintenant, nous pouvons calculer:
+  \begin{align*}
+    E_n(t)&=\sum_{k=1}^n(-1)^k\binom{n}{k}\pth{-\lambda t+\lambda\Esp{(1-s)^k}}\\
+    &=\lambda t\sum_{k=1}^n\pth{(-1)^k\binom{n}{k}\sum_{l=1}^k(-1)^l\binom{k}{l}\Esp{s^l}}\\
+    &=\lambda t\sum_{l=1}^n\Esp{s^l}\pth{(-1)^k\sum_{k=l}^n(-1)^{k+l}\binom{n}{k}\binom{k}{l}}\\
+    &=\lambda t\sum_{l=1}^n\Esp{s^l}\pth{(-1)^k\binom{n}{l}\sum_{k=l}^n(-1)^{k+l}\binom{n-l}{k-l}}\\
+    &=\lambda t\Esp{s^n}
+  \end{align*}
+\end{proof}
+
+En traçant les fonctions $t\mapsto E_n(t)$ (que l'on est capable de calculer à partir des observations de l'expérience $\mu$MA), on devrait obtenir des droites dont les pentes seront directement reliées aux moments de la DFE par un facteur $\lambda$. Dans l'annexe \ref{}, nous montrons que \cite{rob} a obtenu des droites et nous expliquons comment les obtenir; nous estimons également, avec cette méthode, les moments de la DFE.
+
 
 \subsection{Estimation de la DFE}
 
@@ -529,12 +582,55 @@ On a donc deux expressions valables pour tout $t\in \Er_+$:
 
 Traçons ces deux fonctions de $t$ et vérifions qu'elles sont affines; si c'est le cas, leurs pentes nous donneront la partie réelle et la partie imaginaire de $a_{\xi}$.
 
+[ATTENDRE D'AVOIR DES RESULTATS COMPLETS POUR PRESENTER ICI DES DFE]
+
 \subsection{Lien avec un problème de fragmentation}
 
+\paragraph{Présentation du problème de fragmentation}
+Nous présentons ici une transformation de \eqref{edp} qui est étudiée dans \cite{md1}, \cite{md2} dans le cadre d'un problème de fragmentation. Un problème de fragmentation vise à étudier la distribution des tailles de cellules lors de divisions cellulaires successives. L'intérêt du problème réside dans le fait que les cellules ne se divisent pas toujours en leur milieu, mais plutôt en un point aléatoire.
+
+On note $k(x,y)$ la densité de probabilité pour une cellule de longeur $x$ de se diviser en une cellule de longueur $y$ et une cellule de longueur $x-y$. Le noyau de fragmentation $k$ vérifie alors \[k(x,y)=k(x,x-y)\esp \int_0^xk(x,y)\de y=1\]
+
+Un problème intéressant, par exemple, est de savoir si $k$ est bimodal ou non (\ie: si les cellules ont tendance à se diviser en deux cellules de tailles à peu près égales, ou bien si une cellule fille a tendance à être beaucoup plus grosse que l'autre).
+
+Ce modèle est très proche du nôtre: jusqu'à présent, les cellules changeaint de taux de croissance; maintenant, les cellules changent de taille.
+
+La seule véritable différence avec notre modèle est qu'une cellule se divise nécessairement en une cellule plus petite et une cellule plus grande; cependant, cette différence n'est pas fondamentale car il est tout à fait légitime de supposer que l'immense majorité des mutations sont délétères, ce qui revient à négliger les mutations bénéfiques.
+
+\paragraph{Mise en équation} 
+
+L'équation étudiée dans \cite{md1}, \cite{md2} est:
+\begin{equation}\label{edp_frag}
+\dr_tv(t,x)=\int_x^{+\infty}k\pth{\frac{x}{y}}v(t,y)\de y-v(t,x)
+\end{equation}
 
 
-\subsection{Temps court, temps long ?}
+\paragraph{Comparaison avec notre modèle}
 
+Maintenant, nous allons montrer que \eqref{edp_frag} est une version multiplicative de \eqref{edp}.  Considérons $v(t,\cdot)$ la densité de la loi de $W_t$ et $g$ la densité de $1-s$. Posons $x'=e^x$: on a alors $x'v(t,x')=u(t,x)$. Avec le changement de variable $y'=e^y$, on a:
+\begin{align*}
+  \dr_t(x'v(t,x'))
+  &=\lambda\int_{\Er}f(x-y)u(t,y)\de y-\lambda u(t,x)\\
+  %&=\lambda\int_{\Er_+}\frac{f(x-\ln y')}{y'}u(t,\ln(y'))\de y'-\lambda u(t,x)\\
+  &=\lambda\int_{\Er_+}\frac{1}{y'}f(\ln(x')-\ln(y'))u(t,\ln(y'))\de y'-\lambda u(t,x)\\
+  &=\lambda\int_{\Er_+}\frac{y'x'}{y'}g(x'/y')v\pth{t,y'}\de y'-\lambda\pth{x'v(t,x')}
+\end{align*}
+donc 
+\[\dr_tv(t,x')=\lambda\int_{\Er_+}g(y)v\pth{t,\frac{x'}{y}}\de y-\lambda v(t,x')\]
+ce qui est équivalent à \eqref{edp_frag}.
+
+\req{En réalité, \eqref{edp} est une somme car on a transformé le produit \eqref{mod} en somme en prenant le $\ln$.}
+
+
+\paragraph{Résultat en temps long} L'intérêt de comparer notre problème au problème de fragmentation étudié dans \cite{md1}, \cite{md2} est que ces articles ont obtenu des résultats sur le comportement en temps long des solutions. Dans notre cas précis, il est montré que la distribution des taux de croissance (ou des tailles de cellules) converge vers un Dirac en 0. 
+
+Malheureusement, nous ne pouvons pas exploiter ce résultat en temps long car le temps de l'expérience n'est pas assez <<~long~>> pour que l'on puisse affirmer que l'on observe un comportement asymptotique. Nous avons pu, tout de même, faire tourner nos simulations pendant très longtemps et constater que la distribution convergeait effectivement vers un Dirac en 0.
+
+Dans le cas où le taux de division \emph{dépend de la taille de la cellule} ($\lambda$ est de la forme $x^{\gamma}$, où $x$ est la taille de la cellule et $0<\gamma<1$), \cite{md2} montre que la distribution converge vers une distribution particulière, qui n'a aucune raison d'être un Dirac. Il y a donc une stationnarité qui apparaît. Ce résultat peut être intéressant dans le cas où nous aimerions faire évoluer notre modèle vers un modèle qui prendrait en compte le fait que les cellules lentes se divisent moins et donc mutent moins.
+
+
+%\subsection{Temps court, temps long ?}
+% du coup on n'aura sans doute pas le temps de traiter ça en détail.
 
 
 \begin{thebibliography}{1}
@@ -559,6 +655,9 @@ Traçons ces deux fonctions de $t$ et vérifions qu'elles sont affines; si c'est
 \appendix
 
 \section{Réplication des résultats}
+TEST INCLUSION DE PDF
+
+%\includepdf[pages=-]{Notebooks_tex/Replication_Moments_Estimation.pdf}
 
 \subsection{Dynamique poissonienne des mutations}
 
