@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.1.22)  11 FEB 2021 21:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.1.22)  20 FEB 2021 10:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1461,42 +1461,8 @@ Non-PDF special ignored!
 <special> ps:tx@Dict begin  gsave STV CP T /ps@refangle 0.  def grestore  e...
 Non-PDF special ignored!
 <special> ps:tx@Dict begin  gsave STV CP T /ps@rot 0 def grestore  end
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-
-LaTeX Warning: Citation `rob' on page 2 undefined on input line 175.
-
-
-LaTeX Warning: Reference `mod' on page 2 undefined on input line 203.
-
-[2] [3]
-
-LaTeX Warning: Reference `' on page 4 undefined on input line 262.
-
-
-LaTeX Warning: Citation `rob' on page 4 undefined on input line 262.
-
-[4]
-
-LaTeX Warning: Reference `dfe1' on page 5 undefined on input line 302.
-
-[5] [6] [7] [8] [9]
-
-LaTeX Warning: Reference `edp' on page 10 undefined on input line 453.
-
-
-LaTeX Warning: Reference `mod' on page 10 undefined on input line 459.
-
-[10]
-
-LaTeX Warning: Reference `edp' on page 11 undefined on input line 516.
-
-
-LaTeX Warning: Reference `edp' on page 11 undefined on input line 519.
-
-[11]
-
-LaTeX Warning: Reference `edp_sol' on page 12 undefined on input line 544.
-
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] [6]
+[7] [8] [9] [10] [11]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\hbox' on input line 544.
@@ -1517,93 +1483,74 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\@@italiccorr' on input line 544.
 
-
-LaTeX Warning: Reference `edp_sol' on page 12 undefined on input line 546.
-
-
-LaTeX Warning: Reference `edp' on page 12 undefined on input line 566.
-
-
-LaTeX Warning: Citation `md1' on page 12 undefined on input line 566.
-
-
-LaTeX Warning: Citation `md2' on page 12 undefined on input line 566.
-
-[12]
-
-LaTeX Warning: Citation `md1' on page 13 undefined on input line 578.
-
-
-LaTeX Warning: Citation `md2' on page 13 undefined on input line 578.
+[12] [13] [14]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 6
+35.
+ (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+<img/supmat_lines.png, id=271, 679.53876pt x 543.02875pt>
+File: img/supmat_lines.png Graphic file (type png)
+<use img/supmat_lines.png>
+Package pdftex.def Info: img/supmat_lines.png  used on input line 650.
+(pdftex.def)             Requested size: 203.8632pt x 162.90987pt.
+<img/supmat_slopes.png, id=274, 1286.8075pt x 501.875pt>
+File: img/supmat_slopes.png Graphic file (type png)
+<use img/supmat_slopes.png>
+Package pdftex.def Info: img/supmat_slopes.png  used on input line 657.
+(pdftex.def)             Requested size: 386.04523pt x 150.56366pt.
 
 
-LaTeX Warning: Reference `edp_frag' on page 13 undefined on input line 586.
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<img/supmat_moments.png, id=277, 954.56625pt x 253.94875pt>
+File: img/supmat_moments.png Graphic file (type png)
+<use img/supmat_moments.png>
+Package pdftex.def Info: img/supmat_moments.png  used on input line 664.
+(pdftex.def)             Requested size: 286.37209pt x 76.1852pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Reference `edp' on page 13 undefined on input line 586.
+LaTeX Warning: Citation `ref' on page 15 undefined on input line 673.
 
+[15 <./img/supmat_lines.png>] [16 <./img/supmat_slopes.png> <./img/supmat_momen
+ts.png>] [17] [18] (./rapport.aux)
+Package rerunfilecheck Info: File `rapport.out' has not changed.
+(rerunfilecheck)             Checksum: 6C07871BCB0D30A849CDEE6334E7D33B;1522.
 
-LaTeX Warning: Reference `edp_frag' on page 13 undefined on input line 596.
-
-
-LaTeX Warning: Reference `edp' on page 13 undefined on input line 598.
-
-
-LaTeX Warning: Reference `mod' on page 13 undefined on input line 598.
-
-
-LaTeX Warning: Citation `md1' on page 13 undefined on input line 601.
-
-
-LaTeX Warning: Citation `md2' on page 13 undefined on input line 601.
-
-[13]
-
-LaTeX Warning: Citation `md2' on page 14 undefined on input line 605.
-
-[14] [15] [16] (./rapport.aux)
-
-Package rerunfilecheck Warning: File `rapport.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `rapport.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  77417AB5423DE991A93E6C242D116F85;1506.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 30625 strings out of 479383
- 557314 string characters out of 5875830
- 966929 words of memory out of 5000000
- 46952 multiletter control sequences out of 15000+600000
- 511998 words of font info for 141 fonts, out of 8000000 for 9000
+ 30720 strings out of 479383
+ 558772 string characters out of 5875830
+ 967938 words of memory out of 5000000
+ 47029 multiletter control sequences out of 15000+600000
+ 515111 words of font info for 143 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,16n,112p,685b,1004s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dis
-t/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mat
+ 108i,16n,112p,1180b,1004s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/fo
+nts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mat
 hex.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-d
 ist/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf-dist/fonts/type1/public/
-lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/sha
-re/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf-dist/fonts/typ
-e1/public/lm/lmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi9.pfb><
-/usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fo
-nts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7
-.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf-di
-st/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf-dist/fonts/type1/public/l
-m/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/share
-/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/share/texmf-dist/fonts/type1/
-public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/am
-sfonts/symbols/msbm10.pfb>
-Output written on rapport.pdf (16 pages, 249188 bytes).
+lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/sh
+are/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/ty
+pe1/public/lm/lmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi7.pfb
+></usr/share/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/share/texmf-dist/
+fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lm
+r17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf
+-dist/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf-dist/fonts/type1/public/
+lm/lmri12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/sha
+re/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf-dist/fonts/type
+1/public/lm/lmsy9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><
+/usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/shar
+e/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on rapport.pdf (18 pages, 980977 bytes).
 PDF statistics:
- 238 PDF objects out of 1000 (max. 8388607)
- 202 compressed objects within 3 object streams
- 89 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 391 PDF objects out of 1000 (max. 8388607)
+ 344 compressed objects within 4 object streams
+ 97 named destinations out of 1000 (max. 500000)
+ 196 words of extra memory for PDF output out of 10000 (max. 10000000)
 

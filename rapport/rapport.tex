@@ -232,7 +232,7 @@ On fait les hypothèses suivantes sur les cellules:
 
 \section{Problème des moments}
 
-\subsection{Détermination des moments}
+\subsection{Détermination des moments}\label{ss:det_mom}
 
 Dans cette section, nous allons donner une méthode permettant d'estimer les moments de la DFE, à partir des moments de la loi des $W_t$, $t\geqslant 0$.
 
@@ -259,7 +259,7 @@ Définissons \[E_n(t)=\sum_{k=1}^n(-1)^k\binom{n}{k}\ln\pth{\Esp{W_t^k}}\]
   \end{align*}
 \end{proof}
 
-En traçant les fonctions $t\mapsto E_n(t)$ (que l'on est capable de calculer à partir des observations de l'expérience $\mu$MA), on devrait obtenir des droites dont les pentes seront directement reliées aux moments de la DFE par un facteur $\lambda$. Dans l'annexe \ref{}, nous montrons que \cite{rob} a obtenu des droites et nous expliquons comment les obtenir; nous estimons également, avec cette méthode, les moments de la DFE.
+En traçant les fonctions $t\mapsto E_n(t)$ (que l'on est capable de calculer à partir des observations de l'expérience $\mu$MA), on devrait obtenir des droites dont les pentes seront directement reliées aux moments de la DFE par un facteur $\lambda$. Dans l'annexe \ref{ann:slopes}, nous montrons que \cite{rob} a obtenu des droites et nous expliquons comment les obtenir; nous estimons également, avec cette méthode, les moments de la DFE.
 
 
 \subsection{Estimation de la DFE}
@@ -461,8 +461,8 @@ D'après \eqref{mod}, on a, tant que $W_t>0$: \[\ln W_t=\sum_{i=1}^{N_t}\ln(1-s_
 On fait les deux hypothèses suivantes:
 \begin{enumerate}
 \item Pour tout $t>0$, la loi de $\ln W_t$ peut s'écrire:
-  \[m(t)\delta_{\-\infty}+u(t,\cdot)\]
-  où $m(t)$ représente la probabilité qu'une cellule soit morte au temps $t$ et $u(t,\cdot)\in C^{\infty}(\Er)$;
+  \[m(t)\delta_{-\infty}+u(t,\cdot)\]
+  où $m(t)$ représente la probabilité qu'une cellule soit morte au temps $t$ et $u(t,\cdot)\in C^{\infty}(\Er)$ est la densité de la loi de $\ln W_t$ en omettant les cellules mortes: ainsi, $\int_{\Er}u(t,\cdot)=1-m(t)$;
 \item La loi de $\ln (1-S)$ peut s'écrire:
   \[\mu\delta_{-\infty}+f(\cdot)\]
   où $\mu$ est le taux de mutations létales et $f(\cdot)
@@ -503,13 +503,13 @@ On veut vérifier que cette EDP est crédible. Pour cela, on peut par exemple v�
     &=\lambda\int_{\Er}f(y)\pth{\int_{\Er}u(t,x-y)\de x-\int_{\Er}u(t,x)\de x}\de y-\lambda\mu\int_{\Er}u(t,x)\de x\\
     &=-\lambda\mu\int_{\Er}u(t,x)\de x=-\lambda\mu t
 \end{align*}
-ce qui donne, comme prévu:
+ce qui donne, comme prévu, une décroissance malthusienne au taux $\lambda\mu$ (taux de mutation $\times$ proportion de mutations létales) du nombre total de cellules:
 \[N(t)=e^{-\lambda\mu t}N(0)\]
 
 \paragraph{Estimation de la DFE}
 
 On peut mesurer $u$ et on aimerait estimer $f$, en sachant que l'EDP ci-dessus est vérifiée:  on connaît donc la solution mais on ne connaît pas l'EDP. On a la proposition suivante:
-\prop{Soit $u\in\cdot$ une solution classique de \eqref{edp}. Pour tout $x\in\mathbb{R}$:
+\prop{Supposons que $f\in$. Soit $u\in\cdot$ une solution classique de \eqref{edp}. Pour tout $x\in\mathbb{R}$:
   \begin{equation}\label{edp_sol}
     f(x)=\fr^{-1}\pth{\xi\mapsto\frac{\dr_t\pth{\fr u_t(\xi)}}{\lambda\fr u_t(\xi)}+1}    
   \end{equation}
@@ -602,7 +602,7 @@ ce qui est équivalent à \eqref{edp_frag}.
 
 Malheureusement, nous ne pouvons pas exploiter ce résultat en temps long car le temps de l'expérience n'est pas assez <<~long~>> pour que l'on puisse affirmer que l'on observe un comportement asymptotique. Nous avons pu, tout de même, faire tourner nos simulations pendant très longtemps et constater que la distribution convergeait effectivement vers un Dirac en 0.
 
-Dans le cas où le taux de division \emph{dépend de la taille de la cellule} ($\lambda$ est de la forme $x^{\gamma}$, où $x$ est la taille de la cellule et $0<\gamma<1$), \cite{md2} montre que la distribution converge vers une distribution particulière, qui n'a aucune raison d'être un Dirac. Il y a donc une stationnarité qui apparaît. Ce résultat peut être intéressant dans le cas où nous aimerions faire évoluer notre modèle vers un modèle qui prendrait en compte le fait que les cellules lentes se divisent moins et donc mutent moins.
+Dans le cas où le taux de division \emph{dépend de la taille de la cellule} ($\lambda$ est de la forme $x^{\gamma}$, où $x$ est la taille de la cellule et $0<\gamma<1$), \cite{md2} montre que la distribution converge vers une distribution particulière, qui n'est pas forcément un Dirac. Il y a donc une stationnarité qui apparaît. Ce résultat peut être intéressant dans le cas où nous aimerions faire évoluer notre modèle vers un modèle qui prendrait en compte le fait que les cellules qui croissent lentement ont un métabolisme plus lent et, par conséquent, subissent moins de mutations.
 
 
 %\subsection{Temps court, temps long ?}
@@ -630,19 +630,65 @@ Dans le cas où le taux de division \emph{dépend de la taille de la cellule} ($
 
 \appendix
 
-\section{Réplication des résultats}
-TEST INCLUSION DE PDF
+\section{Annexe: Présentation des résultats}
 
+Nous avons répliqué certains résultats dans des notebooks disponibles sur \url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE}.
+%TEST INCLUSION DE PDF
 %\includepdf[pages=-]{Notebooks_tex/Replication_Moments_Estimation.pdf}
 
 \subsection{Dynamique poissonienne des mutations}
 
-\subsection{Calcul des premiers moments}
+\subsection{Calcul des premiers moments}\label{ann:slopes}
+
+\paragraph{Commentaires sur les figures} La figure \ref{lines}, tirée de \cite{rob}, présente des graphes de $E_n(t)$. Dans \ref{ss:det_mom}, on a démontré que l'on s'attendait à obtenir des droites de pente $\lambda\Esp{S^n}$: les droites que l'on obtient sont très satisfaisantes. On peut effectuer à partir des ces droites des régressions linéaires pour estimer  les pentes $\lambda\Esp{S^n}$ de ces droites. Les résultats obtenus dans \cite{rob} sont présentés dans le tableau \ref{slopes} pour un nombre plus grand de souches et de moments. Enfin, le tableau \ref{moments} présente des estimations de la moyenne, de l'écart-type, du coefficient d'asymétrie et de la kurtosis pour les DFE de trois souches (\emph{mutH}, \emph{mutT}, \textbf{MF1}). Ces moments particuliers permettent d'obtenir des indices qualitatifs sur la forme des DFE: par exemple, comme le coefficient d'asymétrie et la kurtosis sont très élevés, on s'attend à ce que les DFE soient très piquées et très asymétriques, \ie: très peu de mutations sont très délétères, la plupart des mutations sont quasiment neutres.
+
+
+
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[scale=0.3]{img/supmat_lines.png}
+  \end{center}
+  \caption{\label{lines}Graphes de $t\mapsto E_n(t)$ pour $n=1,2,3,4$, obtenus dans \cite{rob}, pour les souches WT (en bleu foncé) et \emph{MutH} (en bleu clair). Les droites correspondent aux régressions linéaires effectuées.}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[scale=0.3]{img/supmat_slopes.png}
+  \end{center}
+  \caption{\label{slopes}Pentes obtenues dans \cite{rob} pour les 10 premiers moments sur les souches \emph{mutH} (trois expériences), \emph{mutT}, \textbf{MF1}, \textbf{WT} (trois expériences).}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[scale=0.3]{img/supmat_moments.png}
+  \end{center}
+  \caption{\label{moments}Estimations obtenues dans \cite{rob} de la moyenne, de l'écart-type, du coefficient d'asymétrie et de la kurtosis pour les DFE de trois souches (\emph{mutH}, \emph{mutT}, \textbf{MF1})}
+\end{figure}
+
+
+
+\paragraph{Traitement initial des données}
+
+Les données obtenues dans l'expérience $\mu$MA sont très bruitées. Nous indiquons ici les transformations que les auteurs de \cite{ref} ont effectuées sur ces données afin d'obtenir des résultats corrects:
+\begin{itemize}
+\item Sélection des cellules qui sont encore vivantes à la $44^e$ heure. En effet, les cellules qui croissent très lentement ou qui sont mortes induisent du bruit dans l'estimation de la DFE. Nous avons pu vérifier que le conditionnement effectué (<<~on suppose que la cellule ne meurt pas au cours de l'expérience~>>) n'induit pas de biais majeur dans l'estimation des moments;
+\item Pour éviter les erreurs d'analyse d'image, les taux de croissances des lignées ayant un taux de croissance très faible (inférieur à $0.015$) ont été vérifiés visuellement;
+\item L'analyse d'image peut créer des valeurs aberrantes. Ces valeurs aberrantes ont été supprimées ainsi: si une valeur au temps $t$ diffère d'au moins $30\%$ de la médiane des valeurs prises avant le temps $t$, et diffère d'au moins $30\%$ de la médiane des valeurs prises après le temps $t$, alors ont supprime cette valeur.
+\end{itemize}
+
+
+\paragraph{Prise en compte du bruit multiplicatif}
+
+Les auteurs de \cite{rob} on montré que, en supposant que le bruit sur la mesure des taux de croissance est multiplicatif, alors la pente de $E_n(t)$ n'est pas modifiée par le bruit. Un bruit purement multiplicatif n'influence donc pas l'estimation des moments. Plus précisément, notons $W'_{t_i}$ le taux de croissance mesuré au temps $t_i$, et $W_{t_i}$ le taux de croissance réel au tems $t_i$. L'hypothèse du bruit multiplicatif suppose que $W'_{t_i}=W_{t_i}(1+\varepsilon_i)$ où les $\varepsilon_i$, $i\in\En$ sont des variables aléatoires indépendantes, identiquement distribuées, et indépendantes des $W_t$. On a:
+\[\ln\Esp{W'_{t_i}}=\Esp{W_{t_i}}+\Esp{1+\varepsilon_i}=\Esp{W_{t_i}}+\Esp{1+\varepsilon}\]
+ce qui fait que l'estimation $E'_n(t)$ que l'on fait de $E_n(t)$ diffère de $E_n(t)$ d'un terme indépendant de $t$. Ainsi, l'ordonnée à l'origine de la droite est modifiée mais pas sa pente.
+
 
 
 \newpage
 
-\section{Simulation}
+\section{Annexe: Simulation}
 
 
 

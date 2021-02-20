@@ -39,7 +39,10 @@
 \contentsline {paragraph}{Comparaison avec notre modèle}{13}{section*.22}%
 \contentsline {paragraph}{Remarque.}{14}{section*.23}%
 \contentsline {paragraph}{Résultat en temps long}{14}{section*.24}%
-\contentsline {section}{\numberline {A}Réplication des résultats}{15}{appendix.A}%
+\contentsline {section}{\numberline {A}Annexe: Présentation des résultats}{15}{appendix.A}%
 \contentsline {subsection}{\numberline {A.1}Dynamique poissonienne des mutations}{15}{subsection.A.1}%
 \contentsline {subsection}{\numberline {A.2}Calcul des premiers moments}{15}{subsection.A.2}%
-\contentsline {section}{\numberline {B}Simulation}{16}{appendix.B}%
+\contentsline {paragraph}{Commentaires sur les figures}{15}{section*.26}%
+\contentsline {paragraph}{Traitement initial des données}{15}{section*.27}%
+\contentsline {paragraph}{Prise en compte du bruit multiplicatif}{16}{section*.28}%
+\contentsline {section}{\numberline {B}Annexe: Simulation}{18}{appendix.B}%
