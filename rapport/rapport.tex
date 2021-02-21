@@ -170,21 +170,47 @@ NOTE : pas oublier de préciser ce qu'on a fait nous et ce qu'on n'a pas fait no
 
 \subsection{Contexte}
 
+La génétique des traits quantitatifs \cite{mac} est l'étude des phénotypes qui sont modulés génétiquement par un très grand nombre de loci à faible effets, et plus spécifiquement des liens entre variations génotypiques à ces loci et variations phénotypiques des traits associés. Bien comprendre ces mécanismes est essentiel non seulement en médecine humain, afin de prédire les risques de certaines maladies génétiques et mettre au point des traitements individuels, mais aussi en agriculture, afin de guider les programme de sélection artificielle de plantes ou animaux domestiques. Et un élément important de ce processus est d'être capable de prédire les effets sur la fitness de chaque nouvelle mutation -- par exemple on s'attend à avoir beaucoup de mutations faiblement délétères et peu de mutations avantageuses ou fortement délétères -- et dans l'idéal avoir accès à une distribution de probabilité complète de ces effets, que l'on appellera à partir de maintenant la \textbf{DFE = Distribution of Fitness Effects}.
+
+\begin{centering}
+	\vspace{3mm}
+	\includegraphics[scale=0.25]{../Img/DFE_phage_2010.jpg}
+	\vspace{3mm}
+\end{centering} 
+
+Le point de départ de ce projet est un article de Lydia Robert \textit{et al.} \cite{rob} dont l'objectif est justement d'aider à comprendre l’impact des mutations sur la fitness. En particulier, les auteur.ice.s ont mis au point un protocole permettant pour la première fois de suivre en temps réel les dynamiques d’apparition des mutations et de croissance-fragmentation chez \textit{Escherichia coli}. Dans les expériences classiques d’accumulation de mutations dans des colonies bactériennes, les observations sont moyennées sur plusieurs générations, induisant des biais par l’effet de la sélection naturelle éliminant les mutations trop délétères, voire létales, et par le nombre limité de lignées pouvant être suivies. 
+
 \subsection{Expériences}
 
-Dans \cite{rob}, les auteurs ont réalisé deux expériences: 
+Dans l'article de Lydia Robert \textit{et al.} \cite{rob} sont présentées 2 types d'expériences dépassant une partie de ces limitations, en se basant sur l'observation de bactéries piégées dans 1000 micro-canaux d'une puce micro-fluidique :
 \begin{enumerate}
-\item $\mu$MA (microfluidic mutation accumulation): le but de cette expérience est de suivre l'évolution des taux de croissance de cellules sur de nombreuses générations et en supprimant les effets de la sélection naturelle;
-\item MV (mutation visualization): le but de cette expérience est de repérer les mutations lorsqu'elles se produisent.
+\item \textbf{microfluidic Mutation Accumulation ($\mu$MA) experiment} : Suivi du taux d'élongation (proxy de la fitness) des bactéries sur de nombreuses générations en supprimant les effets de la sélection naturelle. 
+\item \textbf{Mutation Visualization (MV) experiment} : Détection en temps réel des mutation apparaissant dans l'ADN bactérien;
 \end{enumerate}
 
 \paragraph{Détails de l'expérience $\mu$MA}
 
+Dans cette expérience les bactéries sont placées dans une \emph{Mother Machine} dans laquelle $\sim1500$ cellules-mères vont se multiplier dans des micro-canaux individuels, leurs descendantes étant évacuées au fur et à mesure. En observant ces cellules au cours du temps, comme représenté dans la figure ci-dessous tirée de l'article, on peut ainsi reconstruire l'évolution des taux de croissance sur plusieurs générations et essayer d'extraire la part de ses variations dues à l'apparition de mutations.
 
+\begin{centering}
+	\vspace{3mm}
+	\includegraphics[scale=0.5]{../Img/Schema_microMA.png}
+	\vspace{3mm}
+\end{centering} 
+
+Le dispositif élimine bien totalement la sélection naturelle puisque même les cellules-mères mortes suite à des mutations létales sont conservées.
 
 \paragraph{Détails de l'expérience MV}
 
+Dans cette expérience, on se place toujours dans la \emph{Mother Machine} et on observe par fluorescence l'apparition de mismatchs entre paires de nucléotides dus à des erreurs de réplication de l'ADN (via l'insertion d'un rapporteur YFP-MutL). En prenant des mutants (\emph{MutH}, \emph{MutT}) dont le système de réparation est dysfonctionnel, on obtient alors que tout mismatch donne une mutation donc les observations correspondent bien à l'apparition de mutations.
 
+\begin{centering}
+	\vspace{3mm}
+	\includegraphics[scale=0.6]{../Img/Schema_MV.png}
+	\vspace{3mm}
+\end{centering} 
+
+À partir de ces expériences plusieurs questions sont posées dans l'article : Est-ce que les mutations sont ponctuelles (dynamique d'apparition poissonnienne) ou arrivent groupées ? Est-ce que les baisses soudaines du taux de croissance sont dues à l’arrivée de mutations délétères isolées ou bien à une accumulation de mutations en interaction ? Quelle est la dynamique d’apparition de mutations létales ? Et surtout pour le problème qui nous intéresse, peut-on inférer la DFE ?
 
 \subsection{Modélisation mathématique}
 
@@ -217,6 +243,21 @@ On fait les hypothèses suivantes sur les cellules:
 
 \subsection{Dynamique poisonnienne des mutations}
 
+Afin de tester expérimentalement l'hypothèse d'apparition poissonnienne des mutations, les auteur.ice.s ont évalué les intervalles de temps $\delta$ entre 2 apparitions de mutations dans l'expérience de MV, ces intervalles définissant un processus de Poisson s'ils suivent une distribution exponentielle et si leurs longueurs sont indépendantes 2 à 2 (et en particulier d'un interval $\delta_n$ au suivant $\delta_{n+1}$. Et effectivement ces deux critères sont vérifiés, ainsi que présenté dans la figure ci-dessous (en corrigeant la distribution attendue pour des observations discontinues toutes les 4 minutes). Nous avons répliqué ces résultats dans le notebook \emph{I4\_Replication\_Dynamique-apparition-mutations}.
+
+\begin{centering}
+	\vspace{3mm}
+	\includegraphics[scale=0.5]{../Img/Interarrival_times.png}
+	\vspace{3mm}
+\end{centering} 
+
+De même, on peut vérifier avec la seconde expérience ($\mu$MA) que les mutations létales suivent une dynamique semblable. Cela n'est pas évident a priori si on imagine que certaines mutations ont plus de chance d'être létales si la cellule a déjà accumulé précédemment des mutation délétères dans des voies partiellement redondants qui ne peuvent donc plus compenser une nouvelle perte de fonction. Mais ce n'est pas ce que l'on observe empiriquement, puisque les courbes de survie suivent une courbe exponentielle (droites dans les affichages log ci-dessous tirés du même notebook). On remarque aussi phénomène de sénescence des cellules commence à émerger, bien visible à partir de $\sim$40 heures chez la souche sauvage \emph{WT} qui a peu de mutation, qui peut être corrigé en divisant par le taux de croissance des cellules WT (de taux d'apparition de mutations létales très faible). Seule la souche MF1 semble s'écarter légèrement d'une trajectoire exponentielle.
+
+\begin{centering}
+	\vspace{3mm}
+	\includegraphics[scale=0.3]{../Img/Survival.png}
+	\vspace{3mm}
+\end{centering} 
 
 \subsection{Tentative naïve pour déterminer la DFE}
 
@@ -611,6 +652,9 @@ Dans le cas où le taux de division \emph{dépend de la taille de la cellule} ($
 
 \begin{thebibliography}{1}
 
+\bibitem{mac}
+  Trudy F. C. Mackay, Eric A. Stone, Julien F. Ayroles,
+  \emph{The genetics of quantitative traits: challenges and prospects}, Nature Reviews Genetics, 565–577, 2009
 \bibitem{rob}
   Robert et al.,
   \emph{Mutation dynamics and fitness effects followed in single cells}, Science 359, 1283–1286, 16 March 2018
