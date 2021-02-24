@@ -26,6 +26,8 @@
  \usepackage{slashed} % opérateur de Dirac
  \usepackage{mathrsfs} % jolies cursives (mathscr)
  \usepackage{pdfpages} % inclusion de pdf
+ \usepackage{placeins} % barrières figures flottantes
+  \usepackage{media9} % vidéos
  
  % marge
  \newcommand{\marge}[1]{\usepackage[top=#1,bottom=#1+1cm,left=#1,right=#1]{geometry}}
@@ -164,6 +166,7 @@
 
 \newpage
 
+\FloatBarrier
 \section{Introduction}
 
 NOTE : pas oublier de préciser ce qu'on a fait nous et ce qu'on n'a pas fait nous.
@@ -176,7 +179,6 @@ La génétique des traits quantitatifs \cite{mac} est l'étude des phénotypes q
  \begin{center}
 	\vspace{3mm}
 	\includegraphics[scale=0.25]{../Img/DFE_phage_2010.jpg}
-	\vspace{3mm}
 \end{center} 
   \caption{}
 \end{figure}
@@ -199,7 +201,6 @@ Dans cette expérience, les bactéries sont placées dans une \emph{Mother Machi
   \begin{center}
     \vspace{3mm}
     \includegraphics[scale=0.4]{../Img/Schema_microMA.png}
-    \vspace{3mm}
   \end{center} 
   \caption{\label{fig:microMA}}
 \end{figure}
@@ -208,15 +209,14 @@ Le dispositif élimine totalement la sélection naturelle, puisque même les cel
 
 \paragraph{Détails de l'expérience MV}
 
-Dans cette expérience, on se place toujours dans la \emph{Mother Machine} et on observe par fluorescence l'apparition d'erreurs d'appariement entre paires de nucléotides dues à des erreurs de réplication de l'ADN (via l'insertion d'un rapporteur YFP-MutL). En prenant des mutants (\emph{MutH}, \emph{MutT}) dont le système de réparation est dysfonctionnel, on s'assure que toute erreur d'appariement donne une mutation. Les apparitions de taches fluorescentes correspondent donc bien à l'apparition d'une mutation.
+Dans cette expérience, on se place toujours dans la \emph{Mother Machine} et on observe par fluorescence (Fig. \ref{fig:MV}) l'apparition d'erreurs d'appariement entre paires de nucléotides dues à des erreurs de réplication de l'ADN (via l'insertion d'un rapporteur YFP-MutL). En prenant des mutants (\emph{MutH}, \emph{MutT}) dont le système de réparation est dysfonctionnel, on s'assure que toute erreur d'appariement donne une mutation. Les apparitions de taches fluorescentes correspondent donc bien à l'apparition d'une mutation.
 
 \begin{figure}[h]
   \begin{center}
     \vspace{3mm}
     \includegraphics[scale=0.5]{../Img/Schema_MV.png}
-    \vspace{3mm}
-  \end{center} 
-  \caption{}
+  \end{center}
+  \caption{\label{fig:MV}}
 \end{figure}
 
 À partir de ces expériences, plusieurs questions sont posées dans l'article : est-ce que les mutations sont ponctuelles (dynamique d'apparition poissonnienne) ou arrivent groupées ? Est-ce que les baisses soudaines du taux de croissance sont dues à l’arrivée de mutations délétères isolées ou bien à une accumulation de mutations en interaction ? Quelle est la dynamique d’apparition de mutations létales ? Et surtout, pour le problème qui nous intéresse: peut-on inférer la DFE ?
@@ -258,19 +258,16 @@ Afin de tester expérimentalement l'hypothèse d'apparition poissonnienne des mu
   \begin{center}
     \vspace{3mm}
     \includegraphics[scale=0.5]{../Img/Interarrival_times.png}
-    \vspace{3mm}
-  \end{center}
-  
+  \end{center}  
   \caption{\label{fig:iatime}}
 \end{figure}
 
-De même, on peut vérifier avec la seconde expérience ($\mu$MA) que les mutations létales suivent une dynamique semblable. Cela n'est pas évident, a priori, si l'on imagine que certaines mutations ont plus de chances d'être létales si la cellule a déjà accumulé précédemment des mutation délétères dans des voies partiellement redondantes qui ne peuvent donc plus compenser une nouvelle perte de fonction. Empiriquement, on observe que les courbes de survie suivent une courbe exponentielle (voir la figure \label{fig:survival}). On remarque aussi qu'un phénomène de sénescence des cellules commence à émerger, bien visible à partir d'environ 40 heures chez la souche sauvage \emph{WT} qui a peu de mutations. Le phénomène de sénescence peut être corrigé en divisant par le taux de croissance des cellules WT (de taux d'apparition de mutations létales très faible). Seule la souche MF1 semble s'écarter légèrement d'une trajectoire exponentielle.
+De même, on peut vérifier avec la seconde expérience ($\mu$MA) que les mutations létales suivent une dynamique semblable. Cela n'est pas évident, a priori, si l'on imagine que certaines mutations ont plus de chances d'être létales si la cellule a déjà accumulé précédemment des mutation délétères dans des voies partiellement redondantes qui ne peuvent donc plus compenser une nouvelle perte de fonction. Empiriquement, on observe que les courbes de survie (Fig. \ref{fig:survival}) suivent une courbe exponentielle (voir la figure \label{fig:survival}). On remarque aussi qu'un phénomène de sénescence des cellules commence à émerger, bien visible à partir d'environ 40 heures chez la souche sauvage \emph{WT} qui a peu de mutations. Le phénomène de sénescence peut être corrigé en divisant par le taux de croissance des cellules WT (de taux d'apparition de mutations létales très faible). Seule la souche MF1 semble s'écarter légèrement d'une trajectoire exponentielle.
 
 \begin{figure}[h]
   \begin{center}
     \vspace{3mm}
     \includegraphics[scale=0.3]{../Img/Survival.png}
-    \vspace{3mm}
   \end{center} 
   \caption{\label{fig:survival}}
 \end{figure}
@@ -278,16 +275,80 @@ De même, on peut vérifier avec la seconde expérience ($\mu$MA) que les mutati
 
 \subsection{Tentative naïve pour déterminer la DFE}
 
+Nous avons essayé d'observer directement les variations des taux de croissance dues aux effets combinés des mutations et de la stochasticité des mesures, et si possible corriger cette dernière afin d'obtenir une estimation directe de la DFE. Toutes ces tentatives sont présentées dans le notebook \emph{I5\_DFE-directe\_Sauts-taux-de-croissance}.
 
+Comme présenté en Annexe, nous nous basons sur le modèle de bruit multiplicatif justifié dans l'article.
+Notons $W_\varepsilon$ le taux de croissance mesuré et $W$ le taux de croissance réel au temps $t$. L'article montre la pertinence de se baser sur une hypothèse de bruit multiplicatif : on suppose que $W_\varepsilon=W(1+\varepsilon)$ où les $\varepsilon$, $i\in\mathbb N$ sont des variables aléatoires indépendantes, identiquement distribuées, et indépendantes des $W$. On peut alors exprimer les effets relatifs de la fitness bruités $s_\varepsilon$, avec $W_\varepsilon'$ la mesure de fitness au temps $t'$ suivant :
 
+$$s_\varepsilon=\frac{W_\varepsilon - W_\varepsilon'}{W_\varepsilon} 
+= \frac{W(1+\varepsilon) - W'(1+\varepsilon')}{W(1+\varepsilon)}
+= 1 - \frac{W'}{W}\frac{1+\varepsilon'}{1+\varepsilon}$$
+$$1 - s_\varepsilon \sim \frac{W'}{W}(1+\varepsilon'-\varepsilon)
+= \prod_{i=0}^{N_{t'-t}}(1-s_i)(1+ \varepsilon'-\varepsilon)$$
 
+Commençons par regarder les distributions de variations relatives des taux de croissance pour les différentes souches de bactéries (Fig. \ref{fig:VarRel}). Ces distributions de variations relatives de taux de croissance ne sont pas non plus normales, ni même symétrique si on superpose les 2 moitiés (verte et rouge).
+
+\begin{figure}[!h]
+  \begin{center}
+    \vspace{3mm}
+    \includegraphics[scale=0.3]{../Img/Variations_relatives_GR.png}
+  \end{center} 
+  \caption{\label{fig:VarRel}}
+\end{figure}
+
+Plus le taux de mutation est faible (WT $<$ MutH $\simeq$ MutT $<$ WT) plus la distribution des sauts relatifs de croissance est étalée. La part du bruit devient plus importante que celle du signal.
+
+Malheureusement, les diverses tentatives subséquentes de retirer la distribution WT (quasiment uniquement du bruit) aux autres distributions, ou de faire des régressions pour des taux de mutations croissants se sont avérées être des échecs. Cela confirme la nécessité de faire appel à des outils mathématiques plus poussés afin de reconstruire la DFE.
+
+\FloatBarrier
 \section{Simulations et tâtonnements}
 
+Nous avons voulu réaliser des simulations aussi proches que possible de l'expérience réelle, en prenant en compte à la fois les mutations impactant les taux de croissance selon une DFE, la croissance des bactéries et le bruit des mesures. Les fonctions et animations associées sont présentées dans le notebook \emph{II1\_Simulations}.
+
 \subsection{Simulations}
+
+\begin{figure}[!h]
+  \begin{center}
+    \vspace{3mm}
+    \includegraphics[scale=0.5]{../Img/Simulations.png}
+  \end{center} 
+  \caption{\label{fig:simulations}}
+\end{figure}
+
+Afin d'être les plus réalistes possibles, nos simulations suivent les étapes suivantes (voir Fig. \ref{fig:simulations}) :
+\begin{itemize}
+	\item Les taux de croissance sont initialisés avec ceux mesurés dans l'expérience (médiane des 10 premières valeurs);
+	\item Une DFE est tirée dans un mélange de distributions au choix. Dans notre cas nous avons pris la distribution Beta inférée dans l'article plus un Dirac en 1 permettant d'incorporer des mutations létales;
+	\item Les effets $s$ des mutations sur la fitness sont tirées dans cette DFE pour chacun des 1476 canaux de l'expérience et grand nombre de mutations;
+	\item L'évolution du taux de croissance, mutation par mutation, est déduite des effets relatifs cumulés des mutations à partir des taux de croissance initiaux;
+	\item Les durées entre 2 mutations sont tirées dans une loi exponentielle de paramètre le taux de mutation, qui peut être au choix constant dans le temps et entre les cellules ou décroissant avec le taux de croissance (le cycle cellulaire et la réplication étant ralentis);
+	\item À partir des temps d'apparition de chaque mutation on peut ne conserver que celles qui arrivent avant la fin de l'expérience (4000 minutes) et calculer l'évolution du taux de croissance, cette fois au cours du temps;
+	\item Enfin, le résultats est renvoyé en rajoutant ou non un bruit Gaussien multiplicatif à chaque mesure, bruit ensuite moyenné sur chaque génération de bactérie comme indiqué dans l'article, en supposant que les bactéries se divisent dès qu'elles ont doublé de taille(bien qu'un modèle de division incrémental serait plus réaliste).
+\end{itemize}
+
+\begin{figure}[!h]
+  \begin{center}
+    \vspace{3mm}
+    \includemedia[width=\linewidth, height=0.34\linewidth, 
+    activate=pageopen,  passcontext,  transparent,  keepaspectratio,
+    addresource=../Video/GrowthRates_noisySimulations_VS_observations.mp4,  flashvars={source=../Video/GrowthRates_noisySimulations_VS_observations.mp4
+                  &autoPlay=true
+                  &loop=true}]{}{VPlayer.swf}
+    \includemedia[width=\linewidth, height=0.34\linewidth, 
+    activate=pageopen,  passcontext,  transparent,  keepaspectratio,
+    addresource=../Video/GrowthRates_noisySimulationsInterval_VS_observations.mp4,  flashvars={source=../Video/GrowthRates_noisySimulationsInterval_VS_observations.mp4
+                  &autoPlay=true
+                  &loop=true}]{}{VPlayer.swf}
+  \end{center} 
+  \caption{\label{fig:animations}}
+\end{figure}
+
+Les animations présentées ici (Fig. \ref{fig:animations}) représentent l'évolution au cours du temps de la distribution des taux de croissance, en comparant les simulations aux données empirique, avec pour la seconde un intervalle des valeurs simulées sur 100 réplications. On observe que l'évolution de la distribution simulée est au début assez proche de celle observée, mais à la fin les deux divergent, probablement à cause de la DFE non adaptée (pas de mutations avantageuses, trop peu de mutations fortement délétères) et surtout le début de la sénescence des cellules après 40h.
 
 \subsection{Commentaire}
 
 
+\FloatBarrier
 \section{Problème des moments}
 
 \subsection{Détermination des moments}\label{ss:det_mom}
@@ -503,7 +564,7 @@ Nous pouvons faire les remarques et les commentaires suivants:
 L'objectif de la partie suivante est de présenter une nouvelle méthode pour estimer la DFE.
 
 
-
+\FloatBarrier
 \section{Étude d'une EDP}
 
 Dans cette partie, nous présentons une modélisation du problème par une EDP sur la densité de la loi de $\ln W_t$. D'après l'EDP, nous aurons une expression explicite de la loi de $\ln (1-S)$.
@@ -691,6 +752,7 @@ Dans le cas où le taux de division \emph{dépend de la taille de la cellule} ($
 
 \appendix
 
+\FloatBarrier
 \section{Annexe: Présentation des résultats}
 
 Nous avons répliqué certains résultats dans des notebooks disponibles sur \url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE}.
@@ -749,6 +811,7 @@ ce qui fait que l'estimation $E'_n(t)$ que l'on fait de $E_n(t)$ diffère de $E_
 
 \newpage
 
+\FloatBarrier
 \section{Annexe: Simulation}
 
 
