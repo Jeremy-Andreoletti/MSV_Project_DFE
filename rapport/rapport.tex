@@ -209,7 +209,7 @@ Le dispositif élimine totalement la sélection naturelle, puisque même les cel
 
 \paragraph{Détails de l'expérience MV}
 
-Dans cette expérience, on se place toujours dans la \emph{Mother Machine} et on observe par fluorescence (Fig. \ref{fig:MV}) l'apparition d'erreurs d'appariement entre paires de nucléotides dues à des erreurs de réplication de l'ADN (via l'insertion d'un rapporteur YFP-MutL). En prenant des mutants (\emph{MutH}, \emph{MutT}) dont le système de réparation est dysfonctionnel, on s'assure que toute erreur d'appariement donne une mutation. Les apparitions de taches fluorescentes correspondent donc bien à l'apparition d'une mutation.
+Dans cette expérience, on se place toujours dans la \emph{Mother Machine} et on observe par fluorescence (figure \ref{fig:MV}) l'apparition de mésappariements entre paires de nucléotides dues à des erreurs de réplication de l'ADN (via l'insertion d'un rapporteur YFP-MutL). En prenant des mutants (\emph{MutH}, \emph{MutT}) dont le système de réparation est dysfonctionnel, on s'assure que toute erreur d'appariement donne une mutation. Les apparitions de taches fluorescentes correspondent donc bien à l'apparition d'une mutation.
 
 \begin{figure}[h]
   \begin{center}
@@ -252,7 +252,7 @@ On fait les hypothèses suivantes sur les cellules:
 
 \subsection{Dynamique poisonnienne des mutations}
 
-Afin de tester expérimentalement l'hypothèse d'apparition poissonnienne des mutations, les auteur.ice.s ont évalué les intervalles de temps $\delta$ entre 2 apparitions de mutations dans l'expérience de MV, ces intervalles définissant un processus de Poisson si leurs longueurs suivent une distribution exponentielle et sont indépendantes deux à deux (et en particulier d'un interval $\delta_n$ au suivant $\delta_{n+1}$). Ces deux critères sont vérifiés, comme le montre la figure \ref{fig:iatime} (en corrigeant la distribution attendue pour des observations discontinues toutes les 4 minutes). Nous avons répliqué ces résultats dans le notebook \emph{I4\_Replication\_Dynamique-apparition-mutations}.
+Afin de tester expérimentalement l'hypothèse d'apparition poissonnienne des mutations, les auteur.ice.s ont évalué les intervalles de temps $\delta$ entre 2 apparitions de mutations dans l'expérience de MV, ces intervalles définissant un processus de Poisson si leurs longueurs suivent une distribution exponentielle et sont indépendantes deux à deux (et en particulier d'un interval $\delta_n$ au suivant $\delta_{n+1}$). Ces deux critères sont vérifiés, comme le montre la figure \ref{fig:iatime} (en corrigeant la distribution attendue pour des observations discontinues toutes les 4 minutes). Nous avons répliqué ces résultats dans le notebook \emph{I4\_Replication\_Dynamique-apparition-mutations}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/I4_Replication_Dynamique-apparition-mutations.ipynb}}.
 
 \begin{figure}[h]
   \begin{center}
@@ -262,7 +262,7 @@ Afin de tester expérimentalement l'hypothèse d'apparition poissonnienne des mu
   \caption{\label{fig:iatime}}
 \end{figure}
 
-De même, on peut vérifier avec la seconde expérience ($\mu$MA) que les mutations létales suivent une dynamique semblable. Cela n'est pas évident, a priori, si l'on imagine que certaines mutations ont plus de chances d'être létales si la cellule a déjà accumulé précédemment des mutation délétères dans des voies partiellement redondantes qui ne peuvent donc plus compenser une nouvelle perte de fonction. Empiriquement, on observe que les courbes de survie (Fig. \ref{fig:survival}) suivent une courbe exponentielle (voir la figure \label{fig:survival}). On remarque aussi qu'un phénomène de sénescence des cellules commence à émerger, bien visible à partir d'environ 40 heures chez la souche sauvage \emph{WT} qui a peu de mutations. Le phénomène de sénescence peut être corrigé en divisant par le taux de croissance des cellules WT (de taux d'apparition de mutations létales très faible). Seule la souche MF1 semble s'écarter légèrement d'une trajectoire exponentielle.
+De même, on peut vérifier avec la seconde expérience ($\mu$MA) que les mutations létales suivent une dynamique semblable. Cela n'est pas évident, a priori, si l'on imagine que certaines mutations ont plus de chances d'être létales si la cellule a déjà accumulé précédemment des mutation délétères dans des voies partiellement redondantes qui ne peuvent donc plus compenser une nouvelle perte de fonction. Empiriquement, on observe que les courbes de survie (figure \ref{fig:survival}) suivent une courbe exponentielle (voir la figure \label{fig:survival}). On remarque aussi qu'un phénomène de sénescence des cellules commence à émerger, bien visible à partir d'environ 40 heures chez la souche sauvage \emph{WT} qui a peu de mutations. Le phénomène de sénescence peut être corrigé en divisant par le taux de croissance des cellules WT (de taux d'apparition de mutations létales très faible). Seule la souche MF1 semble s'écarter légèrement d'une trajectoire exponentielle.
 
 \begin{figure}[h]
   \begin{center}
@@ -275,18 +275,19 @@ De même, on peut vérifier avec la seconde expérience ($\mu$MA) que les mutati
 
 \subsection{Tentative naïve pour déterminer la DFE}
 
-Nous avons essayé d'observer directement les variations des taux de croissance dues aux effets combinés des mutations et de la stochasticité des mesures, et si possible corriger cette dernière afin d'obtenir une estimation directe de la DFE. Toutes ces tentatives sont présentées dans le notebook \emph{I5\_DFE-directe\_Sauts-taux-de-croissance}.
+Nous avons essayé d'observer directement les variations des taux de croissance dues aux effets combinés des mutations et de la stochasticité des mesures, et si possible corriger cette dernière afin d'obtenir une estimation directe de la DFE. Toutes ces tentatives sont présentées dans le notebook \emph{I5\_DFE-directe\_Sauts-taux-de-croissance}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/I4_Replication_Dynamique-apparition-mutations.ipynb}}.
 
-Comme présenté en annexe \ref{}, nous nous basons sur le modèle de bruit multiplicatif justifié dans l'article.
-Notons $W_\varepsilon$ le taux de croissance mesuré et $W$ le taux de croissance réel au temps $t$. L'article montre la pertinence de se baser sur une hypothèse de bruit multiplicatif : on suppose que $W_\varepsilon=W(1+\varepsilon)$ où les $\varepsilon$, $i\in\mathbb N$ sont des variables aléatoires indépendantes, identiquement distribuées, et indépendantes des $W$. On peut alors exprimer les effets relatifs de la fitness bruités $s_\varepsilon$, avec $W_\varepsilon'$ la mesure de fitness au temps $t'$ suivant :
+Nous nous basons sur le modèle de bruit multiplicatif justifié dans l'article.
+Notons $W_\varepsilon$ le taux de croissance mesuré et $W$ le taux de croissance réel au temps $t$. L'article montre la pertinence de se baser sur une hypothèse de bruit multiplicatif : on suppose que $W_\varepsilon=W(1+\varepsilon)$ où les $\varepsilon_i$, $i\in\En$ sont des variables aléatoires indépendantes, identiquement distribuées, et indépendantes des $W$. On peut alors exprimer les effets relatifs bruités sur la fitness $s_\varepsilon$, avec $W_\varepsilon'$ la mesure de fitness au temps $t'$ suivant :
 
-$$s_\varepsilon=\frac{W_\varepsilon - W_\varepsilon'}{W_\varepsilon} 
+\[s_\varepsilon=\frac{W_\varepsilon - W_\varepsilon'}{W_\varepsilon} 
 = \frac{W(1+\varepsilon) - W'(1+\varepsilon')}{W(1+\varepsilon)}
-= 1 - \frac{W'}{W}\frac{1+\varepsilon'}{1+\varepsilon}$$
-$$1 - s_\varepsilon \sim \frac{W'}{W}(1+\varepsilon'-\varepsilon)
-= \prod_{i=0}^{N_{t'-t}}(1-s_i)(1+ \varepsilon'-\varepsilon)$$
+= 1 - \frac{W'}{W}\frac{1+\varepsilon'}{1+\varepsilon}\]
+et donc, comme $\abs{\varepsilon'}$ est très petit:
+\[1 - s_\varepsilon \simeq \frac{W'}{W}(1+\varepsilon')(1-\varepsilon)\simeq \frac{W'}{W}(1+\varepsilon'-\varepsilon)\]
+Ce calcul montre que le bruit sur l'effet relatif sur la fitness calculé directement est deux fois plus élevé que le bruit sur la mesure. Cela est une première contre-indication à l'efficacité du calcul direct des effets des taux de croissance.
 
-Commençons par regarder les distributions de variations relatives des taux de croissance pour les différentes souches de bactéries (Fig. \ref{fig:VarRel}). Ces distributions de variations relatives de taux de croissance ne sont pas non plus normales, ni même symétrique si on superpose les 2 moitiés (verte et rouge).
+Nous avons tout de même essayé de regarder les distributions de variations relatives des taux de croissance pour les différentes souches de bactéries (figure \ref{fig:VarRel}). Ces distributions de variations relatives de taux de croissance ne sont pas non plus normales, ni même symétrique si on superpose les 2 moitiés (verte et rouge).
 
 \begin{figure}[!h]
   \begin{center}
@@ -303,7 +304,7 @@ Malheureusement, les diverses tentatives subséquentes de retirer la distributio
 \FloatBarrier
 \section{Simulations et tâtonnements}
 
-Nous avons voulu réaliser des simulations aussi proches que possible de l'expérience réelle, en prenant en compte à la fois les mutations impactant les taux de croissance selon une DFE, la croissance des bactéries et le bruit des mesures. Les fonctions et animations associées sont présentées dans le notebook \emph{II1\_Simulations}.
+Nous avons voulu réaliser des simulations aussi proches que possible de l'expérience réelle, en prenant en compte à la fois les mutations impactant les taux de croissance selon une DFE, la croissance des bactéries et le bruit des mesures. Les fonctions et animations associées sont présentées dans le notebook \emph{II1\_Simulations}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/I4_Replication_Dynamique-apparition-mutations.ipynb}}.
 
 \subsection{Simulations}
 
@@ -498,7 +499,7 @@ On a :
 On a:
   \begin{align*} 
     2\pi\alpha_3&\leqslant \int_{-A}^A\sum_{k=0}^{N}\abs{\frac{(i\xi)^k}{k!}\pth{\Esp{S^k}-m_k}e^{-i\xi x}}\de\xi\\
-    &\leqslant 2\dabs{\varepsilon}_{\infty}\int_{0}^A\sum_{k=0}^{N}\xi^k/(k!)\de\xi\comment{brutal}\\
+    &\leqslant 2\dabs{\varepsilon}_{\infty}\int_{0}^A\sum_{k=0}^{N}\xi^k/(k!)\de\xi\\
     &\leqslant 2\dabs{\varepsilon}_{\infty}\int_{0}^Ae^{\xi}\de\xi
   \end{align*}
 
@@ -804,7 +805,7 @@ Les données obtenues dans l'expérience $\mu$MA sont très bruitées. Nous indi
 \paragraph{Prise en compte du bruit multiplicatif}
 
 Les auteurs de \cite{rob} on montré que, en supposant que le bruit sur la mesure des taux de croissance est multiplicatif, alors la pente de $E_n(t)$ n'est pas modifiée par le bruit. Un bruit purement multiplicatif n'influence donc pas l'estimation des moments. Plus précisément, notons $W'_{t_i}$ le taux de croissance mesuré au temps $t_i$, et $W_{t_i}$ le taux de croissance réel au tems $t_i$. L'hypothèse du bruit multiplicatif suppose que $W'_{t_i}=W_{t_i}(1+\varepsilon_i)$ où les $\varepsilon_i$, $i\in\En$ sont des variables aléatoires indépendantes, identiquement distribuées, et indépendantes des $W_t$. On a:
-\[\ln\Esp{W'_{t_i}}=\Esp{W_{t_i}}+\Esp{1+\varepsilon_i}=\Esp{W_{t_i}}+\Esp{1+\varepsilon}\]
+\[\ln\Esp{W'_{t_i}}=\ln\pth{\Esp{W_{t_i}}\Esp{1+\varepsilon_i}}=\ln\Esp{W_{t_i}}+\ln\Esp{1+\varepsilon}\]
 ce qui fait que l'estimation $E'_n(t)$ que l'on fait de $E_n(t)$ diffère de $E_n(t)$ d'un terme indépendant de $t$. Ainsi, l'ordonnée à l'origine de la droite est modifiée mais pas sa pente.
 
 

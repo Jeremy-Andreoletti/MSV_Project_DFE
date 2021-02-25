@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.2.21)  25 FEB 2021 08:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.2.21)  25 FEB 2021 22:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1513,90 +1513,121 @@ File: ../Img/Schema_MV.png Graphic file (type png)
 Package pdftex.def Info: ../Img/Schema_MV.png  used on input line 217.
 (pdftex.def)             Requested size: 208.2776pt x 111.41597pt.
  [4 <../Img/Schema_MV.png (PNG copy)>]
-<../Img/Interarrival_times.png, id=174, 958.58125pt x 227.85126pt>
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
+55.
+ (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 255.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7.4> on input line 255.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 255.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 255.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 255.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 255.
+
+Underfull \hbox (badness 10000) in paragraph at lines 255--255
+[][][]\T1/lmr/m/n/10 .[][]$\T1/lmtt/m/n/10 https : / / github . com / Jeremy-[]
+Andreoletti / MSV _ Project _ DFE / blob / master / I4 _ Replication _
+ []
+
+<../Img/Interarrival_times.png, id=176, 958.58125pt x 227.85126pt>
 File: ../Img/Interarrival_times.png Graphic file (type png)
 <use ../Img/Interarrival_times.png>
 Package pdftex.def Info: ../Img/Interarrival_times.png  used on input line 260.
 
 (pdftex.def)             Requested size: 479.28946pt x 113.92534pt.
- [5 <../Img/Interarrival_times.png>]
-<../Img/Survival.png, id=192, 1606.0pt x 602.25pt>
+[5 <../Img/Interarrival_times.png>]
+<../Img/Survival.png, id=199, 1606.0pt x 602.25pt>
 File: ../Img/Survival.png Graphic file (type png)
 <use ../Img/Survival.png>
 Package pdftex.def Info: ../Img/Survival.png  used on input line 270.
 (pdftex.def)             Requested size: 481.80373pt x 180.67639pt.
 
+Underfull \hbox (badness 10000) in paragraph at lines 278--278
+[][][]\T1/lmr/m/n/10 .[][]$\T1/lmtt/m/n/10 https : / / github . com / Jeremy-[]
+Andreoletti / MSV _ Project _ DFE / blob / master / I4 _ Replication _
+ []
 
-LaTeX Warning: Reference `' on page 6 undefined on input line 280.
 
-<../Img/Variations_relatives_GR.png, id=194, 1606.0pt x 1204.5pt>
+Overfull \vbox (0.93025pt too high) has occurred while \output is active []
+
+
+[6 <../Img/Survival.png>]
+<../Img/Variations_relatives_GR.png, id=213, 1606.0pt x 1204.5pt>
 File: ../Img/Variations_relatives_GR.png Graphic file (type png)
 <use ../Img/Variations_relatives_GR.png>
 Package pdftex.def Info: ../Img/Variations_relatives_GR.png  used on input line
- 294.
+ 295.
 (pdftex.def)             Requested size: 481.80373pt x 361.35278pt.
+ [7 <../Img/Variations_relatives_GR.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 307--307
+[][][]\T1/lmr/m/n/10 .[][]$\T1/lmtt/m/n/10 https : / / github . com / Jeremy-[]
+Andreoletti / MSV _ Project _ DFE / blob / master / I4 _ Replication _
+ []
+
+<../Img/Simulations.png, id=224, 905.3825pt x 626.34pt>
+File: ../Img/Simulations.png Graphic file (type png)
+<use ../Img/Simulations.png>
+Package pdftex.def Info: ../Img/Simulations.png  used on input line 314.
+(pdftex.def)             Requested size: 452.69014pt x 313.16922pt.
+[8 <../Img/Simulations.png>]<<VPlayer.swf>><<../Video/GrowthRates_noisySimulati
+ons_VS_observations.mp4>><<../Video/GrowthRates_noisySimulationsInterval_VS_obs
+ervations.mp4>>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[6 <../Img/Survival.png>] [7 <../Img/Variations_relatives_GR.png>]
-<../Img/Simulations.png, id=211, 905.3825pt x 626.34pt>
-File: ../Img/Simulations.png Graphic file (type png)
-<use ../Img/Simulations.png>
-Package pdftex.def Info: ../Img/Simulations.png  used on input line 313.
-(pdftex.def)             Requested size: 452.69014pt x 313.16922pt.
- [8 <../Img/Simulations.png>]<<VPlayer.swf>><<../Video/GrowthRates_noisySimulat
-ions_VS_observations.mp4>><<../Video/GrowthRates_noisySimulationsInterval_VS_ob
-servations.mp4>> [9] [10] [11] [12] [13] [14] [15] [16] [17] [18]
+[9] [10] [11] [12] [13] [14] [15] [16] [17] [18]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hbox' on input line 663.
+(hyperref)                removing `\hbox' on input line 664.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\mathsurround' on input line 663.
+(hyperref)                removing `\mathsurround' on input line 664.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\z@' on input line 663.
+(hyperref)                removing `\z@' on input line 664.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\unskip' on input line 663.
+(hyperref)                removing `\unskip' on input line 664.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@@italiccorr' on input line 663.
+(hyperref)                removing `\@@italiccorr' on input line 664.
 
 [19] [20] [21]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 7
-58.
- (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-<img/supmat_lines.png, id=385, 679.53876pt x 543.02875pt>
+<img/supmat_lines.png, id=400, 679.53876pt x 543.02875pt>
 File: img/supmat_lines.png Graphic file (type png)
 <use img/supmat_lines.png>
-Package pdftex.def Info: img/supmat_lines.png  used on input line 773.
+Package pdftex.def Info: img/supmat_lines.png  used on input line 774.
 (pdftex.def)             Requested size: 203.8632pt x 162.90987pt.
-<img/supmat_slopes.png, id=388, 1286.8075pt x 501.875pt>
+<img/supmat_slopes.png, id=403, 1286.8075pt x 501.875pt>
 File: img/supmat_slopes.png Graphic file (type png)
 <use img/supmat_slopes.png>
-Package pdftex.def Info: img/supmat_slopes.png  used on input line 780.
+Package pdftex.def Info: img/supmat_slopes.png  used on input line 781.
 (pdftex.def)             Requested size: 386.04523pt x 150.56366pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/supmat_moments.png, id=391, 954.56625pt x 253.94875pt>
+<img/supmat_moments.png, id=406, 954.56625pt x 253.94875pt>
 File: img/supmat_moments.png Graphic file (type png)
 <use img/supmat_moments.png>
-Package pdftex.def Info: img/supmat_moments.png  used on input line 787.
+Package pdftex.def Info: img/supmat_moments.png  used on input line 788.
 (pdftex.def)             Requested size: 286.37209pt x 76.1852pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Citation `ref' on page 22 undefined on input line 796.
+LaTeX Warning: Citation `ref' on page 22 undefined on input line 797.
 
 [22 <./img/supmat_lines.png>] [23 <./img/supmat_slopes.png> <./img/supmat_momen
 ts.png>] [24] [25] (./rapport.aux)
@@ -1611,33 +1642,44 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 31818 strings out of 479383
- 586547 string characters out of 5875830
- 997817 words of memory out of 5000000
- 48087 multiletter control sequences out of 15000+600000
- 515111 words of font info for 143 fonts, out of 8000000 for 9000
+ 31879 strings out of 479383
+ 587351 string characters out of 5875830
+ 999764 words of memory out of 5000000
+ 48136 multiletter control sequences out of 15000+600000
+ 545343 words of font info for 182 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,16n,112p,1180b,1008s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/fo
-nts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mat
-hex.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-d
-ist/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf-dist/fonts/type1/public/
-lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/sh
-are/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/ty
-pe1/public/lm/lmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi7.pfb
-></usr/share/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/share/texmf-dist/
-fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lm
-r17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf
--dist/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf-dist/fonts/type1/public/
-lm/lmri12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/sha
-re/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf-dist/fonts/type
-1/public/lm/lmsy9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><
-/usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/shar
-e/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on rapport.pdf (25 pages, 4690476 bytes).
+pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
+, replaced by a fixed one
+
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/font
+s/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathe
+x.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dis
+t/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf-dist/fonts/type1/public/lm
+/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/shar
+e/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type
+1/public/lm/lmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><
+/usr/share/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/share/texmf-dist/fo
+nts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr1
+2.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-
+dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/l
+m/lmr9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/share/
+texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/
+public/lm/lmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></us
+r/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/font
+s/type1/public/lm/lmtt12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts
+/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/
+msbm10.pfb>
+Output written on rapport.pdf (25 pages, 4738555 bytes).
 PDF statistics:
- 515 PDF objects out of 1000 (max. 8388607)
- 441 compressed objects within 5 object streams
- 113 named destinations out of 1000 (max. 500000)
+ 538 PDF objects out of 1000 (max. 8388607)
+ 462 compressed objects within 5 object streams
+ 116 named destinations out of 1000 (max. 500000)
  349 words of extra memory for PDF output out of 10000 (max. 10000000)
 
