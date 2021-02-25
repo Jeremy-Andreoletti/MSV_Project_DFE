@@ -277,7 +277,7 @@ De même, on peut vérifier avec la seconde expérience ($\mu$MA) que les mutati
 
 Nous avons essayé d'observer directement les variations des taux de croissance dues aux effets combinés des mutations et de la stochasticité des mesures, et si possible corriger cette dernière afin d'obtenir une estimation directe de la DFE. Toutes ces tentatives sont présentées dans le notebook \emph{I5\_DFE-directe\_Sauts-taux-de-croissance}.
 
-Comme présenté en Annexe, nous nous basons sur le modèle de bruit multiplicatif justifié dans l'article.
+Comme présenté en annexe \ref{}, nous nous basons sur le modèle de bruit multiplicatif justifié dans l'article.
 Notons $W_\varepsilon$ le taux de croissance mesuré et $W$ le taux de croissance réel au temps $t$. L'article montre la pertinence de se baser sur une hypothèse de bruit multiplicatif : on suppose que $W_\varepsilon=W(1+\varepsilon)$ où les $\varepsilon$, $i\in\mathbb N$ sont des variables aléatoires indépendantes, identiquement distribuées, et indépendantes des $W$. On peut alors exprimer les effets relatifs de la fitness bruités $s_\varepsilon$, avec $W_\varepsilon'$ la mesure de fitness au temps $t'$ suivant :
 
 $$s_\varepsilon=\frac{W_\varepsilon - W_\varepsilon'}{W_\varepsilon} 
@@ -296,7 +296,7 @@ Commençons par regarder les distributions de variations relatives des taux de c
   \caption{\label{fig:VarRel}}
 \end{figure}
 
-Plus le taux de mutation est faible (WT $<$ MutH $\simeq$ MutT $<$ WT) plus la distribution des sauts relatifs de croissance est étalée. La part du bruit devient plus importante que celle du signal.
+Plus le taux de mutation est faible ($\mu_{WT} < \mu_{MutH} \simeq \mu_{MutT} < \mu_{WT}$) plus la distribution des sauts relatifs de croissance est étalée. La part du bruit devient plus importante que celle du signal.
 
 Malheureusement, les diverses tentatives subséquentes de retirer la distribution WT (quasiment uniquement du bruit) aux autres distributions, ou de faire des régressions pour des taux de mutations croissants se sont avérées être des échecs. Cela confirme la nécessité de faire appel à des outils mathématiques plus poussés afin de reconstruire la DFE.
 
@@ -315,15 +315,15 @@ Nous avons voulu réaliser des simulations aussi proches que possible de l'expé
   \caption{\label{fig:simulations}}
 \end{figure}
 
-Afin d'être les plus réalistes possibles, nos simulations suivent les étapes suivantes (voir Fig. \ref{fig:simulations}) :
+Afin d'être les plus réalistes possibles, nos simulations suivent les étapes suivantes (voir figure \ref{fig:simulations}) :
 \begin{itemize}
-	\item Les taux de croissance sont initialisés avec ceux mesurés dans l'expérience (médiane des 10 premières valeurs);
-	\item Une DFE est tirée dans un mélange de distributions au choix. Dans notre cas nous avons pris la distribution Beta inférée dans l'article plus un Dirac en 1 permettant d'incorporer des mutations létales;
-	\item Les effets $s$ des mutations sur la fitness sont tirées dans cette DFE pour chacun des 1476 canaux de l'expérience et grand nombre de mutations;
-	\item L'évolution du taux de croissance, mutation par mutation, est déduite des effets relatifs cumulés des mutations à partir des taux de croissance initiaux;
-	\item Les durées entre 2 mutations sont tirées dans une loi exponentielle de paramètre le taux de mutation, qui peut être au choix constant dans le temps et entre les cellules ou décroissant avec le taux de croissance (le cycle cellulaire et la réplication étant ralentis);
-	\item À partir des temps d'apparition de chaque mutation on peut ne conserver que celles qui arrivent avant la fin de l'expérience (4000 minutes) et calculer l'évolution du taux de croissance, cette fois au cours du temps;
-	\item Enfin, le résultats est renvoyé en rajoutant ou non un bruit Gaussien multiplicatif à chaque mesure, bruit ensuite moyenné sur chaque génération de bactérie comme indiqué dans l'article, en supposant que les bactéries se divisent dès qu'elles ont doublé de taille(bien qu'un modèle de division incrémental serait plus réaliste).
+\item Les taux de croissance sont initialisés avec ceux mesurés dans l'expérience (médiane des 10 premières valeurs);
+\item Une DFE est tirée dans un mélange de distributions au choix. Ici, nous avons pris la distribution Beta inférée dans l'article (de paramètres $\alpha=$ et $\beta=$) à laquelle on a rajouté un Dirac en 1 (permettant d'incorporer des mutations létales);
+\item Les effets $s$ des mutations sur la fitness sont tirés dans cette DFE pour chacun des 1476 canaux de l'expérience et grand nombre de mutations;
+\item L'évolution du taux de croissance, mutation par mutation, est déduite des effets relatifs cumulés des mutations à partir des taux de croissance initiaux;
+\item Les durées entre 2 mutations sont tirées dans une loi exponentielle dont le paramètre est le taux de mutation. Le taux de mutation peut être soit constant dans le temps et entre les cellules, soit être décroissant avec le taux de croissance (le cycle cellulaire et la réplication étant ralentis);
+\item À partir des temps d'apparition de chaque mutation on peut ne conserver que celles qui arrivent avant la fin de l'expérience (4000 minutes) et calculer l'évolution du taux de croissance, cette fois au cours du temps;
+\item Enfin, le résultats est renvoyé en rajoutant (ou non) un bruit Gaussien multiplicatif à chaque mesure. Le bruit est ensuite moyenné sur chaque génération de bactérie (comme indiqué dans l'article), en supposant que les bactéries se divisent dès qu'elles ont doublé de taille (même si un modèle de division incrémental serait plus réaliste).
 \end{itemize}
 
 \begin{figure}[!h]
@@ -340,10 +340,10 @@ Afin d'être les plus réalistes possibles, nos simulations suivent les étapes 
                   &autoPlay=true
                   &loop=true}]{}{VPlayer.swf}
   \end{center} 
-  \caption{\label{fig:animations}}
+  \caption{\label{fig:animations}Animations}
 \end{figure}
 
-Les animations présentées ici (Fig. \ref{fig:animations}) représentent l'évolution au cours du temps de la distribution des taux de croissance, en comparant les simulations aux données empirique, avec pour la seconde un intervalle des valeurs simulées sur 100 réplications. On observe que l'évolution de la distribution simulée est au début assez proche de celle observée, mais à la fin les deux divergent, probablement à cause de la DFE non adaptée (pas de mutations avantageuses, trop peu de mutations fortement délétères) et surtout le début de la sénescence des cellules après 40h.
+Les animations présentées dans la figure \ref{fig:animations} représentent l'évolution au cours du temps de la distribution des taux de croissance, en comparant les simulations aux données empirique. La seconde animation affiche un intervalle des valeurs simulées sur 100 réplications. On observe que l'évolution de la distribution simulée est au début assez proche de celle observée. Toutefois, à la fin, les deux divergent, probablement à cause du début de la sénescence des cellules après 40 heures, et de la DFE non adaptée (pas de mutations avantageuses, trop peu de mutations fortement délétères).
 
 \subsection{Commentaire}
 
