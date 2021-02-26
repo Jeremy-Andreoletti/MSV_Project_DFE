@@ -180,7 +180,7 @@ La génétique des traits quantitatifs \cite{mac} est l'étude des phénotypes q
 	\vspace{3mm}
 	\includegraphics[scale=0.25]{../Img/DFE_phage_2010.jpg}
 \end{center} 
-  \caption{}
+  \caption{L'étude de la DFE permet permet l'analyse génétique des traits quantitatifs. Cela a des applications en médecine et en sélection artificielle.}
 \end{figure}
 
 Le point de départ de ce projet est un article de Lydia Robert \textit{et al.} \cite{rob} dont l'objectif est justement d'aider à comprendre l’impact des mutations sur la fitness. En particulier, les auteur.ice.s ont mis au point un protocole permettant pour la première fois de suivre en temps réel les dynamiques d’apparition des mutations et de croissance-fragmentation chez \textit{Escherichia coli}. Dans les expériences classiques d’accumulation de mutations dans des colonies bactériennes, les observations sont moyennées sur plusieurs générations, induisant des biais par l’effet de la sélection naturelle éliminant les mutations trop délétères, voire létales, et par le nombre limité de lignées pouvant être suivies. 
@@ -202,7 +202,7 @@ Dans cette expérience, les bactéries sont placées dans une \emph{Mother Machi
     \vspace{3mm}
     \includegraphics[scale=0.4]{../Img/Schema_microMA.png}
   \end{center} 
-  \caption{\label{fig:microMA}}
+  \caption{\label{fig:microMA}$(A)$ Vue d'ensemble de la \emph{Mother Machine} utilisée pour les expériences MV et $\mu$MA. $(B)$ Évolution temporelle de l'état d'un unique canal. La cellule mère, qui est celle dont on mesure le taux de croissance dans l'expérience $\mu$MV, est colorée en jaune.}
 \end{figure}
 
 Le dispositif élimine totalement la sélection naturelle, puisque même les cellules-mères mortes suite à des mutations létales sont conservées.
@@ -216,7 +216,7 @@ Dans cette expérience, on se place toujours dans la \emph{Mother Machine} et on
     \vspace{3mm}
     \includegraphics[scale=0.5]{../Img/Schema_MV.png}
   \end{center}
-  \caption{\label{fig:MV}}
+  \caption{\label{fig:MV}Photo de l'expérience MV. Les mutations détectées correspondent aux points fluorescents.}
 \end{figure}
 
 À partir de ces expériences, plusieurs questions sont posées dans l'article : est-ce que les mutations sont ponctuelles (dynamique d'apparition poissonnienne) ou arrivent groupées ? Est-ce que les baisses soudaines du taux de croissance sont dues à l’arrivée de mutations délétères isolées ou bien à une accumulation de mutations en interaction ? Quelle est la dynamique d’apparition de mutations létales ? Et surtout, pour le problème qui nous intéresse: peut-on inférer la DFE ?
@@ -259,7 +259,7 @@ Afin de tester expérimentalement l'hypothèse d'apparition poissonnienne des mu
     \vspace{3mm}
     \includegraphics[scale=0.5]{../Img/Interarrival_times.png}
   \end{center}  
-  \caption{\label{fig:iatime}}
+  \caption{\label{fig:iatime}Schémas tirés de \cite{rob} montrant que les mutations apparaissent selon un processus de Poisson.}
 \end{figure}
 
 De même, on peut vérifier avec la seconde expérience ($\mu$MA) que les mutations létales suivent une dynamique semblable. Cela n'est pas évident, a priori, si l'on imagine que certaines mutations ont plus de chances d'être létales si la cellule a déjà accumulé précédemment des mutation délétères dans des voies partiellement redondantes qui ne peuvent donc plus compenser une nouvelle perte de fonction. Empiriquement, on observe que les courbes de survie (figure \ref{fig:survival}) suivent une courbe exponentielle (voir la figure \label{fig:survival}). On remarque aussi qu'un phénomène de sénescence des cellules commence à émerger, bien visible à partir d'environ 40 heures chez la souche sauvage \emph{WT} qui a peu de mutations. Le phénomène de sénescence peut être corrigé en divisant par le taux de croissance des cellules WT (de taux d'apparition de mutations létales très faible). Seule la souche MF1 semble s'écarter légèrement d'une trajectoire exponentielle.
@@ -269,7 +269,7 @@ De même, on peut vérifier avec la seconde expérience ($\mu$MA) que les mutati
     \vspace{3mm}
     \includegraphics[scale=0.3]{../Img/Survival.png}
   \end{center} 
-  \caption{\label{fig:survival}}
+  \caption{\label{fig:survival}Schéma tiré de notre réplication des résultats, montrant les corrections effectuées pour obtenir une décroissance exponentielle du nombre de cellules au cours du temps. Gauche: sans correction; milieu: suppression des canaux dont les cellules se sont échappées; droite: compensation des cellules qui meurent de vieillesse.}
 \end{figure}
 
 
@@ -294,7 +294,7 @@ Nous avons tout de même essayé de regarder les distributions de variations rel
     \vspace{3mm}
     \includegraphics[scale=0.3]{../Img/Variations_relatives_GR.png}
   \end{center} 
-  \caption{\label{fig:VarRel}}
+  \caption{\label{fig:VarRel}Distribution des variations relatives des taux de croissance observées au cours de l'expérience, pour les différentes souches.}
 \end{figure}
 
 Plus le taux de mutation est faible ($\mu_{WT} < \mu_{MutH} \simeq \mu_{MutT} < \mu_{WT}$) plus la distribution des sauts relatifs de croissance est étalée. La part du bruit devient plus importante que celle du signal.
@@ -322,7 +322,7 @@ Afin d'être les plus réalistes possibles, nos simulations suivent les étapes 
 \item Une DFE est tirée dans un mélange de distributions au choix. Ici, nous avons pris la distribution Beta inférée dans l'article (de paramètres $\alpha=$ et $\beta=$) à laquelle on a rajouté un Dirac en 1 (permettant d'incorporer des mutations létales);
 \item Les effets $s$ des mutations sur la fitness sont tirés dans cette DFE pour chacun des 1476 canaux de l'expérience et grand nombre de mutations;
 \item L'évolution du taux de croissance, mutation par mutation, est déduite des effets relatifs cumulés des mutations à partir des taux de croissance initiaux;
-\item Les durées entre 2 mutations sont tirées dans une loi exponentielle dont le paramètre est le taux de mutation. Le taux de mutation peut être soit constant dans le temps et entre les cellules, soit être décroissant avec le taux de croissance (le cycle cellulaire et la réplication étant ralentis);
+e\item Les durées entre 2 mutations sont tirées dans une loi exponentielle dont le paramètre est le taux de mutation. Le taux de mutation peut être soit constant dans le temps et entre les cellules, soit être décroissant avec le taux de croissance (le cycle cellulaire et la réplication étant ralentis);
 \item À partir des temps d'apparition de chaque mutation on peut ne conserver que celles qui arrivent avant la fin de l'expérience (4000 minutes) et calculer l'évolution du taux de croissance, cette fois au cours du temps;
 \item Enfin, le résultats est renvoyé en rajoutant (ou non) un bruit Gaussien multiplicatif à chaque mesure. Le bruit est ensuite moyenné sur chaque génération de bactérie (comme indiqué dans l'article), en supposant que les bactéries se divisent dès qu'elles ont doublé de taille (même si un modèle de division incrémental serait plus réaliste).
 \end{itemize}
@@ -366,7 +366,7 @@ Définissons \[E_n(t)=\sum_{k=1}^n(-1)^k\binom{n}{k}\ln\pth{\Esp{W_t^k}}\]
   \begin{align*}
     \Esp{W_t^k}&=\Esp{\Esp{\prod_{i=1}^{N_t}(1-s_i)^k\kt N_t}}\\
     &=\Esp{\Esp{(1-s)^k}^{N_t}}\\
-    &=e^{-\lambda t}\sum_{i=0}^{+\infty}\frac{\Esp{(1-s)^k}^i\lambda^i}{i!}\\
+v    &=e^{-\lambda t}\sum_{i=0}^{+\infty}\frac{\Esp{(1-s)^k}^i\lambda^i}{i!}\\
     &=e^{-\lambda t}e^{\lambda t\Esp{(1-s)^k}}
   \end{align*}
   Maintenant, nous pouvons calculer:
@@ -629,7 +629,7 @@ ce qui donne, comme prévu, une décroissance malthusienne au taux $\lambda\mu$ 
 \paragraph{Estimation de la DFE}
 
 On peut mesurer $u$ et on aimerait estimer $f$, en sachant que l'EDP ci-dessus est vérifiée:  on connaît donc la solution mais on ne connaît pas l'EDP. On a la proposition suivante:
-\prop{Supposons que $f\in$. Soit $u\in\cdot$ une solution classique de \eqref{edp}. Pour tout $x\in\mathbb{R}$:
+\prop{Supposons que $f\in L^2(\Er)$. Soit $u\in C^1(\Er_+\times \Er,\Er)$ une solution classique de \eqref{edp}. Supposons que, pour tout $t\geqslant 0$, $u_t\in \mathcal{S}(\Er)$ et que $\fr u_t$ ne s'annule pas. \\Alors, pour tout $x\in\mathbb{R}$:
   \begin{equation}\label{edp_sol}
     f(x)=\fr^{-1}\pth{\xi\mapsto\frac{\dr_t\pth{\fr u_t(\xi)}}{\lambda\fr u_t(\xi)}+1}    
   \end{equation}
@@ -637,16 +637,14 @@ On peut mesurer $u$ et on aimerait estimer $f$, en sachant que l'EDP ci-dessus e
 
 \begin{proof}
   En prenant la transformée de Fourier des deux côtés dans \eqref{edp}, on a:
-\[\mathcal{F}\pth{\dr_tu_t}(\xi)=\lambda \mathcal{F}f(\xi)\mathcal{F}{u_t}(\xi)-\lambda\mathcal{F}u_t(x)\]
-soit:
-\[\pth{\dr_t\mathcal{F}u_t}(\xi)=\lambda \mathcal{F}f(\xi)\mathcal{F}{u_t}(\xi)-\lambda\mathcal{F}u_t(x)\]
-et donc:
+\[\fr \pth{\dr_tu_t}(\xi)=\lambda \fr f(\xi)\fr {u_t}(\xi)-\lambda\fr u_t(x)\]
+Comme $u_t\in \mathcal{S}(\Er)$, on a $\dr_t\fr(u_t)=\fr(\dr_tu_t)$, donc:
+\[\pth{\dr_t\fr u_t}(\xi)=\lambda \fr f(\xi)\fr {u_t}(\xi)-\lambda\fr u_t(x)\]
+et, comme $\fr u_t$ ne s'annule pas:
 \begin{align*}
-\mathcal{F}f(\xi)&=\frac{\dr_t\mathcal{F}u_t(\xi)}{\lambda \mathcal{F}u_t(\xi)}+1\\
-&=\frac{1}{\lambda}\dr_t\ln\pth{\mathcal{F}u_t(\xi)}+1
+\fr f(\xi)&=\frac{\dr_t\fr u_t(\xi)}{\lambda \fr u_t(\xi)}+1
 \end{align*}
-Ainsi:
-\[f(x)=\mathcal{F}^{-1}\pth{\frac{1}{\lambda}\dr_t\ln\pth{\mathcal{F}u_t(\xi)}+1}(x)\]
+Enfin, comme $f\in L^2(\Er)$, on obtient \eqref{edp_sol}.
 
 \end{proof}
 
@@ -661,7 +659,7 @@ Ainsi:
 %
 
 
-\subsection{Détermination de la DFE à partir de \eqref{edp_sol}}
+\subsection{Détermination de la DFE à partir de \eqref{edp_sol}\label{ss:det_dfe}}
 
 L'expression \eqref{edp_sol} donne une forme explicite pour $f(x)$. Il faut, pour l'exploiter, être capable de calculer la valeur, pour chaque $\xi$, de
 \[a_{\xi}=\frac{\dr_t\fr u_t(\xi)}{\fr u_t(\xi)}\]
@@ -676,7 +674,9 @@ On a donc deux expressions valables pour tout $t\in \Er_+$:
   \arg\pth{\fr u_t(\xi)}&=\arg{\fr u_0(\xi)}+t\times\Im(a_{\xi})
 \end{align*}
 
-Traçons ces deux fonctions de $t$ et vérifions qu'elles sont affines; si c'est le cas, leurs pentes nous donneront la partie réelle et la partie imaginaire de $a_{\xi}$.
+\paragraph{Vérification} Dans l'annexe \ref{ann:verif}, nous avons tracé ces deux fonctions de $t$ pour vérifier que ce sont bien des fonctions affines, comme le suggèrent les deux dernières expressions. Pour $\xi\leqslant 10$, on obtient des fonctions affines dont les pentes donnent respectivement la partie réelle et la partie imaginaire de $a_{\xi}$. Pour $\xi>20$, on n'obtient plus de droites. Ainsi, pour l'estimation de la DFE, nous n'avons considéré que les valeurs de $\xi$ inférieures à une certaine valeur $\xi_{max}$. Cela revient à tronquer la transformée de Fourier, et donc nous donne une DFE <<~trop régulière~>> . Cette régularisation est de toute manière nécessaire pour éviter tout phénomène de sur-apprentissage.
+
+\paragraph{Estimation de la DFE}
 
 [ATTENDRE D'AVOIR DES RESULTATS COMPLETS POUR PRESENTER ICI DES DFE]
 
@@ -813,8 +813,22 @@ ce qui fait que l'estimation $E'_n(t)$ que l'on fait de $E_n(t)$ diffère de $E_
 \newpage
 
 \FloatBarrier
-\section{Annexe: Simulation}
+\section{Annexe: Vérification\label{ann:verif}}
 
+La figure \ref{fig:iv_verif} montre les graphes des fonctions suivantes, trouvées dans \ref{ss:def_dfe}, pour différentes valeurs de $\xi$:
+\begin{align*}
+  \ln\abs{\fr u_t(\xi)}&=\ln\abs{\fr u_0(\xi)}+t\times\Re(a_{\xi})\\
+  \arg\pth{\fr u_t(\xi)}&=\arg{\fr u_0(\xi)}+t\times\Im(a_{\xi})
+\end{align*}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[scale=0.6]{img/iv_verif_pxi.png}
+    \includegraphics[scale=0.6]{img/iv_verif_grxi.png}
+    \includegraphics[scale=0.6]{img/iv_verif_pxi_im.png}
+  \end{center}
+  \caption{\label{fig:iv_verif}Premier graphique: droites dont les pentes doivent donner $a_{\xi}$ (petites valeurs de $\xi$); deuxième graphique: pour de grandes valeurs de $\xi$, on n'obtient pas de droites: cela est peut-être dû à l'overfitting; troisième graphique: droites dont les pentes doivent donner $a_{\xi}$ (petites valeurs de $\xi$).}
+\end{figure}
 
 
 
