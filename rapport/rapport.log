@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.8.29)  4 MAR 2021 19:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.8.29)  4 MAR 2021 20:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1564,20 +1564,20 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 <special> ps:tx@Dict begin  gsave STV CP T /ps@rot 0 def grestore  end
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<../Img/DFE_phage_2010.jpg, id=114, 1706.375pt x 803.0pt>
+<../Img/DFE_phage_2010.jpg, id=104, 1706.375pt x 803.0pt>
 File: ../Img/DFE_phage_2010.jpg Graphic file (type jpg)
 <use ../Img/DFE_phage_2010.jpg>
 Package pdftex.def Info: ../Img/DFE_phage_2010.jpg  used on input line 179.
 (pdftex.def)             Requested size: 426.59271pt x 200.74951pt.
 
 [2 <../Img/DFE_phage_2010.jpg>]
-<../Img/Schema_microMA.png, id=127, 659.46375pt x 548.0475pt>
+<../Img/Schema_microMA.png, id=117, 659.46375pt x 548.0475pt>
 File: ../Img/Schema_microMA.png Graphic file (type png)
 <use ../Img/Schema_microMA.png>
 Package pdftex.def Info: ../Img/Schema_microMA.png  used on input line 201.
 (pdftex.def)             Requested size: 263.78082pt x 219.2151pt.
  [3 <../Img/Schema_microMA.png (PNG copy)>]
-<../Img/Schema_MV.png, id=139, 416.55624pt x 222.8325pt>
+<../Img/Schema_MV.png, id=129, 416.55624pt x 222.8325pt>
 File: ../Img/Schema_MV.png Graphic file (type png)
 <use ../Img/Schema_MV.png>
 Package pdftex.def Info: ../Img/Schema_MV.png  used on input line 215.
@@ -1602,14 +1602,20 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 254.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 254.
-<../Img/Interarrival_times.png, id=161, 958.58125pt x 227.85126pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--254
+[][][]\T1/lmr/m/n/10 .[][]$\T1/lmtt/m/n/10 https : / / github . com / Jeremy-[]
+Andreoletti / MSV _ Project _ DFE / blob / master / I4 _ Replication _
+ []
+
+<../Img/Interarrival_times.png, id=151, 958.58125pt x 227.85126pt>
 File: ../Img/Interarrival_times.png Graphic file (type png)
 <use ../Img/Interarrival_times.png>
 Package pdftex.def Info: ../Img/Interarrival_times.png  used on input line 259.
 
 (pdftex.def)             Requested size: 431.35757pt x 102.5321pt.
- [5 <../Img/Interarrival_times.png>]
-<../Img/Survival.png, id=184, 1606.0pt x 602.25pt>
+[5 <../Img/Interarrival_times.png>]
+<../Img/Survival.png, id=175, 1606.0pt x 602.25pt>
 File: ../Img/Survival.png Graphic file (type png)
 <use ../Img/Survival.png>
 Package pdftex.def Info: ../Img/Survival.png  used on input line 270.
@@ -1621,24 +1627,19 @@ Andreoletti / MSV _ Project _ DFE / blob / master / I5 _ DFE-[]directe _
  []
 
 [6 <../Img/Survival.png>]
-<../Img/Variations_relatives_GR.png, id=198, 1606.0pt x 803.0pt>
+<../Img/Variations_relatives_GR.png, id=188, 1606.0pt x 803.0pt>
 File: ../Img/Variations_relatives_GR.png Graphic file (type png)
 <use ../Img/Variations_relatives_GR.png>
 Package pdftex.def Info: ../Img/Variations_relatives_GR.png  used on input line
  295.
 (pdftex.def)             Requested size: 481.80373pt x 240.90186pt.
  [7 <../Img/Variations_relatives_GR.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 307--307
-[][][]\T1/lmr/m/n/10 .[][]$\T1/lmtt/m/n/10 https : / / github . com / Jeremy-[]
-Andreoletti / MSV _ Project _ DFE / blob / master / I4 _ Replication _
- []
-
-<../Img/Simulations.png, id=208, 905.3825pt x 626.34pt>
+<../Img/Simulations.png, id=199, 905.3825pt x 626.34pt>
 File: ../Img/Simulations.png Graphic file (type png)
 <use ../Img/Simulations.png>
 Package pdftex.def Info: ../Img/Simulations.png  used on input line 312.
 (pdftex.def)             Requested size: 452.69014pt x 313.16922pt.
-[8 <../Img/Simulations.png>]
+ [8 <../Img/Simulations.png>]
 \g__file_internal_ior=\read3
 <<VPlayer.swf>><<../Video/GrowthRates_noisySimulations_VS_observations.mp4>><<.
 ./Video/GrowthRates_noisySimulationsInterval_VS_observations.mp4>>
@@ -1651,7 +1652,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 379--379
 Andreoletti / MSV _ Project _ DFE / blob / master / III1 _ Replication _
  []
 
-[11] [12] [13] [14] [15] [16] [17] [18]
+[11] [12] [13] [14] [15] [16] [17]
+Overfull \hbox (16.00208pt too wide) detected at line 601
+[]
+ []
+
+[18]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\hbox' on input line 659.
@@ -1672,77 +1678,94 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\@@italiccorr' on input line 659.
 
-[19] [20] [21]
-<img/supmat_lines.png, id=378, 679.53876pt x 543.02875pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 674--674
+[][][]\T1/lmr/m/n/10 .[][]$\T1/lmtt/m/n/10 https : / / github . com / Jeremy-[]
+Andreoletti / MSV _ Project _ DFE / blob / master / IV2 _ DFE-[]EDP-[]Fourier _
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 680--680
+[][][]\T1/lmr/m/n/10 .[][]$\T1/lmtt/m/n/10 https : / / github . com / Jeremy-[]
+Andreoletti / MSV _ Project _ DFE / blob / master / IV2 _ DFE-[]EDP-[]Fourier _
+
+ []
+
+[20] [21] [22]
+<img/supmat_lines.png, id=380, 679.53876pt x 543.02875pt>
 File: img/supmat_lines.png Graphic file (type png)
 <use img/supmat_lines.png>
-Package pdftex.def Info: img/supmat_lines.png  used on input line 771.
+Package pdftex.def Info: img/supmat_lines.png  used on input line 767.
 (pdftex.def)             Requested size: 203.8632pt x 162.90987pt.
-<img/supmat_slopes.png, id=381, 1286.8075pt x 501.875pt>
+<img/supmat_slopes.png, id=383, 1286.8075pt x 501.875pt>
 File: img/supmat_slopes.png Graphic file (type png)
 <use img/supmat_slopes.png>
-Package pdftex.def Info: img/supmat_slopes.png  used on input line 778.
+Package pdftex.def Info: img/supmat_slopes.png  used on input line 774.
 (pdftex.def)             Requested size: 386.04523pt x 150.56366pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/supmat_moments.png, id=384, 954.56625pt x 253.94875pt>
+<img/supmat_moments.png, id=386, 954.56625pt x 253.94875pt>
 File: img/supmat_moments.png Graphic file (type png)
 <use img/supmat_moments.png>
-Package pdftex.def Info: img/supmat_moments.png  used on input line 785.
+Package pdftex.def Info: img/supmat_moments.png  used on input line 781.
 (pdftex.def)             Requested size: 286.37209pt x 76.1852pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+[23 <./img/supmat_lines.png>]
 
-LaTeX Warning: Citation `ref' on page 22 undefined on input line 794.
+LaTeX Warning: Reference `ss:def_dfe' on page 24 undefined on input line 809.
 
-[22 <./img/supmat_lines.png>] [23 <./img/supmat_slopes.png> <./img/supmat_momen
-ts.png>] [24]
-
-LaTeX Warning: Reference `ss:def_dfe' on page 25 undefined on input line 815.
-
-<img/iv_verif_pxi.png, id=410, 402.50375pt x 279.0425pt>
+[24 <./img/supmat_slopes.png> <./img/supmat_moments.png>]
+<img/iv_verif_pxi.png, id=407, 402.50375pt x 279.0425pt>
 File: img/iv_verif_pxi.png Graphic file (type png)
 <use img/iv_verif_pxi.png>
-Package pdftex.def Info: img/iv_verif_pxi.png  used on input line 823.
+Package pdftex.def Info: img/iv_verif_pxi.png  used on input line 817.
 (pdftex.def)             Requested size: 241.5041pt x 167.42679pt.
-<img/iv_verif_grxi.png, id=411, 396.48125pt x 279.0425pt>
+<img/iv_verif_grxi.png, id=408, 396.48125pt x 279.0425pt>
 File: img/iv_verif_grxi.png Graphic file (type png)
 <use img/iv_verif_grxi.png>
-Package pdftex.def Info: img/iv_verif_grxi.png  used on input line 824.
+Package pdftex.def Info: img/iv_verif_grxi.png  used on input line 818.
 (pdftex.def)             Requested size: 237.89058pt x 167.42679pt.
-<img/iv_verif_pxi_im.png, id=412, 394.47375pt x 279.0425pt>
+<img/iv_verif_pxi_im.png, id=409, 394.47375pt x 279.0425pt>
 File: img/iv_verif_pxi_im.png Graphic file (type png)
 <use img/iv_verif_pxi_im.png>
-Package pdftex.def Info: img/iv_verif_pxi_im.png  used on input line 825.
+Package pdftex.def Info: img/iv_verif_pxi_im.png  used on input line 819.
 (pdftex.def)             Requested size: 236.68607pt x 167.42679pt.
-[25 <./img/iv_verif_pxi.png> <./img/iv_verif_grxi.png> <./img/iv_verif_pxi_im.p
-ng>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 833.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 833.
+ [25 <./img/iv_verif_pxi.png> <./img/iv_verif_grxi.png> <./img/iv_verif_pxi_im.
+png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 827.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 827.
  (./rapport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 833.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 833.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 827.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 827.
 Package rerunfilecheck Info: File `rapport.out' has not changed.
-(rerunfilecheck)             Checksum: 754900DE3285808C446E13173E783D21;1387.
+(rerunfilecheck)             Checksum: CD8BEC2BC645C53B690BDA33FFE3712D;1222.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 833.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 827.
  ) 
 Here is how much of TeX's memory you used:
- 35798 strings out of 492649
- 661264 string characters out of 6129622
+ 35796 strings out of 492649
+ 661229 string characters out of 6129622
  819633 words of memory out of 5000000
- 38895 multiletter control sequences out of 15000+600000
+ 38893 multiletter control sequences out of 15000+600000
  641836 words of font info for 157 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  54i,16n,62p,10380b,687s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exi
+pdfTeX warning (dest): name{Hfootnote.6} has been referenced but does not exi
 st, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exist
+, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist
 , replaced by a fixed one
@@ -1775,10 +1798,10 @@ tt10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><
 /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.p
 fb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm
 10.pfb>
-Output written on rapport.pdf (25 pages, 4802359 bytes).
+Output written on rapport.pdf (25 pages, 4804571 bytes).
 PDF statistics:
- 520 PDF objects out of 1000 (max. 8388607)
- 437 compressed objects within 5 object streams
+ 518 PDF objects out of 1000 (max. 8388607)
+ 435 compressed objects within 5 object streams
  118 named destinations out of 1000 (max. 500000)
- 348 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 332 words of extra memory for PDF output out of 10000 (max. 10000000)
 

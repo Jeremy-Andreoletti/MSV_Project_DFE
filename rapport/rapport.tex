@@ -251,7 +251,7 @@ On fait les hypothèses suivantes sur les cellules:
 
 \subsection{Dynamique poissonnienne des mutations}
 
-Afin de tester expérimentalement l'hypothèse d'apparition poissonnienne des mutations, les auteur.ice.s ont évalué les intervalles de temps $\delta$ entre 2 apparitions de mutations dans l'expérience de MV, ces intervalles définissant un processus de Poisson si leurs longueurs suivent une distribution exponentielle et sont indépendantes deux à deux (et en particulier d'un interval $\delta_n$ au suivant $\delta_{n+1}$). La figure \ref{fig:iatime} montre que ces deux critères sont vérifiés, en corrigeant la distribution attendue pour des observations discontinues toutes les 4 minutes. Nous avons répliqué ces résultats dans le notebook \emph{I4\_Replication\_Dynamique-apparition-mutations}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/II1_Simulations.ipynb}}.
+Afin de tester expérimentalement l'hypothèse d'apparition poissonnienne des mutations, les auteur.ice.s ont évalué les intervalles de temps $\delta$ entre 2 apparitions de mutations dans l'expérience de MV, ces intervalles définissant un processus de Poisson si leurs longueurs suivent une distribution exponentielle et sont indépendantes deux à deux (et en particulier d'un interval $\delta_n$ au suivant $\delta_{n+1}$). La figure \ref{fig:iatime} montre que ces deux critères sont vérifiés, en corrigeant la distribution attendue pour des observations discontinues toutes les 4 minutes. Nous avons répliqué ces résultats dans le notebook \emph{I4\_Replication\_Dynamique-apparition-mutations}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/I4_Replication_Dynamique-apparition-mutations}}.
 
 \begin{figure}[h]
   \begin{center}
@@ -304,7 +304,7 @@ Malheureusement, les diverses tentatives subséquentes de retirer la distributio
 \FloatBarrier
 \section{Simulations}
 
-Nous avons voulu réaliser des simulations aussi proches que possible de l'expérience réelle, en prenant en compte à la fois les mutations impactant les taux de croissance selon une DFE, la croissance des bactéries et le bruit des mesures. Les fonctions et animations associées sont présentées dans le notebook \emph{II1\_Simulations}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/I4_Replication_Dynamique-apparition-mutations.ipynb}}.
+Nous avons voulu réaliser des simulations aussi proches que possible de l'expérience réelle, en prenant en compte à la fois les mutations impactant les taux de croissance selon une DFE, la croissance des bactéries et le bruit des mesures. Les fonctions et animations associées sont présentées dans le notebook \emph{II\_Simulations}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/II_Simulations.ipynb}}.
 
 \begin{figure}[!h]
   \begin{center}
@@ -376,7 +376,7 @@ Définissons \[E_n(t)=\sum_{k=1}^n(-1)^k\binom{n}{k}\ln\pth{\Esp{W_t^k}}\]
   \end{align*}
 \end{proof}
 
-En traçant les fonctions $t\mapsto E_n(t)$ (que l'on est capable de calculer à partir des observations de l'expérience $\mu$MA), on devrait obtenir des droites dont les pentes seront directement reliées aux moments de la DFE par un facteur $\lambda$. Dans l'annexe \ref{ann:slopes} et le notebook \emph{III1\_Replication\_Estimation-moments}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/III1_Replication_Estimation-moments.ipynb}}, nous montrons que \cite{rob} a bien obtenu des droites et nous expliquons les traitements permettant de reproduire ces résultats, et ainsi estimer les moments de la DFE.
+En traçant les fonctions $t\mapsto E_n(t)$ (que l'on est capable de calculer à partir des observations de l'expérience $\mu$MA), on devrait obtenir des droites dont les pentes seront directement reliées aux moments de la DFE par un facteur $\lambda$. Dans l'annexe \ref{ann:resultats} et le notebook \emph{III1\_Replication\_Estimation-moments}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/III1_Replication_Estimation-moments.ipynb}}, nous montrons que \cite{rob} a bien obtenu des droites et nous expliquons les traitements permettant de reproduire ces résultats, et ainsi estimer les moments de la DFE.
 
 
 \subsection{Estimation de la DFE}
@@ -565,9 +565,9 @@ L'objectif de la partie suivante est de présenter une nouvelle méthode pour es
 \FloatBarrier
 \section{Étude d'une EDP}
 
-Dans cette partie, nous présentons une modélisation du problème par une EDP sur la densité de la loi de $\ln W_t$. D'après l'EDP, nous aurons une expression explicite de la loi de $\ln (1-S)$.
+Dans cette partie, nous présentons une modélisation du problème par une EDP sur la densité de la loi de $\ln W_t$. À partir de l'EDP, nous pourrons fournir une expression explicite de la loi de $\ln (1-S)$.
 
-Nous commençons par introduire l'EDP \eqref{edp}, puis nous déduisons une expression explicite pour la loi de $\ln(1-S)$; ensuite, nous faisons le lien avec un problème de fragmentation; ensuite, nous étudierons le comportement des solution de l'EDP en temps court et en temps long.
+Nous commencerons par introduire l'EDP \eqref{edp}, puis en déduirons une expression explicite pour la loi de $\ln(1-S)$; ensuite, nous ferons le lien avec un problème de fragmentation; enfin, nous étudierons le comportement des solution de l'EDP en temps court et en temps long.
 
 \subsection{Nouveau point de vue sur le problème}
 
@@ -582,11 +582,11 @@ On fait les deux hypothèses suivantes:
   où $m(t)$ représente la probabilité qu'une cellule soit morte au temps $t$ et $u(t,\cdot)\in C^{\infty}(\Er)$ est la densité de la loi de $\ln W_t$ en omettant les cellules mortes: ainsi, $\int_{\Er}u(t,\cdot)=1-m(t)$;
 \item La loi de $\ln (1-S)$ peut s'écrire:
   \[\mu\delta_{-\infty}+f(\cdot)\]
-  où $\mu$ est le taux de mutations létales et $f(\cdot)
+  où $\mu$ est la proportion de mutations létales et $f(\cdot)
   \in C^{\infty}(\Er)$ est la <<~densité~>> de la loi de $\ln(1-S)$ sans prendre en compte les mutations létales: ainsi, $\int f=1-\mu$.
 \end{enumerate}
 
-Remarquons tout de suite que l'on peut déduire la DFE à partir de la donnée de $f$ et du taux de mutations létales.
+Remarquons tout de suite que l'on peut déduire la DFE à partir de la donnée de $f$ et de la fraction de mutations létales, mesurée directement dans l'expérience \emph{MA}.
 
 \paragraph{Introduction du modèle}
 
@@ -596,10 +596,10 @@ Soit $\lambda$ le taux de mutation. Considérons:
 Cette expression est plutôt naturelle ; elle peut se comprendre ainsi:
 \begin{align*}
 &\esp\text{changement de densité de fitness entre $t$ et $t+\de t$}\\
-&=\text{taux de mutations}\times\pth{\text{gens qui arrivent sur ma fitness}-\text{gens qui partent de ma fitness}}\\
-&-\text{gens qui meurent}
+&=\text{taux de mutations}\times\pth{\text{bactéries qui arrivent sur ma fitness}-\text{bactéries qui partent de ma fitness}}\\
+&-\text{bactéries qui meurent}
 \end{align*} 
-où $\mu$ est le taux de mortalité (qui comprend la mortalité due à la sénescence et la mortalité due aux mutations létales). 
+où $\lambda\mu$ est le taux de mortalité. 
 
 Faisons quelques transformations pour simplifier l'expression. Comme $\int_{\Er}f(y)\de y = 1-\mu$:
 
@@ -671,11 +671,13 @@ On a donc deux expressions valables pour tout $t\in \Er_+$:
   \arg\pth{\fr u_t(\xi)}&=\arg{\fr u_0(\xi)}+t\times\Im(a_{\xi})
 \end{align*}
 
-\paragraph{Vérification} Dans l'annexe \ref{ann:verif}, nous avons tracé ces deux fonctions de $t$ pour vérifier que ce sont bien des fonctions affines, comme le suggèrent les deux dernières expressions. Pour $\xi\leqslant 10$, on obtient des fonctions affines dont les pentes donnent respectivement la partie réelle et la partie imaginaire de $a_{\xi}$. Pour $\xi>20$, on n'obtient plus de droites. Ainsi, pour l'estimation de la DFE, nous n'avons considéré que les valeurs de $\xi$ inférieures à une certaine valeur $\xi_{max}$. Cela revient à tronquer la transformée de Fourier, et donc nous donne une DFE <<~trop régulière~>> . Cette régularisation est de toute manière nécessaire pour éviter tout phénomène de sur-apprentissage.
+\paragraph{Vérification} Dans l'annexe \ref{ann:verif} et le notebook \emph{IV2\_DFE-EDP-Fourier\_Verifications}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/IV2_DFE-EDP-Fourier_Verifications.ipynb}}, nous avons tracé ces deux fonctions de $t$ pour vérifier que ce sont bien des fonctions affines, comme le suggèrent les deux dernières expressions. Pour $\xi\leqslant 10$, on obtient des fonctions affines dont les pentes donnent respectivement la partie réelle et la partie imaginaire de $a_{\xi}$. Pour $\xi>20$, on n'obtient plus de droites. Ainsi, pour l'estimation de la DFE, nous n'avons considéré que les valeurs de $\xi$ inférieures à une certaine valeur $\xi_{max}$. Cela revient à tronquer la transformée de Fourier, et donc nous donne une DFE <<~trop régulière~>> . Cette régularisation est de toute manière nécessaire pour éviter tout phénomène de sur-apprentissage.
 
 \paragraph{Estimation de la DFE}
 
 [ATTENDRE D'AVOIR DES RESULTATS COMPLETS POUR PRESENTER ICI DES DFE]
+
+Voir notebook \emph{IV2\_DFE-EDP-Fourier\_Estimation-complete}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/IV2_DFE-EDP-Fourier_Estimation-complete.ipynb}}.
 
 \subsection{Lien avec un problème de fragmentation}
 
@@ -751,19 +753,13 @@ Dans le cas où le taux de division \emph{dépend de la taille de la cellule} ($
 \appendix
 
 \FloatBarrier
-\section{Annexe: Présentation des résultats}
+\section{Annexe: Présentation des résultats}\label{ann:resultats}
 
 Nous avons répliqué certains résultats dans des notebooks disponibles sur \url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE}.
 %TEST INCLUSION DE PDF
 %\includepdf[pages=-]{Notebooks_tex/Replication_Moments_Estimation.pdf}
 
-\subsection{Dynamique poissonienne des mutations}
-
-\subsection{Calcul des premiers moments}\label{ann:slopes}
-
 \paragraph{Commentaires sur les figures} La figure \ref{lines}, tirée de \cite{rob}, présente des graphes de $E_n(t)$. Dans \ref{ss:det_mom}, on a démontré que l'on s'attendait à obtenir des droites de pente $\lambda\Esp{S^n}$: les droites que l'on obtient sont très satisfaisantes. On peut effectuer à partir des ces droites des régressions linéaires pour estimer  les pentes $\lambda\Esp{S^n}$ de ces droites. Les résultats obtenus dans \cite{rob} sont présentés dans le tableau \ref{slopes} pour un nombre plus grand de souches et de moments. Enfin, le tableau \ref{moments} présente des estimations de la moyenne, de l'écart-type, du coefficient d'asymétrie et de la kurtosis pour les DFE de trois souches (\emph{mutH}, \emph{mutT}, \textbf{MF1}). Ces moments particuliers permettent d'obtenir des indices qualitatifs sur la forme des DFE: par exemple, comme le coefficient d'asymétrie et la kurtosis sont très élevés, on s'attend à ce que les DFE soient très piquées et très asymétriques, \ie: très peu de mutations sont très délétères, la plupart des mutations sont quasiment neutres.
-
-
 
 
 \begin{figure}[h]
@@ -791,11 +787,11 @@ Nous avons répliqué certains résultats dans des notebooks disponibles sur \ur
 
 \paragraph{Traitement initial des données}
 
-Les données obtenues dans l'expérience $\mu$MA sont très bruitées. Nous indiquons ici les transformations que les auteurs de \cite{ref} ont effectuées sur ces données afin d'obtenir des résultats corrects:
+Les données obtenues dans l'expérience $\mu$MA sont très bruitées. Nous indiquons ici les transformations effectuées sur ces données afin d'obtenir des résultats corrects:
 \begin{itemize}
 \item Sélection des cellules qui sont encore vivantes à la $44^e$ heure. En effet, les cellules qui croissent très lentement ou qui sont mortes induisent du bruit dans l'estimation de la DFE. Nous avons pu vérifier que le conditionnement effectué (<<~on suppose que la cellule ne meurt pas au cours de l'expérience~>>) n'induit pas de biais majeur dans l'estimation des moments;
 \item Pour éviter les erreurs d'analyse d'image, les taux de croissances des lignées ayant un taux de croissance très faible (inférieur à $0.015$) ont été vérifiés visuellement;
-\item L'analyse d'image peut créer des valeurs aberrantes. Ces valeurs aberrantes ont été supprimées ainsi: si une valeur au temps $t$ diffère d'au moins $30\%$ de la médiane des valeurs prises avant le temps $t$, et diffère d'au moins $30\%$ de la médiane des valeurs prises après le temps $t$, alors ont supprime cette valeur.
+\item L'analyse d'image peut créer des valeurs aberrantes. Ces valeurs aberrantes ont été supprimées ainsi: si une valeur au temps $t$ diffère d'au moins $30\%$ simultanément de la médiane des valeurs prises avant le temps $t$, et de la médiane des celles prises après le temps $t$, alors ont supprime cette valeur.
 \end{itemize}
 
 
@@ -806,8 +802,6 @@ Les auteurs de \cite{rob} on montré que, en supposant que le bruit sur la mesur
 ce qui fait que l'estimation $E'_n(t)$ que l'on fait de $E_n(t)$ diffère de $E_n(t)$ d'un terme indépendant de $t$. Ainsi, l'ordonnée à l'origine de la droite est modifiée mais pas sa pente.
 
 
-
-\newpage
 
 \FloatBarrier
 \section{Annexe: Vérification\label{ann:verif}}
