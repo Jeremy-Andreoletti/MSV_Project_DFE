@@ -1,52 +1,48 @@
 \documentclass[12pt]{article}
  
- \usepackage[utf8]{inputenc}
- \usepackage[T1]{fontenc}
- \usepackage[french]{babel}
- \usepackage{mathtools, bm}
- \usepackage{amssymb, bm}
- \usepackage{stmaryrd} 
- \usepackage{enumitem}
- \usepackage{array}
- \usepackage{layout}
- \usepackage{pslatex}
- \usepackage{pstricks-add}
- \usepackage{lmodern}
- \usepackage{listings}
- \usepackage{color}
- \usepackage[pdfborder={0 0 0}]{hyperref}
- \usepackage[babel=true]{csquotes}
- \usepackage{amsthm}
- \usepackage{thmtools, varioref}
- \declaretheorem[title = Theorem, style=plain]{theo}
- \newtheorem{plain}{Proposition}[section]
- \usepackage{lmodern}
- \usepackage{tikz}
- \usepackage{setspace}
- \usepackage{slashed} % opérateur de Dirac
- \usepackage{mathrsfs} % jolies cursives (mathscr)
- \usepackage{pdfpages} % inclusion de pdf
- \usepackage{placeins} % barrières figures flottantes
-  \usepackage{media9} % vidéos
- 
- % marge
- \newcommand{\marge}[1]{\usepackage[top=#1,bottom=#1+1cm,left=#1,right=#1]{geometry}}
- \newcommand{\smarge}[2]{\usepackage[top=#1,bottom=#1+1cm,left=#1-#2,right=#1]{geometry}}
- \smarge{2.5cm}{0.6cm}
- %\usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{mathtools, bm}
+\usepackage{amssymb, bm}
+\usepackage{stmaryrd} 
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{layout}
+\usepackage{pslatex}
+\usepackage{pstricks-add}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{color}
+\usepackage[pdfborder={0 0 0}]{hyperref}
+\usepackage[babel=true]{csquotes}
+\usepackage{amsthm}
+\usepackage{thmtools, varioref}
+\declaretheorem[title = Theorem, style=plain]{theo}
+\newtheorem{plain}{Proposition}[section]
+\usepackage{lmodern}
+\usepackage{tikz}
+\usepackage{setspace}
+\usepackage{mathrsfs} % jolies cursives (mathscr)
+
+% marge
+\newcommand{\marge}[1]{\usepackage[top=#1,bottom=#1+1cm,left=#1,right=#1]{geometry}}
+\newcommand{\smarge}[2]{\usepackage[top=#1,bottom=#1+1cm,left=#1-#2,right=#1]{geometry}}
+\smarge{2.5cm}{0.6cm}
+%\usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
 
 
- % "boîtes"
+% "boîtes"
 
- \newcounter{defi}[section]
- \newcounter{prop}[section]
- \newcounter{thm}
+\newcounter{defi}[section]
+\newcounter{prop}[section]
+\newcounter{thm}
 
 %\newcommand{\prop}[1]{\begin{minipage}{.8\linewidth}\begin{plain} #1\end{plain}\end{minipage}\\\vspace{0cm}}
-\newcommand{\conj}[1]{\begin{minipage}{.8\linewidth}\textbf{Conjecture.} \textit{#1}\end{minipage}\\\vspace{0cm}}
+%\newcommand{\conj}[1]{\begin{minipage}{.8\linewidth}\textbf{Conjecture.} \textit{#1}\end{minipage}\\\vspace{0cm}}
 %\newcommand{\defi}[1]{\vspace{0.6cm}\begin{minipage}{.8\linewidth}\textbf{Definition.} \textit{#1}\end{minipage}\\\vspace{0.3cm}}
 \newcommand{\defi}[1]{\stepcounter{defi}\paragraph{Définition \arabic{section}.\arabic{defi}.}\textit{\newline #1}\vspace{0.1cm}}
-\newcommand{\prop}[1]{\stepcounter{prop}\paragraph{Proposition \arabic{section}.\arabic{prop}.}\textit{\newline #1}\vspace{0.1cm}}
+%\newcommand{\prop}[1]{\stepcounter{prop}\paragraph{Proposition \arabic{section}.\arabic{prop}.}\textit{\newline #1}\vspace{0.1cm}}
 \newcommand{\thm}[2]{\stepcounter{thm}\paragraph{Theorème \arabic{thm}. (#1)}\textit{\newline #2}\vspace{0.1cm}}
 \newcommand{\thma}[1]{\stepcounter{thm}\paragraph{Theorème \arabic{thm}.}\textit{\newline #1}\vspace{0.1cm}}
 %\newcommand{\defis}[1]{\vspace{0.6cm}\paragraph{Définitions.}\textit{#1}\vspace{0.3cm}}
@@ -57,77 +53,78 @@
 \newcommand{\exmps}[1]{\paragraph{Exemples.}\begin{enumerate}#1\end{enumerate}\vspace{0.1cm}}
 
 
+% propositions encadrées :
+
+\newcommand{\prop}[1]{\begin{center}\fbox{\begin{minipage}{.8\linewidth}\begin{plain} #1\end{plain}\end{minipage}}\end{center}}
+\newcommand{\conj}[1]{\begin{center}\fbox{\begin{minipage}{.8\linewidth}\textbf{Conjecture.} \textit{#1}\end{minipage}}\end{center}}
+
 
 % left/right
- 
- \newcommand{\ioo}[1]{\left]#1\right[}
- \newcommand{\ifo}[1]{\left[#1\right[}
- \newcommand{\iof}[1]{\left]#1\right]}
 
- \newcommand{\pth}[1]{\left(#1\right)}
- \newcommand{\cro}[1]{\left[#1\right]}
- \newcommand{\acc}[1]{\left\{#1\right\}}
- \newcommand{\abs}[1]{\left|#1\right|}
- \newcommand{\dabs}[1]{\|#1\|}
- \newcommand{\scal}[1]{\left<#1\right>}
- \newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
- \newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
- \newcommand{\dbcro}[1]{\left\llbracket#1\right\rrbracket}
+\newcommand{\ioo}[1]{\left]#1\right[}
+\newcommand{\ifo}[1]{\left[#1\right[}
+\newcommand{\iof}[1]{\left]#1\right]}
 
-
- % pour faire des commentaires cool
- \newcommand{\esp}{\hspace{1cm}}
- \newcommand{\et}{\hspace{1cm}\text{et}\hspace{1cm}}
- \newcommand{\pet}{\hspace{0.5cm}\text{et}\hspace{0.5cm}}
- \newcommand{\ou}{\hspace{1cm}\text{ou}\hspace{1cm}}
- \newcommand{\pou}{\hspace{0.5cm}\text{ou}\hspace{0.5cm}}
- \newcommand{\avec}{\hspace{1cm}\text{avec}\hspace{1cm}}
- \newcommand{\soit}{\hspace{1cm}\text{soit}\hspace{1cm}}
- \newcommand{\comment}[1]{\hspace{0.5cm}\text{#1}\hspace{0cm}}
- \newcommand{\tq}{\hspace{0.25cm}/ \hspace{0.25cm}}
- \newcommand{\qt}[1]{(\,#1\,)\hspace{1cm}}
- \newcommand{\qti}[1]{\,,\hspace{1cm}#1}
- \newcommand{\vg}{,\,}
- 
- \newcommand{\ssi}{\hspace{.2cm}\Leftrightarrow\hspace{.2cm}}
- \newcommand{\gssi}{\hspace{1cm}\Leftrightarrow\hspace{1cm}}
-
- \newcommand{\yolo}{$\color{red}{\textbf{YOLO}}$}
+\newcommand{\pth}[1]{\left(#1\right)}
+\newcommand{\cro}[1]{\left[#1\right]}
+\newcommand{\acc}[1]{\left\{#1\right\}}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\dabs}[1]{\|#1\|}
+\newcommand{\scal}[1]{\left<#1\right>}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+\newcommand{\dbcro}[1]{\left\llbracket#1\right\rrbracket}
 
 
- % Pour la géométrie
- \newcommand{\vect}[1]{\overrightarrow{#1}}
- 
- % divers 
+% pour faire des commentaires cool
+\newcommand{\esp}{\hspace{1cm}}
+\newcommand{\et}{\hspace{1cm}\text{et}\hspace{1cm}}
+\newcommand{\pet}{\hspace{0.5cm}\text{et}\hspace{0.5cm}}
+\newcommand{\ou}{\hspace{1cm}\text{ou}\hspace{1cm}}
+\newcommand{\pou}{\hspace{0.5cm}\text{ou}\hspace{0.5cm}}
+\newcommand{\avec}{\hspace{1cm}\text{avec}\hspace{1cm}}
+\newcommand{\soit}{\hspace{1cm}\text{soit}\hspace{1cm}}
+\newcommand{\comment}[1]{\hspace{0.5cm}\text{#1}\hspace{0cm}}
+\newcommand{\tq}{\hspace{0.25cm}/ \hspace{0.25cm}}
+\newcommand{\qt}[1]{(\,#1\,)\hspace{1cm}}
+\newcommand{\qti}[1]{\,,\hspace{1cm}#1}
+\newcommand{\vg}{,\,}
 
- \newcommand{\mat}[1]{\begin{matrix} #1\end{matrix}}
- \newcommand{\pmat}[1]{\begin{pmatrix} #1\end{pmatrix}}
- \newcommand{\cotan}{\text{cotan}}
- \newcommand{\somme}[2]{\sum_{#1=0}^{#2}}
- \newcommand{\Vect}[1]{\text{vect}\pth{#1}}
- \newcommand{\Tr}{\text{Tr}}
- \newcommand{\ie}{\emph{ie} } 
+\newcommand{\ssi}{\hspace{.2cm}\Leftrightarrow\hspace{.2cm}}
+\newcommand{\gssi}{\hspace{1cm}\Leftrightarrow\hspace{1cm}}
+
+\newcommand{\ie}{\emph{ie} } 
+
+\newcommand{\yolo}{$\color{red}{\textbf{YOLO}}$}
+
+
+
+% Pour la géométrie
+\newcommand{\vect}[1]{\overrightarrow{#1}}
+
+
+% Algèbre linéaire 
+\newcommand{\mat}[1]{\begin{matrix} #1\end{matrix}}
+\newcommand{\pmat}[1]{\begin{pmatrix} #1\end{pmatrix}}
+\newcommand{\cotan}{\text{cotan}}
+\newcommand{\Vect}[1]{\text{vect}\pth{#1}}
+\newcommand{\Tr}{\text{Tr}}
 \newcommand{\transp}{{}^t\!}
- \newcommand{\lleq}{<\!\!\!<}
 
 
- % pour les intégrales :
- \newcommand{\bigcro}[1]{\big[#1\big]}
- \newcommand{\de}{\,\mathrm{d}}
 
+% Les ensembles :
+\newcommand{\Ce}{\mathbb{C}}
+\newcommand{\Er}{\mathbb{R}}
+\newcommand{\En}{\mathbb{N}}
+\newcommand{\Zed}{\mathbb{Z}}
+\newcommand{\Qu}{\mathbb{Q}}
+\newcommand{\Te}{\mathbb{T}}
 
- % Les ensembles :
- \newcommand{\Ce}{\mathbb{C}}
- \newcommand{\Er}{\mathbb{R}}
- \newcommand{\En}{\mathbb{N}}
- \newcommand{\Zed}{\mathbb{Z}}
- \newcommand{\Qu}{\mathbb{Q}}
- \newcommand{\Te}{\mathbb{T}}
-
- % En probas
- \newcommand{\prb}[1]{\mathbb{P}\pth{#1}}
+% En probas
+\newcommand{\prb}[1]{\mathbb{P}\pth{#1}}
 \newcommand{\Esp}[1]{\mathbb{E}\cro{#1}}
- \newcommand{\Var}[1]{\text{Var}\pth{#1}}
+\newcommand{\Var}[1]{\text{Var}\pth{#1}}
 \newcommand{\kt }{\,|\,}
 \newcommand{\edistr }{\overset{d}{=}}
 \newcommand{\cdistr }{\overset{d}{\to}}
@@ -135,16 +132,23 @@
 \newcommand{\easrly}{\overset{a.s.}{=}}
 \newcommand{\casrly}{\overset{a.s.}{\to}}
 
-% spécifique
-
+% Analyse
+\newcommand{\bigcro}[1]{\big[#1\big]}
+\newcommand{\de}{\,\mathrm{d}}
 \newcommand{\dr}{\partial}
 \newcommand{\fr}{\mathcal{F}}
 
+% spécifique
+\usepackage{pdfpages} % inclusion de pdf
+\usepackage{placeins} % barrières figures flottantes
+\usepackage{media9} % vidéos
 
- \title{Estimer les effets des mutations sur la valeur sélective d'une bactérie}
 
- \author{Jérémy Andréoletti et Nathanaël Boutillon\\Projet encadré par Marie Doumic et Lydia Robert}
- 
+
+\title{Estimer les effets des mutations sur la valeur sélective d'une bactérie}
+
+\author{Jérémy Andréoletti et Nathanaël Boutillon\\Projet encadré par Marie Doumic et Lydia Robert}
+
 \begin{document}
 
 \maketitle
@@ -445,44 +449,44 @@ où $\dabs{\varepsilon(N)}_{\infty}$ est l'erreur maximale commise sur le calcul
 On peut décomposer $f(x)$ selon la régularisation des coefficients $\xi$ et l'estimation de $\varphi_S(\xi)$:
 
 \begin{align*}
-f(x) &= \frac1{2\pi} \int_{\mathbb R}\varphi_S(\xi)e^{-ix\xi}\de\xi\\
-&= \frac1{2\pi} \int_{\abs{\xi}\leqslant A}\varphi_S(\xi)e^{-ix\xi}\de\xi + \underbrace{\frac1{2\pi} \int_{\abs{\xi} > A}\varphi_S(\xi)e^{-ix\xi}\de\xi}_{a_1}\\
+f(x) &= \frac1{2\pi} \int_{\mathbb R}\varphi_S(\xi)e^{-ix\xi}\de\xi
+= \frac1{2\pi} \int_{\abs{\xi}\leqslant A}\varphi_S(\xi)e^{-ix\xi}\de\xi + \underbrace{\frac1{2\pi} \int_{\abs{\xi} > A}\varphi_S(\xi)e^{-ix\xi}\de\xi}_{a_1}\\
 &= \frac1{2\pi} \int_{\abs{\xi}\leqslant A}\pth{\hat{\varphi}_S(\xi)+\sum_{k=0}^{N}\frac{(i\xi)^k}{k!}\pth{\Esp{S^k}-m_k}+\sum_{k=N+1}^{+\infty}\frac{(i\xi)^k}{k!}\Esp{S^k}}e^{-ix\xi}\de\xi + a_1\\
 &= \underbrace{\frac1{2\pi} \int_{\abs{\xi}\leqslant A}\hat{\varphi}_S(\xi)e^{-ix\xi}\de\xi}_{\hat f(x)}
 + a_1
 + \underbrace{\frac1{2\pi}\int_{\abs{\xi}\leqslant A}\sum_{k=N+1}^{+\infty}\frac{(i\xi)^k}{k!}\Esp{S^k}e^{-ix\xi}\de\xi}_{a_2}\\
-&+ \underbrace{\frac1{2\pi}\int_{\abs{\xi}\leqslant A}\sum_{k=0}^{N}\frac{(i\xi)^k}{k!}\pth{\Esp{S^k}-m_k}e^{-ix\xi}\de\xi}_{a_3}\\
+&\esp+ \underbrace{\frac1{2\pi}\int_{\abs{\xi}\leqslant A}\sum_{k=0}^{N}\frac{(i\xi)^k}{k!}\pth{\Esp{S^k}-m_k}e^{-ix\xi}\de\xi}_{a_3}\\
 &= \hat{f}(x) + a_1 + a_2 + a_3
 \end{align*}
 
-On obtient donc comme majoration de l'erreur d'approximation de $f$, pour $x\in\Er$ et $\alpha_i = |a_i|$:
-\[\abs{f(x)-\hat{f}(x)} = \abs{a_1 + a_2 + a_3}\leqslant |a_1| + |a_2| + |a_3| = \alpha_1+\alpha_2+\alpha_3\]
+On obtient donc comme majoration de l'erreur d'approximation de $f$, pour $x\in\Er$:
+\[\abs{f(x)-\hat{f}(x)} = \abs{a_1 + a_2 + a_3}\leqslant |a_1| + |a_2| + |a_3|\]
 où
 
 \begin{itemize}
-\item $\alpha_1$ est l'erreur que l'on commet en omettant de calculer $\varphi_S(\xi)$ pour $\xi>A$ (erreur de régularisation). %On a:
+\item $\abs{a_1}$ est l'erreur que l'on commet en omettant de calculer $\varphi_S(\xi)$ pour $\xi>A$ (erreur de régularisation). %On a:
   %\begin{align*}
   %2\pi\alpha_1&\leqslant \int_{\abs{\xi}>A}\abs{\varphi_S(\xi)e^{-ix\xi}}\de\xi=\int_{\abs{\xi}>A}\abs{\varphi_S(\xi)}\de\xi
   %\end{align*}
 
-\[\alpha_1 = \frac1{2\pi} \abs{\int_{\abs{\xi} > A}\varphi_S(\xi)e^{-ix\xi}\de\xi}\]
+\[\abs{a_1} = \frac1{2\pi} \abs{\int_{\abs{\xi} > A}\varphi_S(\xi)e^{-ix\xi}\de\xi}\]
 
-  Pour tout $k\geqslant 1$: $2\pi\pth{\mathcal{F}^{-1}(f^{(k)})}(\xi)=(-i\xi)^k\varphi(\xi)$ donc:
+  Pour tout $k\geqslant 2$: $2\pi\pth{\mathcal{F}^{-1}(f^{(k)})}(\xi)=(i\xi)^k\varphi(\xi)$ donc:
   \begin{align*}
-    \alpha_1&=\abs{\int_{\abs{\xi}>A}\frac{1}{(-i\xi)^k}\mathcal{F}^{-1}(f^{(k)})(\xi)e^{-ix\xi}\de\xi}\\
+    \abs{a_1}&=\abs{\int_{\abs{\xi}>A}\frac{1}{(i\xi)^k}\mathcal{F}^{-1}(f^{(k)})(\xi)e^{-ix\xi}\de\xi}\\
     &\leqslant \int_{\abs{\xi}>A}\frac{1}{\abs{\xi}^k}\underbrace{\abs{\mathcal{F}^{-1}(f^{(k)})(\xi)}}_{\leqslant\dabs{f^{(k)}}_{1}}\de\xi\\
     &\leqslant 2\dabs{f^{(k)}}_{1}\int_{\xi>A}1/(\xi^k)\de\xi
   \end{align*}
 
-  On a donc, pour tout $k\geqslant 1$:
-  \[\alpha_1\leqslant\frac{2\dabs{f^{(k)}}_{1}}{(k-1)A^{k-1}}\] Pour que cette borne soit bonne, il faut d'une part faire certaines hypothèse sur $f$, d'autre part prendre $A$ assez grand;
-\item $\alpha_2$ est l'erreur que l'on commet en omettant dans notre calcul les moments d'ordre plus grand que $N+1$.
+  On a donc, pour tout $k\geqslant 2$:
+  \[\abs{a_1}\leqslant \alpha_1=\frac{2\dabs{f^{(k)}}_{1}}{(k-1)A^{k-1}}\] %Pour que cette borne soit bonne, il faut d'une part faire certaines hypothèse sur $f$, d'autre part prendre $A$ assez grand;
+\item $\abs{a_2}$ est l'erreur que l'on commet en omettant dans notre calcul les moments d'ordre plus grand que $N+1$:
 
-\[\alpha_2 = \frac1{2\pi}\abs{\int_{\abs{\xi}\leqslant A}\sum_{k=N+1}^{+\infty}\frac{(i\xi)^k}{k!}\Esp{S^k}e^{-ix\xi}\de\xi}\]
+\[\abs{a_2} = \frac1{2\pi}\abs{\int_{\abs{\xi}\leqslant A}\sum_{k=N+1}^{+\infty}\frac{(i\xi)^k}{k!}\Esp{S^k}e^{-ix\xi}\de\xi}\]
 
 On a :
   \begin{align*}
-    2\pi\alpha_2&\leqslant \int_{-A}^A\abs{\sum_{k=N+1}^{+\infty}\frac{(i\xi)^k}{k!}\Esp{S^k}}e^{-i\xi x}\de\xi\\
+    2\pi\abs{a_2}&\leqslant \int_{-A}^A\abs{\sum_{k=N+1}^{+\infty}\frac{(i\xi)^k}{k!}\Esp{S^k}}\de\xi\\
     &\leqslant  \int_{-A}^A\sum_{k=N+1}^{+\infty}\frac{\abs{\xi}^k}{k!}\Esp{S^k}\de\xi=2 \int_{0}^A\sum_{k=N+1}^{+\infty}\frac{\xi^k}{k!}\Esp{S^k}\de\xi\\
     &\leqslant 2\sum_{k=N+1}^{+\infty}\frac{A^{k+1}}{(k+1)!}\Esp{S^k}=2\Esp{\frac{1}{S}\sum_{k=N+1}^{+\infty}\frac{(AS)^{k+1}}{(k+1)!}}\\
   \end{align*}
@@ -494,25 +498,25 @@ On a :
   \end{align*}
   d'où:
   \begin{align*}
-    \alpha_2\leqslant 2\Esp{\frac{(AS)^{N+1}(e^{AS}-1)}{2\pi S(N+1)!}}=\frac{A^{N+1}}{\pi(N+1)!}\Esp{S^N(e^{AS}-1)}
+    \abs{a_2}\leqslant \alpha_2= 2\Esp{\frac{(AS)^{N+1}(e^{AS}-1)}{2\pi S(N+1)!}}=\frac{A^{N+1}}{\pi(N+1)!}\Esp{S^N(e^{AS}-1)}
   \end{align*}
 
-  Pour que cette borne soit bonne, il faut prendre $A$ assez petit et $N$ assez grand;
-\item $\alpha_3$ est l'erreur que l'on commet qui provient des erreurs sur le calcul des moments.
+ % Pour que cette borne soit bonne, il faut prendre $A$ assez petit et $N$ assez grand;
+\item $\abs{a_3}$ est l'erreur que l'on commet qui provient des erreurs sur le calcul des moments.
 
-\[\alpha_3 = \frac1{2\pi}\abs{\int_{\abs{\xi}\leqslant A}\sum_{k=0}^{N}\frac{(i\xi)^k}{k!}\pth{\Esp{S^k}-m_k}e^{-ix\xi}\de\xi}\]
+\[\abs{a_3} = \frac1{2\pi}\abs{\int_{\abs{\xi}\leqslant A}\sum_{k=0}^{N}\frac{(i\xi)^k}{k!}\pth{\Esp{S^k}-m_k}e^{-ix\xi}\de\xi}\]
 
 On a:
   \begin{align*} 
-    2\pi\alpha_3&\leqslant \int_{-A}^A\sum_{k=0}^{N}\abs{\frac{(i\xi)^k}{k!}\pth{\Esp{S^k}-m_k}e^{-i\xi x}}\de\xi\\
+    2\pi\abs{a_3}&\leqslant \int_{-A}^A\sum_{k=0}^{N}\abs{\frac{(i\xi)^k}{k!}\pth{\Esp{S^k}-m_k}e^{-i\xi x}}\de\xi\\
     &\leqslant 2\dabs{\varepsilon}_{\infty}\int_{0}^A\sum_{k=0}^{N}\xi^k/(k!)\de\xi\\
     &\leqslant 2\dabs{\varepsilon}_{\infty}\int_{0}^Ae^{\xi}\de\xi
   \end{align*}
 
-  Avec : $$\dabs{\varepsilon}_{\infty} = \max_{k=1,\dots,N} \abs{\Esp{S^k}-m_k}$$
+  Avec : $$\dabs{\varepsilon}_{\infty} = \max_{k=0,\dots,N} \abs{\Esp{S^k}-m_k}$$
 
   On a donc:
-  \[\alpha_3\leqslant \frac{\dabs{\varepsilon}_{\infty}(e^A-1)}{\pi}\]
+  \[\abs{a_3}\leqslant \alpha_3= \frac{\dabs{\varepsilon}_{\infty}(e^A-1)}{\pi}\]
 \end{itemize}
 \end{proof}
 
@@ -543,14 +547,17 @@ On obtient alors le paramètre $A$ qui minimise la borne :
 \[A = 2W\pth{\frac{\sqrt{x/y}}2} = 2W\pth{\sqrt{\frac{2\pi d_2}{4 \varepsilon}}}\]
 avec $W$ la fonction W de Lambert telle que $z=W(z)e^{W(z)}$.
 
-\item Pour $k$ général, on a les mêmes calculs, mais avec $x=\frac{2d_k}{(k-1)}$, ce qui donne:
-\[A=2W\pth{\sqrt{\frac{2\pi d_k}{4(k-1)\varepsilon}}}\]
+\item Pour $k$ général, avec les mêmes calculs, on trouve que $\alpha'(A)=-\frac{2d_k}{A^k}+ye^A$, ce qui permet de déduire l'expression du meilleur $A$:
+\[A=kW\pth{\frac{1}{k}\pth{\frac{2\pi d_k}{\varepsilon}}^{1/k}}\]
 
-\item Regardons maintenant le comportement de $A$ quand $\varepsilon\to 0$. Comme, quand $z\to\infty$:
-\[W(z)=\ln z-\ln\ln z+o(1)\] on a \[A_\varepsilon= \ln\pth{\frac{2\pi d_k}{4i\varepsilon}}-\ln\ln\pth{\frac{2\pi d_k}{4(k-1)\varepsilon}}+o(1)= \ln(1/\varepsilon)-\ln\ln(1/\varepsilon)+o(1)\] 
+\item (FAUX ?) Regardons maintenant le comportement de $A$ quand $\varepsilon\to 0$.
+  Comme, quand $z\to\infty$:
+  \[W(z)=\ln z-\ln\ln z+o(1)\]
+  on a
+  \[A_\varepsilon=\ln\pth{\frac{2\pi d_k}{k\varepsilon}}-\ln\ln\pth{\frac{2\pi d_k}{4(k-1)\varepsilon}}+o(1)= \ln(1/\varepsilon)-\ln\ln(1/\varepsilon)+o(1)\] 
 %\[A_\varepsilon \mathop{\sim}\limitS_{\varepsilon\to0} \ln\pth{\frac{d_k}{8(k-1)\pi\varepsilon}}\sim \ln(1/\varepsilon)\]
 d'où :
-\[\alpha(A_\varepsilon)=y(e^{A_\varepsilon}-1) + \frac{x}{{A_\varepsilon}^{k-1}}=\frac{\varepsilon}{\pi}e^{A_{\varepsilon}}+o(1)=\frac{1}{\pi\ln\pth{\frac{1}{\varepsilon}}}+o(1)\]
+\[\alpha(A_\varepsilon)=\frac{\varepsilon}{\pi}(e^{A_\varepsilon}-1) + \frac{x}{{A_\varepsilon}^{k-1}}=\frac{\varepsilon}{\pi}e^{A_{\varepsilon}}+o(1)=\frac{1}{\pi\ln\pth{\frac{1}{\varepsilon}}}+o(1)\]
 %\[\alpha(A_\varepsilon)=y(e^{A_\varepsilon}-1) + \frac{x}{{A_\varepsilon}^{k-1}} &\mathop{\sim}\limitS_{\varepsilon\to0} -\frac{d_2k^k}{2\pi^2\ln(\varepsilon)^k}\]
 d'où, quand $\varepsilon\to 0$:
 \[\alpha(A_\varepsilon)\sim \abs{1/(\pi\ln(\varepsilon))}\]
