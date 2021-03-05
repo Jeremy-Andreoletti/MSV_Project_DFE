@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.8.29)  5 MAR 2021 20:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.8.29)  5 MAR 2021 22:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1694,67 +1694,70 @@ Andreoletti / MSV _ Project _ DFE / blob / master / IV2 _ DFE-[]EDP-[]Fourier _
 
  []
 
-[21] [22] [23]
-<img/supmat_lines.png, id=407, 679.53876pt x 543.02875pt>
+[21] [22] [23] [24]
+<img/supmat_lines.png, id=415, 679.53876pt x 543.02875pt>
 File: img/supmat_lines.png Graphic file (type png)
 <use img/supmat_lines.png>
-Package pdftex.def Info: img/supmat_lines.png  used on input line 787.
+Package pdftex.def Info: img/supmat_lines.png  used on input line 794.
 (pdftex.def)             Requested size: 203.8632pt x 162.90987pt.
-<img/supmat_slopes.png, id=410, 1286.8075pt x 501.875pt>
+<img/supmat_slopes.png, id=418, 1286.8075pt x 501.875pt>
 File: img/supmat_slopes.png Graphic file (type png)
 <use img/supmat_slopes.png>
-Package pdftex.def Info: img/supmat_slopes.png  used on input line 794.
+Package pdftex.def Info: img/supmat_slopes.png  used on input line 801.
 (pdftex.def)             Requested size: 386.04523pt x 150.56366pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/supmat_moments.png, id=413, 954.56625pt x 253.94875pt>
+<img/supmat_moments.png, id=421, 954.56625pt x 253.94875pt>
 File: img/supmat_moments.png Graphic file (type png)
 <use img/supmat_moments.png>
-Package pdftex.def Info: img/supmat_moments.png  used on input line 801.
+Package pdftex.def Info: img/supmat_moments.png  used on input line 808.
 (pdftex.def)             Requested size: 286.37209pt x 76.1852pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[24 <./img/supmat_lines.png>] [25 <./img/supmat_slopes.png> <./img/supmat_momen
+[25 <./img/supmat_lines.png>] [26 <./img/supmat_slopes.png> <./img/supmat_momen
 ts.png>]
-<img/iv_verif_pxi.png, id=437, 402.50375pt x 279.0425pt>
+<img/iv_verif_pxi.png, id=444, 402.50375pt x 279.0425pt>
 File: img/iv_verif_pxi.png Graphic file (type png)
 <use img/iv_verif_pxi.png>
-Package pdftex.def Info: img/iv_verif_pxi.png  used on input line 837.
+Package pdftex.def Info: img/iv_verif_pxi.png  used on input line 844.
 (pdftex.def)             Requested size: 241.5041pt x 167.42679pt.
-<img/iv_verif_grxi.png, id=438, 396.48125pt x 279.0425pt>
+<img/iv_verif_grxi.png, id=445, 396.48125pt x 279.0425pt>
 File: img/iv_verif_grxi.png Graphic file (type png)
 <use img/iv_verif_grxi.png>
-Package pdftex.def Info: img/iv_verif_grxi.png  used on input line 838.
+Package pdftex.def Info: img/iv_verif_grxi.png  used on input line 845.
 (pdftex.def)             Requested size: 237.89058pt x 167.42679pt.
-<img/iv_verif_pxi_im.png, id=439, 394.47375pt x 279.0425pt>
+<img/iv_verif_pxi_im.png, id=446, 394.47375pt x 279.0425pt>
 File: img/iv_verif_pxi_im.png Graphic file (type png)
 <use img/iv_verif_pxi_im.png>
-Package pdftex.def Info: img/iv_verif_pxi_im.png  used on input line 839.
+Package pdftex.def Info: img/iv_verif_pxi_im.png  used on input line 846.
 (pdftex.def)             Requested size: 236.68607pt x 167.42679pt.
- [26 <./img/iv_verif_pxi.png> <./img/iv_verif_grxi.png> <./img/iv_verif_pxi_im.
+ [27 <./img/iv_verif_pxi.png> <./img/iv_verif_grxi.png> <./img/iv_verif_pxi_im.
 png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 847.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 847.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 854.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 854.
  (./rapport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 847.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 847.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 854.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 854.
 Package rerunfilecheck Info: File `rapport.out' has not changed.
 (rerunfilecheck)             Checksum: 034BF44192EAB1AD7D77083E8A0EC801;1268.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 847.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 854.
  ) 
 Here is how much of TeX's memory you used:
- 35801 strings out of 492649
- 661248 string characters out of 6129622
+ 35803 strings out of 492649
+ 661266 string characters out of 6129622
  820681 words of memory out of 5000000
  38889 multiletter control sequences out of 15000+600000
  652403 words of font info for 161 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  54i,16n,62p,10379b,687s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Hfootnote.6} has been referenced but does not exi
+pdfTeX warning (dest): name{Hfootnote.7} has been referenced but does not exi
 st, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.6} has been referenced but does not exist
+, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exist
 , replaced by a fixed one
@@ -1794,10 +1797,10 @@ lmsy7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmsy9.pfb><
 /texlive/2018/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/local/texlive/2
 018/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texli
 ve/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on rapport.pdf (26 pages, 4850880 bytes).
+Output written on rapport.pdf (27 pages, 4853024 bytes).
 PDF statistics:
- 554 PDF objects out of 1000 (max. 8388607)
- 468 compressed objects within 5 object streams
- 128 named destinations out of 1000 (max. 500000)
+ 561 PDF objects out of 1000 (max. 8388607)
+ 474 compressed objects within 5 object streams
+ 130 named destinations out of 1000 (max. 500000)
  340 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -38,8 +38,8 @@
 \contentsline {paragraph}{Remarque.}{22}{section*.23}
 \contentsline {paragraph}{R\IeC {\'e}sultat en temps long}{22}{section*.24}
 \contentsline {section}{\numberline {5}Conclusion}{23}{section.5}
-\contentsline {section}{\numberline {A}Annexe: Pr\IeC {\'e}sentation des r\IeC {\'e}sultats}{24}{appendix.A}
-\contentsline {paragraph}{Commentaires sur les figures}{24}{section*.26}
-\contentsline {paragraph}{Traitement initial des donn\IeC {\'e}es}{24}{section*.27}
-\contentsline {paragraph}{Prise en compte du bruit multiplicatif}{25}{section*.28}
-\contentsline {section}{\numberline {B}Annexe: V\IeC {\'e}rification}{26}{appendix.B}
+\contentsline {section}{\numberline {A}Annexe: Pr\IeC {\'e}sentation des r\IeC {\'e}sultats}{25}{appendix.A}
+\contentsline {paragraph}{Commentaires sur les figures}{25}{section*.26}
+\contentsline {paragraph}{Traitement initial des donn\IeC {\'e}es}{25}{section*.27}
+\contentsline {paragraph}{Prise en compte du bruit multiplicatif}{26}{section*.28}
+\contentsline {section}{\numberline {B}Annexe: V\IeC {\'e}rification}{27}{appendix.B}
