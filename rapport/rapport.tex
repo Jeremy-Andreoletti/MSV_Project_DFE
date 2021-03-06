@@ -533,7 +533,7 @@ On remarque que $\alpha_1$ diminue quand $A$ augmente, mais $\alpha_3$ augmente 
 \item il existe $k\in\En$ tel que $d_k=\dabs{f^{(k)}}_1<+\infty$;
 \end{itemize}
 Alors on a, pour tout $x\in\Er$:
-\[\abs{f(x)-\hat{f}(x)}\sim \abs{\frac{1}{\pi\ln(\varepsilon)}}\comment{quand $\varepsilon\to 0$}\]
+\[\abs{f(x)-\hat{f}(x)}\sim \abs{\frac{2 d_k}{\ln^k\pth{\varepsilon}}}\comment{quand $\varepsilon\to 0$}\]
 }
 
 \begin{proof} On traite d'abord le cas particulier $k=2$, pour introduire les idées.
@@ -552,17 +552,29 @@ avec $W$ la fonction W de Lambert telle que $z=W(z)e^{W(z)}$.
 \item Pour $k$ général, avec les mêmes calculs, on trouve que $\alpha'(A)=-\frac{2d_k}{A^k}+ye^A$, ce qui permet de déduire l'expression du meilleur $A$:
 \[A=kW\pth{\frac{1}{k}\pth{\frac{2\pi d_k}{\varepsilon}}^{1/k}}\]
 
-\item (FAUX ?) Regardons maintenant le comportement de $A$ quand $\varepsilon\to 0$.
+\item Regardons maintenant le comportement de $A$ quand $\varepsilon\to 0$.
   Comme, quand $z\to\infty$:
   \[W(z)=\ln z-\ln\ln z+o(1)\]
   on a
-  \[A_\varepsilon=\ln\pth{\frac{2\pi d_k}{k\varepsilon}}-\ln\ln\pth{\frac{2\pi d_k}{4(k-1)\varepsilon}}+o(1)= \ln(1/\varepsilon)-\ln\ln(1/\varepsilon)+o(1)\] 
+  \begin{align*}
+  	A_\varepsilon &= k\ln\pth{\frac{1}{k}\pth{\frac{2\pi d_k}{\varepsilon}}^{1/k}}-k\ln\ln\pth{\frac{1}{k}\pth{\frac{2\pi d_k}{\varepsilon}}^{1/k}}+o(1)\\
+	& = -k\ln\pth{k}+\ln\pth{\frac{2\pi d_k}{\varepsilon}}-k\ln\pth{\ln\pth{\frac{1}{k}}+\frac1k\ln\pth{\frac{2\pi d_k}{\varepsilon}}}+o(1)
+  \end{align*}
 %\[A_\varepsilon \mathop{\sim}\limitS_{\varepsilon\to0} \ln\pth{\frac{d_k}{8(k-1)\pi\varepsilon}}\sim \ln(1/\varepsilon)\]
 d'où :
-\[\alpha(A_\varepsilon)=\frac{\varepsilon}{\pi}(e^{A_\varepsilon}-1) + \frac{x}{{A_\varepsilon}^{k-1}}=\frac{\varepsilon}{\pi}e^{A_{\varepsilon}}+o(1)=\frac{1}{\pi\ln\pth{\frac{1}{\varepsilon}}}+o(1)\]
+  \begin{align*}
+  	\alpha(A_\varepsilon) &= \frac{\varepsilon}{\pi}(e^{A_\varepsilon}-1) + \frac{2d_k}{{A_\varepsilon}^{k-1}}\\
+	& = \frac{\varepsilon}{\pi}\times\frac{2\pi d_k e^{o(1)}}{k^k\varepsilon\pth{\ln\pth{\frac{1}{k}}+\frac1k\ln\pth{\frac{2\pi d_k}{\varepsilon}}}^k} - \frac{\varepsilon}{\pi}\\
+	& + \frac{2d_k}{\pth{k\ln\pth{\frac{1}{k}\pth{\frac{2\pi d_k}{\varepsilon}}^{1/k}}-k\ln\ln\pth{\frac{1}{k}\pth{\frac{2\pi d_k}{\varepsilon}}^{1/k}}+o(1)}^{k-1}}\\
+	& \text{or } e^{o(1)}\to1 \text{ et } \ln\ln(x)=o(ln(x)) \text{ quand } x\to+\infty\\
+	& = \frac{2 d_k}{\pth{k\ln\pth{\frac{1}{k}}+\ln\pth{\frac{2\pi d_k}{\varepsilon}}}^k} + \frac{2d_k}{\pth{k\ln\pth{\frac{1}{k}}+\ln\pth{\frac{2\pi d_k}{\varepsilon}}}^{k-1}} + o(1)\\
+	& \text{or } x^{k-1}=o(x^k) \text{ quand } x\to+\infty\\
+	& = \frac{2 d_k}{\pth{k\ln\pth{\frac{1}{k}}+\ln\pth{\frac{2\pi d_k}{\varepsilon}}}^k} + o(1)
+  \end{align*}
+
 %\[\alpha(A_\varepsilon)=y(e^{A_\varepsilon}-1) + \frac{x}{{A_\varepsilon}^{k-1}} &\mathop{\sim}\limitS_{\varepsilon\to0} -\frac{d_2k^k}{2\pi^2\ln(\varepsilon)^k}\]
 d'où, quand $\varepsilon\to 0$:
-\[\alpha(A_\varepsilon)\sim \abs{1/(\pi\ln(\varepsilon))}\]
+\[\alpha(A_\varepsilon)\sim \abs{\frac{2 d_k}{\ln^k\pth{\varepsilon}}}\]
 ce qui permet de conclure la proposition. 
 \end{enumerate}
 \end{proof}
@@ -749,7 +761,7 @@ Dans le cas où le taux de division \emph{dépend de la taille de la cellule} ($
 
   Plusieurs approches ont été testées au cours de ce projet afin de résoudre le problème inverse sévèrement mal posé que représente l'estimation de la distribution des effets des mutations sur la valeur sélective à partir de données de croissance bactérienne bruitées. Les premières analyses les plus naïves ayant confirmé leur insuffisance, nous avons exploré des méthodes analytiques plus poussées, sous l'angle du problème des moments ou d'une équation aux dérivées partielles retranscrivant la dynamique du système. Dans les 2 cas, des résultats théoriques ont pu être obtenus, mais en pratique les méthodes développées ne sont pas encore à même d'extraire suffisamment d'information de ces données expérimentales.
   
-  Cependant, les outils que nous avons proposés nous semble toujours pertinents si des données plus nombreuses ou moins bruitées sont un jour acquises. Nous avons ainsi tenu à les présenter sous la forme de notebooks\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE}} soigneusement annotés de manière à faciliter la reproductibilité de nos résultats et leur réutilisation.
+  Cependant, les outils que nous avons proposés nous semblent toujours pertinents si des données plus nombreuses ou moins bruitées sont un jour acquises. Nous avons ainsi tenu à les présenter sous la forme de notebooks\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE}} soigneusement annotés de manière à faciliter la reproductibilité de nos résultats et leur réutilisation.
   
   Enfin, de nombreuses améliorations de nos méthodes et implémentations sont envisageables, par exemple en comblant les lacunes de l'approche par EDP grâce à l'estimation des moments ou en explorant plus en détail les similitudes avec les problèmes de fragmentation. À cet égard, la possibilité de réaliser très efficacement des simulations réalistes, avec des DFE arbitraires et incorporant le bruit des mesures fidèlement à l'expérience, permettrait de tester la fiabilité de potentielles nouvelles approches. Avec, à terme, l'espoir de pouvoir obtenir une estimation robuste et entièrement non-paramétrique de la DFE, ouvrant la voie à une meilleur compréhension des conséquences phénotypiques des mutations.
   

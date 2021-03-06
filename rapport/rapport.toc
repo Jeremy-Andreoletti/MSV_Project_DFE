@@ -21,25 +21,25 @@
 \contentsline {paragraph}{Estimation de la DFE}{14}{section*.11}
 \contentsline {subsection}{\numberline {3.3}Bornes sur l'erreur commise}{14}{subsection.3.3}
 \contentsline {paragraph}{Optimisation du param\IeC {\`e}tre A}{17}{section*.12}
-\contentsline {paragraph}{Commentaires}{18}{section*.13}
-\contentsline {section}{\numberline {4}\IeC {\'E}tude d'une EDP}{18}{section.4}
+\contentsline {paragraph}{Commentaires}{19}{section*.13}
+\contentsline {section}{\numberline {4}\IeC {\'E}tude d'une EDP}{19}{section.4}
 \contentsline {subsection}{\numberline {4.1}Nouveau point de vue sur le probl\IeC {\`e}me}{19}{subsection.4.1}
 \contentsline {paragraph}{Transformations initiales}{19}{section*.14}
-\contentsline {paragraph}{Introduction du mod\IeC {\`e}le}{19}{section*.15}
+\contentsline {paragraph}{Introduction du mod\IeC {\`e}le}{20}{section*.15}
 \contentsline {paragraph}{V\IeC {\'e}rification}{20}{section*.16}
 \contentsline {paragraph}{Estimation de la DFE}{20}{section*.17}
 \contentsline {subsection}{\numberline {4.2}D\IeC {\'e}termination de la DFE \IeC {\`a} partir de \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {edp_sol}\unskip \@@italiccorr )}}}{21}{subsection.4.2}
 \contentsline {paragraph}{V\IeC {\'e}rification}{21}{section*.18}
-\contentsline {paragraph}{Estimation de la DFE}{21}{section*.19}
-\contentsline {subsection}{\numberline {4.3}Lien avec un probl\IeC {\`e}me de fragmentation}{21}{subsection.4.3}
-\contentsline {paragraph}{Pr\IeC {\'e}sentation du probl\IeC {\`e}me de fragmentation}{21}{section*.20}
+\contentsline {paragraph}{Estimation de la DFE}{22}{section*.19}
+\contentsline {subsection}{\numberline {4.3}Lien avec un probl\IeC {\`e}me de fragmentation}{22}{subsection.4.3}
+\contentsline {paragraph}{Pr\IeC {\'e}sentation du probl\IeC {\`e}me de fragmentation}{22}{section*.20}
 \contentsline {paragraph}{Mise en \IeC {\'e}quation}{22}{section*.21}
 \contentsline {paragraph}{Comparaison avec notre mod\IeC {\`e}le}{22}{section*.22}
-\contentsline {paragraph}{Remarque.}{22}{section*.23}
-\contentsline {paragraph}{R\IeC {\'e}sultat en temps long}{22}{section*.24}
+\contentsline {paragraph}{Remarque.}{23}{section*.23}
+\contentsline {paragraph}{R\IeC {\'e}sultat en temps long}{23}{section*.24}
 \contentsline {section}{\numberline {5}Conclusion}{23}{section.5}
-\contentsline {section}{\numberline {A}Annexe: Pr\IeC {\'e}sentation des r\IeC {\'e}sultats}{25}{appendix.A}
-\contentsline {paragraph}{Commentaires sur les figures}{25}{section*.26}
-\contentsline {paragraph}{Traitement initial des donn\IeC {\'e}es}{25}{section*.27}
-\contentsline {paragraph}{Prise en compte du bruit multiplicatif}{26}{section*.28}
-\contentsline {section}{\numberline {B}Annexe: V\IeC {\'e}rification}{27}{appendix.B}
+\contentsline {section}{\numberline {A}Annexe: Pr\IeC {\'e}sentation des r\IeC {\'e}sultats}{26}{appendix.A}
+\contentsline {paragraph}{Commentaires sur les figures}{26}{section*.26}
+\contentsline {paragraph}{Traitement initial des donn\IeC {\'e}es}{26}{section*.27}
+\contentsline {paragraph}{Prise en compte du bruit multiplicatif}{27}{section*.28}
+\contentsline {section}{\numberline {B}Annexe: V\IeC {\'e}rification}{28}{appendix.B}
