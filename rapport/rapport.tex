@@ -156,9 +156,9 @@
 \begin{abstract}
   Le but de ce projet est d'estimer les effets des mutations sur la valeur sélective d'une bactérie.
 
-  Dans un premier temps, nous présentons le contexte général dans lequel se place cette étude, en particulier des expériences réalisées dans \cite{rob} dont sont issues les données sur lesquelles nous nous sommes basés. Nous introduisons le modèle mathématique qui permet leur analyse et l'interprétation de certains résultats de l'article initial que nous avons répliqués. Une procédure permettant de réaliser des simulations réalistes des expériences est également décrite.
+  Dans un premier temps, nous présentons le contexte général dans lequel se place cette étude, et en particulier les expériences réalisées dans \cite{rob} dont sont issues les données sur lesquelles nous nous sommes basés. Nous introduisons le modèle mathématique qui permet leur analyse et l'interprétation de certains résultats de l'article initial que nous avons répliqués. Une procédure permettant de réaliser des simulations réalistes des expériences est également décrite.
 
-  Ensuite, nous proposons une première méthode pour trouver la distribution des effets des mutations sur la valeur sélective (appelée DFE pour \emph{distribution of fitness effects}), et calculons des bornes sur l'erreur commise.
+  Ensuite, nous proposons une première méthode pour trouver la distribution des effets des mutations sur la valeur sélective (appelée DFE pour \emph{distribution of fitness effects}), et calculons des bornes sur l'erreur commise. La recherche de la DFE à partir des données des expériences réalisées dans \cite{rob} est un problème inverse sévèrement mal posé.
 
   Enfin, nous abordons le problème par un autre point de vue, en considérant le processus comme la solution d'une EDP avec un terme intégral. Cette approche nous permet alors d'ouvrir quelques pistes de réflexion sur l'étude de cette EDP et sur l'aide qu'elle pourrait nous fournir dans l'estimation de la DFE.
 
@@ -555,27 +555,29 @@ avec $W$ la fonction W de Lambert telle que $z=W(z)e^{W(z)}$.
 \item Regardons maintenant le comportement de $A$ quand $\varepsilon\to 0$.
   Comme, quand $z\to\infty$:
   \[W(z)=\ln z-\ln\ln z+o(1)\]
-  on a
+  on a, quand $\varepsilon\to 0$:
   \begin{align*}
-  	A_\varepsilon &= k\ln\pth{\frac{1}{k}\pth{\frac{2\pi d_k}{\varepsilon}}^{1/k}}-k\ln\ln\pth{\frac{1}{k}\pth{\frac{2\pi d_k}{\varepsilon}}^{1/k}}+o(1)\\
-	& = -k\ln\pth{k}+\ln\pth{\frac{2\pi d_k}{\varepsilon}}-k\ln\pth{\ln\pth{\frac{1}{k}}+\frac1k\ln\pth{\frac{2\pi d_k}{\varepsilon}}}+o(1)
+    A_\varepsilon &= k\ln\pth{\frac{1}{k}\pth{\frac{2\pi d_k}{\varepsilon}}^{1/k}}-k\ln\ln\pth{\frac{1}{k}\pth{\frac{2\pi d_k}{\varepsilon}}^{1/k}}+o(1)\\
+    & = -k\ln\pth{k}+\ln\pth{\frac{2\pi d_k}{\varepsilon}}-k\ln\pth{\ln\pth{\frac{1}{k}}+\frac1k\ln\pth{\frac{2\pi d_k}{\varepsilon}}}+o(1)
   \end{align*}
-%\[A_\varepsilon \mathop{\sim}\limitS_{\varepsilon\to0} \ln\pth{\frac{d_k}{8(k-1)\pi\varepsilon}}\sim \ln(1/\varepsilon)\]
-d'où :
+  %\[A_\varepsilon \mathop{\sim}\limitS_{\varepsilon\to0} \ln\pth{\frac{d_k}{8(k-1)\pi\varepsilon}}\sim \ln(1/\varepsilon)\]
+  d'où :
   \begin{align*}
-  	\alpha(A_\varepsilon) &= \frac{\varepsilon}{\pi}(e^{A_\varepsilon}-1) + \frac{2d_k}{{A_\varepsilon}^{k-1}}\\
-	& = \frac{\varepsilon}{\pi}\times\frac{2\pi d_k e^{o(1)}}{k^k\varepsilon\pth{\ln\pth{\frac{1}{k}}+\frac1k\ln\pth{\frac{2\pi d_k}{\varepsilon}}}^k} - \frac{\varepsilon}{\pi}\\
-	& + \frac{2d_k}{\pth{k\ln\pth{\frac{1}{k}\pth{\frac{2\pi d_k}{\varepsilon}}^{1/k}}-k\ln\ln\pth{\frac{1}{k}\pth{\frac{2\pi d_k}{\varepsilon}}^{1/k}}+o(1)}^{k-1}}\\
-	& \text{or } e^{o(1)}\to1 \text{ et } \ln\ln(x)=o(ln(x)) \text{ quand } x\to+\infty\\
-	& = \frac{2 d_k}{\pth{k\ln\pth{\frac{1}{k}}+\ln\pth{\frac{2\pi d_k}{\varepsilon}}}^k} + \frac{2d_k}{\pth{k\ln\pth{\frac{1}{k}}+\ln\pth{\frac{2\pi d_k}{\varepsilon}}}^{k-1}} + o(1)\\
-	& \text{or } x^{k-1}=o(x^k) \text{ quand } x\to+\infty\\
-	& = \frac{2 d_k}{\pth{k\ln\pth{\frac{1}{k}}+\ln\pth{\frac{2\pi d_k}{\varepsilon}}}^k} + o(1)
+    \alpha(A_\varepsilon) &= \frac{\varepsilon}{\pi}(e^{A_\varepsilon}-1) + \frac{2d_k}{{A_\varepsilon}^{k-1}}\\
+    & = \frac{\varepsilon}{\pi}\times\frac{1}{k^k}\times\frac{2\pi d_k}{\varepsilon}\times\frac{e^{o(1)}}{\pth{\ln\pth{\frac{1}{k}}+\frac1k\ln\pth{\frac{2\pi d_k}{\varepsilon}}}^k} - \frac{\varepsilon}{\pi}\\
+    %& + \frac{2d_k}{\pth{k\ln\pth{\frac{1}{k}\pth{\frac{2\pi d_k}{\varepsilon}}^{1/k}}-k\ln\ln\pth{\frac{1}{k}\pth{\frac{2\pi d_k}{\varepsilon}}^{1/k}}+o(1)}^{k-1}}
+    & + \frac{2d_k}{\pth{k\ln\pth{\frac{1}{k}\pth{\frac{2\pi d_k}{\varepsilon}}^{1/k}}+o(\ln(x))}^{k-1}}\\
+    &=\frac{2d_ke^{o(1)}}{k^k\pth{\ln(1/k)+\frac{1}{k}\ln\pth{\frac{2\pi d_k}{\varepsilon}}}^k}-\frac{\varepsilon}{\pi}
+     + \frac{2d_k}{\pth{k\ln\pth{\frac{1}{k}\pth{\frac{2\pi d_k}{\varepsilon}}^{1/k}}+o(\ln(x))}^{k-1}}
   \end{align*}
-
-%\[\alpha(A_\varepsilon)=y(e^{A_\varepsilon}-1) + \frac{x}{{A_\varepsilon}^{k-1}} &\mathop{\sim}\limitS_{\varepsilon\to0} -\frac{d_2k^k}{2\pi^2\ln(\varepsilon)^k}\]
-d'où, quand $\varepsilon\to 0$:
-\[\alpha(A_\varepsilon)\sim \abs{\frac{2 d_k}{\ln^k\pth{\varepsilon}}}\]
-ce qui permet de conclure la proposition. 
+  donc, comme le premier terme de la somme est dominant quand $\varepsilon\to 0$:
+  \begin{align*}
+    \alpha(A_{\varepsilon})& \sim \frac{2 d_k}{\pth{k\ln\pth{\frac{1}{k}}+\ln\pth{2\pi d_k}+\abs{\ln\pth{\varepsilon}}}^k}% + \frac{2d_k}{\pth{k\ln\pth{\frac{1}{k}}+\ln\pth{\frac{2\pi d_k}{\varepsilon}}}^{k-1}} + o(1)\\
+    %& = \frac{2 d_k}{\pth{k\ln\pth{\frac{1}{k}}+\ln\pth{\frac{2\pi d_k}{\varepsilon}}}^k} + o(1)
+  \end{align*}
+  d'où, quand $\varepsilon\to 0$:
+  \[\alpha(A_\varepsilon)\sim \abs{\frac{2 d_k}{\ln\pth{\varepsilon}^k}}\]
+  ce qui permet de conclure la proposition. 
 \end{enumerate}
 \end{proof}
 
