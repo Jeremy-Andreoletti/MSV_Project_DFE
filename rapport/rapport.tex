@@ -177,7 +177,7 @@
 
 \subsection{Contexte}
 
-La génétique des traits quantitatifs \cite{mac} est l'étude des phénotypes qui sont modulés génétiquement par un très grand nombre de loci à faible effets, et plus spécifiquement l'étude des liens entre variations génotypiques à ces loci et variations phénotypiques des traits associés. Bien comprendre ces mécanismes est essentiel non seulement en médecine humain, afin de prédire les risques de certaines maladies génétiques et mettre au point des traitements individuels, mais aussi en agriculture, afin de guider les programme de sélection artificielle de plantes ou animaux domestiques. Un élément important de ce processus est d'être capable de prédire les effets sur la fitness de chaque nouvelle mutation -- par exemple, on s'attend à avoir beaucoup de mutations faiblement délétères et peu de mutations avantageuses ou fortement délétères -- et, dans l'idéal, d'avoir accès à une distribution de probabilité complète de ces effets, que l'on appellera à partir de maintenant la \textbf{DFE (Distribution of Fitness Effects)}.
+La génétique des traits quantitatifs \cite{mac} est l'étude des phénotypes qui sont modulés génétiquement par un très grand nombre de loci à faible effets, et plus spécifiquement l'étude des liens entre variations génotypiques à ces loci et variations phénotypiques des traits associés. Bien comprendre ces mécanismes est essentiel non seulement en médecine humain, afin de prédire les risques de certaines maladies génétiques et mettre au point des traitements individuels, mais aussi en agriculture, afin de guider les programmes de sélection artificielle de plantes ou animaux domestiques. Un élément important de ce processus est d'être capable de prédire les effets sur la fitness de chaque nouvelle mutation -- par exemple, on s'attend à avoir beaucoup de mutations faiblement délétères et peu de mutations avantageuses ou fortement délétères -- et, dans l'idéal, d'avoir accès à une distribution de probabilité complète de ces effets, que l'on appellera à partir de maintenant la \textbf{DFE (Distribution of Fitness Effects)}.
 
 \begin{figure}[h]
  \begin{center}
@@ -275,7 +275,7 @@ De même, on peut vérifier avec la seconde expérience ($\mu$MA) que les mutati
     \vspace{3mm}
     \includegraphics[scale=0.3]{../Img/Survival.png}
   \end{center} 
-  \caption{\label{fig:survival}Schéma tiré de notre réplication des résultats, montrant les corrections effectuées pour obtenir une décroissance exponentielle du nombre de cellules au cours du temps. Gauche: sans correction; milieu: suppression des canaux dont les cellules se sont échappées; droite: compensation des cellules qui meurent de vieillesse.}
+  \caption{\label{fig:survival}Schéma tiré de notre réplication des résultats, montrant les corrections effectuées pour obtenir une décroissance exponentielle du nombre de cellules au cours du temps. \textbf{Gauche:} sans correction; \textbf{milieu:} suppression des canaux dont les cellules se sont échappées de leur canal, c'est-à-dire les cellules dont on a perdu la trace au cours de l'expérience; \textbf{droite:} compensation des cellules qui meurent de vieillesse en divisant la proportion de cellules vivantes pour la souche par la proportion de cellules vivantes pour WT (on suppose la mort des cellules WT n'est causée \emph{que} par la sénescence).}
 \end{figure}
 
 \FloatBarrier
@@ -312,7 +312,7 @@ Malheureusement, les diverses tentatives subséquentes de retirer la distributio
 
 Nous avons voulu réaliser des simulations aussi proches que possible de l'expérience réelle, en prenant en compte à la fois les mutations impactant les taux de croissance selon une DFE, la croissance des bactéries et le bruit des mesures. Les fonctions et animations associées sont présentées dans le notebook \emph{II\_Simulations}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/II_Simulations.ipynb}}.
 
-\begin{figure}[!h]
+\begin{figure}[h]
   \begin{center}
     \vspace{3mm}
     \includegraphics[scale=0.5]{../Img/Simulations.png}
@@ -323,7 +323,13 @@ Nous avons voulu réaliser des simulations aussi proches que possible de l'expé
 Afin d'être les plus réalistes possibles, nos simulations suivent les étapes suivantes (voir figure \ref{fig:simulations}) :
 \begin{itemize}
 \item Les taux de croissance sont initialisés avec ceux mesurés dans l'expérience (médiane des 10 premières valeurs);
-\item Une DFE est tirée dans un mélange de distributions au choix. Ici, nous avons pris la distribution Beta inférée dans l'article (de paramètres $\alpha=0.0074$ et $\beta=2.4$) à laquelle on a rajouté un Dirac en 1 (permettant d'incorporer $1\%$ de mutations létales);
+\item Une DFE est tirée dans un mélange de distributions au choix. Ici, nous avons pris la distribution Beta inférée dans l'article (de paramètres $\alpha=0.0074$ et $\beta=2.4$, voir figure \ref{fig:lbeta}) à laquelle on a rajouté un Dirac en 1 (permettant d'incorporer $1\%$ de mutations létales);
+  \begin{figure}[h]
+    \begin{center}
+      \includegraphics[scale=0.5]{./img/lbeta.png}
+    \end{center} 
+    \caption{\label{fig:lbeta}Loi beta de paramètres $\alpha=0.0074$ et $\beta=2.4$.}
+  \end{figure}
 \item Les effets $s$ des mutations sur la fitness sont tirés dans cette DFE pour chacun des 1476 canaux de l'expérience et grand nombre de mutations;
 \item L'évolution du taux de croissance, mutation par mutation, est déduite des effets relatifs cumulés des mutations modifiant les taux de croissance initiaux;
 \item Les durées entre 2 mutations sont tirées dans une loi exponentielle dont le paramètre est le taux de mutation ($\sim0.32$/heure en se basant sur le mutant \emph{mutH}). Le taux de mutation peut être soit constant dans le temps et entre les cellules, soit être décroissant avec le taux de croissance (le cycle cellulaire et la réplication étant ralentis);
@@ -331,7 +337,8 @@ Afin d'être les plus réalistes possibles, nos simulations suivent les étapes 
 \item Enfin, le résultat est renvoyé en rajoutant (ou non) un bruit Gaussien multiplicatif à chaque mesure. Ce bruit est ensuite moyenné sur chaque génération de bactérie (comme indiqué dans l'article), en supposant que les bactéries se divisent dès qu'elles ont doublé de taille (bien qu'un modèle de division incrémental serait plus réaliste).
 \end{itemize}
 
-\begin{figure}[!h]
+
+\begin{figure}[h]
   \begin{center}
     \vspace{3mm}
     \includemedia[width=\linewidth, height=0.34\linewidth, 
@@ -610,7 +617,7 @@ D'après \eqref{mod}, on a, tant que $W_t>0$: \[\ln W_t=\sum_{i=1}^{N_t}\ln(1-S_
 On fait les deux hypothèses suivantes:
 \begin{enumerate}
 \item Pour tout $t>0$, la loi de $\ln W_t$ peut s'écrire:
-  \[m(t)\delta_{-\infty}+u(t,\cdot)\]
+  \begin{equation}\label{def_u} m(t)\delta_{-\infty}+u(t,\cdot)\end{equation}
   où $m(t)$ représente la probabilité qu'une cellule soit morte au temps $t$, et où $u(t,\cdot)\in C^{\infty}(\Er)$ est la densité de la loi de $\ln W_t$ en omettant les cellules mortes: ainsi, $\int_{\Er}u(t,\cdot)=1-m(t)$;
 \item La loi de $\ln (1-S)$ peut s'écrire:
   \[\mu\delta_{-\infty}+f(\cdot)\]
@@ -623,9 +630,9 @@ Remarquons tout de suite que l'on peut déduire la DFE à partir de la donnée d
 \paragraph{Introduction du modèle}
 
 Soit $\lambda$ le taux de mutation. Considérons:
-\[\dr_tu(t,x)=\lambda\pth{\int_{\Er}f(x-y)u(t,y)\de y-\int_{\Er}f(y)u(t,x)\de y}-\lambda\mu u(t,x)\]
+\begin{equation}\label{edp_heur} \dr_tu(t,x)=\lambda\pth{\int_{\Er}f(x-y)u(t,y)\de y-\int_{\Er}f(y)u(t,x)\de y}-\lambda\mu u(t,x)\end{equation}
 
-Cette expression est plutôt naturelle ; elle peut se comprendre ainsi:
+L'expression \eqref{edp_heur} introduit $u(t,x)$ qui peut, de manière assez naturelle, être interprétée comme la fonction telle que, pour chaque $t\geqslant 0$, $u(t,\cdot)\in C^{\infty}(\Er)$ soit la loi de $\ln W_t$ (sans compter les cellules mortes), comme on l'a définie dans \eqref{def_u}. En effet, l'expression \eqref{edp_heur} peut se comprendre ainsi:
 \begin{align*}
 &\esp\text{changement de densité de fitness entre $t$ et $t+\de t$}\\
 &=\text{taux de mutations}\times\pth{\text{bactéries qui arrivent sur ma fitness}-\text{bactéries qui partent de ma fitness}}\\
@@ -633,7 +640,7 @@ Cette expression est plutôt naturelle ; elle peut se comprendre ainsi:
 \end{align*} 
 où $\lambda\mu$ est le taux de mortalité. 
 
-Faisons quelques transformations pour simplifier l'expression. Comme $\int_{\Er}f(y)\de y = 1-\mu$:
+Faisons quelques transformations pour simplifier \eqref{edp_heur}. Comme $\int_{\Er}f(y)\de y = 1-\mu$:
 
 \[\dr_tu(t,x)=\lambda\pth{\int_{\Er}f(x-y)u(t,y)\de y-(1-\mu)u(t,x)}-\lambda\mu u(t,x)\] 
 soit:
