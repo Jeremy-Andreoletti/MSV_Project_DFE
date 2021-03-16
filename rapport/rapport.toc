@@ -12,13 +12,13 @@
 \contentsline {subsection}{\numberline {1.4}Dynamique poissonnienne des mutations}{6}{subsection.1.4}%
 \contentsline {subsection}{\numberline {1.5}Tentative naïve pour déterminer la DFE}{7}{subsection.1.5}%
 \contentsline {section}{\numberline {2}Simulations}{9}{section.2}%
-\contentsline {section}{\numberline {3}Problème des moments}{12}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Détermination des moments}{12}{subsection.3.1}%
-\contentsline {paragraph}{Remarque.}{12}{section*.8}%
-\contentsline {subsection}{\numberline {3.2}Estimation de la DFE}{13}{subsection.3.2}%
+\contentsline {section}{\numberline {3}Problème des moments}{11}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Détermination des moments}{11}{subsection.3.1}%
+\contentsline {paragraph}{Remarque.}{11}{section*.8}%
+\contentsline {subsection}{\numberline {3.2}Estimation de la DFE}{12}{subsection.3.2}%
 \contentsline {paragraph}{Estimation de la fonction caractéristique}{13}{section*.9}%
-\contentsline {paragraph}{Conventions utilisées pour la transformée de Fourier}{14}{section*.10}%
-\contentsline {paragraph}{Estimation de la DFE}{14}{section*.11}%
+\contentsline {paragraph}{Conventions utilisées pour la transformée de Fourier}{13}{section*.10}%
+\contentsline {paragraph}{Estimation de la DFE}{13}{section*.11}%
 \contentsline {subsection}{\numberline {3.3}Bornes sur l'erreur commise}{14}{subsection.3.3}%
 \contentsline {paragraph}{Optimisation du paramètre A}{17}{section*.12}%
 \contentsline {paragraph}{Commentaires}{19}{section*.13}%
@@ -27,19 +27,20 @@
 \contentsline {paragraph}{Transformations initiales}{19}{section*.14}%
 \contentsline {paragraph}{Introduction du modèle}{20}{section*.15}%
 \contentsline {paragraph}{Vérification}{20}{section*.16}%
-\contentsline {paragraph}{Estimation de la DFE}{21}{section*.17}%
+\contentsline {paragraph}{Estimation de la DFE}{20}{section*.17}%
 \contentsline {subsection}{\numberline {4.2}Détermination de la DFE à partir de \textup {\hbox {\mathsurround \z@ \normalfont (\ignorespaces \ref {edp_sol}\unskip \@@italiccorr )}}}{21}{subsection.4.2}%
 \contentsline {paragraph}{Vérification}{22}{section*.18}%
 \contentsline {paragraph}{Estimation de la DFE}{22}{section*.19}%
 \contentsline {subsection}{\numberline {4.3}Lien avec un problème de fragmentation}{22}{subsection.4.3}%
 \contentsline {paragraph}{Présentation du problème de fragmentation}{22}{section*.20}%
-\contentsline {paragraph}{Mise en équation}{23}{section*.21}%
+\contentsline {paragraph}{Mise en équation}{22}{section*.21}%
 \contentsline {paragraph}{Comparaison avec notre modèle}{23}{section*.22}%
 \contentsline {paragraph}{Remarque.}{23}{section*.23}%
 \contentsline {paragraph}{Résultat en temps long}{23}{section*.24}%
-\contentsline {section}{\numberline {5}Conclusion et perspectives}{24}{section.5}%
-\contentsline {section}{\numberline {A}Annexe: Présentation des résultats}{26}{appendix.A}%
+\contentsline {section}{\numberline {5}Conclusion et perspectives}{23}{section.5}%
+\contentsline {section}{\numberline {A}Annexe: Présentation des résultats de \cite {rob}}{26}{appendix.A}%
 \contentsline {paragraph}{Commentaires sur les figures}{26}{section*.26}%
 \contentsline {paragraph}{Traitement initial des données}{26}{section*.27}%
 \contentsline {paragraph}{Prise en compte du bruit multiplicatif}{27}{section*.28}%
-\contentsline {section}{\numberline {B}Annexe: Vérification}{28}{appendix.B}%
+\contentsline {section}{\numberline {B}Annexe: Vérification des résultats de \ref {ss:det_dfe}}{28}{appendix.B}%
+\contentsline {section}{\numberline {C}Annexe: Animations issues des simulations}{29}{appendix.C}%

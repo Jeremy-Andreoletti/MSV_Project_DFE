@@ -308,7 +308,7 @@ Plus le taux de mutation est faible ($\mu_{WT} < \mu_{MutH} \simeq \mu_{MutT} < 
 Malheureusement, les diverses tentatives subséquentes de retirer la distribution WT (quasiment uniquement du bruit) aux autres distributions, ou de faire des régressions pour des taux de mutations croissants se sont avérées être des échecs. Cela confirme la nécessité de faire appel à des outils mathématiques plus poussés afin de reconstruire la DFE.
 
 \FloatBarrier
-\section{Simulations}
+\section{Simulations\label{s:sim}}
 
 Nous avons voulu réaliser des simulations aussi proches que possible de l'expérience réelle, en prenant en compte à la fois les mutations impactant les taux de croissance selon une DFE, la croissance des bactéries et le bruit des mesures. Les fonctions et animations associées sont présentées dans le notebook \emph{II\_Simulations}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/II_Simulations.ipynb}}.
 
@@ -337,25 +337,17 @@ Afin d'être les plus réalistes possibles, nos simulations suivent les étapes 
 \item Enfin, le résultat est renvoyé en rajoutant (ou non) un bruit Gaussien multiplicatif à chaque mesure. Ce bruit est ensuite moyenné sur chaque génération de bactérie (comme indiqué dans l'article), en supposant que les bactéries se divisent dès qu'elles ont doublé de taille (bien qu'un modèle de division incrémental serait plus réaliste).
 \end{itemize}
 
-
 \begin{figure}[h]
   \begin{center}
     \vspace{3mm}
-    \includemedia[width=\linewidth, height=0.34\linewidth, 
-    activate=pageopen,  passcontext,  transparent,  keepaspectratio,
-    addresource=../Video/GrowthRates_noisySimulations_VS_observations.mp4,  flashvars={source=../Video/GrowthRates_noisySimulations_VS_observations.mp4
-                  &autoPlay=true
-                  &loop=true}]{}{VPlayer.swf}
-    \includemedia[width=\linewidth, height=0.34\linewidth, 
-    activate=pageopen,  passcontext,  transparent,  keepaspectratio,
-    addresource=../Video/GrowthRates_noisySimulationsInterval_VS_observations.mp4,  flashvars={source=../Video/GrowthRates_noisySimulationsInterval_VS_observations.mp4
-                  &autoPlay=true
-                  &loop=true}]{}{VPlayer.swf}
+    \includegraphics[scale=0.25]{img/GrowthRates_noisySimulations_VS_observations.png}
+
+    \includegraphics[scale=0.25]{img/GrowthRates_noisySimulationsInterval_VS_observations.png}
   \end{center} 
-  \caption{\label{fig:animations}Animations montrant l'évolution de la distribution des taux de croissance au cours du temps dans les simulations et l'expérience réelle. La seconde animation affiche un intervalle des valeurs simulées sur 100 réplications.}
+  \caption{\label{fig:ss_animations}Images tirées d'animations montrant l'évolution de la distribution des taux de croissance au cours du temps dans les simulations et l'expérience réelle. La seconde image affiche un intervalle des valeurs simulées sur 100 réplications.}
 \end{figure}
 
-Les animations présentées dans la figure \ref{fig:animations} représentent l'évolution au cours du temps de la distribution des taux de croissance, en comparant les simulations aux données empirique. On observe que l'évolution de la distribution simulée est au début en bonne adéquation avec celle observée. Toutefois, après 40 heures les deux commencent à diverger, probablement à cause du début de la sénescence des cellules, et de la DFE non adaptée (pas de mutations avantageuses, trop peu de mutations fortement délétères).
+Les images de la figure \ref{fig:ss_animations} sont extraites des animations présentées dans la figure \ref{fig:animations} en annexe \ref{ann:anim} et disponibles sur le notebook \emph{II\_Simulations}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/II_Simulations.ipynb}}. Elles représentent l'évolution au cours du temps de la distribution des taux de croissance, en comparant les simulations aux données empirique. On observe que l'évolution de la distribution simulée est au début en bonne adéquation avec celle observée. Toutefois, après 40 heures les deux commencent à diverger, probablement à cause du début de la sénescence des cellules, et de la DFE non adaptée (pas de mutations avantageuses, trop peu de mutations fortement délétères).
 
 \FloatBarrier
 \section{Problème des moments}
@@ -801,7 +793,7 @@ Dans le cas où le taux de division \emph{dépend de la taille de la cellule} ($
 \appendix
 
 \FloatBarrier
-\section{Annexe: Présentation des résultats}\label{ann:resultats}
+\section{Annexe: Présentation des résultats de \cite{rob}}\label{ann:resultats}
 
 Nous avons répliqué certains résultats dans des notebooks disponibles sur \url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE}.
 %TEST INCLUSION DE PDF
@@ -852,7 +844,7 @@ ce qui fait que l'estimation $E'_n(t)$ que l'on fait de $E_n(t)$ diffère de $E_
 
 
 \FloatBarrier
-\section{Annexe: Vérification\label{ann:verif}}
+\section{Annexe: Vérification des résultats de \ref{ss:det_dfe}\label{ann:verif}}
 
 La figure \ref{fig:iv_verif} montre les graphes des fonctions suivantes, trouvées dans \ref{ss:det_dfe}, pour différentes valeurs de $\xi$:
 \begin{align*}
@@ -870,6 +862,26 @@ La figure \ref{fig:iv_verif} montre les graphes des fonctions suivantes, trouvé
 \end{figure}
 
 
+\section{Annexe: Animations issues des simulations\label{ann:anim}}
+
+La figure \ref{fig:animations} montre des animations tirées des simulations présentées dans la partie \ref{s:sim}. Les animations ne fonctionnent pas sur tous les lecteurs de pdf; elles restent disponibles sur le notebook \emph{II\_Simulations}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/II_Simulations.ipynb}}.
+
+\begin{figure}[h]
+  \begin{center}
+    \vspace{3mm}
+    \includemedia[width=\linewidth, height=0.34\linewidth, 
+    activate=pageopen,  passcontext,  transparent,  keepaspectratio,
+    addresource=../Video/GrowthRates_noisySimulations_VS_observations.mp4,  flashvars={source=../Video/GrowthRates_noisySimulations_VS_observations.mp4
+                  &autoPlay=true
+                  &loop=true}]{}{VPlayer.swf}
+    \includemedia[width=\linewidth, height=0.34\linewidth, 
+    activate=pageopen,  passcontext,  transparent,  keepaspectratio,
+    addresource=../Video/GrowthRates_noisySimulationsInterval_VS_observations.mp4,  flashvars={source=../Video/GrowthRates_noisySimulationsInterval_VS_observations.mp4
+                  &autoPlay=true
+                  &loop=true}]{}{VPlayer.swf}
+  \end{center} 
+  \caption{\label{fig:animations}Animations montrant l'évolution de la distribution des taux de croissance au cours du temps dans les simulations et l'expérience réelle. La seconde animation affiche un intervalle des valeurs simulées sur 100 réplications.}
+\end{figure}
 
 
 \end{document}
