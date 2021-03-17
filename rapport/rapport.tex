@@ -708,8 +708,30 @@ On a donc deux expressions valables pour tout $t\in \Er_+$:
 
 [ATTENDRE D'AVOIR DES RESULTATS COMPLETS POUR PRESENTER ICI DES DFE]
 
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.9\linewidth]{../Img/DFE_R2.png}
+  \end{center}
+  \caption{\label{DFE_choix}Comparaison, selon $\xi$, des qualité d'ajustement d'un modèle affine pour les parties réelles (gauche) ou imaginaires (droite) de $a_{\xi}$, sur des simulations bruitées ou non.}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.9\linewidth]{../Img/DFE_choix_tmax_xi.png}
+  \end{center}
+  \caption{\label{DFE_choix}Étapes manuelles de la procédure d'estimation de la DFE. À gauche, choix d'un temps maximal à partir duquel les fonctions ne semblent plus affines. Ensuite, à droite, choix d'un xi maximal à partir duquel la qualité d'ajustement d'un modèle affine (coefficient de régression $R^2$) chute.}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.9\linewidth]{../Img/DFE_inferred.png}
+  \end{center}
+  \caption{\label{DFE}Comparaison entre les DFE inférées (en bleu) et les lois Beta choisies pour effectuer les simulations (en rouge).}
+\end{figure}
+
 Voir notebook \emph{IV2\_DFE-EDP-Fourier\_Estimation-complete}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/IV2_DFE-EDP-Fourier_Estimation-complete.ipynb}}.
 
+\FloatBarrier
 \subsection{Lien avec un problème de fragmentation}
 
 \paragraph{Présentation du problème de fragmentation}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.8.29)  17 MAR 2021 15:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.8.29)  17 MAR 2021 18:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1332,7 +1332,11 @@ Package: ocgbase 2018/04/06 v0.13 support package for ocgx2.sty
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 
-(./rapport.aux)
+(./rapport.aux
+
+LaTeX Warning: Label `DFE_choix' multiply defined.
+
+)
 \openout1 = `rapport.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 152.
@@ -1344,8 +1348,7 @@ LaTeX Font Info:    ... okay on input line 152.
 LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 152.
 LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 15
 2.
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/omspzccm.fd
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/omspzccm.fd
 File: omspzccm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/pzccm.
 )
 LaTeX Font Info:    ... okay on input line 152.
@@ -1713,78 +1716,104 @@ Andreoletti / MSV _ Project _ DFE / blob / master / IV2 _ DFE-[]EDP-[]Fourier _
  []
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 711--711
+<../Img/DFE_R2.png, id=354, 911.405pt x 403.5075pt>
+File: ../Img/DFE_R2.png Graphic file (type png)
+<use ../Img/DFE_R2.png>
+Package pdftex.def Info: ../Img/DFE_R2.png  used on input line 713.
+(pdftex.def)             Requested size: 440.18976pt x 194.88817pt.
+<../Img/DFE_choix_tmax_xi.png, id=355, 909.3975pt x 293.095pt>
+File: ../Img/DFE_choix_tmax_xi.png Graphic file (type png)
+<use ../Img/DFE_choix_tmax_xi.png>
+Package pdftex.def Info: ../Img/DFE_choix_tmax_xi.png  used on input line 720.
+(pdftex.def)             Requested size: 440.18976pt x 141.87361pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<../Img/DFE_inferred.png, id=356, 903.375pt x 505.89pt>
+File: ../Img/DFE_inferred.png Graphic file (type png)
+<use ../Img/DFE_inferred.png>
+Package pdftex.def Info: ../Img/DFE_inferred.png  used on input line 727.
+(pdftex.def)             Requested size: 440.18976pt x 246.50652pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 732--732
 [][][]\T1/lmr/m/n/10 .[][]$\T1/lmtt/m/n/10 https : / / github . com / Jeremy-[]
 Andreoletti / MSV _ Project _ DFE / blob / master / IV2 _ DFE-[]EDP-[]Fourier _
 
  []
 
-[22] [23] [24] [25]
+[22 <../Img/DFE_R2.png>] [23 <../Img/DFE_choix_tmax_xi.png> <../Img/DFE_inferre
+d.png>] [24
+
+] [25] [26] [27]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 796.
+(hyperref)                removing `\@ifnextchar' on input line 818.
 
-<img/supmat_lines.png, id=413, 679.53876pt x 543.02875pt>
+<img/supmat_lines.png, id=431, 679.53876pt x 543.02875pt>
 File: img/supmat_lines.png Graphic file (type png)
 <use img/supmat_lines.png>
-Package pdftex.def Info: img/supmat_lines.png  used on input line 807.
+Package pdftex.def Info: img/supmat_lines.png  used on input line 829.
 (pdftex.def)             Requested size: 203.8632pt x 162.90987pt.
-<img/supmat_slopes.png, id=416, 1286.8075pt x 501.875pt>
+<img/supmat_slopes.png, id=434, 1286.8075pt x 501.875pt>
 File: img/supmat_slopes.png Graphic file (type png)
 <use img/supmat_slopes.png>
-Package pdftex.def Info: img/supmat_slopes.png  used on input line 814.
+Package pdftex.def Info: img/supmat_slopes.png  used on input line 836.
 (pdftex.def)             Requested size: 386.04523pt x 150.56366pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/supmat_moments.png, id=419, 954.56625pt x 253.94875pt>
+<img/supmat_moments.png, id=437, 954.56625pt x 253.94875pt>
 File: img/supmat_moments.png Graphic file (type png)
 <use img/supmat_moments.png>
-Package pdftex.def Info: img/supmat_moments.png  used on input line 821.
+Package pdftex.def Info: img/supmat_moments.png  used on input line 843.
 (pdftex.def)             Requested size: 286.37209pt x 76.1852pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[26 <./img/supmat_lines.png>] [27 <./img/supmat_slopes.png> <./img/supmat_momen
+[28 <./img/supmat_lines.png>] [29 <./img/supmat_slopes.png> <./img/supmat_momen
 ts.png>]
-<img/iv_verif_pxi.png, id=443, 402.50375pt x 279.0425pt>
+<img/iv_verif_pxi.png, id=460, 402.50375pt x 279.0425pt>
 File: img/iv_verif_pxi.png Graphic file (type png)
 <use img/iv_verif_pxi.png>
-Package pdftex.def Info: img/iv_verif_pxi.png  used on input line 857.
+Package pdftex.def Info: img/iv_verif_pxi.png  used on input line 879.
 (pdftex.def)             Requested size: 241.5041pt x 167.42679pt.
-<img/iv_verif_grxi.png, id=444, 396.48125pt x 279.0425pt>
+<img/iv_verif_grxi.png, id=461, 396.48125pt x 279.0425pt>
 File: img/iv_verif_grxi.png Graphic file (type png)
 <use img/iv_verif_grxi.png>
-Package pdftex.def Info: img/iv_verif_grxi.png  used on input line 858.
+Package pdftex.def Info: img/iv_verif_grxi.png  used on input line 880.
 (pdftex.def)             Requested size: 237.89058pt x 167.42679pt.
-<img/iv_verif_pxi_im.png, id=445, 394.47375pt x 279.0425pt>
+<img/iv_verif_pxi_im.png, id=462, 394.47375pt x 279.0425pt>
 File: img/iv_verif_pxi_im.png Graphic file (type png)
 <use img/iv_verif_pxi_im.png>
-Package pdftex.def Info: img/iv_verif_pxi_im.png  used on input line 859.
+Package pdftex.def Info: img/iv_verif_pxi_im.png  used on input line 881.
 (pdftex.def)             Requested size: 236.68607pt x 167.42679pt.
 \g__file_internal_ior=\read3
 <<VPlayer.swf>><<../Video/GrowthRates_noisySimulations_VS_observations.mp4>><<.
 ./Video/GrowthRates_noisySimulationsInterval_VS_observations.mp4>>
-[28 <./img/iv_verif_pxi.png> <./img/iv_verif_grxi.png> <./img/iv_verif_pxi_im.p
-ng>] [29]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 887.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 887.
+[30 <./img/iv_verif_pxi.png> <./img/iv_verif_grxi.png> <./img/iv_verif_pxi_im.p
+ng>] [31]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 909.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 909.
  (./rapport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 887.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 887.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 909.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 909.
 Package rerunfilecheck Info: File `rapport.out' has not changed.
 (rerunfilecheck)             Checksum: 711A481AE2C8509B0035EE41700E273F;1393.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 887.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 909.
  ) 
 Here is how much of TeX's memory you used:
- 35838 strings out of 492649
- 662098 string characters out of 6129622
- 821551 words of memory out of 5000000
- 38913 multiletter control sequences out of 15000+600000
+ 35856 strings out of 492649
+ 662466 string characters out of 6129622
+ 822046 words of memory out of 5000000
+ 38923 multiletter control sequences out of 15000+600000
  652403 words of font info for 161 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  54i,16n,62p,10379b,689s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1838,10 +1867,10 @@ lmsy7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmsy9.pfb><
 /texlive/2018/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/local/texlive/2
 018/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texli
 ve/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on rapport.pdf (29 pages, 5295899 bytes).
+Output written on rapport.pdf (31 pages, 5511603 bytes).
 PDF statistics:
- 604 PDF objects out of 1000 (max. 8388607)
- 511 compressed objects within 6 object streams
- 139 named destinations out of 1000 (max. 500000)
- 363 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 622 PDF objects out of 1000 (max. 8388607)
+ 521 compressed objects within 6 object streams
+ 144 named destinations out of 1000 (max. 500000)
+ 378 words of extra memory for PDF output out of 10000 (max. 10000000)
 
