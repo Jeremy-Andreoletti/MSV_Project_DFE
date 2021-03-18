@@ -37,7 +37,7 @@
 \contentsline {paragraph}{Comparaison avec notre modèle}{24}{section*.22}%
 \contentsline {paragraph}{Remarque.}{25}{section*.23}%
 \contentsline {paragraph}{Résultat en temps long}{25}{section*.24}%
-\contentsline {section}{\numberline {5}Conclusion et perspectives}{25}{section.5}%
+\contentsline {section}{\numberline {5}Conclusion et perspectives}{26}{section.5}%
 \contentsline {paragraph}{Remerciements}{26}{section*.25}%
 \contentsline {section}{\numberline {A}Annexe: Présentation des résultats de \cite {rob}}{28}{appendix.A}%
 \contentsline {paragraph}{Commentaires sur les figures}{28}{section*.27}%

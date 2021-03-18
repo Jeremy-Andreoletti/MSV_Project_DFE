@@ -728,8 +728,8 @@ La figure \ref{fig:DFE_R2} donne, pour chaque valeur de $\xi$ comprise entre $0$
 
 Nous avons tenté d'appliquer notre méthode avec des données simulées non bruitées. L'implémentation est réalisée dans le notebook \emph{IV2\_DFE-EDP-Fourier\_Estimation-complete}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/IV2_DFE-EDP-Fourier_Estimation-complete.ipynb}}. Nous constatons que les résultats ne sont pas satisfaisants: la figure \ref{fig:DFE} compare, pour différents paramètres $(\alpha,\beta)$, les DFE calculées et la DFE utilisée (qui correspond à la loi Beta de paramètres $(\alpha,\beta)$). Outre les erreurs de programmation, nous avons essentiellement deux explications pour expliquer la grande différence:
 \begin{itemize}
-\item Les DFE considérées sont discontinues en 0 et donc leur transformée de Fourier décroît lentement vers 0 en $+\infty$. Comme nous sommes contraints de rogner la transformée de Fourier, nous perdons beaucoup d'informations;
-\item Nous calculons $f$, qui la densité de la loi de $\ln(1-S)$; pour afficher la densité de la loi de $S$, nous affichons \[g(x)=\frac{f(\ln (1-x))}{1-x}\esp x>0\] ce qui fait que, pour $x$ proche de $0$, l'erreur est très grande: cela peut expliquer pourquoi l'on obtient systématiquement un pic en 0.
+\item Les DFE considérées sont discontinues en 0 et donc leur transformée de Fourier décroît lentement vers 0 quand $\xi\to\infty$: voir la figure \ref{fig:DFE_fourier}. Comme nous sommes contraints de rogner la transformée de Fourier, nous perdons beaucoup d'information;
+\item Nous calculons $f$, qui la densité de la loi de $\ln(1-S)$; pour afficher la densité de la loi de $S$, nous affichons \[g(x)=\frac{f(\ln (1-x))}{1-x}\esp x>0\] ce qui fait que, pour $x$ proche de $1$, l'erreur est très grande: cela peut expliquer pourquoi l'on obtient systématiquement un pic en 1.
 \end{itemize}
 
 
@@ -740,6 +740,13 @@ Nous avons tenté d'appliquer notre méthode avec des données simulées non bru
   \caption{\label{fig:DFE}Comparaison entre les DFE inférées (en bleu) et les lois Beta choisies pour effectuer les simulations (en rouge).}
 \end{figure}
 
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[scale=0.6]{./img/four_DFE.png}
+  \end{center}
+  \caption{\label{fig:DFE_four}La transformée de Fourier de la DFE inférée dans \cite{rob} décroît lentement vers $0$ quand $\xi\to+\infty$: rogner pour $\abs{\xi}\geqslant 10$ implique de perdre beaucoup d'information.}
+\end{figure}
 
 
 %\FloatBarrier

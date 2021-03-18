@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.3.15)  18 MAR 2021 11:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.3.15)  18 MAR 2021 17:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1666,58 +1666,69 @@ no-te-book \T1/lmr/m/it/12 IV2_DFE-EDP-Fourier_Estimation-
  []
 
 [22 <../Img/DFE_R2.png>]
+
+LaTeX Warning: Reference `fig:DFE_fourier' on page 23 undefined on input line 7
+31.
+
 <../Img/DFE_inferred.png, id=397, 903.375pt x 505.89pt>
 File: ../Img/DFE_inferred.png Graphic file (type png)
 <use ../Img/DFE_inferred.png>
 Package pdftex.def Info: ../Img/DFE_inferred.png  used on input line 738.
 (pdftex.def)             Requested size: 440.18976pt x 246.50652pt.
 
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./img/four_DFE.png, id=398, 428.60126pt x 279.0425pt>
+File: ./img/four_DFE.png Graphic file (type png)
+<use ./img/four_DFE.png>
+Package pdftex.def Info: ./img/four_DFE.png  used on input line 746.
+(pdftex.def)             Requested size: 257.16273pt x 167.42679pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[23 <../Img/DFE_choix_tmax_xi.png>] [24 <../Img/DFE_inferred.png>] [25]
-[26] [27]
+[23 <../Img/DFE_choix_tmax_xi.png>] [24 <../Img/DFE_inferred.png>] [25 <./img/f
+our_DFE.png>] [26] [27]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 833.
+(hyperref)                removing `\@ifnextchar' on input line 840.
 
-<img/supmat_lines.png, id=463, 679.53876pt x 543.02875pt>
+<img/supmat_lines.png, id=468, 679.53876pt x 543.02875pt>
 File: img/supmat_lines.png Graphic file (type png)
 <use img/supmat_lines.png>
-Package pdftex.def Info: img/supmat_lines.png  used on input line 844.
+Package pdftex.def Info: img/supmat_lines.png  used on input line 851.
 (pdftex.def)             Requested size: 203.8632pt x 162.90987pt.
-<img/supmat_slopes.png, id=466, 1286.8075pt x 501.875pt>
+<img/supmat_slopes.png, id=471, 1286.8075pt x 501.875pt>
 File: img/supmat_slopes.png Graphic file (type png)
 <use img/supmat_slopes.png>
-Package pdftex.def Info: img/supmat_slopes.png  used on input line 851.
+Package pdftex.def Info: img/supmat_slopes.png  used on input line 858.
 (pdftex.def)             Requested size: 386.04523pt x 150.56366pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/supmat_moments.png, id=469, 954.56625pt x 253.94875pt>
+<img/supmat_moments.png, id=474, 954.56625pt x 253.94875pt>
 File: img/supmat_moments.png Graphic file (type png)
 <use img/supmat_moments.png>
-Package pdftex.def Info: img/supmat_moments.png  used on input line 858.
+Package pdftex.def Info: img/supmat_moments.png  used on input line 865.
 (pdftex.def)             Requested size: 286.37209pt x 76.1852pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [28 <./img/supmat_lines.png>] [29 <./img/supmat_slopes.png> <./img/supmat_momen
 ts.png>]
-<img/iv_verif_pxi.png, id=494, 402.50375pt x 279.0425pt>
+<img/iv_verif_pxi.png, id=499, 402.50375pt x 279.0425pt>
 File: img/iv_verif_pxi.png Graphic file (type png)
 <use img/iv_verif_pxi.png>
-Package pdftex.def Info: img/iv_verif_pxi.png  used on input line 894.
+Package pdftex.def Info: img/iv_verif_pxi.png  used on input line 901.
 (pdftex.def)             Requested size: 241.5041pt x 167.42679pt.
-<img/iv_verif_grxi.png, id=495, 396.48125pt x 279.0425pt>
+<img/iv_verif_grxi.png, id=500, 396.48125pt x 279.0425pt>
 File: img/iv_verif_grxi.png Graphic file (type png)
 <use img/iv_verif_grxi.png>
-Package pdftex.def Info: img/iv_verif_grxi.png  used on input line 895.
+Package pdftex.def Info: img/iv_verif_grxi.png  used on input line 902.
 (pdftex.def)             Requested size: 237.89058pt x 167.42679pt.
-<img/iv_verif_pxi_im.png, id=496, 394.47375pt x 279.0425pt>
+<img/iv_verif_pxi_im.png, id=501, 394.47375pt x 279.0425pt>
 File: img/iv_verif_pxi_im.png Graphic file (type png)
 <use img/iv_verif_pxi_im.png>
-Package pdftex.def Info: img/iv_verif_pxi_im.png  used on input line 896.
+Package pdftex.def Info: img/iv_verif_pxi_im.png  used on input line 903.
 (pdftex.def)             Requested size: 236.68607pt x 167.42679pt.
  [30 <./img/iv_verif_pxi.png> <./img/iv_verif_grxi.png> <./img/iv_verif_pxi_im.
 png>]<<VPlayer.swf>><<../Video/GrowthRates_noisySimulations_VS_observations.mp4
@@ -1725,12 +1736,19 @@ png>]<<VPlayer.swf>><<../Video/GrowthRates_noisySimulations_VS_observations.mp4
 /rapport.aux)
 Package rerunfilecheck Info: File `rapport.out' has not changed.
 (rerunfilecheck)             Checksum: 711A481AE2C8509B0035EE41700E273F;1393.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 31967 strings out of 479383
- 589320 string characters out of 5875830
- 1005232 words of memory out of 5000000
- 48186 multiletter control sequences out of 15000+600000
+ 31976 strings out of 479383
+ 589481 string characters out of 5875830
+ 1005556 words of memory out of 5000000
+ 48193 multiletter control sequences out of 15000+600000
  555910 words of font info for 186 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,16n,112p,1180b,1004s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1780,10 +1798,10 @@ ts/type1/public/lm/lmsy9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt1
 0.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/share/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on rapport.pdf (31 pages, 4327653 bytes).
+Output written on rapport.pdf (31 pages, 4333740 bytes).
 PDF statistics:
- 660 PDF objects out of 1000 (max. 8388607)
- 559 compressed objects within 6 object streams
- 145 named destinations out of 1000 (max. 500000)
- 378 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 665 PDF objects out of 1000 (max. 8388607)
+ 561 compressed objects within 6 object streams
+ 146 named destinations out of 1000 (max. 500000)
+ 383 words of extra memory for PDF output out of 10000 (max. 10000000)
 
