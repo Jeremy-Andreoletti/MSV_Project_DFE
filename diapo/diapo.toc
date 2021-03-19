@@ -1,8 +1,8 @@
 \babel@toc {french}{}
-\beamer@sectionintoc {1}{Simulations}{5}{0}{1}
-\beamer@sectionintoc {2}{Problème des moments}{8}{0}{2}
-\beamer@subsectionintoc {2}{1}{Fonction caractéristique}{9}{0}{2}
-\beamer@subsectionintoc {2}{2}{Calculs d'erreurs}{14}{0}{2}
-\beamer@sectionintoc {3}{EDP}{16}{0}{3}
-\beamer@subsectionintoc {3}{1}{Nouveau point de vue}{17}{0}{3}
-\beamer@subsectionintoc {3}{2}{Applications}{21}{0}{3}
+\beamer@sectionintoc {1}{Simulations}{6}{0}{1}
+\beamer@sectionintoc {2}{Problème des moments}{9}{0}{2}
+\beamer@subsectionintoc {2}{1}{Fonction caractéristique}{10}{0}{2}
+\beamer@subsectionintoc {2}{2}{Calculs d'erreurs}{15}{0}{2}
+\beamer@sectionintoc {3}{EDP}{17}{0}{3}
+\beamer@subsectionintoc {3}{1}{Nouveau point de vue}{18}{0}{3}
+\beamer@subsectionintoc {3}{2}{Applications}{24}{0}{3}

@@ -129,7 +129,7 @@
 \newcommand{\fr}{\mathcal{F}}
 
  \title[Mutations]{Estimer l’effet des mutations sur la fitness d’une population de bactéries}
- \date[2020-2021]{Encadrantes : Marie Doumic et Lydia Robert}
+ \date[2020 -- 2021]{Encadrantes : Marie Doumic et Lydia Robert}
  \author[J. Andréoletti, N. Boutillon]{Jérémy Andréoletti et Nathanaël Boutillon}
 
 \begin{document}
@@ -142,13 +142,14 @@
 
 \begin{frame}
   \frametitle{Objectifs}
-  \begin{itemize}[label=\bullet]
+  \begin{itemize}[label=$\bullet$]
   \item Comprendre la dynamique d'apparition des mutations, chez \emph{E. coli}
   \item Estimer la \textbf{DFE = Distribution des Effets des mutations sur la Fitness}
   \end{itemize}
   
+  \vspace{3mm}
+
   \begin{centering}
-    \vspace{3mm}
     \includegraphics[scale=0.2]{img/DFE_phage_2010.jpg}
   \end{centering} 
 \end{frame}
@@ -164,7 +165,8 @@
   \end{array}
   \]
 
-\vspace{0.5cm}
+\vspace{0.5cm}\pause
+
   \textbf{Énoncé du problème:} estimer la loi des $s_i$ (qui sont iid) sachant que l'on sait estimer la loi des $W_t$ et $N_t$ ($t\geqslant 0$), et sachant que \[\frac{W_t}{W_0}=\prod_{i=1}^{N_t}(1-s_i)\]
 \end{frame}
 
@@ -206,7 +208,7 @@
 
 \begin{frame}
   \frametitle{Estimation des moments}
-\begin{itemize}[label=\bullet]
+\begin{itemize}[label=$\bullet$]
   \item estimation des \textbf{premiers moments} de la loi des effets des mutations;
  \[E_n(t):=\sum_{k=1}^n\binom{n}{k}(-1)^k\ln\pth{\Esp{W_t^k}}=\pth{\lambda\Esp{s^n}}t\]
  \pause
@@ -247,7 +249,7 @@ $\to$ On peut facilement estimer les moments.
     }
   \pause
   \prop{Supposons que :
-    \begin{itemize}[label=\bullet]
+    \begin{itemize}[label=$\bullet$]
     \item l'on soit capable de calculer un nombre arbitrairement grand de moments de $f$ avec une erreur bornée par $\varepsilon$;
     \item$\dabs{f^{(2)}}_1<+\infty$.
     \end{itemize}
@@ -270,7 +272,7 @@ $\to$ On peut facilement estimer les moments.
 
   On a \[\ln W_t=\sum_{i=1}^{N_t}\ln(1-s_i)\]
   Soient:
-\begin{itemize}[label=\bullet]
+\begin{itemize}[label=$\bullet$]
 \item $u(t,\cdot)\in C^{\infty}(\Er)$: <<~densité de $\ln W_t$~>> \ie: \\$u(t,x)\de x=$ proportion de cellules telles que $\ln W_t=x$%=densité de la loi de $\ln W_t$;
 \item $f\in C^{\infty}(\Er)$: densité de la loi de $\ln(1-S)$;
 \item $\lambda$: taux de mutation;
@@ -284,14 +286,14 @@ $\to$ On peut facilement estimer les moments.
 Donc $(*)$:
 \[\dr_tu(t,x)=\lambda\pth{\int_{\Er}f(x-y)u(t,y)\de y-u(t,x)\int_{\Er}f(y)\de y}-\lambda\mu u(t,x)\] 
 Traduction:
-\begin{itemize}[label=\bullet]
+\begin{itemize}[label=$\bullet$]
 \item $\dr_tu$: changement de densité de fitness entre $t$ et $t+\de t$;
 \item $\int f(x-y)u(t,y)\de y$: arrivées sur la fitness x;
 \item $-u(t,x)\int f(y)\de y$: départs de la fitness x;
 \item $-\lambda\mu u(t,x)$: morts.
 \end{itemize} 
 
-\vspace{0.5cm}
+\vspace{0.5cm}\pause
 
 Conservation de la masse : $$\int_{\Er} u(t,x)\de x=N(t)=e^{-\lambda\mu t}N(0)$$
 
@@ -304,6 +306,7 @@ Conservation de la masse : $$\int_{\Er} u(t,x)\de x=N(t)=e^{-\lambda\mu t}N(0)$$
   \[\dr_tu(t,x)=\lambda\pth{\int_{\Er}f(x-y)u(t,y)\de y-u(t,x)\int_{\Er}f(y)\de y}-\lambda\mu u(t,x)\]
   donc
   \[\dr_t\fr u_t(\xi)=\lambda \fr f(\xi)\fr u_t(\xi)-\lambda\fr u_t(\xi)\]
+  \pause
   d'où:
 \prop{
     Pour tout $x\in\mathbb{R}$:
@@ -322,7 +325,7 @@ Le terme de droite est indépendant du temps : $\dr_t(\fr u_t(\xi))=c_{\xi}\fr u
 \frametitle{Vérification}
 \includegraphics[scale=0.4]{img/proj_non_norm_sim}
 \includegraphics[scale=0.4]{img/proj_non_norm_rea}
-\begin{itemize}[label=\bullet]
+\begin{itemize}[label=$\bullet$]
 \item fonctionne bien pour les petits $\xi$;
 \item fonctionne très mal pour les grands $\xi$ ($\to$ overfitting ?).
 \end{itemize}
@@ -332,11 +335,33 @@ Le terme de droite est indépendant du temps : $\dr_t(\fr u_t(\xi))=c_{\xi}\fr u
 
 \begin{frame}
   \frametitle{Inférence des $a_{\xi}$}
-  $\to$ mettre les images de $R_2$ en fonction de $\xi$ pour voir la précision
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.9\linewidth]{../Img/DFE_R2.png}
+  \end{center}
+  \caption{\label{fig:DFE_R2}Comparaison, selon $\xi$, des qualité d'ajustement d'un modèle affine pour les parties réelles (gauche) ou imaginaires (droite) de $a_{\xi}$, sur des simulations bruitées ou non.}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Mauvais résultats}
+  
+  \begin{figure}[h]
+    \begin{center}
+      \includegraphics[width=0.9\linewidth]{../Img/DFE_inferred.png}
+    \end{center}
+    \caption{\label{fig:DFE}Comparaison entre les DFE inférées (en bleu) et les lois Beta choisies pour effectuer les simulations (en rouge).}
+  \end{figure}
+
+
 \end{frame}
 
 \begin{frame}[allowframebreaks]
   \frametitle{Simulation avec grand nombre de canaux}
+  On enlève ?
+  
   * droites magnifiques
 
   * stabilité pour $\xi_{max}$ petit
@@ -349,7 +374,7 @@ Le terme de droite est indépendant du temps : $\dr_t(\fr u_t(\xi))=c_{\xi}\fr u
 
 \begin{frame}
   \frametitle{Conclusion et perspectives}
-  \begin{itemize}[label=\bullet]
+  \begin{itemize}[label=$\bullet$]
     \item ça ne marche pas
   \end{itemize}
 \end{frame}
