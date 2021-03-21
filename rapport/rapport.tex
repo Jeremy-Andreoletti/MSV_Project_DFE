@@ -177,7 +177,7 @@
 
 \subsection{Contexte}
 
-La génétique des traits quantitatifs \cite{mac} est l'étude des phénotypes qui sont modulés génétiquement par un très grand nombre de loci à faible effets, et plus spécifiquement l'étude des liens entre variations génotypiques à ces loci et variations phénotypiques des traits associés. Bien comprendre ces mécanismes est essentiel non seulement en médecine humain, afin de prédire les risques de certaines maladies génétiques et mettre au point des traitements individuels, mais aussi en agriculture, afin de guider les programmes de sélection artificielle de plantes ou animaux domestiques. Un élément important de ce processus est d'être capable de prédire les effets sur la fitness de chaque nouvelle mutation -- par exemple, on s'attend à avoir beaucoup de mutations faiblement délétères et peu de mutations avantageuses ou fortement délétères -- et, dans l'idéal, d'avoir accès à une distribution de probabilité complète de ces effets, que l'on appellera à partir de maintenant la \textbf{DFE (Distribution of Fitness Effects)}.
+La génétique des traits quantitatifs \cite{mac} est l'étude des phénotypes qui sont modulés génétiquement par un très grand nombre de loci à faible effets, et plus spécifiquement l'étude des liens entre variations génotypiques à ces loci et variations phénotypiques des traits associés. Bien comprendre ces mécanismes est essentiel non seulement en médecine humaine, afin de prédire les risques de certaines maladies génétiques et mettre au point des traitements individuels, mais aussi en agriculture, afin de guider les programmes de sélection artificielle de plantes ou animaux domestiques. Un élément important de ce processus est d'être capable de prédire les effets sur la fitness de chaque nouvelle mutation -- par exemple, on s'attend à avoir beaucoup de mutations faiblement délétères et peu de mutations avantageuses ou fortement délétères -- et, dans l'idéal, d'avoir accès à une distribution de probabilité complète de ces effets, que l'on appellera à partir de maintenant la \textbf{DFE (Distribution of Fitness Effects)}.
 
 \begin{figure}[h]
  \begin{center}
@@ -228,7 +228,7 @@ Dans cette expérience, on se place toujours dans la \emph{Mother Machine} et on
 \subsection{Modélisation mathématique}
 
 \paragraph{Notations}
-On se place dans le cadre de l'expérience $\mu$MA d'accumulation de mutations. On note $W_t$ le taux de croissance au temps $t\geqslant 0$ d'une lignée de cellule, et $N_t$ le nombre de mutations qu'il y a eu sur cette lignée depuis le début de l'expérience. On note \[S_i=\frac{W_{t_{i-1}}-W_{t_i}}{W_{t_{i-1}}}\in\iof{-\infty,1}\] l'effet relatif de la $i^e$ mutation. On a en particulier: 
+On se place dans le cadre de l'expérience $\mu$MA d'accumulation de mutations. On note $W_t$ le taux de croissance au temps $t\geqslant 0$ d'une lignée de cellule, et $N_t$ le nombre de mutations qui ont eu lieu sur cette lignée depuis le début de l'expérience. On note \[S_i=\frac{W_{t_{i-1}}-W_{t_i}}{W_{t_{i-1}}}\in\iof{-\infty,1}\] l'effet relatif de la $i^e$ mutation. On a en particulier: 
 \begin{equation}\label{mod}
   \frac{W_t}{W_0}=\prod_{i=1}^{N_t}(1-S_i)
 \end{equation}
@@ -239,7 +239,7 @@ Enfin, on note $\lambda$ le taux de mutation, que l'on suppose constant.
 
 \boxed{
   \begin{minipage}{0.9\linewidth}
-    \textbf{Énoncé du problème:} Estimer la loi des $S_i$ sachant que l'on peut mesurer expérimentalement $W_t$, sachant que $N_t$ suit une loi de Poisson de paramètre $\lambda t$ et sachant que l'on a l'expression \eqref{mod}. Trouver une mesure pertinente pour exprimer l'erreur entre la loi estimée et la loi <<~réelle~>>.
+    \textbf{Énoncé du problème:} Estimer la loi des $S_i$ sachant que l'on peut mesurer expérimentalement $W_t$, que $N_t$ suit une loi de Poisson de paramètre $\lambda t$ et que l'on a l'expression \eqref{mod}. Trouver une mesure pertinente pour exprimer l'erreur entre la loi estimée et la loi <<~réelle~>>.
 \end{minipage}}
 
 
@@ -250,7 +250,7 @@ On fait les hypothèses suivantes sur les cellules:
 \item Les mutations arrivent selon une dynamique poissonnienne;
 \item Le taux de mutation $\lambda$ est constant. En particulier, il ne dépend pas du taux de croissance;
 \item Le taux de croissance change instantanément après la mutation (on ne prend pas en compte la division des cellules);
-\item Les taux de croissance des cellules ne changent que à cause des mutations.
+\item Les taux de croissance des cellules changent uniquement à cause des mutations.
 \end{enumerate}
 
 \req{L'hypothèse 1 permet de dire que la DFE, que l'on recherche, est bien définie. Dans la section \ref{ss:dyn_pois}, on montre que l'hypothèse 2 est justifiée expérimentalement.}
@@ -268,12 +268,12 @@ Afin de tester expérimentalement l'hypothèse d'apparition poissonnienne des mu
 \end{figure}
 \FloatBarrier
 
-De même, on peut vérifier avec la seconde expérience ($\mu$MA) que les mutations létales suivent une dynamique semblable. Cela n'est pas évident a priori, si l'on imagine que certaines mutations ont plus de chances d'être létales quand la cellule a déjà accumulé précédemment des mutation délétères dans des voies partiellement redondantes qui ne peuvent donc plus compenser une nouvelle perte de fonction. Empiriquement, on observe que les courbes de survie (figure \ref{fig:survival}) suivent une courbe exponentielle. On remarque aussi qu'un phénomène de sénescence des cellules commence à émerger, bien visible à partir d'environ 40 heures chez la souche sauvage \emph{WT} qui a peu de mutations. Le phénomène de sénescence peut être corrigé en divisant par le taux de croissance des cellules WT (de taux d'apparition de mutations létales très faible). Après ces corrections, seule la souche MF1 semble s'écarter légèrement d'une trajectoire exponentielle.
+De même, on peut vérifier avec la seconde expérience ($\mu$MA) que les mutations létales en particulier suivent une dynamique semblable. Cela n'est pas évident a priori, si l'on imagine que certaines mutations ont plus de chances d'être létales quand la cellule a déjà accumulé précédemment des mutation délétères dans des voies partiellement redondantes qui ne peuvent donc plus compenser une nouvelle perte de fonction. Empiriquement, on observe que les courbes de survie (figure \ref{fig:survival}) suivent une courbe exponentielle. On remarque aussi qu'un phénomène de sénescence des cellules commence à émerger, bien visible à partir d'environ 40 heures chez la souche sauvage \emph{WT} qui a peu de mutations. Le phénomène de sénescence peut être corrigé en divisant par le taux de croissance des cellules WT (de taux d'apparition de mutations létales très faible). Après ces corrections, seule la souche MF1 semble s'écarter légèrement d'une trajectoire exponentielle.
 
 \begin{figure}[h]
   \begin{center}
     \vspace{3mm}
-    \includegraphics[scale=0.6]{../Img/Survival.png}
+    \includegraphics[scale=0.8]{../Img/Survival.png}
   \end{center} 
   \caption{\label{fig:survival}Schéma tiré de notre réplication des résultats, montrant les corrections effectuées pour obtenir une décroissance exponentielle du nombre de cellules au cours du temps. \textbf{Gauche:} sans correction; \textbf{milieu:} suppression des canaux dont les cellules se sont échappées de leur canal, c'est-à-dire les cellules dont on a perdu la trace au cours de l'expérience; \textbf{droite:} compensation des cellules qui meurent de vieillesse en divisant la proportion de cellules vivantes pour la souche par la proportion de cellules vivantes pour WT (on suppose la mort des cellules WT n'est causée \emph{que} par la sénescence).}
 \end{figure}
@@ -293,7 +293,7 @@ et donc, comme $\abs{\varepsilon'}$ est très petit:
 \[1 - S_\varepsilon \simeq \frac{W'}{W}(1+\varepsilon')(1-\varepsilon)\simeq \frac{W'}{W}(1+\varepsilon'-\varepsilon)\]
 Ce calcul montre que le bruit sur l'effet relatif sur la fitness calculé directement est deux fois plus élevé que le bruit sur la mesure. Cela est une première contre-indication à l'efficacité du calcul direct des effets des taux de croissance.
 
-Nous avons tout de même essayé de regarder les distributions de variations relatives des taux de croissance pour les différentes souches de bactéries (figure \ref{fig:VarRel}). Ces distributions de variations relatives de taux de croissance ne sont pas non plus normales, ni même symétrique si on superpose les 2 moitiés (verte et rouge).
+Nous avons tout de même essayé de regarder les distributions de variations relatives des taux de croissance pour les différentes souches de bactéries (figure \ref{fig:VarRel}). Ces distributions de variations relatives de taux de croissance ne sont pas normales, ni même symétriques.
 
 \begin{figure}[!h]
   \begin{center}
@@ -310,7 +310,7 @@ Malheureusement, les diverses tentatives subséquentes de retirer la distributio
 \FloatBarrier
 \section{Simulations\label{s:sim}}
 
-Nous avons voulu réaliser des simulations aussi proches que possible de l'expérience réelle, en prenant en compte à la fois les mutations impactant les taux de croissance selon une DFE, la croissance des bactéries et le bruit des mesures. Les fonctions et animations associées sont présentées dans le notebook \emph{II\_Simulations}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/II_Simulations.ipynb}}.
+Afin de pouvoir tester les approches subséquentes, nous avons voulu réaliser des simulations aussi proches que possible de l'expérience réelle, en prenant en compte à la fois les mutations impactant les taux de croissance selon une DFE, la croissance des bactéries et le bruit des mesures. Les fonctions et animations associées sont présentées dans le notebook \emph{II\_Simulations}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/II_Simulations.ipynb}}.
 
 \begin{figure}[h]
   \begin{center}
@@ -320,13 +320,13 @@ Nous avons voulu réaliser des simulations aussi proches que possible de l'expé
   \caption{\label{fig:simulations}Quelques étapes d'une simulation réaliste d'une expérience de croissance bactérienne, dont le taux de croissance est affecté par des mutations selon une DFE donnée et mesuré de manière bruitée}
 \end{figure}
 
-Afin d'être les plus réalistes possibles, nos simulations suivent les étapes suivantes (voir figure \ref{fig:simulations}) :
+Afin d'être les plus réalistes possibles, nos simulations suivent les étapes suivantes (figure \ref{fig:simulations}) :
 \begin{itemize}
 \item Les taux de croissance sont initialisés avec ceux mesurés dans l'expérience (médiane des 10 premières valeurs);
 \item Une DFE est tirée dans un mélange de distributions au choix. Ici, nous avons pris la distribution Beta inférée dans l'article (de paramètres $\alpha=0.0074$ et $\beta=2.4$, voir figure \ref{fig:lbeta}) à laquelle on a rajouté un Dirac en 1 (permettant d'incorporer $1\%$ de mutations létales);
   \begin{figure}[h]
     \begin{center}
-      \includegraphics[scale=0.5]{./img/lbeta.png}
+      \includegraphics[scale=0.45]{./img/lbeta.png}
     \end{center} 
     \caption{\label{fig:lbeta}Loi beta de paramètres $\alpha=0.0074$ et $\beta=2.4$.}
   \end{figure}
@@ -349,7 +349,7 @@ Afin d'être les plus réalistes possibles, nos simulations suivent les étapes 
   \caption{\label{fig:ss_animations}Images tirées d'animations montrant l'évolution de la distribution des taux de croissance au cours du temps dans les simulations et l'expérience réelle. La seconde image affiche un intervalle des valeurs simulées sur 100 réplications.}
 \end{figure}
 
-Les images de la figure \ref{fig:ss_animations} sont extraites des animations présentées dans la figure \ref{fig:animations} en annexe \ref{ann:anim} et disponibles sur le notebook \emph{II\_Simulations}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/II_Simulations.ipynb}}. Elles représentent l'évolution au cours du temps de la distribution des taux de croissance, en comparant les simulations aux données empirique. On observe que l'évolution de la distribution simulée est au début en bonne adéquation avec celle observée. Toutefois, après 40 heures les deux commencent à diverger, probablement à cause du début de la sénescence des cellules, et de la DFE non adaptée (pas de mutations avantageuses, trop peu de mutations fortement délétères).
+Les images de la figure \ref{fig:ss_animations} sont extraites des animations présentées dans la figure \ref{fig:animations} en annexe \ref{ann:anim} et disponibles sur le notebook \emph{II\_Simulations}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/II_Simulations.ipynb}}. Elles représentent l'évolution au cours du temps de la distribution des taux de croissance, en comparant les simulations aux données empiriques. On observe que l'évolution de la distribution simulée est au début en bonne adéquation avec celle observée. Toutefois, après 40 heures les deux commencent à diverger, probablement à cause du début de la sénescence des cellules, et de la DFE non adaptée (pas de mutations avantageuses, trop peu de mutations fortement délétères).
 
 \FloatBarrier
 \section{Problème des moments}
@@ -362,7 +362,7 @@ Définissons \[E_n(t)=\sum_{k=1}^n(-1)^k\binom{n}{k}\ln\pth{\Esp{W_t^k}}\]
 
 \prop{Pour $t\geqslant 0$ et $n\in\En$: \[E_n(t)=\pth{\lambda\Esp{S^n}}t\]}
 
-\req{En traçant les fonctions $t\mapsto E_n(t)$ (que l'on est capable de calculer à partir des observations de l'expérience $\mu$MA), on devrait obtenir des droites dont les pentes seront directement reliées aux moments de la DFE par un facteur $\lambda$. Dans l'annexe \ref{ann:resultats} et le notebook \emph{III1\_Replication\_Estimation-moments}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/III1_Replication_Estimation-moments.ipynb}}, nous montrons que \cite{rob} a bien obtenu des droites et nous expliquons les traitements permettant de reproduire ces résultats, et ainsi estimer les moments de la DFE.}
+\req{En traçant les fonctions $t\mapsto E_n(t)$ (qui peuvent être calculées à partir des observations de l'expérience $\mu$MA), on devrait obtenir des droites dont les pentes seront directement reliées aux moments de la DFE par un facteur $\lambda$. Dans l'annexe \ref{ann:resultats} et le notebook \emph{III1\_Replication\_Estimation-moments}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/III1_Replication_Estimation-moments.ipynb}}, nous montrons que \cite{rob} a bien obtenu des droites et nous expliquons les traitements permettant de reproduire ces résultats, et ainsi estimer les moments de la DFE.}
 
 \begin{proof}
   Tout d'abord, remarquons que, $N_t$ suivant une loi de Poisson de taux $\lambda t$ :
@@ -619,7 +619,7 @@ On fait les deux hypothèses suivantes:
   \in C^{\infty}(\Er)$ est la <<~densité~>> de la loi de $\ln(1-S)$ sans prendre en compte les mutations létales: ainsi, $\int f=1-\mu$.
 \end{enumerate}
 
-Remarquons tout de suite que l'on peut déduire la DFE à partir de la donnée de $f$ et de la fraction de mutations létales, mesurée directement dans l'expérience \emph{MA}.
+Remarquons tout de suite que l'on peut déduire la DFE à partir de la donnée de $f$ et de la fraction de mutations létales, mesurée directement dans l'expérience \emph{MV}.
 
 \paragraph{Introduction du modèle}
 
@@ -689,7 +689,7 @@ Enfin, comme $f\in L^2(\Er)$, on obtient \eqref{edp_sol}.
 %
 
 
-\subsection{Détermination de la DFE à partir de \eqref{edp_sol}\label{ss:det_dfe}}
+\subsection{Détermination de la DFE\label{ss:det_dfe}}
 
 L'expression \eqref{edp_sol} donne une forme explicite pour $f(x)$. Il faut, pour l'exploiter, être capable de calculer la valeur, pour chaque $\xi$, de
 \[a_{\xi}=\frac{\dr_t\fr u_t(\xi)}{\fr u_t(\xi)}\]
@@ -706,30 +706,30 @@ On a donc deux expressions valables pour tout $t\in \Er_+$:
 
 \paragraph{Vérification} Dans l'annexe \ref{ann:verif} et le notebook \emph{IV2\_DFE-EDP-Fourier\_Verifications}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/IV2_DFE-EDP-Fourier_Verifications.ipynb}}, nous avons tracé les fonctions de $t$ \eqref{re_a} et \eqref{im_a}, afin de vérifier qu'il s'agit de fonctions affines. Pour $\xi\leqslant 10$, on obtient des fonctions affines dont les pentes donnent respectivement la partie réelle et la partie imaginaire de $a_{\xi}$. Cependant, pour $\xi>20$, on n'obtient plus de droites. Ainsi, pour l'estimation de la DFE, nous n'avons considéré que les valeurs de $\xi$ inférieures à une certaine valeur $\xi_{max}$. Cela revient à tronquer la transformée de Fourier, et donc nous donne une DFE <<~trop régulière~>> . Cette régularisation est de toute manière nécessaire pour éviter tout phénomène de sur-apprentissage.
 
-La figure \ref{fig:DFE_R2} donne, pour chaque valeur de $\xi$ comprise entre $0$ et $20$, le coefficient de détermination $R^2$, qui mesure la qualité de la régression linéaire effectuée. Ainsi, quand $R^2$ est proche de $1$, la régression linéaire est de bonne qualité; quand $R^2$ est proche de $0$, la régression linéaire est de mauvaise qualité. Pour des valeurs de $\xi$ suffisamment petites, on obtient de très bonnes régressions linéaires, et donc, en principe, de très bonnes estimations de $a_{\xi}$ et donc de $\fr f(\xi)=a_{\xi}/\lambda+1$. Cette méthode peut nous permettre d'obtenir la valeur de $\xi$ maximale que l'on peut considérer. La figure \ref{fig:DFE_choix} montre une procédure qui permet de choisir efficacement les bons paramètres.
-
 \begin{figure}[h]
   \begin{center}
-    \includegraphics[width=0.9\linewidth]{../Img/DFE_R2.png}
+    \includegraphics[width=0.95\linewidth]{../Img/DFE_R2.png}
   \end{center}
-  \caption{\label{fig:DFE_R2}Comparaison, selon $\xi$, des qualité d'ajustement d'un modèle affine pour les parties réelles (gauche) ou imaginaires (droite) de $a_{\xi}$, sur des simulations bruitées ou non.}
+  \caption{\label{fig:DFE_R2}Comparaison, selon $\xi$, des qualité d'ajustement d'un modèle affine pour les parties réelles (gauche) ou imaginaires (droite) de $a_{\xi}$, sur des simulations bruitées ou non. Chaque couleur correspond à une simulation indépendante de l'expérience.}
 \end{figure}
 
+La figure \ref{fig:DFE_R2} donne, pour chaque valeur de $\xi$ comprise entre $0$ et $20$, le coefficient de détermination $R^2$, qui mesure la qualité de la régression linéaire effectuée. Ainsi, quand $R^2$ est proche de $1$, la régression linéaire est de bonne qualité; quand $R^2$ est proche de $0$, la régression linéaire est de mauvaise qualité. Pour des valeurs de $\xi$ suffisamment petites, on obtient de très bonnes régressions linéaires, et donc, en principe, de très bonnes estimations de $a_{\xi}$ et donc de $\fr f(\xi)=a_{\xi}/\lambda+1$. Cette méthode peut nous permettre d'obtenir la valeur de $\xi$ maximale que l'on peut considérer. Ajouter du bruit à la mesure des taux de croissance oblige à réduire la valeur de ce $\xi_{\max}$. La figure \ref{fig:DFE_choix} montre une procédure qui permet de choisir manuellement de bons paramètres.
+
 
 \begin{figure}[h]
   \begin{center}
-    \includegraphics[width=0.9\linewidth]{../Img/DFE_choix_tmax_xi.png}
+    \includegraphics[width=0.95\linewidth]{../Img/DFE_choix_tmax_xi.png}
   \end{center}
   \caption{\label{fig:DFE_choix}Étapes manuelles de la procédure d'estimation de la DFE. À gauche, choix d'un temps maximal à partir duquel les fonctions ne semblent plus affines. Ensuite, à droite, choix d'un xi maximal à partir duquel la qualité d'ajustement d'un modèle affine (coefficient de régression $R^2$) chute.}
 \end{figure}
 
-
+\FloatBarrier
 \paragraph{Estimation de la DFE}
 
-Nous avons tenté d'appliquer notre méthode avec des données simulées non bruitées. L'implémentation est réalisée dans le notebook \emph{IV2\_DFE-EDP-Fourier\_Estimation-complete}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/IV2_DFE-EDP-Fourier_Estimation-complete.ipynb}}. Nous constatons que les résultats ne sont pas satisfaisants: la figure \ref{fig:DFE} compare, pour différents paramètres $(\alpha,\beta)$, les DFE calculées et la DFE utilisée (qui correspond à la loi Beta de paramètres $(\alpha,\beta)$). Outre les erreurs de programmation, nous avons essentiellement deux explications pour expliquer la grande différence:
+Nous avons tenté d'appliquer notre méthode avec des données simulées non bruitées. L'implémentation est réalisée dans le notebook \emph{IV2\_DFE-EDP-Fourier\_Estimation-complete}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/IV2_DFE-EDP-Fourier_Estimation-complete.ipynb}}. Nous constatons que les résultats ne sont pas satisfaisants: la figure \ref{fig:DFE} compare, pour différents paramètres $(\alpha,\beta)$, les DFE calculées et la DFE utilisée (qui correspond à une loi Beta de paramètres $(\alpha,\beta)$). Outre les erreurs de programmation, nous avons essentiellement deux explications pour expliquer la grande différence:
 \begin{itemize}
-\item Les DFE considérées sont discontinues en 0 et donc leur transformée de Fourier décroît lentement vers 0 quand $\xi\to\infty$: voir la figure \ref{fig:DFE_fourier}. Comme nous sommes contraints de rogner la transformée de Fourier, nous perdons beaucoup d'information;
-\item Nous calculons $f$, qui la densité de la loi de $\ln(1-S)$; pour afficher la densité de la loi de $S$, nous affichons \[g(x)=\frac{f(\ln (1-x))}{1-x}\esp x>0\] ce qui fait que, pour $x$ proche de $1$, l'erreur est très grande: cela peut expliquer pourquoi l'on obtient systématiquement un pic en 1.
+	\item Les DFE considérées sont discontinues en 0 et donc leur transformée de Fourier décroît lentement vers 0 quand $\xi\to\infty$: voir la figure \ref{fig:DFE_four}. Comme nous sommes contraints de rogner la transformée de Fourier, nous perdons beaucoup d'information;
+	\item Nous calculons $f$, qui la densité de la loi de $\ln(1-S)$; pour afficher la densité de la loi de $S$, nous affichons \[g(x)=\frac{f(\ln (1-x))}{1-x}\esp x>0\] ce qui fait que, pour $x$ proche de $1$, l'erreur est très grande: cela peut expliquer pourquoi l'on obtient systématiquement un pic en 1.
 \end{itemize}
 
 
@@ -749,7 +749,7 @@ Nous avons tenté d'appliquer notre méthode avec des données simulées non bru
 \end{figure}
 
 
-%\FloatBarrier
+\FloatBarrier
 \subsection{Lien avec un problème de fragmentation}
 
 \paragraph{Présentation du problème de fragmentation}
