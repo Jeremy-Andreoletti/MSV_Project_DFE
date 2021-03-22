@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.8.29)  22 MAR 2021 10:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.8.29)  22 MAR 2021 11:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1785,29 +1785,20 @@ Package pdftex.def Info: img/iv_verif_pxi_im.png  used on input line 912.
 png>]
 \g__file_internal_ior=\read3
 <<VPlayer.swf>><<../Video/GrowthRates_noisySimulations_VS_observations.mp4>><<.
-./Video/GrowthRates_noisySimulationsInterval_VS_observations.mp4>> [32]
+./Video/GrowthRates_simulationsInterval_VS_observations.mp4>>
+[32]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 940.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 940.
- (./rapport.aux
-*************************************************
-* pdfbase warning: "rerun"
-* 
-* Rerun to get internal references right!
-*************************************************
-)
+ (./rapport.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 940.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 940.
 Package rerunfilecheck Info: File `rapport.out' has not changed.
 (rerunfilecheck)             Checksum: F0F5C74FC0139521F107D528912C60AC;1372.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 940.
  ) 
 Here is how much of TeX's memory you used:
- 35866 strings out of 492649
- 662629 string characters out of 6129622
+ 35867 strings out of 492649
+ 662667 string characters out of 6129622
  823822 words of memory out of 5000000
  38929 multiletter control sequences out of 15000+600000
  652403 words of font info for 161 fonts, out of 8000000 for 9000
@@ -1863,10 +1854,10 @@ lmsy7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmsy9.pfb><
 /texlive/2018/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/local/texlive/2
 018/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texli
 ve/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on rapport.pdf (32 pages, 4332466 bytes).
+Output written on rapport.pdf (32 pages, 5412367 bytes).
 PDF statistics:
- 638 PDF objects out of 1000 (max. 8388607)
- 533 compressed objects within 6 object streams
+ 641 PDF objects out of 1000 (max. 8388607)
+ 536 compressed objects within 6 object streams
  147 named destinations out of 1000 (max. 500000)
- 371 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 383 words of extra memory for PDF output out of 10000 (max. 10000000)
 
