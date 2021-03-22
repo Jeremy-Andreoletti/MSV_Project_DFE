@@ -149,6 +149,8 @@
 
 \author{Jérémy Andréoletti et Nathanaël Boutillon\\Projet encadré par Marie Doumic et Lydia Robert}
 
+\date{Années 2020 -- 2021}
+
 \begin{document}
 
 \maketitle
@@ -156,9 +158,9 @@
 \begin{abstract}
   Le but de ce projet est d'estimer les effets des mutations sur la valeur sélective d'une bactérie.
 
-  Dans un premier temps, nous présentons le contexte général dans lequel se place cette étude, et en particulier les expériences réalisées dans \cite{rob} dont sont issues les données sur lesquelles nous nous sommes basés. Nous introduisons le modèle mathématique qui permet leur analyse et l'interprétation de certains résultats de l'article initial que nous avons répliqués. Une procédure permettant de réaliser des simulations réalistes des expériences est également décrite.
+  Dans un premier temps, nous présentons le contexte général dans lequel se place cette étude, et, en particulier, nous décrivons les expériences réalisées dans \cite{rob} dont sont issues les données sur lesquelles nous nous sommes basés. Nous introduisons le modèle mathématique qui permet leur analyse et l'interprétation de certains résultats de l'article initial que nous avons répliqués. Une procédure permettant de réaliser des simulations réalistes des expériences est également décrite.
 
-  Ensuite, nous proposons une première méthode pour trouver la distribution des effets des mutations sur la valeur sélective (appelée DFE pour \emph{distribution of fitness effects}), et calculons des bornes sur l'erreur commise. La recherche de la DFE à partir des données des expériences réalisées dans \cite{rob} est un problème inverse sévèrement mal posé.
+  Ensuite, nous proposons une première méthode pour trouver la distribution des effets des mutations sur la valeur sélective (appelée DFE pour \emph{distribution of fitness effects}), et calculons des bornes sur l'erreur commise. Nous remarquons que la recherche de la DFE à partir des données des expériences réalisées dans \cite{rob} est un problème inverse sévèrement mal posé.
 
   Enfin, nous abordons le problème par un autre point de vue, en considérant le processus comme la solution d'une EDP avec un terme intégral. Cette approche nous permet alors d'ouvrir quelques pistes de réflexion sur l'étude de cette EDP et sur l'aide qu'elle pourrait nous fournir dans l'estimation de la DFE.
 
@@ -177,7 +179,7 @@
 
 \subsection{Contexte}
 
-La génétique des traits quantitatifs \cite{mac} est l'étude des phénotypes qui sont modulés génétiquement par un très grand nombre de loci à faible effets, et plus spécifiquement l'étude des liens entre variations génotypiques à ces loci et variations phénotypiques des traits associés. Bien comprendre ces mécanismes est essentiel non seulement en médecine humaine, afin de prédire les risques de certaines maladies génétiques et mettre au point des traitements individuels, mais aussi en agriculture, afin de guider les programmes de sélection artificielle de plantes ou animaux domestiques. Un élément important de ce processus est d'être capable de prédire les effets sur la fitness de chaque nouvelle mutation -- par exemple, on s'attend à avoir beaucoup de mutations faiblement délétères et peu de mutations avantageuses ou fortement délétères -- et, dans l'idéal, d'avoir accès à une distribution de probabilité complète de ces effets, que l'on appellera à partir de maintenant la \textbf{DFE (Distribution of Fitness Effects)}.
+La génétique des traits quantitatifs \cite{mac} est l'étude des phénotypes qui sont modulés génétiquement par un très grand nombre de loci à faible effet, et plus spécifiquement l'étude des liens entre variations génotypiques à ces loci et variations phénotypiques des traits associés. Bien comprendre ces mécanismes est essentiel non seulement en médecine humaine, afin de prédire les risques de certaines maladies génétiques et mettre au point des traitements individuels, mais aussi en agriculture, afin de guider les programmes de sélection artificielle de plantes ou d'animaux domestiques. Un élément important de ce processus est d'être capable de prédire les effets sur la fitness de chaque nouvelle mutation -- par exemple, on s'attend à avoir beaucoup de mutations faiblement délétères et peu de mutations avantageuses ou fortement délétères -- et, dans l'idéal, d'avoir accès à une distribution de probabilité complète de ces effets, que l'on appellera à partir de maintenant la \textbf{DFE (Distribution of Fitness Effects)}.
 
 \begin{figure}[h]
  \begin{center}
@@ -191,15 +193,17 @@ Le point de départ de ce projet est un article de Lydia Robert \textit{et al.} 
 
 \subsection{Expériences}
 
-Dans l'article de Lydia Robert \textit{et al.} \cite{rob} sont présentés deux types d'expérience dépassant une partie de ces limitations, en se basant sur l'observation de bactéries piégées dans 1000 micro-canaux d'une puce micro-fluidique :
+Dans l'article de Lydia Robert \textit{et al.} \cite{rob} sont présentés deux types d'expérience qui dépassent une partie de ces limitations, en se basant sur l'observation de bactéries piégées dans $1476$ micro-canaux d'une puce micro-fluidique :
 \begin{enumerate}
 \item \textbf{microfluidic Mutation Accumulation ($\mu$MA) experiment} : suivi du taux de croissance des bactéries sur de nombreuses générations en supprimant les effets de la sélection naturelle. Le taux de croissance des bactéries représentera la fitness des cellules;
-\item \textbf{Mutation Visualization (MV) experiment} : détection en temps réel des mutation apparaissant dans l'ADN bactérien.
+\item \textbf{Mutation Visualization (MV) experiment} : détection en temps réel des mutations apparaissant dans l'ADN bactérien. Le suivi est effectué sur une durée d'environ $60$ heures.
 \end{enumerate}
+
+
 
 \paragraph{Détails de l'expérience $\mu$MA}
 
-Dans cette expérience, les bactéries sont placées dans une \emph{Mother Machine} dans laquelle environ $1500$ cellules-mères se multiplient dans des micro-canaux individuels, leurs descendantes étant évacuées au fur et à mesure. En observant ces cellules au cours du temps, comme représenté dans la figure \ref{fig:microMA} tirée de l'article, on peut reconstruire l'évolution des taux de croissance sur plusieurs générations et essayer d'extraire la part de ces variations due à l'apparition de mutations.
+Dans cette expérience, les bactéries sont placées dans une \emph{Mother Machine} dans laquelle $1476$ cellules-mères se multiplient dans des micro-canaux individuels, leurs descendantes étant évacuées au fur et à mesure. En observant ces cellules au cours du temps, comme représenté dans la figure \ref{fig:microMA} tirée de l'article, on peut reconstruire l'évolution des taux de croissance sur plusieurs générations et essayer d'extraire la part de ces variations due à l'apparition de mutations.
 
 \begin{figure}[h]
   \begin{center}
@@ -223,12 +227,12 @@ Dans cette expérience, on se place toujours dans la \emph{Mother Machine} et on
   \caption{\label{fig:MV}Prise de vue reconstituée de l'expérience MV. Les mutations détectées correspondent aux points fluorescents jaunes.}
 \end{figure}
 
-À partir de ces expériences, plusieurs questions sont posées dans l'article : est-ce que les mutations sont ponctuelles (dynamique d'apparition poissonnienne) ou arrivent groupées ? Est-ce que les baisses soudaines du taux de croissance sont dues à l’arrivée de mutations délétères isolées ou bien à une accumulation de mutations en interaction ? Quelle est la dynamique d’apparition de mutations létales ? Et, surtout, pour le problème qui nous intéresse: peut-on inférer la DFE ?
+À partir de ces expériences, plusieurs questions sont posées dans l'article : est-ce que les mutations sont ponctuelles (dynamique d'apparition poissonnienne) ou arrivent groupées ? Est-ce que les baisses soudaines du taux de croissance sont dues à l’arrivée de mutations délétères isolées ou bien à une accumulation de mutations en interaction ? Quelle est la dynamique d’apparition des mutations létales ? Et, surtout, pour le problème qui nous intéresse: peut-on inférer la DFE ?
 
 \subsection{Modélisation mathématique}
 
 \paragraph{Notations}
-On se place dans le cadre de l'expérience $\mu$MA d'accumulation de mutations. On note $W_t$ le taux de croissance au temps $t\geqslant 0$ d'une lignée de cellule, et $N_t$ le nombre de mutations qui ont eu lieu sur cette lignée depuis le début de l'expérience. On note \[S_i=\frac{W_{t_{i-1}}-W_{t_i}}{W_{t_{i-1}}}\in\iof{-\infty,1}\] l'effet relatif de la $i^e$ mutation. On a en particulier: 
+On se place dans le cadre de l'expérience $\mu$MA d'accumulation de mutations. On note $W_t$ le taux de croissance au temps $t\geqslant 0$ d'une lignée de cellules, et $N_t$ le nombre de mutations qui ont eu lieu sur cette lignée depuis le début de l'expérience. On note \[S_i=\frac{W_{t_{i-1}}-W_{t_i}}{W_{t_{i-1}}}\in\iof{-\infty,1}\] l'effet relatif de la $i^e$ mutation. On a en particulier: 
 \begin{equation}\label{mod}
   \frac{W_t}{W_0}=\prod_{i=1}^{N_t}(1-S_i)
 \end{equation}
@@ -257,18 +261,18 @@ On fait les hypothèses suivantes sur les cellules:
 
 \subsection{Dynamique poissonnienne des mutations\label{ss:dyn_pois}}
 
-Afin de tester expérimentalement l'hypothèse d'apparition poissonnienne des mutations, les auteur.ice.s ont évalué les intervalles de temps $\delta$ entre deux apparitions de mutations dans l'expérience de MV. Ces intervalles définissent un processus de Poisson si leurs longueurs suivent une distribution exponentielle et sont indépendantes deux à deux (et en particulier d'un interval $\delta_n$ au suivant $\delta_{n+1}$). La figure \ref{fig:iatime} montre que ces deux critères sont vérifiés, en corrigeant la distribution attendue pour des observations discontinues toutes les 4 minutes. Nous avons répliqué ces résultats dans le notebook \emph{I4\_Replication\_Dynamique-apparition-mutations}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/I4_Replication_Dynamique-apparition-mutations}}.
+Afin de tester expérimentalement l'hypothèse d'apparition poissonnienne des mutations, les auteur.ice.s ont évalué les intervalles de temps $\delta$ entre deux apparitions de mutations dans l'expérience de MV. Ces intervalles définissent un processus de Poisson si leurs longueurs suivent une distribution exponentielle et sont indépendantes deux à deux (et en particulier d'un intervalle $\delta_n$ au suivant $\delta_{n+1}$). La figure \ref{fig:iatime} montre que ces deux critères sont vérifiés. Nous avons répliqué ces résultats dans le notebook \emph{I4\_Replication\_Dynamique-apparition-mutations}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/I4_Replication_Dynamique-apparition-mutations}}.
 
 \begin{figure}[h]
   \begin{center}
     \vspace{3mm}
     \includegraphics[scale=0.45]{../Img/Interarrival_times.png}
   \end{center}  
-  \caption{\label{fig:iatime}Schémas tirés de \cite{rob} montrant que les mutations apparaissent selon un processus de Poisson.}
+  \caption{\label{fig:iatime}Schémas tirés de \cite{rob} montrant que les mutations apparaissent selon un processus de Poisson. Les intervalles suivent une distribution exponentielle corrigée (car il faut corriger le fait que les prises de vue sont effectuées seulement toutes les 4 minutes) et les longueurs $\delta_n$ et $\delta_{n+1}$ sont indépendantes.}
 \end{figure}
 \FloatBarrier
 
-De même, on peut vérifier avec la seconde expérience ($\mu$MA) que les mutations létales en particulier suivent une dynamique semblable. Cela n'est pas évident a priori, si l'on imagine que certaines mutations ont plus de chances d'être létales quand la cellule a déjà accumulé précédemment des mutation délétères dans des voies partiellement redondantes qui ne peuvent donc plus compenser une nouvelle perte de fonction. Empiriquement, on observe que les courbes de survie (figure \ref{fig:survival}) suivent une courbe exponentielle. On remarque aussi qu'un phénomène de sénescence des cellules commence à émerger, bien visible à partir d'environ 40 heures chez la souche sauvage \emph{WT} qui a peu de mutations. Le phénomène de sénescence peut être corrigé en divisant par le taux de croissance des cellules WT (de taux d'apparition de mutations létales très faible). Après ces corrections, seule la souche MF1 semble s'écarter légèrement d'une trajectoire exponentielle.
+De même, on peut vérifier avec la seconde expérience ($\mu$MA) que les mutations létales en particulier suivent une dynamique semblable. Cela n'est pas évident a priori: on pourrait par exemple imaginer que certaines mutations ont plus de chances d'être létales quand la cellule a déjà accumulé des mutation délétères dans des voies partiellement redondantes qui ne peuvent donc plus compenser une nouvelle perte de fonction. Empiriquement, on observe que les courbes de survie (figure \ref{fig:survival}) suivent une courbe exponentielle. On remarque aussi qu'un phénomène de sénescence des cellules commence à émerger, bien visible à partir d'environ 40 heures chez la souche sauvage \emph{WT} qui a peu de mutations. Le phénomène de sénescence peut être corrigé en divisant par le taux de croissance des cellules WT. Après ces corrections, seule la souche MF1 semble s'écarter légèrement d'une trajectoire exponentielle.
 
 \begin{figure}[h]
   \begin{center}
@@ -281,7 +285,7 @@ De même, on peut vérifier avec la seconde expérience ($\mu$MA) que les mutati
 \FloatBarrier
 \subsection{Tentative naïve pour déterminer la DFE}
 
-Nous avons essayé d'observer directement les variations des taux de croissance dues aux effets combinés des mutations et de la stochasticité des mesures, et si possible corriger cette dernière afin d'obtenir une estimation directe de la DFE. Toutes ces tentatives sont présentées dans le notebook \emph{I5\_DFE-directe\_Sauts-taux-de-croissance}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/I5_DFE-directe_Sauts-taux-de-croissance.ipynb}}.
+Nous avons essayé d'observer directement les variations des taux de croissance dues aux effets combinés des mutations et de la stochasticité des mesures, et si possible corriger cette dernière afin d'obtenir une estimation directe de la DFE. Ces tentatives sont présentées dans le notebook \emph{I5\_DFE-directe\_Sauts-taux-de-croissance}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/I5_DFE-directe_Sauts-taux-de-croissance.ipynb}}.
 
 Nous nous basons sur le modèle de bruit multiplicatif dont la pertinence est justifiée dans l'article.
 Notons $W_\varepsilon$ le taux de croissance mesuré et $W$ le taux de croissance réel au temps $t$. On suppose que $W_\varepsilon=W(1+\varepsilon)$ où les $\varepsilon_i$, $i\in\En$ sont des variables aléatoires indépendantes, identiquement distribuées, et indépendantes des $W$. On peut alors exprimer les effets relatifs bruités sur la fitness $S_\varepsilon$, avec $W_\varepsilon'$ la mesure de fitness au temps $t'$ suivant :
@@ -291,19 +295,19 @@ Notons $W_\varepsilon$ le taux de croissance mesuré et $W$ le taux de croissanc
 = 1 - \frac{W'}{W}\frac{1+\varepsilon'}{1+\varepsilon}\]
 et donc, comme $\abs{\varepsilon'}$ est très petit:
 \[1 - S_\varepsilon \simeq \frac{W'}{W}(1+\varepsilon')(1-\varepsilon)\simeq \frac{W'}{W}(1+\varepsilon'-\varepsilon)\]
-Ce calcul montre que le bruit sur l'effet relatif sur la fitness calculé directement est deux fois plus élevé que le bruit sur la mesure. Cela est une première contre-indication à l'efficacité du calcul direct des effets des taux de croissance.
+Ce calcul montre que le bruit sur l'effet relatif sur la fitness calculé directement a une amplitude deux fois plus grande que le bruit sur la mesure. Cela est une première contre-indication à l'efficacité du calcul direct des effets des taux de croissance.
 
-Nous avons tout de même essayé de regarder les distributions de variations relatives des taux de croissance pour les différentes souches de bactéries (figure \ref{fig:VarRel}). Ces distributions de variations relatives de taux de croissance ne sont pas normales, ni même symétriques.
+Nous avons tout de même essayé de regarder les distributions de variations relatives des taux de croissance pour les différentes souches de bactéries (figure \ref{fig:VarRel}). Ces distributions de variations relatives de taux de croissance ne sont pas normales, ni même symétriques. Les données utilisées pour ces tentatives sont celles de l'expérience MV.
 
 \begin{figure}[!h]
   \begin{center}
     \vspace{3mm}
     \includegraphics[scale=0.3]{../Img/Variations_relatives_GR.png}
   \end{center} 
-  \caption{\label{fig:VarRel}Distribution des variations relatives des taux de croissance observées au cours de l'expérience, pour les différentes souches. Dans chaque cas la partie gauche de la distribution, en verte, a été reflétée de manière à illustrer l'asymétrie de ces distributions.}
+  \caption{\label{fig:VarRel}Distribution des variations relatives des taux de croissance observées au cours de l'expérience, pour les différentes souches. Dans chaque cas la partie gauche de la distribution, en vert, a été reflétée de manière à illustrer l'asymétrie de ces distributions.}
 \end{figure}
 
-Plus le taux de mutation est faible ($\mu_{WT} < \mu_{MutH} \simeq \mu_{MutT} < \mu_{WT}$) plus la distribution des sauts relatifs de croissance est étalée. La part du bruit devient plus importante que celle du signal.
+Plus le taux de mutation est faible ($\lambda_{WT} < \lambda_{MutH} \simeq \lambda_{MutT} < \lambda_{WT}$), plus la distribution des sauts relatifs de croissance est étalée. La part du bruit devient plus importante que celle du signal.
 
 Malheureusement, les diverses tentatives subséquentes de retirer la distribution WT (quasiment uniquement du bruit) aux autres distributions, ou de faire des régressions pour des taux de mutations croissants se sont avérées être des échecs. Cela confirme la nécessité de faire appel à des outils mathématiques plus poussés afin de reconstruire la DFE.
 
@@ -323,18 +327,18 @@ Afin de pouvoir tester les approches subséquentes, nous avons voulu réaliser d
 Afin d'être les plus réalistes possibles, nos simulations suivent les étapes suivantes (figure \ref{fig:simulations}) :
 \begin{itemize}
 \item Les taux de croissance sont initialisés avec ceux mesurés dans l'expérience (médiane des 10 premières valeurs);
-\item Une DFE est tirée dans un mélange de distributions au choix. Ici, nous avons pris la distribution Beta inférée dans l'article (de paramètres $\alpha=0.0074$ et $\beta=2.4$, voir figure \ref{fig:lbeta}) à laquelle on a rajouté un Dirac en 1 (permettant d'incorporer $1\%$ de mutations létales);
+\item Une DFE est tirée dans un mélange de distributions au choix. Ici, nous avons pris la distribution Beta inférée dans l'article (de paramètres $\alpha=0.0074$ et $\beta=2.4$, voir figure \ref{fig:lbeta}) à laquelle on a rajouté une masse de Dirac en 1 (permettant d'incorporer $1\%$ de mutations létales);
   \begin{figure}[h]
     \begin{center}
-      \includegraphics[scale=0.45]{./img/lbeta.png}
+      \includegraphics[scale=0.65]{./img/lbeta.png}
     \end{center} 
     \caption{\label{fig:lbeta}Loi beta de paramètres $\alpha=0.0074$ et $\beta=2.4$.}
   \end{figure}
-\item Les effets $s$ des mutations sur la fitness sont tirés dans cette DFE pour chacun des 1476 canaux de l'expérience et grand nombre de mutations;
+\item Les effets $s$ des mutations sur la fitness sont tirés dans cette DFE pour chacun des 1476 canaux de l'expérience et un grand nombre de mutations;
 \item L'évolution du taux de croissance, mutation par mutation, est déduite des effets relatifs cumulés des mutations modifiant les taux de croissance initiaux;
 \item Les durées entre 2 mutations sont tirées dans une loi exponentielle dont le paramètre est le taux de mutation ($\sim0.32$/heure en se basant sur le mutant \emph{mutH}). Le taux de mutation peut être soit constant dans le temps et entre les cellules, soit être décroissant avec le taux de croissance (le cycle cellulaire et la réplication étant ralentis);
 \item À partir des temps d'apparition de chaque mutation on peut ne conserver que celles qui arrivent avant la fin de l'expérience (4000 minutes) et calculer l'évolution du taux de croissance, cette fois au cours du temps;
-\item Enfin, le résultat est renvoyé en rajoutant (ou non) un bruit Gaussien multiplicatif à chaque mesure. Ce bruit est ensuite moyenné sur chaque génération de bactérie (comme indiqué dans l'article), en supposant que les bactéries se divisent dès qu'elles ont doublé de taille (bien qu'un modèle de division incrémental serait plus réaliste).
+\item Enfin, le résultat est renvoyé en rajoutant (ou non) un bruit Gaussien multiplicatif à chaque mesure. Ce bruit est ensuite moyenné sur chaque génération de bactérie (comme indiqué dans l'article), en supposant que les bactéries se divisent dès qu'elles ont doublé de taille (même si un modèle de division incrémental serait plus réaliste).
 \end{itemize}
 
 \begin{figure}[h]
@@ -356,13 +360,17 @@ Les images de la figure \ref{fig:ss_animations} sont extraites des animations pr
 
 \subsection{Détermination des moments}\label{ss:det_mom}
 
-Dans cette section, nous allons présenter la méthode donnée dans l'article afin d'estimer les moments de la DFE à partir des moments de la loi des $W_t$, $t\geqslant 0$.
+
+Dans cette section, nous allons présenter la méthode donnée dans \cite{rob} afin d'estimer les moments de la DFE à partir des moments de la loi des $W_t$, $t\geqslant 0$. Tous les résultats de la section \ref{ss:det_mom} sont issus de \cite{rob}.
+
 
 Définissons \[E_n(t)=\sum_{k=1}^n(-1)^k\binom{n}{k}\ln\pth{\Esp{W_t^k}}\]
 
+Notons $S$ une variable aléatoire dont la loi est la DFE. Ainsi, $S$ représente un effet de mutation typique.
+
 \prop{Pour $t\geqslant 0$ et $n\in\En$: \[E_n(t)=\pth{\lambda\Esp{S^n}}t\]}
 
-\req{En traçant les fonctions $t\mapsto E_n(t)$ (qui peuvent être calculées à partir des observations de l'expérience $\mu$MA), on devrait obtenir des droites dont les pentes seront directement reliées aux moments de la DFE par un facteur $\lambda$. Dans l'annexe \ref{ann:resultats} et le notebook \emph{III1\_Replication\_Estimation-moments}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/III1_Replication_Estimation-moments.ipynb}}, nous montrons que \cite{rob} a bien obtenu des droites et nous expliquons les traitements permettant de reproduire ces résultats, et ainsi estimer les moments de la DFE.}
+\req{En traçant les fonctions $t\mapsto E_n(t)$ (qui peuvent être calculées à partir des observations de l'expérience $\mu$MA), on devrait obtenir des droites dont les pentes seront directement reliées aux moments de $S$ (et donc de la DFE) par un facteur $\lambda$. Dans l'annexe \ref{ann:resultats} et le notebook \emph{III1\_Replication\_Estimation-moments}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/III1_Replication_Estimation-moments.ipynb}}, nous montrons que \cite{rob} a bien obtenu des droites et nous expliquons les traitements permettant de reproduire ces résultats, et enfin d'estimer les moments de la DFE.}
 
 \begin{proof}
   Tout d'abord, remarquons que, $N_t$ suivant une loi de Poisson de taux $\lambda t$ :
@@ -389,13 +397,13 @@ Définissons \[E_n(t)=\sum_{k=1}^n(-1)^k\binom{n}{k}\ln\pth{\Esp{W_t^k}}\]
 
 \subsection{Estimation de la DFE}
 
-Nous avons vu dans \ref{ss:det_mom} qu'il était possible de déterminer les moments de la loi de $S$ à partir de la donnée de la distribution des $W_t\vg t\geqslant 0$. Maintenant, nous allons tenter de trouver la loi de $S$ à partir des moments de $S$: cela s'appelle le problème des moments.
+Nous avons vu dans \ref{ss:det_mom} qu'il était possible de déterminer les moments de la loi de $S$ (qui est la DFE) à partir de la donnée de la distribution des $W_t\vg t\geqslant 0$. Maintenant, nous allons tenter de trouver la loi de $S$ à partir des moments de $S$: cela s'appelle le problème des moments.
 
 \paragraph{Estimation de la fonction caractéristique}
 
 À partir de tous les moments de $S$, on peut calculer la fonction caractéristique $\varphi$ de la loi de $S$, grâce à l'expression suivante:
 \[\varphi_S(\xi):=\Esp{e^{i\xi S}}=\Esp{\sum_{k=0}^{+\infty}\frac{(iS\xi)^k}{k!}}=\sum_{k=0}^{+\infty}\frac{(i\xi)^k}{k!}\Esp{S^k}\]
-Il est légal d'inverser la somme et l'espérance si l'on fait l'hypothèse que $\abs{S}$ est bornée. En particulier, cette hypothèse est vérifiée si toutes les mutations sont délétères: dans ce cas, $0\leqslant S\leqslant 1$.
+Il est légal d'inverser la somme et l'espérance si l'on fait l'hypothèse que $\abs{S}$ est bornée. En particulier, cette hypothèse est vérifiée si toutes les mutations sont délétères: dans ce cas, en effet, $0\leqslant S\leqslant 1$.
 
 On a alors, pour tout $N\in\En$:
 
@@ -411,7 +419,7 @@ Notons \[\hat{\varphi}_X(\xi)=\sum_{k=0}^{N}\frac{(i\xi)^k}{k!}m_k\] qui est la 
 \paragraph{Conventions utilisées pour la transformée de Fourier}
 
 Nous définissons la transformée de Fourier $\fr:L^2(\Er)\to L^2(\Er)$ et la tranformée de Fourier inverse $\fr^{-1}:L^2(\Er)\to L^2(\Er)$ par densité, à partir des expressions:
-\[\fr f(\xi)=\int_{\Er}f(x)e^{-ix\xi}\de x\et \fr f(\xi)=\frac{1}{2\pi}\int_{\Er}f(x)e^{ix\xi}\de x\]
+\[\fr f(\xi)=\int_{\Er}f(x)e^{-ix\xi}\de x\et \fr ^{-1}f(\xi)=\frac{1}{2\pi}\int_{\Er}f(x)e^{ix\xi}\de x\]
 définies pour $f\in L^1(\Er)$. On a notamment: \[\fr\circ\fr^{-1}=Id_{L^2(\Er)}\]
 
 \paragraph{Estimation de la DFE}
@@ -534,7 +542,7 @@ On remarque que $\alpha_1$ diminue quand $A$ augmente, mais $\alpha_3$ augmente 
 \item il existe $k\in\En$ tel que $d_k=\dabs{f^{(k)}}_1<+\infty$;
 \end{itemize}
 Alors on a, pour tout $x\in\Er$:
-\[\abs{f(x)-\hat{f}(x)}\sim \abs{\frac{2 d_k}{\ln^k\pth{\varepsilon}}}\comment{quand $\varepsilon\to 0$}\]
+\[\abs{f(x)-\hat{f}(x)}=O\pth{ \abs{\frac{2 d_k}{\ln^k\pth{\varepsilon}}}}\comment{quand $\varepsilon\to 0$}\]
 }
 
 \begin{proof} On traite d'abord le cas particulier $k=2$, pour introduire les idées.
@@ -548,9 +556,9 @@ donc $\alpha'(A)=-x/A^2+ye^A$. On veut $A$ tel que $\alpha$ soit minimum, c'est-
 \[A^2e^A=x/y\]
 On obtient alors le paramètre $A$ qui minimise la borne : 
 \[A = 2W\pth{\frac{\sqrt{x/y}}2} = 2W\pth{\sqrt{\frac{2\pi d_2}{4 \varepsilon}}}\]
-avec $W$ la fonction W de Lambert telle que $z=W(z)e^{W(z)}$.
+où $W$ est la fonction W de Lambert, qui vérifie par définition: $z=W(z)e^{W(z)}$.
 
-\item Pour $k$ général, avec les mêmes calculs, on trouve que $\alpha'(A)=-\frac{2d_k}{A^k}+ye^A$, ce qui permet de déduire l'expression du meilleur $A$:
+\item Pour $k$ général, avec les mêmes calculs, on trouve que $\alpha'(A)=-\frac{2d_k}{A^k}+ye^A$, ce qui permet de déduire l'expression du $A$ optimal:
 \[A=kW\pth{\frac{1}{k}\pth{\frac{2\pi d_k}{\varepsilon}}^{1/k}}\]
 
 \item Regardons maintenant le comportement de $A$ quand $\varepsilon\to 0$.
@@ -587,9 +595,9 @@ avec $W$ la fonction W de Lambert telle que $z=W(z)e^{W(z)}$.
 
 Nous pouvons faire les remarques et les commentaires suivants:
 \begin{enumerate}
-\item On est capable de borner la norme infinie entre la DFE réelle $f$ et la DFE estimée $\hat{f}$. Les bornes que l'on obtient ne sont pas optimales.
-\item Sous des hypothèses très favorables, la norme infinie se comporte comme $\abs{\frac{1}{\ln\varepsilon}}$, ce qui est une décroissance très lente de la borne (d'autant plus qu'il est largement exagéré de supposer que l'on sera capable de calculer tous les moments avec une grande précision);
-\item Toutefois, la norme infinie n'est pas forcément la plus pertinente dans notre situation. On pourrait penser à d'autres méthode pour mesurer la distance entre ces deux distributions: par exemple, la norme $L^2$, la distance de Kolmogorov, ou la divergence de Kullback-Leibler.
+\item On est capable de borner la norme infinie entre la DFE réelle $f$ et la DFE estimée $\hat{f}$. Les bornes que l'on obtient ne sont pas optimales;
+\item Sous des hypothèses très favorables, la borne que l'on obtient sur la norme infinie se comporte comme $\abs{\frac{1}{\ln^k\varepsilon}}$, ce qui est une décroissance très lente de la borne (d'autant plus qu'il est largement exagéré de supposer que l'on sera capable de calculer tous les moments avec une grande précision);
+\item Toutefois, la norme infinie n'est pas forcément la plus pertinente dans notre situation. On pourrait penser à d'autres méthode pour mesurer la distance entre ces deux distributions: par exemple, la norme $L^2$, la distance $L^1$ entre les fonctions de répartition, ou bien la divergence de Kullback-Leibler.
 \end{enumerate}
 
 L'objectif de la partie \ref{s:edp} est de présenter une nouvelle méthode pour estimer la DFE.
@@ -598,7 +606,7 @@ L'objectif de la partie \ref{s:edp} est de présenter une nouvelle méthode pour
 \FloatBarrier
 \section{Étude d'une EDP\label{s:edp}}
 
-Dans cette partie, nous présentons une modélisation du problème par une EDP sur la densité de la loi de $\ln W_t$. À partir de l'EDP, nous pourrons fournir une expression explicite de la loi de $\ln (1-S)$.
+Dans cette partie, nous présentons une modélisation du problème par une EDP sur la densité de la loi de $\ln W_t$. Le but est de modéliser un processus limite en grande population. Toutefois, nous ne démontrons aucun résultat de convergence.% À partir de l'EDP, nous pourrons fournir une expression explicite de la loi de $\ln (1-S)$.
 
 Nous commencerons par introduire \eqref{edp}, puis en déduirons une expression explicite pour la loi de $\ln(1-S)$; nous finirons par faire le lien avec un problème de fragmentation.
 
@@ -612,11 +620,10 @@ On fait les deux hypothèses suivantes:
 \begin{enumerate}
 \item Pour tout $t>0$, la loi de $\ln W_t$ peut s'écrire:
   \begin{equation}\label{def_u} m(t)\delta_{-\infty}+u(t,\cdot)\end{equation}
-  où $m(t)$ représente la probabilité qu'une cellule soit morte au temps $t$, et où $u(t,\cdot)\in C^{\infty}(\Er)$ est la densité de la loi de $\ln W_t$ en omettant les cellules mortes: ainsi, $\int_{\Er}u(t,\cdot)=1-m(t)$;
+  où $m(t)$ représente la probabilité qu'une cellule soit morte au temps $t$, et où $u(t,\cdot)\in C^{\infty}(\Er)$ est la <<~densité~>> de la loi de $\ln W_t$ en omettant les cellules mortes: en particulier, $\int_{\Er}u(t,\cdot)=1-m(t)$;
 \item La loi de $\ln (1-S)$ peut s'écrire:
   \[\mu\delta_{-\infty}+f(\cdot)\]
-  où $\mu$ est la proportion de mutations létales et $f(\cdot)
-  \in C^{\infty}(\Er)$ est la <<~densité~>> de la loi de $\ln(1-S)$ sans prendre en compte les mutations létales: ainsi, $\int f=1-\mu$.
+  où $\mu$ est la proportion de mutations létales et $f(\cdot)\in C^{\infty}(\Er)$ est la <<~densité~>> de la loi de $\ln(1-S)$ sans prendre en compte les mutations létales: en particulier, $\int f=1-\mu$.
 \end{enumerate}
 
 Remarquons tout de suite que l'on peut déduire la DFE à partir de la donnée de $f$ et de la fraction de mutations létales, mesurée directement dans l'expérience \emph{MV}.
@@ -625,6 +632,7 @@ Remarquons tout de suite que l'on peut déduire la DFE à partir de la donnée d
 
 Soit $\lambda$ le taux de mutation. Considérons:
 \begin{equation}\label{edp_heur} \dr_tu(t,x)=\lambda\pth{\int_{\Er}f(x-y)u(t,y)\de y-\int_{\Er}f(y)u(t,x)\de y}-\lambda\mu u(t,x)\end{equation}
+où $\mu$ est la proportion de mutations létales.
 
 L'expression \eqref{edp_heur} introduit $u(t,x)$ qui peut, de manière assez naturelle, être interprétée comme la fonction telle que, pour chaque $t\geqslant 0$, $u(t,\cdot)\in C^{\infty}(\Er)$ soit la loi de $\ln W_t$ (sans compter les cellules mortes), comme on l'a définie dans \eqref{def_u}. En effet, l'expression \eqref{edp_heur} peut se comprendre ainsi:
 \begin{align*}
@@ -632,7 +640,7 @@ L'expression \eqref{edp_heur} introduit $u(t,x)$ qui peut, de manière assez nat
 &=\text{taux de mutations}\times\pth{\text{bactéries qui arrivent sur ma fitness}-\text{bactéries qui partent de ma fitness}}\\
 &-\text{bactéries qui meurent}
 \end{align*} 
-où $\lambda\mu$ est le taux de mortalité. 
+
 
 Faisons quelques transformations pour simplifier \eqref{edp_heur}. Comme $\int_{\Er}f(y)\de y = 1-\mu$:
 
@@ -658,7 +666,7 @@ ce qui donne, comme prévu, une décroissance malthusienne au taux $\lambda\mu$ 
 
 \paragraph{Estimation de la DFE}
 
-On peut mesurer $u$ et on aimerait estimer $f$, en sachant que l'EDP ci-dessus est vérifiée: en quelque sorte, on connaît donc la solution mais on ne connaît pas l'EDP. On a la proposition suivante:
+On peut mesurer $u$ et on aimerait estimer $f$, en sachant que l'EDP \eqref{edp} est vérifiée: en quelque sorte, on connaît la solution mais on ne connaît pas le problème. On a la proposition suivante:
 \prop{Supposons que $f\in L^2(\Er)$. Soit $u\in C^1(\Er_+\times \Er,\Er)$ une solution classique de \eqref{edp}. Supposons que, pour tout $t\geqslant 0$, $u_t\in \mathcal{S}(\Er)$ et que $\fr u_t$ ne s'annule pas. \\Alors, pour tout $x\in\mathbb{R}$:
   \begin{equation}\label{edp_sol}
     f(x)=\fr^{-1}\pth{\xi\mapsto\frac{\dr_t\pth{\fr u_t(\xi)}}{\lambda\fr u_t(\xi)}+1}    
@@ -706,6 +714,9 @@ On a donc deux expressions valables pour tout $t\in \Er_+$:
 
 \paragraph{Vérification} Dans l'annexe \ref{ann:verif} et le notebook \emph{IV2\_DFE-EDP-Fourier\_Verifications}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/IV2_DFE-EDP-Fourier_Verifications.ipynb}}, nous avons tracé les fonctions de $t$ \eqref{re_a} et \eqref{im_a}, afin de vérifier qu'il s'agit de fonctions affines. Pour $\xi\leqslant 10$, on obtient des fonctions affines dont les pentes donnent respectivement la partie réelle et la partie imaginaire de $a_{\xi}$. Cependant, pour $\xi>20$, on n'obtient plus de droites. Ainsi, pour l'estimation de la DFE, nous n'avons considéré que les valeurs de $\xi$ inférieures à une certaine valeur $\xi_{max}$. Cela revient à tronquer la transformée de Fourier, et donc nous donne une DFE <<~trop régulière~>> . Cette régularisation est de toute manière nécessaire pour éviter tout phénomène de sur-apprentissage.
 
+La figure \ref{fig:DFE_R2} donne, pour chaque valeur de $\xi$ comprise entre $0$ et $20$, le coefficient de détermination $R^2$, qui mesure la qualité de la régression linéaire effectuée. Ainsi, quand $R^2$ est proche de $1$, la régression linéaire est de bonne qualité; quand $R^2$ est proche de $0$, la régression linéaire est de mauvaise qualité. Pour des valeurs de $\xi$ suffisamment petites, on obtient de très bonnes régressions linéaires, et donc, en principe, de très bonnes estimations de $a_{\xi}$ et donc de $\fr f(\xi)=a_{\xi}/\lambda+1$. Cette méthode peut nous permettre d'obtenir la valeur de $\xi$ maximale que l'on peut considérer. Ajouter du bruit à la mesure des taux de croissance oblige à réduire la valeur de ce $\xi_{\max}$. La figure \ref{fig:DFE_choix} montre une procédure qui permet de choisir manuellement de bons paramètres.
+
+
 \begin{figure}[h]
   \begin{center}
     \includegraphics[width=0.95\linewidth]{../Img/DFE_R2.png}
@@ -713,14 +724,12 @@ On a donc deux expressions valables pour tout $t\in \Er_+$:
   \caption{\label{fig:DFE_R2}Comparaison, selon $\xi$, des qualité d'ajustement d'un modèle affine pour les parties réelles (gauche) ou imaginaires (droite) de $a_{\xi}$, sur des simulations bruitées ou non. Chaque couleur correspond à une simulation indépendante de l'expérience.}
 \end{figure}
 
-La figure \ref{fig:DFE_R2} donne, pour chaque valeur de $\xi$ comprise entre $0$ et $20$, le coefficient de détermination $R^2$, qui mesure la qualité de la régression linéaire effectuée. Ainsi, quand $R^2$ est proche de $1$, la régression linéaire est de bonne qualité; quand $R^2$ est proche de $0$, la régression linéaire est de mauvaise qualité. Pour des valeurs de $\xi$ suffisamment petites, on obtient de très bonnes régressions linéaires, et donc, en principe, de très bonnes estimations de $a_{\xi}$ et donc de $\fr f(\xi)=a_{\xi}/\lambda+1$. Cette méthode peut nous permettre d'obtenir la valeur de $\xi$ maximale que l'on peut considérer. Ajouter du bruit à la mesure des taux de croissance oblige à réduire la valeur de ce $\xi_{\max}$. La figure \ref{fig:DFE_choix} montre une procédure qui permet de choisir manuellement de bons paramètres.
-
 
 \begin{figure}[h]
   \begin{center}
     \includegraphics[width=0.95\linewidth]{../Img/DFE_choix_tmax_xi.png}
   \end{center}
-  \caption{\label{fig:DFE_choix}Étapes manuelles de la procédure d'estimation de la DFE. À gauche, choix d'un temps maximal à partir duquel les fonctions ne semblent plus affines. Ensuite, à droite, choix d'un xi maximal à partir duquel la qualité d'ajustement d'un modèle affine (coefficient de régression $R^2$) chute.}
+  \caption{\label{fig:DFE_choix}Étapes manuelles de la procédure d'estimation de la DFE. À gauche, choix d'un temps maximal à partir duquel les fonctions ne semblent plus affines. Ensuite, à droite, choix d'un $\xi$ maximal à partir duquel la qualité d'ajustement d'un modèle affine (coefficient de régression $R^2$) chute.}
 \end{figure}
 
 \FloatBarrier
@@ -729,15 +738,16 @@ La figure \ref{fig:DFE_R2} donne, pour chaque valeur de $\xi$ comprise entre $0$
 Nous avons tenté d'appliquer notre méthode avec des données simulées non bruitées. L'implémentation est réalisée dans le notebook \emph{IV2\_DFE-EDP-Fourier\_Estimation-complete}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/IV2_DFE-EDP-Fourier_Estimation-complete.ipynb}}. Nous constatons que les résultats ne sont pas satisfaisants: la figure \ref{fig:DFE} compare, pour différents paramètres $(\alpha,\beta)$, les DFE calculées et la DFE utilisée (qui correspond à une loi Beta de paramètres $(\alpha,\beta)$). Outre les erreurs de programmation, nous avons essentiellement deux explications pour expliquer la grande différence:
 \begin{itemize}
 	\item Les DFE considérées sont discontinues en 0 et donc leur transformée de Fourier décroît lentement vers 0 quand $\xi\to\infty$: voir la figure \ref{fig:DFE_four}. Comme nous sommes contraints de rogner la transformée de Fourier, nous perdons beaucoup d'information;
-	\item Nous calculons $f$, qui la densité de la loi de $\ln(1-S)$; pour afficher la densité de la loi de $S$, nous affichons \[g(x)=\frac{f(\ln (1-x))}{1-x}\esp x>0\] ce qui fait que, pour $x$ proche de $1$, l'erreur est très grande: cela peut expliquer pourquoi l'on obtient systématiquement un pic en 1.
+	\item Nous calculons $f$, qui est la densité de la loi de $\ln(1-S)$; pour afficher la densité de la loi de $S$, nous affichons \[g(x)=\frac{f(\ln (1-x))}{1-x}\esp x>0\] ce qui fait que, pour $x$ proche de $1$, l'erreur est très grande: cela peut expliquer pourquoi l'on obtient systématiquement un pic en 1.
 \end{itemize}
 
+Nous avons remarqué, au cours de nos tests, que plus le nombre de cellules augmentait, plus nous pouvions considérer des $\xi$ grands. Par exemple, pour $60\,000$ cellules, on pouvait prendre jusqu'à $\xi\simeq 20$. Cela est à mettre en relation avec les résultats de la figure \ref{fig:DFE_R2}, qui ont été réalisés avec des expériences de $1000$ cellules. 
 
 \begin{figure}[h]
   \begin{center}
     \includegraphics[width=0.9\linewidth]{../Img/DFE_inferred.png}
   \end{center}
-  \caption{\label{fig:DFE}Comparaison entre les DFE inférées (en bleu) et les lois Beta choisies pour effectuer les simulations (en rouge).}
+  \caption{\label{fig:DFE}Comparaison entre les DFE inférées (en bleu) et les lois Beta choisies pour effectuer les simulations (en rouge). Les DFE inférées sont affichées sur une fenêtre plus large, car l'on s'attendrait à ce qu'elles soient nulles en dehors des supports des DFE dont elles sont issues.}
 \end{figure}
 
 
@@ -745,23 +755,21 @@ Nous avons tenté d'appliquer notre méthode avec des données simulées non bru
   \begin{center}
     \includegraphics[scale=0.6]{./img/four_DFE.png}
   \end{center}
-  \caption{\label{fig:DFE_four}La transformée de Fourier de la DFE inférée dans \cite{rob} décroît lentement vers $0$ quand $\xi\to+\infty$: rogner pour $\abs{\xi}\geqslant 10$ implique de perdre beaucoup d'information.}
+  \caption{\label{fig:DFE_four}La transformée de Fourier de la DFE inférée dans \cite{rob} décroît assez lentement vers $0$ quand $\xi\to+\infty$: rogner pour $\abs{\xi}\geqslant 10$ implique de perdre beaucoup d'information.}
 \end{figure}
 
 
-\FloatBarrier
+%\FloatBarrier
 \subsection{Lien avec un problème de fragmentation}
 
 \paragraph{Présentation du problème de fragmentation}
-Nous présentons ici une transformation de \eqref{edp} qui est étudiée dans \cite{md1}, \cite{md2} dans le cadre d'un problème de fragmentation. Un problème de fragmentation vise à étudier la distribution des tailles de cellules lors de divisions cellulaires successives. L'intérêt du problème réside dans le fait que les cellules ne se divisent pas toujours en leur milieu, mais plutôt en un point aléatoire.
+Nous présentons ici une transformation de \eqref{edp} qui est étudiée dans \cite{md1}, \cite{md2} dans le cadre d'un problème de fragmentation. Un problème de fragmentation vise à étudier la distribution des tailles de cellules lors de divisions cellulaires successives. L'intérêt du problème réside dans le fait que les cellules, modélisées comme des segments, ne se divisent pas toujours en leur milieu, mais plutôt en un point aléatoire.
 
 On note $k(x,y)$ la densité de probabilité pour une cellule de longeur $x$ de se diviser en une cellule de longueur $y$ et une cellule de longueur $x-y$. Le noyau de fragmentation $k$ vérifie alors \[k(x,y)=k(x,x-y)\esp \int_0^xk(x,y)\de y=1\]
 
 Un problème intéressant, par exemple, est de savoir si $k$ est bimodal ou non (\ie: si les cellules ont tendance à se diviser en deux cellules de tailles à peu près égales, ou bien si une cellule fille a tendance à être beaucoup plus grosse que l'autre).
 
-Ce modèle est très proche du nôtre: jusqu'à présent, les cellules changeaient de taux de croissance; maintenant, les cellules changent de taille.
-
-La seule véritable différence avec notre modèle est qu'une cellule se divise nécessairement en une cellule plus petite et une cellule plus grande; cependant, cette différence n'est pas fondamentale: en effet, d'après \cite{rob}, il est tout à fait légitime de supposer que l'immense majorité des mutations sont délétères, ce qui revient à négliger les mutations bénéfiques.
+Ce modèle est très proche du nôtre: jusqu'à présent, les cellules changeaient de taux de croissance; maintenant, les cellules changent de taille. La seule véritable différence avec notre modèle est qu'une cellule se divise nécessairement en une cellule plus petite et une cellule plus grande; cependant, cette différence n'est pas fondamentale: en effet, d'après \cite{rob}, il est tout à fait légitime de supposer que l'immense majorité des mutations sont délétères, ce qui revient à négliger les augmentations de taux de croissance.
 
 \paragraph{Mise en équation} 
 
@@ -783,16 +791,16 @@ Maintenant, nous allons montrer que \eqref{edp_frag} est une version multiplicat
 \end{align*}
 donc 
 \[\dr_tv(t,x')=\lambda\int_{\Er_+}g(y)v\pth{t,\frac{x'}{y}}\de y-\lambda v(t,x')\]
-ce qui est équivalent à \eqref{edp_frag}.
+ce qui est équivalent à \eqref{edp_frag} avec $\lambda=1$.
 
 \req{Finalement, on trouve que \eqref{edp} est une somme car on a transformé le produit \eqref{mod} en somme en prenant le logarithme.}
 
 
-\paragraph{Résultat en temps long} L'intérêt de comparer notre problème au problème de fragmentation étudié dans \cite{md1}, \cite{md2} est que ces articles ont obtenu des résultats sur le comportement en temps long des solutions. Dans notre cas précis, il est montré que la distribution des taux de croissance (ou des tailles de cellules) converge vers un Dirac en 0. 
+\paragraph{Résultats en temps long} L'intérêt de comparer notre problème au problème de fragmentation étudié dans \cite{md1}, \cite{md2} est que ces articles ont obtenu des résultats sur le comportement en temps long des solutions. Dans notre cas précis, il est montré que la distribution des taux de croissance (ou des tailles de cellules) converge vers un Dirac en 0. 
 
 Malheureusement, nous ne pouvons pas exploiter ce résultat en temps long car le temps de l'expérience n'est pas assez <<~long~>> pour que l'on puisse affirmer que l'on observe un comportement asymptotique. Nous avons pu, tout de même, faire tourner notre simulation pendant très longtemps et constater que la distribution convergeait effectivement vers un Dirac en 0.
 
-Dans le cas où le taux de division \emph{dépend de la taille de la cellule} ($\lambda$ est de la forme $x^{\gamma}$, où $x$ est la taille de la cellule et $0<\gamma<1$), \cite{md2} montre que la distribution converge vers une distribution particulière, qui n'est pas forcément un Dirac. Il y a donc une stationnarité qui apparaît. Ce résultat peut être intéressant dans le cas où nous aimerions faire évoluer notre modèle vers un modèle qui prendrait en compte le fait que les cellules qui croissent lentement ont un métabolisme plus lent et, par conséquent, subissent moins de mutations.
+Dans le cas où le taux de division \emph{dépend de la taille de la cellule} ($\lambda$ est de la forme $x^{\gamma}$, où $x$ est la taille de la cellule, et $0<\gamma<1$), \cite{md2} montre que la distribution converge vers une distribution particulière, qui n'est pas forcément un Dirac. Il y a donc une stationnarité qui apparaît. Ce résultat peut être intéressant dans le cas où nous aimerions faire évoluer notre modèle vers un modèle qui prendrait en compte le fait que les cellules qui croissent lentement ont un métabolisme plus lent et, par conséquent, subissent moins de mutations.
 
 
 %\subsection{Temps court, temps long ?}
@@ -800,15 +808,15 @@ Dans le cas où le taux de division \emph{dépend de la taille de la cellule} ($
 
 \section{Conclusion et perspectives}
 
-  Plusieurs approches ont été testées au cours de ce projet afin de résoudre le problème inverse sévèrement mal posé que représente l'estimation de la distribution des effets des mutations sur la valeur sélective à partir de données de croissance bactérienne bruitées. Les premières analyses les plus naïves ayant confirmé leur insuffisance, nous avons exploré des méthodes analytiques plus poussées, sous l'angle du problème des moments ou d'une équation aux dérivées partielles retranscrivant la dynamique du système. Dans les 2 cas, des résultats théoriques ont pu être obtenus, mais en pratique les méthodes développées ne sont pas encore à même d'extraire suffisamment d'information de ces données expérimentales.
+  Plusieurs approches ont été testées au cours de ce projet afin de résoudre le problème inverse sévèrement mal posé que représente l'estimation de la distribution des effets des mutations sur la valeur sélective à partir de données bruitées de croissance bactérienne. Les premières analyses les plus naïves ayant confirmé leur insuffisance, nous avons exploré des méthodes analytiques plus poussées, sous l'angle du problème des moments ou d'une équation aux dérivées partielles retranscrivant la dynamique du système. Dans les deux cas, des résultats théoriques ont pu être obtenus, mais en pratique les méthodes développées ne sont pas encore à même d'extraire suffisamment d'information de ces données expérimentales.
   
   Cependant, les outils que nous avons proposés nous semblent toujours pertinents si des données plus nombreuses ou moins bruitées sont un jour acquises. Nous avons ainsi tenu à les présenter sous la forme de notebooks\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE}} soigneusement annotés de manière à faciliter la reproductibilité de nos résultats et leur réutilisation.
   
-  Enfin, de nombreuses améliorations de nos méthodes et implémentations sont envisageables, par exemple, en comblant les lacunes de l'approche par EDP grâce à l'estimation des moments, en explorant plus en détail les similitudes avec les problèmes de fragmentation, ou bien en prenant en compte les propriétés la DFE qui ont été ignorées jusqu'à présent (positivité, intégrale égale à $1$). À cet égard, la possibilité de réaliser très efficacement des simulations réalistes, avec des DFE arbitraires et incorporant le bruit des mesures fidèlement à l'expérience, permettrait de tester la fiabilité de potentielles nouvelles approches. Avec, à terme, l'espoir de pouvoir obtenir une estimation robuste et entièrement non-paramétrique de la DFE, ouvrant la voie à une meilleur compréhension des conséquences phénotypiques des mutations.
+  Enfin, de nombreuses améliorations de nos méthodes et implémentations sont envisageables, par exemple, en comblant les lacunes de l'approche par EDP grâce à l'estimation des moments, en explorant plus en détail les similitudes avec les problèmes de fragmentation, ou bien en prenant en compte les propriétés de la DFE qui ont été ignorées jusqu'à présent (positivité, intégrale égale à $1$). À cet égard, la possibilité de réaliser très efficacement des simulations réalistes, avec des DFE arbitraires et incorporant le bruit des mesures fidèlement à l'expérience, permettrait de tester la fiabilité de potentielles nouvelles approches. Avec, à terme, l'espoir de pouvoir obtenir une estimation robuste et entièrement non-paramétrique de la DFE, ouvrant la voie à une meilleure compréhension des conséquences phénotypiques des mutations.
 
   \paragraph{Remerciements}
-
-  Nous tenons à remercier nos deux encadrantes: Marie Doumic, qui nous a accompagnés dans notre travail pendant toute l'année, et Lydia Robert, qui a répondu à nos interrogations sur les expériences réalisées dans \cite{rob}.
+  
+Nous tenons à remercier chaleureusement nos deux encadrantes: Marie Doumic, qui nous a accompagnés avec soin et bienveillance dans notre travail, et Lydia Robert, qui a répondu à toutes nos interrogations sur les expériences.
   
 \newpage
 
@@ -843,7 +851,7 @@ Nous avons répliqué certains résultats dans des notebooks disponibles sur \ur
 %TEST INCLUSION DE PDF
 %\includepdf[pages=-]{Notebooks_tex/Replication_Moments_Estimation.pdf}
 
-\paragraph{Commentaires sur les figures} La figure \ref{lines}, tirée de \cite{rob}, présente des graphes de $E_n(t)$. Dans \ref{ss:det_mom}, on a démontré que l'on s'attendait à obtenir des droites de pente $\lambda\Esp{S^n}$: les droites que l'on obtient sont très satisfaisantes. On peut effectuer à partir des ces droites des régressions linéaires pour estimer  les pentes $\lambda\Esp{S^n}$ de ces droites. Les résultats obtenus dans \cite{rob} sont présentés dans le tableau \ref{slopes} pour un nombre plus grand de souches et de moments. Enfin, le tableau \ref{moments} présente des estimations de la moyenne, de l'écart-type, du coefficient d'asymétrie et de la kurtosis pour les DFE de trois souches (\emph{mutH}, \emph{mutT}, \textbf{MF1}). Ces moments particuliers permettent d'obtenir des indices qualitatifs sur la forme des DFE: par exemple, comme le coefficient d'asymétrie et la kurtosis sont très élevés, on s'attend à ce que les DFE soient très piquées et très asymétriques, \ie: très peu de mutations sont très délétères, la plupart des mutations sont quasiment neutres.
+\paragraph{Commentaires sur les figures} La figure \ref{lines}, tirée de \cite{rob}, présente des graphes de $E_n(t)$. Dans \ref{ss:det_mom}, on a démontré que l'on s'attendait à obtenir des droites de pente $\lambda\Esp{S^n}$: les droites que l'on obtient sont très satisfaisantes. On peut effectuer à partir des ces droites des régressions linéaires pour estimer  les pentes $\lambda\Esp{S^n}$ de ces droites. Les résultats obtenus dans \cite{rob} sont présentés dans le tableau \ref{slopes} pour un nombre plus grand de souches et de moments. Enfin, le tableau \ref{moments} présente des estimations de la moyenne, de l'écart-type, du coefficient d'asymétrie et de la kurtosis pour les DFE de trois souches (\emph{mutH}, \emph{mutT}, \textbf{MF1}). Ces moments particuliers permettent d'obtenir des indices qualitatifs sur la forme des DFE de chaque souche: par exemple, comme le coefficient d'asymétrie et la kurtosis sont très élevés, on s'attend à ce que les DFE soient très piquées et très asymétriques, \ie: très peu de mutations sont très délétères, la plupart des mutations sont quasiment neutres.
 
 
 \begin{figure}[h]
@@ -874,20 +882,21 @@ Nous avons répliqué certains résultats dans des notebooks disponibles sur \ur
 Les données obtenues dans l'expérience $\mu$MA sont très bruitées. Nous indiquons ici les transformations effectuées sur ces données afin d'obtenir des résultats corrects:
 \begin{itemize}
 \item Sélection des cellules qui sont encore vivantes à la $44^e$ heure. Cela se justifie par le fait que les cellules qui croissent très lentement ou qui sont mortes induisent du bruit dans l'estimation de la DFE. Nous avons pu vérifier que le conditionnement effectué (<<~on suppose que la cellule ne meurt pas au cours de l'expérience~>>) n'induit pas de biais majeur dans l'estimation des moments;
-\item Pour éviter les erreurs d'analyse d'image, les taux de croissances des lignées ayant un taux de croissance très faible (inférieur à $0.015$) ont été vérifiés visuellement;
-\item L'analyse d'image peut créer des valeurs aberrantes. Ces valeurs aberrantes ont été supprimées ainsi: si une valeur au temps $t$ diffère d'au moins $30\%$ simultanément de la médiane des valeurs prises avant le temps $t$, et de la médiane des celles prises après le temps $t$, alors ont supprime cette valeur.
+\item Pour éviter les erreurs d'analyse d'image, les taux de croissances des lignées ayant un taux de croissance très faible (inférieur à $0.015$) ont été vérifiés visuellement par les auteurs;
+\item L'analyse d'image peut créer des valeurs aberrantes. Ces valeurs aberrantes ont été supprimées ainsi: si une valeur au temps $t$ diffère d'au moins $30\%$ simultanément de la médiane des valeurs prises avant le temps $t$, et de la médiane des celles prises après le temps $t$, alors on supprime cette valeur.
 \end{itemize}
 
 
 \paragraph{Prise en compte du bruit multiplicatif}
 
-Les auteurs de \cite{rob} ont montré que, en supposant que le bruit sur la mesure des taux de croissance est multiplicatif, alors la pente de $E_n(t)$ n'est pas modifiée par le bruit. Un bruit purement multiplicatif n'influence donc pas l'estimation des moments. Plus précisément, notons $W'_{t_i}$ le taux de croissance mesuré au temps $t_i$, et $W_{t_i}$ le taux de croissance réel au temps $t_i$. L'hypothèse du bruit multiplicatif suppose que $W'_{t_i}=W_{t_i}(1+\varepsilon_i)$ où les $\varepsilon_i$, $i\in\En$ sont des variables aléatoires indépendantes, identiquement distribuées, et indépendantes des $W_t$. On a:
+Les auteurs de \cite{rob} ont montré que, en supposant que le bruit sur la mesure des taux de croissance est multiplicatif, la pente de $E_n(t)$ n'est pas modifiée par le bruit. Un bruit purement multiplicatif n'influence donc pas l'estimation des moments. Plus précisément, notons $W'_{t_i}$ le taux de croissance mesuré au temps $t_i$, et $W_{t_i}$ le taux de croissance réel au temps $t_i$. L'hypothèse du bruit multiplicatif suppose que $W'_{t_i}=W_{t_i}(1+\varepsilon_i)$ où les $\varepsilon_i$, $i\in\En$ sont des variables aléatoires indépendantes, identiquement distribuées, et indépendantes des $W_t$. On a:
 \[\ln\Esp{W'_{t_i}}=\ln\pth{\Esp{W_{t_i}}\Esp{1+\varepsilon_i}}=\ln\Esp{W_{t_i}}+\ln\Esp{1+\varepsilon}\]
 ce qui fait que l'estimation $E'_n(t)$ que l'on fait de $E_n(t)$ diffère de $E_n(t)$ d'un terme indépendant de $t$. Ainsi, l'ordonnée à l'origine de la droite est modifiée, mais pas sa pente.
 
 
 
-\FloatBarrier
+\newpage
+
 \section{Annexe: Vérification des résultats de \ref{ss:det_dfe}\label{ann:verif}}
 
 La figure \ref{fig:iv_verif} montre les graphes des fonctions suivantes, trouvées dans \ref{ss:det_dfe}, pour différentes valeurs de $\xi$:
@@ -905,7 +914,7 @@ La figure \ref{fig:iv_verif} montre les graphes des fonctions suivantes, trouvé
   \caption{\label{fig:iv_verif}Premier graphique: droites dont les pentes doivent donner $a_{\xi}$ (petites valeurs de $\xi$); deuxième graphique: pour de grandes valeurs de $\xi$, on n'obtient pas de droites: cela est peut-être dû à l'overfitting; troisième graphique: droites dont les pentes doivent donner $a_{\xi}$ (petites valeurs de $\xi$).}
 \end{figure}
 
-
+\newpage
 \section{Annexe: Animations issues des simulations\label{ann:anim}}
 
 La figure \ref{fig:animations} montre des animations tirées des simulations présentées dans la partie \ref{s:sim}. Les animations ne fonctionnent pas sur tous les lecteurs de pdf; elles restent disponibles sur le notebook \emph{II\_Simulations}\footnote{\url{https://github.com/Jeremy-Andreoletti/MSV_Project_DFE/blob/master/II_Simulations.ipynb}}.
