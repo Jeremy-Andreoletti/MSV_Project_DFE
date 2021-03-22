@@ -741,14 +741,14 @@ Nous avons tenté d'appliquer notre méthode avec des données simulées non bru
 	\item Nous calculons $f$, qui est la densité de la loi de $\ln(1-S)$; pour afficher la densité de la loi de $S$, nous affichons \[g(x)=\frac{f(\ln (1-x))}{1-x}\esp x>0\] ce qui fait que, pour $x$ proche de $1$, l'erreur est très grande: cela peut expliquer pourquoi l'on obtient systématiquement un pic en 1.
 \end{itemize}
 
-Nous avons remarqué, au cours de nos tests, que plus le nombre de cellules augmentait, plus nous pouvions considérer des $\xi$ grands. Par exemple, pour $60\,000$ cellules, on pouvait prendre jusqu'à $\xi\simeq 20$. Cela est à mettre en relation avec les résultats de la figure \ref{fig:DFE_R2}, qui ont été réalisés avec des expériences de $1000$ cellules. 
-
 \begin{figure}[h]
   \begin{center}
-    \includegraphics[width=0.9\linewidth]{../Img/DFE_inferred.png}
+    \includegraphics[width=0.8\linewidth]{../Img/DFE_inferred.png}
   \end{center}
   \caption{\label{fig:DFE}Comparaison entre les DFE inférées (en bleu) et les lois Beta choisies pour effectuer les simulations (en rouge). Les DFE inférées sont affichées sur une fenêtre plus large, car l'on s'attendrait à ce qu'elles soient nulles en dehors des supports des DFE dont elles sont issues.}
 \end{figure}
+
+Nous avons remarqué, au cours de nos tests, que plus le nombre de cellules augmentait, plus nous pouvions considérer des $\xi$ grands. Par exemple, pour $60\,000$ cellules, on pouvait prendre jusqu'à $\xi\simeq 20$. Cela est à mettre en relation avec les résultats de la figure \ref{fig:DFE_R2}, qui ont été réalisés avec des expériences de $1000$ cellules. 
 
 
 \begin{figure}[h]
@@ -759,7 +759,7 @@ Nous avons remarqué, au cours de nos tests, que plus le nombre de cellules augm
 \end{figure}
 
 
-%\FloatBarrier
+\FloatBarrier
 \subsection{Lien avec un problème de fragmentation}
 
 \paragraph{Présentation du problème de fragmentation}
