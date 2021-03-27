@@ -1,0 +1,8 @@
+\babel@toc {french}{}
+\beamer@sectionintoc {1}{Exp\IeC {\'e}rience \& simulations}{6}{0}{1}
+\beamer@sectionintoc {2}{Probl\IeC {\`e}me des moments}{13}{0}{2}
+\beamer@subsectionintoc {2}{1}{Fonction caract\IeC {\'e}ristique}{14}{0}{2}
+\beamer@subsectionintoc {2}{2}{Calculs d'erreurs}{20}{0}{2}
+\beamer@sectionintoc {3}{EDP}{22}{0}{3}
+\beamer@subsectionintoc {3}{1}{Nouveau point de vue}{23}{0}{3}
+\beamer@subsectionintoc {3}{2}{Applications}{31}{0}{3}
