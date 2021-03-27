@@ -128,7 +128,7 @@
 \newcommand{\dr}{\partial}
 \newcommand{\fr}{\mathcal{F}}
 
- \title[Mutations]{Estimer l’effet des mutations sur la fitness d’une population de bactéries}
+ \title[Mutations]{Estimer les effets des mutations sur la valeur sélective d’une bactérie}
  \date[2020 -- 2021]{Encadrantes : Marie Doumic et Lydia Robert}
  \author[J. Andréoletti, N. Boutillon]{Jérémy Andréoletti et Nathanaël Boutillon}
 
@@ -177,9 +177,14 @@
   \tableofcontents
 \end{frame}
 
-\section{Simulations}
+\section{Expérience \& simulations}
 \begin{frame}
   \sectionpage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Expérience: visualisation de mutations}
+  
 \end{frame}
 
 \begin{frame}
@@ -208,34 +213,45 @@
 
 \begin{frame}
   \frametitle{Estimation des moments}
-\begin{itemize}[label=$\bullet$]
-  \item estimation des \textbf{premiers moments} de la loi des effets des mutations;
- \[E_n(t):=\sum_{k=1}^n\binom{n}{k}(-1)^k\ln\pth{\Esp{W_t^k}}=\pth{\lambda\Esp{s^n}}t\]
+
+  \framesubtitle{Analyse de \cite{rob}}
+
+  
+\textbf{Moments} de la loi des effets des mutations;
+ \[E_n(t):=\sum_{k=1}^n\binom{n}{k}(-1)^k\ln\pth{\Esp{W_t^k}}=\pth{\lambda\Esp{S^n}}t\]
  \pause
+    \vspace{0.7cm}
  \begin{centering}
-    \vspace{3mm}
+ 
     \includegraphics[scale=0.55]{img/Moments_estimation.png}
-  \end{centering}
-  \end{itemize}
-$\to$ On peut facilement estimer les moments.
+ \end{centering}
+    \vspace{0.7cm}
+ 
+$\to$ estimation facile des $\Esp{S^n}$.
 \end{frame}
 
 
 \begin{frame}
   \frametitle{Méthode par la fonction caractéristique}
-  À partir de tous les moments, on peut calculer la fonction caractéristique : 
-  \[\varphi_X(\xi):=\Esp{e^{i\xi X}}=\sum_{k=0}^{+\infty}\frac{(i\xi)^k}{k!}\Esp{X^k}\]
-  \pause
-  On peut alors en déduire la distribution de $X$, $f$ :
-  \[f(x) = \frac1{2\pi} \int_{\mathbb R}\varphi_X(\xi)e^{-ix\xi}\de\xi\]
-  \pause
-  Or on a seulement les $N$ premiers moments empiriques $m_k$:
-  \begin{align*}
-    \hat{\varphi}_X(\xi)&=\sum_{k=0}^{N}\frac{(i\xi)^k}{k!}m_k\\
-    \hat{f}(x)&= \frac1{2\pi} \int_{\abs{\xi}\leqslant A}\hat\varphi_X(\xi)e^{-ix\xi}\de\xi
-  \end{align*}
-  Espoir: $\varphi_X(\xi)\simeq \hat{\varphi}_X(\xi)$ donc $f(x)\simeq\hat{f}(x)$.
-
+  
+  \begin{itemize}[label=$\bullet$]
+  \item Moments $\to$ fonction caractéristique $\varphi_S$: 
+    \[\varphi_S(\xi):=\Esp{e^{i\xi S}}=\sum_{k=0}^{+\infty}\frac{(i\xi)^k}{k!}\Esp{S^k}\]
+    \pause
+  \item Fonction caractéristique $\varphi_S$ $\to$ densité $f$ de la loi de $S$.
+    \[f(x) = \frac1{2\pi} \int_{\mathbb R}\varphi_X(\xi)e^{-ix\xi}\de\xi\]
+    \pause
+  \item Avec les $N$ premiers moments estimés $m_k$:
+    \begin{align*}
+      \hat{\varphi}_X(\xi)=\sum_{k=0}^{N}\frac{(i\xi)^k}{k!}m_k
+      \et\hat{f}(x)= \frac1{2\pi} \int_{\abs{\xi}\leqslant A}\hat\varphi_X(\xi)e^{-ix\xi}\de\xi
+    \end{align*}
+    \pause
+    \vspace{0.3cm}
+    
+  \item  \textbf{Espoirs:} $\varphi_S(\xi)\simeq \hat{\varphi}_S(\xi)$ donc $f(x)\simeq\hat{f}(x)$.
+  \end{itemize}
+  
 \end{frame}
 
 
@@ -248,13 +264,13 @@ $\to$ On peut facilement estimer les moments.
     %où $\dabs{\varepsilon(N)}_{\infty}$ est l'erreur maximale sur le calcul des $N$ premiers moments. 
     }
   \pause
-  \prop{Supposons que :
+  \prop{Si:
     \begin{itemize}[label=$\bullet$]
-    \item l'on soit capable de calculer un nombre arbitrairement grand de moments de $f$ avec une erreur bornée par $\varepsilon$;
-    \item$\dabs{f^{(2)}}_1<+\infty$.
+    \item erreur sur les $\Esp{S^n}$ bornée par $\varepsilon$ (pour tout $n\in\En$);
+    \item$\dabs{f^{(2)}}_1<+\infty$,
     \end{itemize}
-    Alors on a:
-    \[\dabs{f-\hat{f}}_{\infty}=O\pth{\abs{\frac{1}{\pi\ln(\varepsilon)}}}\comment{quand $\varepsilon\to 0$}\]
+    alors:
+    \[\dabs{f-\hat{f}}_{\infty}=O\pth{\abs{\frac{1}{\ln^2(\varepsilon)}}}\comment{quand $\varepsilon\to 0$}\]
     }
 
 \end{frame}
@@ -274,7 +290,7 @@ $\to$ On peut facilement estimer les moments.
   Soient:
 \begin{itemize}[label=$\bullet$]
 \item $u(t,\cdot)\in C^{\infty}(\Er)$: <<~densité de $\ln W_t$~>> \ie: \\$u(t,x)\de x=$ proportion de cellules telles que $\ln W_t=x$%=densité de la loi de $\ln W_t$;
-\item $f\in C^{\infty}(\Er)$: densité de la loi de $\ln(1-S)$;
+\item $f\in C^{\infty}(\Er)$: densité de la loi de $\ln(1-S)$;\vspace{0.5cm}\pause
 \item $\lambda$: taux de mutation;
 \item $\mu$: proportion de mutations létales.
 \end{itemize}
@@ -284,12 +300,15 @@ $\to$ On peut facilement estimer les moments.
   \frametitle{Explication des termes}
 
 Donc $(*)$:
-\[\dr_tu(t,x)=\lambda\pth{\int_{\Er}f(x-y)u(t,y)\de y-u(t,x)\int_{\Er}f(y)\de y}-\lambda\mu u(t,x)\] 
+\[\dr_tu(t,x)=\lambda\pth{\int_{\Er}f(x-y)u(t,y)\de y-\int_{\Er}f(y)u(t,x)\de y}-\lambda\mu u(t,x)\]
+
+\vspace{0.5cm}
+
 Traduction:
 \begin{itemize}[label=$\bullet$]
 \item $\dr_tu$: changement de densité de fitness entre $t$ et $t+\de t$;
 \item $\int f(x-y)u(t,y)\de y$: arrivées sur la fitness x;
-\item $-u(t,x)\int f(y)\de y$: départs de la fitness x;
+\item $-\int f(y)u(t,x)\de y$: départs de la fitness x;
 \item $-\lambda\mu u(t,x)$: morts.
 \end{itemize} 
 
@@ -302,9 +321,9 @@ Conservation de la masse : $$\int_{\Er} u(t,x)\de x=N(t)=e^{-\lambda\mu t}N(0)$$
 
 \begin{frame}
   \frametitle{Solution explicite}
-  On applique la transformée de Fourier sur :
+  La transformée de Fourier sur :
   \[\dr_tu(t,x)=\lambda\pth{\int_{\Er}f(x-y)u(t,y)\de y-u(t,x)\int_{\Er}f(y)\de y}-\lambda\mu u(t,x)\]
-  donc
+  donne
   \[\dr_t\fr u_t(\xi)=\lambda \fr f(\xi)\fr u_t(\xi)-\lambda\fr u_t(\xi)\]
   \pause
   d'où:
@@ -313,7 +332,7 @@ Conservation de la masse : $$\int_{\Er} u(t,x)\de x=N(t)=e^{-\lambda\mu t}N(0)$$
     \[f(x)=\fr^{-1}\pth{\frac{\dr_t\pth{\fr u_t(\xi)}}{\lambda\fr u_t(\xi)}+1}\]%=\fr^{-1}\pth{\frac{1}{\lambda}\dr_t\ln\pth{\fr u_t(\xi)}+1}(x)\]
 }
 \pause
-Le terme de droite est indépendant du temps : $\dr_t(\fr u_t(\xi))=c_{\xi}\fr u_t(\xi)$.
+Le terme de droite est indépendant du temps : $\dr_t(\fr u_t(\xi))=a_{\xi}\fr u_t(\xi)$.
 
 \end{frame}
 
@@ -322,13 +341,21 @@ Le terme de droite est indépendant du temps : $\dr_t(\fr u_t(\xi))=c_{\xi}\fr u
 
 \begin{frame}
 %[allowframebreaks]
-\frametitle{Vérification}
+  \frametitle{Vérification}
+  $\dr_t(\fr u_t(\xi))=a_{\xi}\fr u_t(\xi)$:
+\begin{align*}
+  \ln\abs{\fr u_t(\xi)}&=\ln\abs{\fr u_0(\xi)}+t\times\Re(a_{\xi})\\
+  \arg\pth{\fr u_t(\xi)}&=\arg{\fr u_0(\xi)}+t\times\Im(a_{\xi})
+\end{align*}
+
+\vspace{0.5cm}\pause
+\begin{figure}
+  
 \includegraphics[scale=0.4]{img/proj_non_norm_sim}
 \includegraphics[scale=0.4]{img/proj_non_norm_rea}
-\begin{itemize}[label=$\bullet$]
-\item fonctionne bien pour les petits $\xi$;
-\item fonctionne très mal pour les grands $\xi$ ($\to$ overfitting ?).
-\end{itemize}
+  \caption{Graphes de $t\mapsto \abs{\fr u_t(\xi)}$ pour données simulées et expérimentales.}
+  
+\end{figure}
 
 
 \end{frame}
@@ -340,8 +367,16 @@ Le terme de droite est indépendant du temps : $\dr_t(\fr u_t(\xi))=c_{\xi}\fr u
   \begin{center}
     \includegraphics[width=0.9\linewidth]{../Img/DFE_R2.png}
   \end{center}
-  \caption{\label{fig:DFE_R2}Comparaison, selon $\xi$, des qualité d'ajustement d'un modèle affine pour les parties réelles (gauche) ou imaginaires (droite) de $a_{\xi}$, sur des simulations bruitées ou non.}
+  \caption{\label{fig:DFE_R2}\textbf{Comparaison, selon $\xi$, des qualité d'ajustement d'un modèle affine} pour $t\mapsto \dr_t\fr u_t(\xi)$ : parties réelles (gauche) ou imaginaires (droite) de $a_{\xi}$, simulations bruitées (bas) ou non (haut).}
 \end{figure}
+
+%\vspace{0.5cm}
+\pause
+
+\begin{itemize}[label=$\bullet$]
+\item fonctionne bien pour les petits $\xi$;
+\item fonctionne très mal pour les grands $\xi$ ($\to$ overfitting ?).
+\end{itemize}
 
 \end{frame}
 
