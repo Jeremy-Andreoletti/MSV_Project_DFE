@@ -165,7 +165,7 @@
   \end{array}
   \]
 
-\vspace{0.5cm}\pause
+\vspace{0.5cm}%\pause
 
   \textbf{Énoncé du problème:} estimer la loi des $s_i$ (qui sont iid) sachant que l'on sait estimer la loi des $W_t$ et $N_t$ ($t\geqslant 0$), et sachant que \[\frac{W_t}{W_0}=\prod_{i=1}^{N_t}(1-s_i)\]
 \end{frame}
@@ -185,7 +185,7 @@
 \begin{frame}
   \frametitle{Expérience: accumulation de mutations}
   \center\includegraphics[scale=0.3]{../Img/schema_microMA.png}
-  \flushright{\emph{Robert et al.}}
+  \flushright{\emph{Robert et al.}, 2018}
   \end{frame}
 
 \begin{frame}
@@ -195,23 +195,23 @@
   activate=pageopen, passcontext, transparent,
   addresource=../Video/microMA.mp4,
   flashvars={source=../Video/microMA.mp4}]{}{VPlayer.swf}
-  \flushright{\emph{Robert et al.}}
+  \flushright{\emph{Robert et al.}, 2018}
   \end{frame}
 
-\begin{frame}
-  \frametitle{Expérience: visualisation de mutations}
-  \center\includegraphics[scale=0.5]{../Img/schema_MV.png}
-  \flushright{\emph{Robert et al.}}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Expérience: visualisation de mutations}
-  \center\includemedia[width=\linewidth, height=0.4\linewidth,
-  activate=pageopen, passcontext, transparent,
-  addresource=../Video/MV.mp4,
-  flashvars={source=../Video/MV.mp4}]{}{VPlayer.swf}
-  \flushright{\emph{Robert et al.}}
-\end{frame}
+%\begin{frame}
+%  \frametitle{Expérience: visualisation de mutations}
+%  \center\includegraphics[scale=0.5]{../Img/schema_MV.png}
+%  \flushright{\emph{Robert et al.}}
+%\end{frame}
+%
+%\begin{frame}
+%  \frametitle{Expérience: visualisation de mutations}
+%  \center\includemedia[width=\linewidth, height=0.4\linewidth,
+%  activate=pageopen, passcontext, transparent,
+%  addresource=../Video/MV.mp4,
+%  flashvars={source=../Video/MV.mp4}]{}{VPlayer.swf}
+%  \flushright{\emph{Robert et al.}}
+%\end{frame}
 
 \begin{frame}
 \frametitle{Simulations: image}
@@ -240,7 +240,7 @@
 \begin{frame}
   \frametitle{Estimation des moments}
 
-  \framesubtitle{Analyse de \cite{rob}}
+  \framesubtitle{Analyse de \emph{Robert et al.}, 2018}
 
   
 \textbf{Moments} de la loi des effets des mutations;
@@ -272,7 +272,7 @@ $\to$ estimation facile des $\Esp{S^n}$.
       \hat{\varphi}_X(\xi)=\sum_{k=0}^{N}\frac{(i\xi)^k}{k!}m_k
       \et\hat{f}(x)= \frac1{2\pi} \int_{\abs{\xi}\leqslant A}\hat\varphi_X(\xi)e^{-ix\xi}\de\xi
     \end{align*}
-    \pause
+%    \pause
     \vspace{0.3cm}
     
   \item  \textbf{Espoirs:} $\varphi_S(\xi)\simeq \hat{\varphi}_S(\xi)$ donc $f(x)\simeq\hat{f}(x)$.
@@ -283,13 +283,16 @@ $\to$ estimation facile des $\Esp{S^n}$.
 
 \subsection{Calculs d'erreurs}
 
-\begin{frame}
+\begin{frame}[allowframebreaks]
   \frametitle{Calculs d'erreurs}
-    \prop{Pour tous paramètres $A>0$, $k\geqslant 2$, $N\geqslant 1$ on a : $\forall x\in\Er$ \[\textstyle\abs{\hat{f}(x)-f(x)}\leqslant\frac{\dabs{f^{(k)}}_1}{2\pi^2(k-1)A^{k-1}}+\frac{A^{N+1}}{\pi(N+1)!}\Esp{X^N(e^{AX-1})}+\frac{\dabs{\varepsilon(N)}_{\infty}(e^A-1)}{\pi}\]
+  \prop{Pour tous paramètres $A>0$, $k\geqslant 2$, $N\geqslant 1$ on a : $\forall x\in\Er$
+    \begin{align*}
+      \abs{\hat{f}(x)-f(x)}&\leqslant\underbrace{\frac{\dabs{f^{(k)}}_1}{2\pi^2(k-1)A^{k-1}}}_{\text{erreur de régularisation}}\\
+      &+\underbrace{\frac{A^{N+1}}{\pi(N+1)!}\Esp{X^N(e^{AX-1})}}_{\text{erreur sur N}}+\underbrace{\frac{\dabs{\varepsilon(N)}_{\infty}(e^A-1)}{\pi}}_{\text{erreur sur les moments}}
+    \end{align*}
     
-    %où $\dabs{\varepsilon(N)}_{\infty}$ est l'erreur maximale sur le calcul des $N$ premiers moments. 
     }
-  \pause
+  %\pause
   \prop{Si:
     \begin{itemize}[label=$\bullet$]
     \item erreur sur les $\Esp{S^n}$ bornée par $\varepsilon$ (pour tout $n\in\En$);
@@ -315,39 +318,39 @@ $\to$ estimation facile des $\Esp{S^n}$.
   On a \[\ln W_t=\sum_{i=1}^{N_t}\ln(1-s_i)\]
   Soient:
 \begin{itemize}[label=$\bullet$]
-\item $u(t,\cdot)\in C^{\infty}(\Er)$ la <<~densité~>> de la loi de $\ln W_t$
-\item $m(t)$ la probabilité qu'une cellule soit morte au temps $t$
+\item $u(t,\cdot)\in C^{\infty}(\Er)$: densité de $\mathcal{L}(\ln W_t)$;
+\item $m(t)$: proportion de cellules mortes en $t$
 
-$\implies$ Loi de $\ln W_t$ :
+$\to$ Loi de $\ln W_t$ :
 \[\label{def_u} m(t)\delta_{-\infty}+u(t,\cdot)\]
 \pause
-\item $f(\cdot)\in C^{\infty}(\Er)$ la <<~densité~>> de la loi de $\ln(1-S)$
-\item $\mu$ est la proportion de mutations létales
+\item $f(\cdot)\in C^{\infty}(\Er)$: densité de $\mathcal{L}(\ln(1-S))$;
+\item $\mu$: proportion de mutations létales
 
-$\implies$ Loi de $\ln (1-S)$ :
+$\to$ Loi de $\ln (1-S)$ :
 \[\mu\delta_{-\infty}+f(\cdot)\]
-\pause
-\item $\lambda$ le taux de mutation
+%\pause
+\item $\lambda$: taux de mutation
 \end{itemize}
 
 \end{frame}
 \begin{frame}
-  \frametitle{Explication des termes}
+  \frametitle{EDP et explication des termes}
 
 Donc $(*)$:
-\[\dr_tu(t,x)=\lambda\pth{\int_{\Er}f(x-y)u(t,y)\de y-\int_{\Er}f(y)u(t,x)\de y}-\lambda\mu u(t,x)\]
+\[\dr_tu(t,x)=\lambda\pth{{\red +}\int_{\Er}f(x-y)u(t,y)\de y{\blue -}\int_{\Er}f(y)u(t,x)\de y}-\lambda\mu u(t,x)\]
 
 \vspace{0.5cm}
 
-Traduction:
+Traduction:\pause
 \begin{itemize}[label=$\bullet$]
-\item $\dr_tu$: changement de densité de fitness entre $t$ et $t+\de t$;
-\item $\int f(x-y)u(t,y)\de y$: arrivées sur la fitness x;
-\item $-\int f(y)u(t,x)\de y$: départs de la fitness x;
+\item $\dr_tu$: changement de densité de $\ln$-fitness entre $t$ et $t+\de t$;
+\item $\int f(x-y)u(t,y)\de y$: arrivées sur la $\ln$-fitness x;
+\item $-\int f(y)u(t,x)\de y$: départs de la $\ln$-fitness x;
 \item $-\lambda\mu u(t,x)$: morts.
 \end{itemize} 
 
-\vspace{0.5cm}\pause
+\vspace{0.5cm}%\pause
 
 Conservation de la masse : $$\int_{\Er} u(t,x)\de x=N(t)=e^{-\lambda\mu t}N(0)$$
 
@@ -364,10 +367,10 @@ Conservation de la masse : $$\int_{\Er} u(t,x)\de x=N(t)=e^{-\lambda\mu t}N(0)$$
   d'où:
 \prop{
     Pour tout $x\in\mathbb{R}$:
-    \[f(x)=\fr^{-1}\pth{\frac{\dr_t\pth{\fr u_t(\xi)}}{\lambda\fr u_t(\xi)}+1}\]%=\fr^{-1}\pth{\frac{1}{\lambda}\dr_t\ln\pth{\fr u_t(\xi)}+1}(x)\]
+    \[f(x)=\fr^{-1}\pth{\frac{\dr_t\pth{\fr u_t(\xi)}}{\lambda\fr u_t(\xi)}+1}=\fr^{-1}\pth{\frac{a_{\xi}}{\lambda}+1}\]%=\fr^{-1}\pth{\frac{1}{\lambda}\dr_t\ln\pth{\fr u_t(\xi)}+1}(x)\]
 }
-\pause
-Le terme de droite est indépendant du temps : $\dr_t(\fr u_t(\xi))=a_{\xi}\fr u_t(\xi)$.
+
+Terme de droite indépendant du temps : $\dr_t(\fr u_t(\xi))=a_{\xi}\fr u_t(\xi)$.
 
 \end{frame}
 
@@ -377,18 +380,19 @@ Le terme de droite est indépendant du temps : $\dr_t(\fr u_t(\xi))=a_{\xi}\fr u
 \begin{frame}
 %[allowframebreaks]
   \frametitle{Vérification}
-  $\dr_t(\fr u_t(\xi))=a_{\xi}\fr u_t(\xi)$:
+  $\dr_t(\fr u_t(\xi))=a_{\xi}\fr u_t(\xi)$ $\to$ $\fr u_t(\xi)=e^{a_{\xi}t}\fr u_0(\xi)$:
 \begin{align*}
   \ln\abs{\fr u_t(\xi)}&=\ln\abs{\fr u_0(\xi)}+t\times\Re(a_{\xi})\\
   \arg\pth{\fr u_t(\xi)}&=\arg{\fr u_0(\xi)}+t\times\Im(a_{\xi})
 \end{align*}
+\pause
 
-\vspace{0.5cm}\pause
+\vspace{0.3cm}
 \begin{figure}
   
 \includegraphics[scale=0.4]{img/proj_non_norm_sim}
 \includegraphics[scale=0.4]{img/proj_non_norm_rea}
-  \caption{Graphes de $t\mapsto \abs{\fr u_t(\xi)}$ pour données simulées et expérimentales.}
+  \caption{Graphes de $t\mapsto \ln\abs{\fr u_t(\xi)}$ pour données simulées et expérimentales.}
   
 \end{figure}
 
@@ -406,7 +410,6 @@ Le terme de droite est indépendant du temps : $\dr_t(\fr u_t(\xi))=a_{\xi}\fr u
 \end{figure}
 
 %\vspace{0.5cm}
-\pause
 
 \begin{itemize}[label=$\bullet$]
 \item fonctionne bien pour les petits $\xi$;
@@ -422,22 +425,22 @@ Le terme de droite est indépendant du temps : $\dr_t(\fr u_t(\xi))=a_{\xi}\fr u
     \begin{center}
       \includegraphics[width=0.9\linewidth]{../Img/DFE_inferred.png}
     \end{center}
-    \caption{\label{fig:DFE}Comparaison entre les DFE inférées (en bleu) et les lois Beta choisies pour effectuer les simulations (en rouge).}
+    \caption{\label{fig:DFE}Comparaison entre les DFE inférées (en bleu) et les lois Beta choisies pour effectuer les simulations (en rouge). Utilisation de $f(x)=\fr^{-1}\pth{\frac{a_{\xi}}{\lambda}+1}$}
   \end{figure}
 
 
 \end{frame}
 
-\begin{frame}[allowframebreaks]
-  \frametitle{Simulation avec grand nombre de canaux}
-  On enlève ?
-  
-  * droites magnifiques
-
-  * stabilité pour $\xi_{max}$ petit
-
-  * non-stabilité pour $\xi_{max}$ grand
-\end{frame}
+%\begin{frame}[allowframebreaks]
+%  \frametitle{Simulation avec grand nombre de canaux}
+%  On enlève ?
+%  
+%  * droites magnifiques
+%
+%  * stabilité pour $\xi_{max}$ petit
+%
+%  * non-stabilité pour $\xi_{max}$ grand
+%\end{frame}
 
 
 \section*{Perspectives}
@@ -445,21 +448,22 @@ Le terme de droite est indépendant du temps : $\dr_t(\fr u_t(\xi))=a_{\xi}\fr u
 \begin{frame}
   \frametitle{Conclusion et perspectives}
   \begin{itemize}[label=$\bullet$]
-    \item Problème inverse sévèrement mal posé
+    \item Problème inverse sévèrement mal posé;
     \vspace{3mm}
     \item 3 approches : Analyses naïves, Problème des moments, EDP \\
-    $\to$ Résultats théoriques mais méthodes insuffisantes en pratique
-    \vspace{3mm}
+    $\to$ méthodes insuffisantes en pratique;
+    \vspace{3mm}\pause
     \item Notebooks annotés : analyses reproductibles\\
-    $\to$ En attente de données plus nombreuses ou moins bruitées
-    \vspace{3mm}
+    $\to$ en attente de données plus nombreuses ou moins bruitées;
+    \vspace{3mm}\pause
     \item Améliorations :
     \begin{itemize}[label=$\star$]
-    	\item Combinaison EDP + estimation des moments
-	\item Similitudes avec les problèmes de fragmentation
-	\item Propriétés de la DFE
+    	\item Combinaison EDP + estimation des moments; ????
+	\item Similitudes avec les problèmes de fragmentation;          
+	\item Propriétés de la DFE;
+        \item Résultats théoriques sur l'erreur;
     \end{itemize}
-    $\to$ Simulations efficaces pour tester ces approches
+    $\to$ simulations efficaces pour tester ces approches.
   \end{itemize}
 \end{frame}
 
