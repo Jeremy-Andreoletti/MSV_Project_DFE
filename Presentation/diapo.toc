@@ -5,4 +5,4 @@
 \beamer@subsectionintoc {2}{2}{Calculs d'erreurs}{16}{0}{2}
 \beamer@sectionintoc {3}{EDP}{18}{0}{3}
 \beamer@subsectionintoc {3}{1}{Nouveau point de vue}{19}{0}{3}
-\beamer@subsectionintoc {3}{2}{Applications}{25}{0}{3}
+\beamer@subsectionintoc {3}{2}{Applications}{24}{0}{3}

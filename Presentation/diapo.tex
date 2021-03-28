@@ -265,12 +265,12 @@ $\to$ estimation facile des $\Esp{S^n}$.
     \[\varphi_S(\xi):=\Esp{e^{i\xi S}}=\sum_{k=0}^{+\infty}\frac{(i\xi)^k}{k!}\Esp{S^k}\]
     \pause
   \item Fonction caractéristique $\varphi_S$ $\to$ densité $f$ de la loi de $S$.
-    \[f(x) = \frac1{2\pi} \int_{\mathbb R}\varphi_X(\xi)e^{-ix\xi}\de\xi\]
+    \[f(x) = \frac1{2\pi} \int_{\mathbb R}\varphi_S(\xi)e^{-ix\xi}\de\xi\]
     \pause
   \item Avec les $N$ premiers moments estimés $m_k$:
     \begin{align*}
-      \hat{\varphi}_X(\xi)=\sum_{k=0}^{N}\frac{(i\xi)^k}{k!}m_k
-      \et\hat{f}(x)= \frac1{2\pi} \int_{\abs{\xi}\leqslant A}\hat\varphi_X(\xi)e^{-ix\xi}\de\xi
+      \hat{\varphi}_S(\xi)=\sum_{k=0}^{N}\frac{(i\xi)^k}{k!}m_k
+      \et\hat{f}(x)= \frac1{2\pi} \int_{\abs{\xi}\leqslant A}\hat\varphi_S(\xi)e^{-ix\xi}\de\xi
     \end{align*}
 %    \pause
     \vspace{0.3cm}
@@ -288,7 +288,7 @@ $\to$ estimation facile des $\Esp{S^n}$.
   \prop{Pour tous paramètres $A>0$, $k\geqslant 2$, $N\geqslant 1$ on a : $\forall x\in\Er$
     \begin{align*}
       \abs{\hat{f}(x)-f(x)}&\leqslant\underbrace{\frac{\dabs{f^{(k)}}_1}{2\pi^2(k-1)A^{k-1}}}_{\text{erreur de régularisation}}\\
-      &+\underbrace{\frac{A^{N+1}}{\pi(N+1)!}\Esp{X^N(e^{AX-1})}}_{\text{erreur sur N}}+\underbrace{\frac{\dabs{\varepsilon(N)}_{\infty}(e^A-1)}{\pi}}_{\text{erreur sur les moments}}
+      &+\underbrace{\frac{A^{N+1}}{\pi(N+1)!}\Esp{S^N(e^{AS-1})}}_{\text{nb fini de moments}}+\underbrace{\frac{\dabs{\varepsilon(N)}_{\infty}(e^A-1)}{\pi}}_{\text{erreur sur les moments}}
     \end{align*}
     
     }
@@ -342,7 +342,7 @@ Donc $(*)$:
 
 \vspace{0.5cm}
 
-Traduction:\pause
+Traduction:%\pause
 \begin{itemize}[label=$\bullet$]
 \item $\dr_tu$: changement de densité de $\ln$-fitness entre $t$ et $t+\de t$;
 \item $\int f(x-y)u(t,y)\de y$: arrivées sur la $\ln$-fitness x;
@@ -359,19 +359,28 @@ Conservation de la masse : $$\int_{\Er} u(t,x)\de x=N(t)=e^{-\lambda\mu t}N(0)$$
 
 \begin{frame}
   \frametitle{Solution explicite}
-  La transformée de Fourier sur :
-  \[\dr_tu(t,x)=\lambda\pth{\int_{\Er}f(x-y)u(t,y)\de y-u(t,x)\int_{\Er}f(y)\de y}-\lambda\mu u(t,x)\]
-  donne
-  \[\dr_t\fr u_t(\xi)=\lambda \fr f(\xi)\fr u_t(\xi)-\lambda\fr u_t(\xi)\]
-  \pause
-  d'où:
+%  La transformée de Fourier sur :
+%  \[\dr_tu(t,x)=\lambda\pth{\int_{\Er}f(x-y)u(t,y)\de y-u(t,x)\int_{\Er}f(y)\de y}-\lambda\mu u(t,x)\]
+%  donne
+%  \[\dr_t\fr u_t(\xi)=\lambda \fr f(\xi)\fr u_t(\xi)-\lambda\fr u_t(\xi)\]
+%  \pause
+%  d'où:
 \prop{
     Pour tout $x\in\mathbb{R}$:
-    \[f(x)=\fr^{-1}\pth{\frac{\dr_t\pth{\fr u_t(\xi)}}{\lambda\fr u_t(\xi)}+1}=\fr^{-1}\pth{\frac{a_{\xi}}{\lambda}+1}\]%=\fr^{-1}\pth{\frac{1}{\lambda}\dr_t\ln\pth{\fr u_t(\xi)}+1}(x)\]
+    \[f(x)=\fr^{-1}\pth{\frac{\dr_t\pth{\fr u_t(\xi)}}{\lambda\fr u_t(\xi)}+1}\visible<2->{=\fr^{-1}\pth{\frac{a_{\xi}}{\lambda}+1}}\]%=\fr^{-1}\pth{\frac{1}{\lambda}\dr_t\ln\pth{\fr u_t(\xi)}+1}(x)\]
 }
 
-Terme de droite indépendant du temps : $\dr_t(\fr u_t(\xi))=a_{\xi}\fr u_t(\xi)$.
+Terme de droite indépendant du temps \visible<2->{: $\dr_t(\fr u_t(\xi))=a_{\xi}\fr u_t(\xi)$.}
 
+\pause
+\vspace{0.5cm}
+
+D'où:
+\begin{align*}
+  \fr u_t(\xi)&=e^{a_{\xi}t}\fr u_0(\xi)\\
+  \ln\abs{\fr u_t(\xi)}&=\ln\abs{\fr u_0(\xi)}+t\times\Re(a_{\xi})\\
+  \arg\pth{\fr u_t(\xi)}&=\arg{\fr u_0(\xi)}+t\times\Im(a_{\xi})
+\end{align*}
 \end{frame}
 
 \subsection{Applications}
@@ -380,7 +389,7 @@ Terme de droite indépendant du temps : $\dr_t(\fr u_t(\xi))=a_{\xi}\fr u_t(\xi)
 \begin{frame}
 %[allowframebreaks]
   \frametitle{Vérification}
-  $\dr_t(\fr u_t(\xi))=a_{\xi}\fr u_t(\xi)$ $\to$ $\fr u_t(\xi)=e^{a_{\xi}t}\fr u_0(\xi)$:
+  
 \begin{align*}
   \ln\abs{\fr u_t(\xi)}&=\ln\abs{\fr u_0(\xi)}+t\times\Re(a_{\xi})\\
   \arg\pth{\fr u_t(\xi)}&=\arg{\fr u_0(\xi)}+t\times\Im(a_{\xi})
@@ -399,24 +408,27 @@ Terme de droite indépendant du temps : $\dr_t(\fr u_t(\xi))=a_{\xi}\fr u_t(\xi)
 
 \end{frame}
 
-\begin{frame}
-  \frametitle{Inférence des $a_{\xi}$}
+%
+%\begin{frame}
+%  \frametitle{Inférence des $a_{\xi}$}
+%
+%\begin{figure}[h]
+%  \begin{center}
+%    \includegraphics[width=0.9\linewidth]{../Img/DFE_R2.png}
+%  \end{center}
+%  \caption{\label{fig:DFE_R2}\textbf{Comparaison, selon $\xi$, des qualité d'ajustement d'un modèle affine} pour $t\mapsto \dr_t\fr u_t(\xi)$}
+%\end{figure}
+%
+%%\vspace{0.5cm}
+%
+%\begin{itemize}[label=$\bullet$]
+%\item fonctionne bien pour les petits $\xi$;
+%\item fonctionne très mal pour les grands $\xi$ ($\to$ overfitting ?).
+%\end{itemize}
+%
+%\end{frame}
+%
 
-\begin{figure}[h]
-  \begin{center}
-    \includegraphics[width=0.9\linewidth]{../Img/DFE_R2.png}
-  \end{center}
-  \caption{\label{fig:DFE_R2}\textbf{Comparaison, selon $\xi$, des qualité d'ajustement d'un modèle affine} pour $t\mapsto \dr_t\fr u_t(\xi)$ : parties réelles (gauche) ou imaginaires (droite) de $a_{\xi}$, simulations bruitées (bas) ou non (haut).}
-\end{figure}
-
-%\vspace{0.5cm}
-
-\begin{itemize}[label=$\bullet$]
-\item fonctionne bien pour les petits $\xi$;
-\item fonctionne très mal pour les grands $\xi$ ($\to$ overfitting ?).
-\end{itemize}
-
-\end{frame}
 
 \begin{frame}
   \frametitle{Mauvais résultats}
@@ -458,7 +470,7 @@ Terme de droite indépendant du temps : $\dr_t(\fr u_t(\xi))=a_{\xi}\fr u_t(\xi)
     \vspace{3mm}\pause
     \item Améliorations :
     \begin{itemize}[label=$\star$]
-    	\item Combinaison EDP + estimation des moments; ????
+    	\item Combinaison EDP + estimation des moments; 
 	\item Similitudes avec les problèmes de fragmentation;          
 	\item Propriétés de la DFE;
         \item Résultats théoriques sur l'erreur;

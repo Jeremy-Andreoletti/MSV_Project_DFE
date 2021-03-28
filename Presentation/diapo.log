@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.3.15)  28 MAR 2021 10:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.3.15)  28 MAR 2021 15:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1672,135 +1672,104 @@ Package pdftex.def Info: img/Moments_estimation.png  used on input line 257.
 
 ] [23
 
-] [24
-
 ]
-<img/proj_non_norm_sim.png, id=340, 396.48125pt x 279.0425pt>
+<img/proj_non_norm_sim.png, id=332, 396.48125pt x 279.0425pt>
 File: img/proj_non_norm_sim.png Graphic file (type png)
 <use img/proj_non_norm_sim.png>
-Package pdftex.def Info: img/proj_non_norm_sim.png  used on input line 400.
+Package pdftex.def Info: img/proj_non_norm_sim.png  used on input line 409.
 (pdftex.def)             Requested size: 158.58968pt x 111.615pt.
-<img/proj_non_norm_rea.png, id=341, 396.48125pt x 279.0425pt>
+<img/proj_non_norm_rea.png, id=333, 396.48125pt x 279.0425pt>
 File: img/proj_non_norm_rea.png Graphic file (type png)
 <use img/proj_non_norm_rea.png>
-Package pdftex.def Info: img/proj_non_norm_rea.png  used on input line 400.
+Package pdftex.def Info: img/proj_non_norm_rea.png  used on input line 409.
 (pdftex.def)             Requested size: 158.58968pt x 111.615pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 400.
+(Font)              <10> on input line 409.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7.4> on input line 400.
+(Font)              <7.4> on input line 409.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 400.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 409.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 400.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 409.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 400.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 409.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <7.4> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 400.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 409.
 
-Overfull \vbox (0.37477pt too high) detected at line 400
+Overfull \vbox (0.37477pt too high) detected at line 409
  []
 
-[25
+[24
 
  <./img/proj_non_norm_sim.png> <./img/proj_non_norm_rea.png>]
 File: img/proj_non_norm_sim.png Graphic file (type png)
 <use img/proj_non_norm_sim.png>
-Package pdftex.def Info: img/proj_non_norm_sim.png  used on input line 400.
+Package pdftex.def Info: img/proj_non_norm_sim.png  used on input line 409.
 (pdftex.def)             Requested size: 158.58968pt x 111.615pt.
 File: img/proj_non_norm_rea.png Graphic file (type png)
 <use img/proj_non_norm_rea.png>
-Package pdftex.def Info: img/proj_non_norm_rea.png  used on input line 400.
+Package pdftex.def Info: img/proj_non_norm_rea.png  used on input line 409.
 (pdftex.def)             Requested size: 158.58968pt x 111.615pt.
 
-Overfull \vbox (0.37477pt too high) detected at line 400
+Overfull \vbox (0.37477pt too high) detected at line 409
  []
 
-[26
+[25
 
 ]
-<../Img/DFE_R2.png, id=363, 911.405pt x 403.5075pt>
-File: ../Img/DFE_R2.png Graphic file (type png)
-<use ../Img/DFE_R2.png>
-Package pdftex.def Info: ../Img/DFE_R2.png  used on input line 419.
-(pdftex.def)             Requested size: 310.03485pt x 137.26462pt.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 419.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 419.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <14.4> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 419.
-
-Overfull \vbox (0.42595pt too high) detected at line 419
- []
-
-[27
-
- <../Img/DFE_R2.png>]
-<../Img/DFE_inferred.png, id=377, 903.375pt x 505.89pt>
+<../Img/DFE_inferred.png, id=354, 903.375pt x 505.89pt>
 File: ../Img/DFE_inferred.png Graphic file (type png)
 <use ../Img/DFE_inferred.png>
-Package pdftex.def Info: ../Img/DFE_inferred.png  used on input line 432.
+Package pdftex.def Info: ../Img/DFE_inferred.png  used on input line 444.
 (pdftex.def)             Requested size: 310.03485pt x 173.62135pt.
- [28
+ [26
 
- <../Img/DFE_inferred.png>] [29
+ <../Img/DFE_inferred.png>] [27
+
+] [28
+
+] [29
 
 ] [30
-
-] [31
-
-] [32
 
  </usr/share/texmf-dist/tex/latex/beamer/beamericonarticle.pdf>]
 \tf@nav=\write6
 \tf@toc=\write7
 \tf@snm=\write8
- (./diapo.aux
-
-Package pdfbase Warning: Rerun to get internal references right!
-
-)
+ (./diapo.aux)
 Package rerunfilecheck Info: File `diapo.out' has not changed.
-(rerunfilecheck)             Checksum: 375D674A5FC86AA7DB59AC066D8C01D9;484.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+(rerunfilecheck)             Checksum: AA9AC67C432BF82303678814F6AD2D93;484.
  ) 
 Here is how much of TeX's memory you used:
- 33414 strings out of 479383
- 646073 string characters out of 5875830
- 1044757 words of memory out of 5000000
- 49661 multiletter control sequences out of 15000+600000
- 502764 words of font info for 135 fonts, out of 8000000 for 9000
+ 33376 strings out of 479383
+ 645540 string characters out of 5875830
+ 1044674 words of memory out of 5000000
+ 49634 multiletter control sequences out of 15000+600000
+ 491025 words of font info for 121 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  107i,20n,112p,683b,804s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Navigation33} has been referenced but does not ex
-ist, replaced by a fixed one
-
-{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/
-fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-e
-c.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dis
-t/fonts/enc/dvips/lm/lm-mathex.enc}</usr/share/texmf-dist/fonts/type1/public/lm
-/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share
-/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/type1/
-public/lm/lmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></us
-r/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/font
-s/type1/public/lm/lmss12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss8
-.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss9.pfb></usr/share/texmf-d
-ist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/publi
-c/lm/lmsso10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsso12.pfb></usr
-/share/texmf-dist/fonts/type1/public/lm/lmsso8.pfb></usr/share/texmf-dist/fonts
-/type1/public/lm/lmsso9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10
-.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf-d
-ist/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/l
-m/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.p
-fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on diapo.pdf (32 pages, 7632416 bytes).
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dis
+t/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm
+-ec.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-d
+ist/fonts/enc/dvips/lm/lm-mathex.enc}</usr/share/texmf-dist/fonts/type1/public/
+lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/sha
+re/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/type
+1/public/lm/lmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></
+usr/share/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf-dist/fo
+nts/type1/public/lm/lmss12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lms
+s8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmss9.pfb></usr/share/texmf
+-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/pub
+lic/lm/lmsso10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsso8.pfb></us
+r/share/texmf-dist/fonts/type1/public/lm/lmsso9.pfb></usr/share/texmf-dist/font
+s/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy6
+.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf-d
+ist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/a
+msfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/s
+ymbols/msbm10.pfb>
+Output written on diapo.pdf (30 pages, 7552925 bytes).
 PDF statistics:
- 526 PDF objects out of 1000 (max. 8388607)
- 426 compressed objects within 5 object streams
- 81 named destinations out of 1000 (max. 500000)
- 306 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 501 PDF objects out of 1000 (max. 8388607)
+ 406 compressed objects within 5 object streams
+ 75 named destinations out of 1000 (max. 500000)
+ 313 words of extra memory for PDF output out of 10000 (max. 10000000)
 
